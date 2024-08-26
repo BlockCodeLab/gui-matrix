@@ -1,4 +1,4 @@
-![](_media/arcade.png)
+![](_media/feature.png)
 
 <!-- background color -->
 

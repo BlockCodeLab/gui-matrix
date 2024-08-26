@@ -1,4 +1,4 @@
-![](_media/arcade.png)
+![](_media/feature.png)
 
 [了解更多](zh-cn/intro.md)
 
