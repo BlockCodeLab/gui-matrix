@@ -6,7 +6,7 @@
 | **4**  | 功能按钮（**FN/BOOT**）    | **5**  | 电源按钮              | **6**  | MEMS 麦克风          |
 | **7**  | 重启按钮                 | **8**  | 多功能扩展口            | **9**  | 2.5mm 耳机口         |
 | **10** | Type-C USB           | **11** | 电池接口              | **12** | ESP32-S3 芯片       |
-| **12** | Wi-Fi / Bluetooth 天线 |        |                   |        |                   |
+| **13** | Wi-Fi / Bluetooth 天线 |        |                   |        |                   |
 
 ## 硬件对比
 
@@ -38,6 +38,6 @@
 
 ## 呈现效果对比
 
-| **硬件** | Scratch Arcade                 | 小喵科技 <br /> Newbit Arcade Shield      | 恩孚科技 <br /> 饼干编程学习机                  | MakeBlock <br /> 童芯派            |
+|        | Scratch Arcade                 | 小喵科技 <br /> Newbit Arcade Shield      | 恩孚科技 <br /> 饼干编程学习机                  | MakeBlock <br /> 童芯派            |
 | ------ | ------------------------------ | ------------------------------------- | ------------------------------------ | ------------------------------- |
-|        | ![](../_media/arcade-play.png) | ![](../_media/newbit-arcade-play.png) | ![](../_media/retro-arcade-play.png) | ![](../_media/cyberpi-play.png) |
+| **硬件** | ![](../_media/arcade-play.png) | ![](../_media/newbit-arcade-play.png) | ![](../_media/retro-arcade-play.png) | ![](../_media/cyberpi-play.png) |
