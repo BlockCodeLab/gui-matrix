@@ -4,6 +4,7 @@ import { PixelPaint, locales as paintLocales } from '@blockcode/pixel-paint';
 import { WaveSurfer, locales as soundLocales } from '@blockcode/wave-surfer';
 import generateMainFile from './lib/generate-main-file';
 import generateAssets from './lib/generate-assets';
+import deviceFilters from './lib/device-filters.yaml';
 
 /* components */
 import BlocksEditor from './components/blocks-editor/blocks-editor';
@@ -15,6 +16,7 @@ import SoundsLibrary from './components/libraries/sounds-library';
 import WifiMenuItem from './components/wifi-menu-item/wifi-menu-item';
 
 /* assets */
+import tutorials from './tutorials/tutorials';
 import defaultProject from './lib/default-project';
 import deviceIcon from './icon-device.svg';
 import paintIcon from './icon-paint.svg';
@@ -54,12 +56,6 @@ export default function ArcadeBlocksWorkspace({ addLocaleData, createLayout, ope
       SoundsLibrary,
     };
   };
-
-  const deviceFilters = [
-    {
-      usbVendorId: 12346, // Espressif Vendor ID
-    },
-  ];
 
   const saveCurrentProject = () => {
     const canvas = document.querySelector('#blockcode-blocks-player');

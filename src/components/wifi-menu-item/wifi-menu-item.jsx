@@ -1,19 +1,15 @@
 import { useLayout, useLocale, useEditor } from '@blockcode/core';
 import { Text, MenuItem } from '@blockcode/ui';
+import { connectDevice, configDevice } from '@blockcode/device-pyboard';
+import deviceFilters from '../../lib/device-filters.yaml';
 
 export default function WifiMenuItem({ className }) {
   const { createAlert, createPrompt } = useLayout();
   const { getText } = useLocale();
-  const { assetList, addAsset } = useEditor();
+  const { device, setDevice } = useEditor();
 
-  let ssid = localStorage.getItem('device.wifi.ssid');
-  let password = localStorage.getItem('device.wifi.password');
-
-  const wifiConfig = assetList.find((asset) => asset.id === 'wifi_config');
-  if (wifiConfig) {
-    ssid = wifiConfig.ssid;
-    password = wifiConfig.password;
-  }
+  const ssid = localStorage.getItem('device.wifi.ssid');
+  const password = localStorage.getItem('device.wifi.password');
 
   return (
     <MenuItem
@@ -40,10 +36,6 @@ export default function WifiMenuItem({ className }) {
               defaultValue: password || '',
             },
           ],
-          content: getText(
-            'arcade.menu.device.wifiNote',
-            'The Wi-Fi information currently displayed does not represent the configuration in the device, and will not be updated until the next time you download the program.',
-          ),
           onClose: () => {
             createAlert(
               {
@@ -53,14 +45,12 @@ export default function WifiMenuItem({ className }) {
               1500,
             );
           },
-          onSubmit: (wifi) => {
+          onSubmit: async (wifi) => {
             if (wifi) {
-              addAsset({
-                id: '_wifi_config',
-                type: 'text/x-python',
-                ssid: wifi.ssid,
-                password: wifi.password,
-                content: `ssid = "${wifi.ssid}"\npassword = "${wifi.password}"`,
+              const currentDevice = device || (await connectDevice(deviceFilters, setDevice));
+              await configDevice(currentDevice, {
+                'wifi-ssid': wifi.ssid,
+                'wifi-password': wifi.password,
               });
               localStorage.setItem('device.wifi.ssid', wifi.ssid);
               localStorage.setItem('device.wifi.password', wifi.password);

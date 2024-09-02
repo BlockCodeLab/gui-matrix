@@ -14,8 +14,6 @@ arcade.menu.device.wifi: Arcade Wi-Fi config
 arcade.menu.device.wifiNamePassword: Wi-Fi name and password
 arcade.menu.device.wifiName: Wi-Fi name
 arcade.menu.device.wifiPassword: Wi-Fi password
-arcade.menu.device.wifiNote: >
-  The Wi-Fi information displayed at this time does not represent the configuration in the device, and will not be updated to the device until the next time you download the program.
 arcade.menu.device.wifiOk: The Wi-Fi configuration is saved.
 arcade.menu.device.wifiCancel: Deconfigure Wi-Fi.
 arcade.menu.device.manual: Arcade manual
