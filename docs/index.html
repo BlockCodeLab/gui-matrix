@@ -1,19 +1,16 @@
 <!doctype html>
 <html>
   <head>
-    <meta
-      http-equiv="X-UA-Compatible"
-      content="IE=edge,chrome=1"
-    />
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1"
-    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta charset="UTF-8" />
-    <link
-      rel="stylesheet"
-      href="//unpkg.com/docsify/themes/vue.css"
-    />
+    <link rel="stylesheet" href="//unpkg.com/docsify/themes/vue.css" />
+    <link rel="stylesheet" href="//unpkg.com/@sujaykumarh/docsify-plugin-footer/dist/plugin.min.css" />
+    <script>
+      if (typeof navigator.serviceWorker !== 'undefined') {
+        navigator.serviceWorker.register('sw.js')
+      }
+    </script>
   </head>
   <body>
     <style>
@@ -104,6 +101,11 @@
           crossChapter: true,
           crossChapterText: true,
         },
+        customPageFooter: {
+          copyrightYear: '2024',
+          copyrightOwnerName: 'BlockCode Lab',
+          copyrightOwnerLink: 'https://lab.blockcode.fun',
+        },
         plugins: [
           function (hook, vm) {
             hook.ready(function () {
@@ -116,13 +118,14 @@
       };
     </script>
     <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
-
     <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
     <script src="//unpkg.com/docsify/lib/plugins/zoom-image.min.js"></script>
     <script src="//unpkg.com/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
     <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
     <script src="//unpkg.com/docsify-pangu/lib/pangu.min.js"></script>
-    <script src="//unpkg.com/@h-hg/docsify-image-caption/dist/docsify-image-caption.min.js"></script>
     <script src="//unpkg.com/docsify-bilibili/bilibili.min.js"></script>
+    <script src="//unpkg.com/docsify-footnote/dist/docsify-footnote.min.js"></script>
+    <script src="//unpkg.com/@h-hg/docsify-image-caption/dist/docsify-image-caption.min.js"></script>
+    <script src="//unpkg.com/@sujaykumarh/docsify-plugin-footer/dist/plugin.min.js"></script>
   </body>
 </html>

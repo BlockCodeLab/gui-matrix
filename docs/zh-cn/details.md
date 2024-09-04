@@ -23,7 +23,7 @@
 |  USB   | Type-C USB                 | micro USB                        | Type-C USB                      | Type-C USB                 |
 |  麦克风   | MEMS 麦克风                   | micro:bit V2 内置                  | -                               | 麦克风                        |
 |   声音   | 2.5mm 耳机口                  | 蜂鸣器                              | 蜂鸣器                             | 蜂鸣器                        |
-|  扩展口   | 通用 1.25mm 多功能扩展口           | Jacdac                           | Jacdac                          | 定制扩展口                      |
+|  扩展口   | 通用 2mm 4P扩展口               | Jacdac                           | Jacdac                          | 定制扩展口                      |
 | 内置传感器  | -                          | micro:bit V2 内置                  | 光敏传感器、陀螺仪、震动马达                  | 传感器、陀螺仪、RGB灯× 5            |
 |   价格   | ¥1xx                       | ¥329（含micro:bit）                 | ¥298                            | ¥169                       |
 
