@@ -1,4 +1,4 @@
-![](../_media/3d-details.jpg)
+![](../_media/3d-details.jpg "Scratch Arcade 教育版")
 
 |        | 硬件                   |        | 硬件                |        | 硬件                |
 | ------ | -------------------- | ------ | ----------------- | ------ | ----------------- |
@@ -10,7 +10,7 @@
 
 ## 硬件对比
 
-|        | Scratch Arcade             | 小喵科技 <br /> Newbit Arcade Shield | 恩孚科技 <br /> 饼干编程学习机             | MakeBlock <br /> 童芯派       |
+|        | Scratch Arcade 教育版         | 小喵科技 <br /> Newbit Arcade Shield | 恩孚科技 <br /> 饼干编程学习机             | MakeBlock <br /> 童芯派       |
 | :----: | -------------------------- | -------------------------------- | ------------------------------- | -------------------------- |
 | **硬件** | ![](../_media/3d.jpg)      | ![](../_media/newbit-arcade.png) | ![](../_media/retro-arcade.png) | ![](../_media/cyberpi.png) |
 |   芯片   | ESP32-S3 Xtensa©双核 240 MHz | micro:bit V2 主板                  | STM32 F42 100MHz                | ESP32 Xtensa©双核 240 MHz    |
@@ -29,7 +29,7 @@
 
 ## 编程对比
 
-|        | Scratch Arcade                                                                                                                         | 小喵科技 <br /> Newbit Arcade Shield                                                                                | 恩孚科技 <br /> 饼干编程学习机                                                                                             | MakeBlock <br /> 童芯派                                                                                                     |
+|        | Scratch Arcade 教育版                                                                                                                     | 小喵科技 <br /> Newbit Arcade Shield                                                                                | 恩孚科技 <br /> 饼干编程学习机                                                                                             | MakeBlock <br /> 童芯派                                                                                                     |
 | ------ | -------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | **硬件** | ![](../_media/3d.jpg)                                                                                                                  | ![](../_media/newbit-arcade.png)                                                                                | ![](../_media/retro-arcade.png ":size=70%")                                                                     | ![](../_media/cyberpi.png)                                                                                               |
 | 图形化    | ![](_media/scratch.png)                                                                                                                | ![](_media/makecode-arcade.png)                                                                                 | ![](_media/makecode-arcade2.png)                                                                                | ![](_media/makeblock.png)                                                                                                |
@@ -38,6 +38,6 @@
 
 ## 呈现效果对比
 
-|        | Scratch Arcade                 | 小喵科技 <br /> Newbit Arcade Shield      | 恩孚科技 <br /> 饼干编程学习机                  | MakeBlock <br /> 童芯派            |
+|        | Scratch Arcade  教育版            | 小喵科技 <br /> Newbit Arcade Shield      | 恩孚科技 <br /> 饼干编程学习机                  | MakeBlock <br /> 童芯派            |
 | ------ | ------------------------------ | ------------------------------------- | ------------------------------------ | ------------------------------- |
 | **硬件** | ![](../_media/arcade-play.png) | ![](../_media/newbit-arcade-play.png) | ![](../_media/retro-arcade-play.png) | ![](../_media/cyberpi-play.png) |
