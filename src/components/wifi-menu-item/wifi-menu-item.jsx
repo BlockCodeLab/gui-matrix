@@ -3,13 +3,16 @@ import { Text, MenuItem } from '@blockcode/ui';
 import { connectDevice, configDevice } from '@blockcode/device-pyboard';
 import deviceFilters from '../../lib/device-filters.yaml';
 
+const STORAGE_WIFI_SSID = 'device.wifi.ssid';
+const STORAGE_WIFI_PASSWORD = 'device.wifi.password';
+
 export default function WifiMenuItem({ className }) {
   const { createAlert, createPrompt } = useLayout();
   const { getText } = useLocale();
   const { device, setDevice } = useEditor();
 
-  const ssid = localStorage.getItem('device.wifi.ssid');
-  const password = localStorage.getItem('device.wifi.password');
+  const ssid = localStorage.getItem(STORAGE_WIFI_SSID);
+  const password = localStorage.getItem(STORAGE_WIFI_PASSWORD);
 
   return (
     <MenuItem
@@ -49,11 +52,12 @@ export default function WifiMenuItem({ className }) {
             if (wifi) {
               const currentDevice = device || (await connectDevice(deviceFilters, setDevice));
               await configDevice(currentDevice, {
+                'setting-wifi': true,
                 'wifi-ssid': wifi.ssid,
                 'wifi-password': wifi.password,
               });
-              localStorage.setItem('device.wifi.ssid', wifi.ssid);
-              localStorage.setItem('device.wifi.password', wifi.password);
+              localStorage.setItem(STORAGE_WIFI_SSID, wifi.ssid);
+              localStorage.setItem(STORAGE_WIFI_PASSWORD, wifi.password);
               createAlert(
                 {
                   message: getText('arcade.menu.device.wifiOk', 'The Wi-Fi configuration is saved.'),
