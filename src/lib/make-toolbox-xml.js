@@ -410,6 +410,11 @@ const sensing = (isStage, spritesCount) => `
               <shadow type="sensing_touchingobjectmenu"/>
             </value>
           </block>
+          <block type="sensing_touchingobject_exact">
+            <value name="TOUCHINGOBJECTMENU">
+              <shadow type="sensing_touchingobjectmenu"/>
+            </value>
+          </block>
           <block type="sensing_distanceto">
             <value name="DISTANCETOMENU">
               <shadow type="sensing_distancetomenu"/>
@@ -423,6 +428,8 @@ const sensing = (isStage, spritesCount) => `
         <shadow type="sensing_keyoptions"/>
       </value>
     </block>
+    <block type="sensing_joystick_x"/>
+    <block type="sensing_joystick_y"/>
     ${blockSeparator}
     <block type="sensing_timer"/>
     <block type="sensing_resettimer"/>

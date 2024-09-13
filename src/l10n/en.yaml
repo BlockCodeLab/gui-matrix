@@ -90,6 +90,7 @@ arcade.blocks.connectTo: 'connect Wi-Fi: %1 password: %2'
 arcade.blocks.disconnect: disconnect Wi-Fi
 arcade.blocks.fnButton: fn
 arcade.blocks.stopOther: other scripts in sprite
+arcade.blocks.touchingExact: touching %1 (careful)?
 arcade.blocks.sensingOfDistanceto.center: center
 arcade.blocks.soundEffects.tempo: tempo
 arcade.blocks.musicMenu.dadadadum: dadadadum

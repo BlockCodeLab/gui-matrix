@@ -4,6 +4,17 @@ javascriptGenerator['sensing_touchingobjectmenu'] = (block) => {
   return [block.getFieldValue('TOUCHINGOBJECTMENU'), javascriptGenerator.ORDER_ATOMIC];
 };
 
+javascriptGenerator['sensing_touchingobject_exact'] = (block) => {
+  let touchingCode =
+    javascriptGenerator.valueToCode(block, 'TOUCHINGOBJECTMENU', javascriptGenerator.ORDER_NONE) || '_edge_';
+  if (touchingCode === '_edge_') {
+    touchingCode = 'null';
+  } else {
+    touchingCode = `runtime.getSpriteByIdOrName('${touchingCode}').util`;
+  }
+  return [`target.util.isTouching(${touchingCode}, true)`, javascriptGenerator.ORDER_FUNCTION_CALL];
+};
+
 javascriptGenerator['sensing_touchingobject'] = (block) => {
   let touchingCode =
     javascriptGenerator.valueToCode(block, 'TOUCHINGOBJECTMENU', javascriptGenerator.ORDER_NONE) || '_edge_';

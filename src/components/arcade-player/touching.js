@@ -38,7 +38,7 @@ const getPointsInOverlapArea = (path, y1, y2) => {
   return points;
 };
 
-export default function (contour1, contour2) {
+export default function (contour1, contour2, exact = false) {
   if (
     contour2.bounds.left > contour1.bounds.right ||
     contour2.bounds.right < contour1.bounds.left ||
@@ -47,6 +47,8 @@ export default function (contour1, contour2) {
   ) {
     return false;
   }
+
+  if (!exact) return true;
 
   // overlap area
   const y1 = Math.floor(Math.max(contour1.bounds.top, contour2.bounds.top));

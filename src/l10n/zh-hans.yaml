@@ -91,6 +91,7 @@ arcade.blocks.connectTo: '连接 Wi-Fi: %1 密码: %2'
 arcade.blocks.disconnect: 断开 Wi-Fi 连接
 arcade.blocks.fnButton: 功能键
 arcade.blocks.stopOther: 该角色的其他脚本
+arcade.blocks.touchingExact: 碰到 %1（精准）？
 arcade.blocks.sensingOfDistanceto.center: 中心
 arcade.blocks.soundEffects.tempo: 速度
 arcade.blocks.musicMenu.dadadadum: 开场

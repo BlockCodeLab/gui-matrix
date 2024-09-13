@@ -4,6 +4,16 @@ pythonGenerator['sensing_touchingobjectmenu'] = (block) => {
   return [block.getFieldValue('TOUCHINGOBJECTMENU'), pythonGenerator.ORDER_ATOMIC];
 };
 
+pythonGenerator['sensing_touchingobject_exact'] = (block) => {
+  let touchingCode = pythonGenerator.valueToCode(block, 'TOUCHINGOBJECTMENU', pythonGenerator.ORDER_NONE) || '_edge_';
+  if (touchingCode === '_edge_') {
+    touchingCode = 'None';
+  } else {
+    touchingCode = `stage.get_child('${touchingCode}')`;
+  }
+  return [`target.is_touching(${touchingCode}, True)`, pythonGenerator.ORDER_FUNCTION_CALL];
+};
+
 pythonGenerator['sensing_touchingobject'] = (block) => {
   let touchingCode = pythonGenerator.valueToCode(block, 'TOUCHINGOBJECTMENU', pythonGenerator.ORDER_NONE) || '_edge_';
   if (touchingCode === '_edge_') {

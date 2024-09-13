@@ -20,10 +20,11 @@ export default function BlocksEditor() {
   const messages = {
     WIFI_ISCONNECTED: getText('arcade.blocks.isConnected', 'Wi-Fi is connected?'),
     WIFI_WHENCONNECTED: getText('arcade.blocks.whenConnected', 'when Wi-Fi connected'),
-    WIFI_CONNECTTO: getText('arcade.blocks.connectTo', 'connect Wi-Fi: {ssid} password: {password}'),
+    WIFI_CONNECTTO: getText('arcade.blocks.connectTo', 'connect Wi-Fi: %1 password: %2'),
     WIFI_DISCONNECT: getText('arcade.blocks.disconnect', 'disconnect Wi-Fi'),
     EVENT_WHENKEYPRESSED_FN: getText('arcade.blocks.fnButton', 'fn'),
     CONTROL_STOP_OTHER: getText('arcade.blocks.stopOther', 'other scripts in sprite'),
+    SENSING_TOUCHINGOBJECT_EXACT: getText('arcade.blocks.touchingExact', 'touching %1 (careful)'),
     SENSING_OF_DISTANCETO_CENTER: getText('arcade.blocks.sensingOfDistanceto.center', 'center'),
     SOUND_EFFECTS_TEMPO: getText('arcade.blocks.soundEffects.tempo', 'tempo'),
     SOUND_MENU_DADADADUM: getText('arcade.blocks.musicMenu.dadadadum', 'dadadadum'),
