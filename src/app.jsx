@@ -13,7 +13,7 @@ import PaintText from './components/paint-text/paint-text';
 import BackdropsLibrary from './components/libraries/backdrops-library';
 import CostumesLibrary from './components/libraries/costumes-library';
 import SoundsLibrary from './components/libraries/sounds-library';
-import WifiMenuItem from './components/wifi-menu-item/wifi-menu-item';
+import WifiMenuItem from './components/menu-items/wifi-menu-item';
 
 /* assets */
 import tutorials from './tutorials/tutorials';
@@ -36,7 +36,7 @@ export default function ArcadeBlocksWorkspace({ addLocaleData, createLayout, ope
     'zh-Hans': zhHans,
   });
 
-  const createDefaultProject = (project) => {
+  const createProject = (project) => {
     project = project ?? defaultProject;
     openProject(
       Object.assign(
@@ -47,7 +47,7 @@ export default function ArcadeBlocksWorkspace({ addLocaleData, createLayout, ope
       ),
     );
   };
-  createDefaultProject(project);
+  createProject(project);
 
   const handleSetupLibrary = () => {
     return {
@@ -57,7 +57,7 @@ export default function ArcadeBlocksWorkspace({ addLocaleData, createLayout, ope
     };
   };
 
-  const saveCurrentProject = () => {
+  const saveProject = () => {
     const canvas = document.querySelector('#blockcode-blocks-player');
     return { thumb: canvas.toDataURL() };
   };
@@ -79,11 +79,34 @@ export default function ArcadeBlocksWorkspace({ addLocaleData, createLayout, ope
   const mainMenu = makeMainMenu({
     deviceName,
     deviceFilters,
-    createDefaultProject,
-    saveCurrentProject,
+    createProject,
+    openProject,
+    saveProject,
     downloadProjectToDevice,
     showDownloadScreen: 'arcade',
   });
+
+  // extends file menu
+  const fileMenu = mainMenu[0];
+  const FileMenu = fileMenu.Menu;
+  fileMenu.Menu = ({ itemClassName }) => {
+    return (
+      <FileMenu itemClassName={itemClassName}>
+        <MenuSection>
+          <MenuItem
+            disabled
+            className={itemClassName}
+            label={
+              <Text
+                id="arcade.menu.file.importSB3"
+                defaultMessage="Import .sb3 file..."
+              />
+            }
+          />
+        </MenuSection>
+      </FileMenu>
+    );
+  };
 
   // extends device menu
   const deviceMenu = mainMenu[2];
@@ -94,6 +117,28 @@ export default function ArcadeBlocksWorkspace({ addLocaleData, createLayout, ope
       <DeviceMenu itemClassName={itemClassName}>
         <MenuSection>
           <WifiMenuItem className={itemClassName} />
+          <MenuItem
+            disabled
+            className={itemClassName}
+            label={
+              <Text
+                id="arcade.menu.device.config"
+                defaultMessage="System config"
+              />
+            }
+          />
+          <MenuItem
+            disabled
+            className={itemClassName}
+            label={
+              <Text
+                id="arcade.menu.device.firmware"
+                defaultMessage="Upload firmware"
+              />
+            }
+          />
+        </MenuSection>
+        <MenuSection>
           <MenuItem
             className={itemClassName}
             label={
