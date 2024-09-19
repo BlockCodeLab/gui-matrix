@@ -20,12 +20,12 @@ const NEXT_TRACING = [
   MOVE_LEFT,
   MOVE_LEFT,
   MOVE_UP,
-  [MOVE_DOWN, MOVE_UP],
+  [MOVE_DOWN, MOVE_UP], // 5
   MOVE_UP,
   MOVE_UP,
   MOVE_RIGHT,
   MOVE_DOWN,
-  [MOVE_RIGHT, MOVE_LEFT],
+  [MOVE_RIGHT, MOVE_LEFT], // 10
   MOVE_LEFT,
   MOVE_RIGHT,
   MOVE_DOWN,
@@ -65,9 +65,6 @@ const getEdgeTracing = (data, width, height, start) => {
       tracing = NEXT_TRACING[state][~~(tracing === MOVE_UP)];
     } else {
       tracing = NEXT_TRACING[state];
-    }
-
-    if (state === 10) {
     }
 
     if (tracing === MOVE_NONE) break;

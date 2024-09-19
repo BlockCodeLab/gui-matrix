@@ -26,6 +26,8 @@ export default function BlocksEditor() {
     CONTROL_STOP_OTHER: getText('arcade.blocks.stopOther', 'other scripts in sprite'),
     SENSING_TOUCHINGOBJECT_EXACT: getText('arcade.blocks.touchingExact', 'touching %1 (careful)'),
     SENSING_OF_DISTANCETO_CENTER: getText('arcade.blocks.sensingOfDistanceto.center', 'center'),
+    SENSING_JOYSTICK_X: getText('arcade.blocks.joystick.x', 'joystick x axis'),
+    SENSING_JOYSTICK_Y: getText('arcade.blocks.joystick.y', 'joystick y axis'),
     SOUND_EFFECTS_TEMPO: getText('arcade.blocks.soundEffects.tempo', 'tempo'),
     SOUND_MENU_DADADADUM: getText('arcade.blocks.musicMenu.dadadadum', 'dadadadum'),
     SOUND_MENU_ENTERTAINER: getText('arcade.blocks.musicMenu.entertainer', 'entertainer'),

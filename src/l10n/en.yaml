@@ -92,6 +92,8 @@ arcade.blocks.fnButton: fn
 arcade.blocks.stopOther: other scripts in sprite
 arcade.blocks.touchingExact: touching %1 (careful)?
 arcade.blocks.sensingOfDistanceto.center: center
+arcade.blocks.joystick.x: joystick x axis
+arcade.blocks.joystick.y: joystick y axis
 arcade.blocks.soundEffects.tempo: tempo
 arcade.blocks.musicMenu.dadadadum: dadadadum
 arcade.blocks.musicMenu.entertainer: entertainer

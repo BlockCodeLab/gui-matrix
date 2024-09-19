@@ -1,5 +1,21 @@
 import { ScratchBlocks } from '@blockcode/blocks-editor';
 
+ScratchBlocks.Blocks['sensing_touchingobject_exact'] = {
+  init() {
+    this.jsonInit({
+      message0: ScratchBlocks.Msg.SENSING_TOUCHINGOBJECT_EXACT,
+      args0: [
+        {
+          type: 'input_value',
+          name: 'TOUCHINGOBJECTMENU',
+        },
+      ],
+      category: ScratchBlocks.Categories.sensing,
+      extensions: ['colours_sensing', 'output_boolean'],
+    });
+  },
+};
+
 ScratchBlocks.Blocks['sensing_keyoptions'] = {
   init() {
     this.jsonInit({
@@ -23,6 +39,28 @@ ScratchBlocks.Blocks['sensing_keyoptions'] = {
         },
       ],
       extensions: ['colours_sensing', 'output_string'],
+    });
+  },
+};
+
+ScratchBlocks.Blocks['sensing_joystick_x'] = {
+  init() {
+    this.jsonInit({
+      message0: ScratchBlocks.Msg.SENSING_JOYSTICK_X,
+      checkboxInFlyout: true,
+      category: ScratchBlocks.Categories.sensing,
+      extensions: ['colours_sensing', 'output_number'],
+    });
+  },
+};
+
+ScratchBlocks.Blocks['sensing_joystick_y'] = {
+  init() {
+    this.jsonInit({
+      message0: ScratchBlocks.Msg.SENSING_JOYSTICK_Y,
+      checkboxInFlyout: true,
+      category: ScratchBlocks.Categories.sensing,
+      extensions: ['colours_sensing', 'output_number'],
     });
   },
 };

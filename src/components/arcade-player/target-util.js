@@ -516,7 +516,7 @@ class SpriteUtil extends Util {
 
   createDialog(text, style = 'say') {
     this.removeDialog();
-    if (!text) return;
+    if (!text || this.hidden) return;
 
     let clen = 0;
     let llen = 0;
@@ -815,19 +815,19 @@ class SpriteUtil extends Util {
     }
   }
 
-  isTouching(target) {
+  isTouching(target, exact = false) {
     if (!target) {
       return !!this.findNearestEdge();
     }
     if (this.hidden) return false;
     for (const clone of target.clones) {
       if (clone.util.hidden) continue;
-      if (touching(this.contour, clone.util.contour)) {
+      if (touching(this.contour, clone.util.contour, exact)) {
         return true;
       }
     }
     if (target.hidden) return false;
-    return touching(this.contour, target.contour);
+    return touching(this.contour, target.contour, exact);
   }
 
   distanceTo(target) {

@@ -87,3 +87,7 @@ pythonGenerator['sensing_of'] = (block) => {
   }
   return [objectCode, pythonGenerator.ORDER_MEMBER];
 };
+
+pythonGenerator['sensing_joystick_x'] = (block) => {};
+
+pythonGenerator['sensing_joystick_y'] = (block) => {};

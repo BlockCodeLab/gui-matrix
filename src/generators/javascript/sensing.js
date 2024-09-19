@@ -90,3 +90,7 @@ javascriptGenerator['sensing_of'] = (block) => {
   }
   return [objectCode, javascriptGenerator.ORDER_MEMBER];
 };
+
+javascriptGenerator['sensing_joystick_x'] = (block) => {};
+
+javascriptGenerator['sensing_joystick_y'] = (block) => {};

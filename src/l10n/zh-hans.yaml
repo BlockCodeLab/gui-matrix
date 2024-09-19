@@ -92,6 +92,8 @@ arcade.blocks.disconnect: 断开 Wi-Fi 连接
 arcade.blocks.fnButton: 功能键
 arcade.blocks.stopOther: 该角色的其他脚本
 arcade.blocks.touchingExact: 碰到 %1（精准）？
+arcade.blocks.joystick.x: 摇杆 x 轴
+arcade.blocks.joystick.y: 摇杆 y 轴
 arcade.blocks.sensingOfDistanceto.center: 中心
 arcade.blocks.soundEffects.tempo: 速度
 arcade.blocks.musicMenu.dadadadum: 开场

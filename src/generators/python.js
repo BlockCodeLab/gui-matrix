@@ -33,7 +33,7 @@ pythonGenerator.init = (workspace) => {
       continue;
     }
 
-    const varTarget = variables[i].isLocal ? 'sprite.data' : 'stage.data';
+    const varTarget = variables[i].isLocal ? 'target.data' : 'stage.data';
     let varName = pythonGenerator.variableDB_.getName(variables[i].getId(), ScratchBlocks.Variables.NAME_TYPE);
     let varValue = '0';
     if (variables[i].type === ScratchBlocks.LIST_VARIABLE_TYPE) {
