@@ -428,9 +428,11 @@ const sensing = (isStage, spritesCount) => `
         <shadow type="sensing_keyoptions"/>
       </value>
     </block>
+    <!--
     <block type="sensing_joystick_x"/>
     <block type="sensing_joystick_y"/>
     ${blockSeparator}
+    -->
     <block type="sensing_timer"/>
     <block type="sensing_resettimer"/>
     ${blockSeparator}
