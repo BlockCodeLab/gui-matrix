@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="//unpkg.com/docsify/themes/vue.css" />
     <link rel="stylesheet" href="//unpkg.com/@sujaykumarh/docsify-plugin-footer/dist/plugin.min.css" />
     <script>
-      if (typeof navigator.serviceWorker !== 'undefined') {
+      if (
+        location.protocol !== 'https:'
+        && location.hostname !== 'hostname'
+        && typeof navigator.serviceWorker !== 'undefined'
+      ) {
         navigator.serviceWorker.register('sw.js')
       }
     </script>
