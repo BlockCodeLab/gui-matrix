@@ -16,6 +16,10 @@
     "build": "bun-build",
     "dev": "bun-build --watch ./src"
   },
+  "firmware": {
+    "url": "https://github.com/BlockCodeLab/arcade-firmware/releases/download/v0.9.1.build-09211717/arcade_edu.v0.9.1.build-09211717_mpy_v1.23.0.bin",
+    "version": "0.9.1"
+  },
   "devDependencies": {
     "bun-types": "latest",
     "bun-loader-css": "github:kankungyip/bun-loader-css",

@@ -19,6 +19,18 @@ arcade.menu.device.wifiOk: Wi-Fi 配置已储存。
 arcade.menu.device.wifiCancel: 取消 Wi-Fi 配置。
 arcade.menu.device.manual: 查看使用手册
 arcade.menu.device.firmware: 更新固件
+arcade.menu.device.firmwareLabal: 准备好更新固件了吗？请按下列步骤准备好您的学习机。
+arcade.menu.device.firmwareTip1-1: 下载
+arcade.menu.device.firmwareTip1-2: 最新的固件。
+arcade.menu.device.firmwareTip2: 按住 Fn 键不松。
+arcade.menu.device.firmwareTip3: 接入 USB 线。
+arcade.menu.device.firmwareUpdating: 正在更新固件…{progress}%
+arcade.menu.device.firmwareRestoring: 正在恢复学习机…
+arcade.menu.device.firmwareDone: 固件更新完成。
+arcade.menu.device.erase: 清除存储器
+arcade.menu.device.eraseLabel: 确认清除学习机存储器内的固件及所有程序吗？
+arcade.menu.device.erasing: 正在清除…
+arcade.menu.device.erased: 清除完成。
 arcade.menu.device.config: 系统配置
 
 arcade.deletePrompt.title: 删除 {name}

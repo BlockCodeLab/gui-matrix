@@ -14,6 +14,7 @@ import BackdropsLibrary from './components/libraries/backdrops-library';
 import CostumesLibrary from './components/libraries/costumes-library';
 import SoundsLibrary from './components/libraries/sounds-library';
 import WifiMenuItem from './components/menu-items/wifi-menu-item';
+import FirmwareSection from './components/menu-items/firmware-section';
 
 /* assets */
 import tutorials from './tutorials/tutorials';
@@ -127,17 +128,8 @@ export default function ArcadeBlocksWorkspace({ addLocaleData, createLayout, ope
               />
             }
           />
-          <MenuItem
-            disabled
-            className={itemClassName}
-            label={
-              <Text
-                id="arcade.menu.device.firmware"
-                defaultMessage="Upload firmware"
-              />
-            }
-          />
         </MenuSection>
+        <FirmwareSection itemClassName={itemClassName} />
         <MenuSection>
           <MenuItem
             className={itemClassName}

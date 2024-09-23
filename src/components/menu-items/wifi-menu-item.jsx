@@ -56,7 +56,7 @@ export default function WifiMenuItem({ className }) {
                 'wifi-ssid': wifi.ssid,
                 'wifi-password': wifi.password,
               });
-              currentDevice.hardwareReset();
+              currentDevice.hardReset();
               localStorage.setItem(STORAGE_WIFI_SSID, wifi.ssid);
               localStorage.setItem(STORAGE_WIFI_PASSWORD, wifi.password);
               createAlert(

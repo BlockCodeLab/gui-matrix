@@ -1,0 +1,25 @@
+.tips-rom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tips-col2 .tip-item {
+  width: 250px;
+}
+
+.tips-col3 .tip-item {
+  width: 165px;
+}
+
+.tip-item {
+  text-align: center;
+}
+
+.tip-item img {
+  width: 100%;
+  padding: 1px;
+  margin-bottom: var(--space);
+  border-radius: var(--space);
+  border: 1px solid var(--ui-black-transparent);
+
+}
