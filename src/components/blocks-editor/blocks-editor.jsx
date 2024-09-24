@@ -172,7 +172,7 @@ export default function BlocksEditor() {
         toolbox={toolbox}
         messages={messages}
         deviceId="arcade"
-        onExtensionsFilter={() => ['blocks', ['arcade', 'pwm', 'adc', 'signal', 'data']]}
+        onExtensionsFilter={() => ['blocks', ['arcade', 'espnow', 'pwm', 'adc', 'signal', 'data']]}
         onLoadExtension={handleLoadExtension}
       />
 

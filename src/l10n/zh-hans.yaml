@@ -22,8 +22,8 @@ arcade.menu.device.firmware: 更新固件
 arcade.menu.device.firmwareLabal: 准备好更新固件了吗？请按下列步骤准备好您的学习机。
 arcade.menu.device.firmwareTip1-1: 下载
 arcade.menu.device.firmwareTip1-2: 最新的固件。
-arcade.menu.device.firmwareTip2: 按住 Fn 键不松。
-arcade.menu.device.firmwareTip3: 接入 USB 线。
+arcade.menu.device.firmwareTip2: 关机状态按住 Fn 键不松。
+arcade.menu.device.firmwareTip3: 接入 USB 直到屏幕点亮。
 arcade.menu.device.firmwareUpdating: 正在更新固件…{progress}%
 arcade.menu.device.firmwareRestoring: 正在恢复学习机…
 arcade.menu.device.firmwareDone: 固件更新完成。
