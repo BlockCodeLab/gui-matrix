@@ -1,6 +1,8 @@
 import featureImage from './feature.png';
+import { version } from '../package.json';
 
 export default {
+  version,
   sortIndex: 3,
   image: featureImage,
   name: 'Scratch Arcade',
