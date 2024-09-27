@@ -19,5 +19,5 @@ pythonGenerator['event_whenbroadcastreceived'] = (block) => {
     ScratchBlocks.Variables.NAME_TYPE,
   );
   const branchCode = pythonGenerator.eventToCode('broadcastreceived', 'target');
-  return `@runtime.when_broadcastreceived("${messageName}", target)\n${branchCode}`;
+  return `@when_broadcastreceived("${messageName}", target)\n${branchCode}`;
 };
