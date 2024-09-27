@@ -1,5 +1,5 @@
 import { ScratchBlocks } from '@blockcode/blocks-editor';
-import { pythonGenerator } from '@blockcode/workspace-blocks/app';
+import { pythonGenerator } from './generator';
 
 const TARGET_VARIABLE = 'target.variable.';
 

@@ -1,4 +1,4 @@
-import { pythonGenerator } from '@blockcode/workspace-blocks/app';
+import { pythonGenerator } from './generator';
 
 pythonGenerator['sensing_touchingobjectmenu'] = (block) => {
   return [block.getFieldValue('TOUCHINGOBJECTMENU'), pythonGenerator.ORDER_ATOMIC];

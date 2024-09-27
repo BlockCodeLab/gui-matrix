@@ -1,9 +1,10 @@
 import { useLocale, useEditor } from '@blockcode/core';
 import { classNames, ToggleButtons, Button, Label, BufferedInput } from '@blockcode/ui';
 import { ScratchBlocks } from '@blockcode/blocks-editor';
-import { pythonGenerator } from '@blockcode/workspace-blocks/app';
-import DirectionPicker from '../direction-picker/direction-picker';
+import { pythonGenerator } from '../../generators/python';
 import RotationStyle from '../../lib/rotation-style';
+
+import DirectionPicker from '../direction-picker/direction-picker';
 
 import styles from './sprite-info.module.css';
 import hideIcon from './icon-hide.svg';

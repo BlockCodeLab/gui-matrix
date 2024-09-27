@@ -1,5 +1,5 @@
 import { ScratchBlocks } from '@blockcode/blocks-editor';
-import { javascriptGenerator } from '@blockcode/blocks-player';
+import { javascriptGenerator } from './generator';
 
 const TARGET_VARIABLE = 'target.util.variable.';
 

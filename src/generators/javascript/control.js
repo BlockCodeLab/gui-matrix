@@ -1,9 +1,9 @@
-import { javascriptGenerator } from '@blockcode/blocks-player';
+import { javascriptGenerator } from './generator';
 
-const HAT_CALLBACK = `async (target, done) => {\ndo {\n${javascriptGenerator.HAT_CODE}} while (false);\ndone();\n}`;
+const EVENT_CALLBACK = `async (target, done) => {\ndo {\n/* code */} while (false);\ndone();\n}`;
 
 javascriptGenerator['control_start_as_clone'] = () => {
-  return `runtime.whenCloneStart(target, ${HAT_CALLBACK});\n`;
+  return `runtime.whenCloneStart(target, ${EVENT_CALLBACK});\n`;
 };
 
 javascriptGenerator['control_create_clone_of_menu'] = (block) => {

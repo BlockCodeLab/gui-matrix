@@ -3,8 +3,6 @@ import { Tone, Music } from '@blockcode/tone-player';
 import RotationStyle from '../../lib/rotation-style';
 import { VIEW_WIDTH, VIEW_HEIGHT, DEFAULT_DIRECTION } from '../../lib/default-project';
 
-import '../../generators/javascript';
-
 export default class Runtime extends BaseRuntime {
   static VIEW_WIDTH = VIEW_WIDTH;
   static VIEW_HEIGHT = VIEW_HEIGHT;
@@ -233,6 +231,7 @@ export default class Runtime extends BaseRuntime {
       let audio = this._waveList.get(soundId);
       if (!audio) {
         const data = this._soundsList.find((sound) => sound.id === soundId);
+        if (!data) return;
         const dataUrl = `data:${data.type};base64,${data.data}`;
         audio = new Audio(dataUrl);
         this._waveList.set(soundId, audio);

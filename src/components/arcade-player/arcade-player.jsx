@@ -2,6 +2,7 @@ import { useEffect, useState } from 'preact/hooks';
 import { useLocale, useEditor } from '@blockcode/core';
 import { ScratchBlocks } from '@blockcode/blocks-editor';
 import { BlocksPlayer, paperCore } from '@blockcode/blocks-player';
+import { javascriptGenerator } from '../../generators/javascript';
 
 import Runtime from './runtime';
 import generate from './generate';
@@ -202,6 +203,7 @@ export default function ArcadePlayer({ stageSize, playing, onReady, onRequestSto
     <BlocksPlayer
       width={`${viewSize.width}px`}
       height={`${viewSize.height}px`}
+      javascriptGenerator={javascriptGenerator}
       onSetup={handleSetup}
       onClick={() => document.querySelectorAll('input:focus').forEach((e) => e.blur())}
     />

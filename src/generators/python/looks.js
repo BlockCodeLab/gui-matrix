@@ -1,4 +1,4 @@
-import { pythonGenerator } from '@blockcode/workspace-blocks/app';
+import { pythonGenerator } from './generator';
 
 pythonGenerator['looks_sayforsecs'] = (block) => {
   let code = '';

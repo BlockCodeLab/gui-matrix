@@ -1,8 +1,8 @@
-import { pythonGenerator } from '@blockcode/workspace-blocks/app';
+import { pythonGenerator } from './generator';
 
 pythonGenerator['wifi_whenconnected'] = () => {
-  const hatCode = pythonGenerator.hatToCode('wifi_connected', 'target');
-  return `${hatCode}runtime.when_wificonnected(${pythonGenerator.HAT_FUNCTION_PLACEHOLDER}, target)\n`;
+  const branchCode = pythonGenerator.eventToCode('wifi_connected', 'target');
+  return `runtime.when_wificonnected(target)\n${branchCode}`;
 };
 
 pythonGenerator['wifi_connectto'] = (block) => {

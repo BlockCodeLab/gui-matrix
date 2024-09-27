@@ -1,4 +1,4 @@
-import { javascriptGenerator } from '@blockcode/blocks-player';
+import { javascriptGenerator } from './generator';
 
 javascriptGenerator['sensing_touchingobjectmenu'] = (block) => {
   return [block.getFieldValue('TOUCHINGOBJECTMENU'), javascriptGenerator.ORDER_ATOMIC];

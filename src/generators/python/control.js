@@ -1,8 +1,8 @@
-import { pythonGenerator } from '@blockcode/workspace-blocks/app';
+import { pythonGenerator } from './generator';
 
 pythonGenerator['control_start_as_clone'] = () => {
-  const branchCode = pythonGenerator.hatToCode('startasclone', 'target');
-  return `${branchCode}runtime.when_startasclone(target, ${pythonGenerator.HAT_FUNCTION_PLACEHOLDER})\n`;
+  const branchCode = pythonGenerator.eventToCode('startasclone', 'target');
+  return `@runtime.when_startasclone(target)\n${branchCode}`;
 };
 
 pythonGenerator['control_create_clone_of_menu'] = (block) => {

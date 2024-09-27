@@ -1,7 +1,8 @@
 import { useLocale, useLayout, useEditor } from '@blockcode/core';
 import { ScratchBlocks } from '@blockcode/blocks-editor';
-import { javascriptGenerator } from '@blockcode/blocks-player';
-import { codeTab, pythonGenerator } from '@blockcode/workspace-blocks/app';
+import { codeTab } from '@blockcode/workspace-blocks/app';
+import { javascriptGenerator } from '../../generators/javascript';
+import { pythonGenerator } from '../../generators/python';
 import uid from '../../lib/uid';
 
 import makeToolboxXML from '../../lib/make-toolbox-xml';
@@ -139,29 +140,31 @@ export default function BlocksEditor() {
     return res;
   };
 
-  const targetAssets = listAssets(target.assets);
-  pythonGenerator.additionalDefinitions_ = isStage
-    ? [
-        ['import_backdrops', targetAssets.imports.join('\n')],
-        ['create_stage', `stage = target = Stage(runtime, "${name}", (${targetAssets.modules},), ${stage.frame})`],
-      ]
-    : [
-        ['import_stage', 'from stage import stage'],
-        ['import_costumes', targetAssets.imports.join('\n')],
-        [
-          'create_sprite',
-          `target = Sprite(runtime, stage, "${target.id}", "${maybeLocaleText(target.name)}", ${[
-            `(${targetAssets.modules.join(',')},)`,
-            target.frame,
-            Math.round(target.x),
-            Math.round(target.y),
-            Math.round(target.size),
-            Math.round(target.direction),
-            target.rotationStyle,
-            target.hidden ? 'True' : 'False',
-          ].join(', ')})`,
-        ],
-      ];
+  pythonGenerator.addPreposeDefinitions = (defvars) => {
+    const targetAssets = listAssets(target.assets);
+    pythonGenerator.definitions_['import_scratch'] = 'from scratch import *';
+    if (isStage) {
+      pythonGenerator.definitions_['import_backdrops'] = targetAssets.imports.join('\n');
+      defvars.unshift(
+        `stage = target = Stage(runtime, "${name}", (${targetAssets.modules.join(',')},), ${stage.frame})`,
+      );
+    } else {
+      pythonGenerator.definitions_['import_stage'] = 'from stage import stage';
+      pythonGenerator.definitions_['import_costumes'] = targetAssets.imports.join('\n');
+      defvars.unshift(
+        `target = Sprite(runtime, stage, "${target.id}", "${maybeLocaleText(target.name)}", ${[
+          `(${targetAssets.modules.join(',')},)`,
+          target.frame,
+          Math.round(target.x),
+          Math.round(target.y),
+          Math.round(target.size),
+          Math.round(target.direction),
+          target.rotationStyle,
+          target.hidden ? 'True' : 'False',
+        ].join(',')})`,
+      );
+    }
+  };
 
   return (
     <>
@@ -172,6 +175,7 @@ export default function BlocksEditor() {
         toolbox={toolbox}
         messages={messages}
         deviceId="arcade"
+        generator={pythonGenerator}
         onExtensionsFilter={() => ['blocks', ['arcade', 'espnow', 'pwm', 'adc', 'signal', 'data']]}
         onLoadExtension={handleLoadExtension}
       />

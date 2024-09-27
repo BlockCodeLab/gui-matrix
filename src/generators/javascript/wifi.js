@@ -1,9 +1,9 @@
-import { javascriptGenerator } from '@blockcode/blocks-player';
+import { javascriptGenerator } from './generator';
 
-const HAT_CALLBACK = `async (target, done) => {\ndo {\n${javascriptGenerator.HAT_CODE}} while (false);\ndone();\n}`;
+const EVENT_CALLBACK = `async (target, done) => {\ndo {\n/* code */} while (false);\ndone();\n}`;
 
 javascriptGenerator['wifi_whenconnected'] = () => {
-  return `runtime.when('wifi_connected', ${HAT_CALLBACK}, target);\n`;
+  return `runtime.when('wifi_connected', ${EVENT_CALLBACK}, target);\n`;
 };
 
 javascriptGenerator['wifi_connectto'] = (block) => {
