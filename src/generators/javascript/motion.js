@@ -56,7 +56,7 @@ javascriptGenerator['motion_pointtowards'] = (block) => {
   if (towardsCode === '_random_') {
     towardsCode = `runtime.random(1, 360)`;
   } else {
-    towardsCode = `runtime.getSpriteByIdOrName('${towards}').util`;
+    towardsCode = `runtime.getSpriteByIdOrName('${towardsCode}').util`;
   }
   code += `target.util.towards(${towardsCode});\n`;
   return code;

@@ -87,10 +87,15 @@ javascriptGenerator['sensing_of'] = (block) => {
     case 'backdrop name':
       objectCode += '.backdropName';
       break;
+    default:
+      objectCode += objectCode === `runtime.stage.util` ? '.costume' : '.backdrop';
+      break;
   }
   return [objectCode, javascriptGenerator.ORDER_MEMBER];
 };
 
-javascriptGenerator['sensing_joystick_x'] = (block) => {};
+javascriptGenerator['sensing_joystick_x'] = () => '';
 
-javascriptGenerator['sensing_joystick_y'] = (block) => {};
+javascriptGenerator['sensing_joystick_y'] = () => '';
+
+javascriptGenerator['sensing_loudness'] = () => '';

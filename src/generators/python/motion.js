@@ -100,7 +100,7 @@ pythonGenerator['motion_glidesecstoxy'] = (block) => {
   const secsCode = pythonGenerator.valueToCode(block, 'SECS', pythonGenerator.ORDER_NONE) || 1;
   const xCode = pythonGenerator.valueToCode(block, 'X', pythonGenerator.ORDER_NONE) || 0;
   const yCode = pythonGenerator.valueToCode(block, 'Y', pythonGenerator.ORDER_NONE) || 0;
-  code += `target.glide(num(${secsCode}), num(${xCode}), num(${yCode}))\n`;
+  code += `await target.glide(num(${secsCode}), num(${xCode}), num(${yCode}))\n`;
   return code;
 };
 

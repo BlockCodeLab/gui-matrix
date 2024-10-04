@@ -36,3 +36,9 @@ javascriptGenerator['sound_stopallsounds'] = (block) => {
   code += `await runtime.pauseAllWaves()\n${AWAIT_ABORT}`;
   return code;
 };
+
+javascriptGenerator['sound_changevolumeby'] = () => '';
+
+javascriptGenerator['sound_setvolumeto'] = () => '';
+
+javascriptGenerator['sound_volume'] = () => '';

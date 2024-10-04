@@ -53,7 +53,7 @@ pythonGenerator['sensing_of_object_menu'] = (block) => {
 
 pythonGenerator['sensing_of'] = (block) => {
   let objectCode = pythonGenerator.valueToCode(block, 'OBJECT', pythonGenerator.ORDER_NONE) || '_stage_';
-  if (object === '_stage_') {
+  if (objectCode === '_stage_') {
     objectCode = `stage`;
   } else {
     objectCode = `stage.get_child('${objectCode}')`;
@@ -84,10 +84,15 @@ pythonGenerator['sensing_of'] = (block) => {
     case 'backdrop name':
       objectCode += '.frame_name';
       break;
+    default:
+      objectCode += '.frame_number';
+      break;
   }
   return [objectCode, pythonGenerator.ORDER_MEMBER];
 };
 
-pythonGenerator['sensing_joystick_x'] = (block) => {};
+pythonGenerator['sensing_joystick_x'] = () => '';
 
-pythonGenerator['sensing_joystick_y'] = (block) => {};
+pythonGenerator['sensing_joystick_y'] = () => '';
+
+pythonGenerator['sensing_loudness'] = () => '';

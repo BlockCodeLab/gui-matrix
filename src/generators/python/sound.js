@@ -32,3 +32,9 @@ pythonGenerator['sound_stopallsounds'] = (block) => {
   // code += `audio.stop_sound()\n`;
   return code;
 };
+
+pythonGenerator['sound_changevolumeby'] = () => '';
+
+pythonGenerator['sound_setvolumeto'] = () => '';
+
+pythonGenerator['sound_volume'] = () => '';
