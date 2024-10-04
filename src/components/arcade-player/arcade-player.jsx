@@ -203,7 +203,7 @@ export default function ArcadePlayer({ stageSize, playing, onReady, onRequestSto
     <BlocksPlayer
       width={`${viewSize.width}px`}
       height={`${viewSize.height}px`}
-      javascriptGenerator={javascriptGenerator}
+      generator={javascriptGenerator}
       onSetup={handleSetup}
       onClick={() => document.querySelectorAll('input:focus').forEach((e) => e.blur())}
     />

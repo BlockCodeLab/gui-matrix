@@ -9,7 +9,7 @@ arcade.pixelPaint.backdrops: 背景
 
 arcade.waveSurfer.sounds: 声音
 
-arcade.menu.file.importSB3: 导入 .sb3 文件…
+arcade.menu.file.importSB3: 导入 Scratch 3（.sb3）文件…
 arcade.menu.device: 学习机
 arcade.menu.device.wifi: Wi-Fi 网络配置
 arcade.menu.device.wifiNamePassword: Wi-Fi 名称和密码
@@ -132,5 +132,6 @@ arcade.blocks.musicMenu.jumpUp: 跳起来
 arcade.blocks.musicMenu.jumpDown: 跳下去
 arcade.blocks.musicMenu.powerUp: 打开电源
 arcade.blocks.musicMenu.powerDown: 关闭电源
+arcade.blocks.unsupported: 不支持的积木
 
 arcade.tutorials.gettingStarted: 入门

@@ -4,6 +4,7 @@ import './event';
 import './sensing';
 import './sound';
 import './wifi';
+import './unsupported';
 
 export default function (assetList, fileList, selectedFileId, maybeLocaleText, recordSound) {
   const stage = fileList[0];

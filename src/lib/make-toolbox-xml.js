@@ -314,6 +314,23 @@ const sound = (sound) => `
     </block>
     <block type="sound_stopallsounds"/>
     ${categorySeparator}
+    <!--
+    <block type="sound_changevolumeby" id="sound_changevolumeby">
+      <value name="VOLUME">
+        <shadow type="math_number">
+          <field name="NUM">-10</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="sound_setvolumeto" id="sound_setvolumeto">
+      <value name="VOLUME">
+        <shadow type="math_number">
+          <field name="NUM">100</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="sound_volume" id="sound_volume"></block>
+    -->
   </category>
 `;
 
@@ -432,7 +449,9 @@ const sensing = (isStage, spritesCount) => `
     <block type="sensing_joystick_x"/>
     <block type="sensing_joystick_y"/>
     ${blockSeparator}
+    <block type="sensing_loudness" id="sensing_loudness"/>
     -->
+    ${blockSeparator}
     <block type="sensing_timer"/>
     <block type="sensing_resettimer"/>
     ${blockSeparator}

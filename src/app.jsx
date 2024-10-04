@@ -14,6 +14,7 @@ import BackdropsLibrary from './components/libraries/backdrops-library';
 import CostumesLibrary from './components/libraries/costumes-library';
 import SoundsLibrary from './components/libraries/sounds-library';
 import WifiMenuItem from './components/menu-items/wifi-menu-item';
+import ImportSB3Item from './components/menu-items/import-sb3-item';
 import FirmwareSection from './components/menu-items/firmware-section';
 
 /* assets */
@@ -24,43 +25,33 @@ import paintIcon from './icon-paint.svg';
 import soundIcon from './icon-sound.svg';
 
 /* languages */
-import en from './l10n/en.yaml';
-import zhHans from './l10n/zh-hans.yaml';
+import locales from './l10n';
 
-export default function ArcadeBlocksWorkspace({ addLocaleData, createLayout, openProject, project }) {
+export default function ArcadeBlocksWorkspace({ addLocaleData, openProject: defaultOpenProject }) {
   addLocaleData(blocksLocales);
   addLocaleData(paintLocales);
   addLocaleData(soundLocales);
+  addLocaleData(locales);
 
-  addLocaleData({
-    en,
-    'zh-Hans': zhHans,
-  });
-
-  const createProject = (project) => {
-    project = project ?? defaultProject;
-    openProject(
-      Object.assign(
-        {
-          selectedFileId: project.fileList.length > 1 ? project.fileList[1].id : project.fileList[0].id,
-        },
-        project,
-      ),
-    );
-  };
-  createProject(project);
-
-  const handleSetupLibrary = () => {
-    return {
-      BackdropsLibrary,
-      CostumesLibrary,
-      SoundsLibrary,
-    };
+  const openProject = (project) => {
+    defaultOpenProject({
+      ...project,
+      selectedFileId: project.fileList[1].id,
+    });
   };
 
-  const saveProject = () => {
+  const createProject = () => {
+    openProject(defaultProject);
+  };
+  createProject();
+
+  const saveProject = (project) => {
     const canvas = document.querySelector('#blockcode-blocks-player');
-    return { thumb: canvas.toDataURL() };
+    return {
+      ...project,
+      thumb: canvas.toDataURL(),
+      selectedFileId: project.fileList[1].id,
+    };
   };
 
   const downloadProjectToDevice = (name, fileList, assetList) => {
@@ -94,15 +85,9 @@ export default function ArcadeBlocksWorkspace({ addLocaleData, createLayout, ope
     return (
       <FileMenu itemClassName={itemClassName}>
         <MenuSection>
-          <MenuItem
-            disabled
+          <ImportSB3Item
             className={itemClassName}
-            label={
-              <Text
-                id="arcade.menu.file.importSB3"
-                defaultMessage="Import .sb3 file..."
-              />
-            }
+            openProject={openProject}
           />
         </MenuSection>
       </FileMenu>
@@ -146,7 +131,15 @@ export default function ArcadeBlocksWorkspace({ addLocaleData, createLayout, ope
     );
   };
 
-  createLayout({
+  const handleSetupLibrary = () => {
+    return {
+      BackdropsLibrary,
+      CostumesLibrary,
+      SoundsLibrary,
+    };
+  };
+
+  return {
     mainMenu,
 
     tutorials: false,
@@ -183,5 +176,5 @@ export default function ArcadeBlocksWorkspace({ addLocaleData, createLayout, ope
     pane: false,
 
     canEditProjectName: true,
-  });
+  };
 }

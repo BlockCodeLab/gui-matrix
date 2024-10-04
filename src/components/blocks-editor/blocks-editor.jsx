@@ -12,6 +12,8 @@ import styles from './blocks-editor.module.css';
 
 const Editor = codeTab.Content;
 
+let updateTimer;
+
 export default function BlocksEditor() {
   const { getText, maybeLocaleText } = useLocale();
   const { selectTab } = useLayout();
@@ -51,6 +53,7 @@ export default function BlocksEditor() {
     SOUND_MENU_JUMP_DOWN: getText('arcade.blocks.musicMenu.jumpDown', 'jump down'),
     SOUND_MENU_POWER_UP: getText('arcade.blocks.musicMenu.powerUp', 'power up'),
     SOUND_MENU_POWER_DOWN: getText('arcade.blocks.musicMenu.powerDown', 'power down'),
+    UNSUPPORTED: getText('arcade.blocks.unsupported', 'unsupported block'),
   };
 
   buildBlocks(assetList, fileList, selectedFileId, maybeLocaleText, () => {
@@ -95,7 +98,11 @@ export default function BlocksEditor() {
       block.inputList[0].fieldRow[0].setValue(value);
     }
   };
-  setTimeout(() => {
+
+  if (updateTimer) {
+    clearTimeout(updateTimer);
+  }
+  updateTimer = setTimeout(() => {
     const workspace = ScratchBlocks.getMainWorkspace();
     if (workspace) {
       if (!isStage) {
@@ -104,18 +111,17 @@ export default function BlocksEditor() {
           updateToolboxBlockValue(`${prefix}y`, Math.round(target.y).toString());
         });
       }
-
-      const newCode = pythonGenerator.workspaceToCode(workspace);
-      if (target.content !== newCode) {
-        modifyFile({ content: newCode });
+      const content = pythonGenerator.workspaceToCode(workspace);
+      if (target.content !== content) {
+        modifyFile({ content });
       }
     }
-  }, 1);
+  }, 50);
 
   const handleLoadExtension = ({ id: extensionId, blocks }) => {
     // generate javascript for player
     blocks.forEach((block) => {
-      const blockId = `${extensionId}_${block.id.toLowerCase()}`;
+      const blockId = `${extensionId}_${block.id}`;
       if (block.vm) {
         javascriptGenerator[blockId] = block.vm.bind(javascriptGenerator);
       } else {

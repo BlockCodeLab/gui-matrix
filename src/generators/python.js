@@ -6,5 +6,6 @@ import './python/motion';
 import './python/sensing';
 import './python/sound';
 import './python/wifi';
+import './python/unsupported';
 
 export { pythonGenerator } from './python/generator';
