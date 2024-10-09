@@ -2,7 +2,7 @@ import { pythonGenerator } from './generator';
 
 pythonGenerator['control_start_as_clone'] = () => {
   const branchCode = pythonGenerator.eventToCode('startasclone', 'target');
-  return `@runtime.when_startasclone(target)\n${branchCode}`;
+  return `@when_startasclone(target.id)\n${branchCode}`;
 };
 
 pythonGenerator['control_create_clone_of_menu'] = (block) => {

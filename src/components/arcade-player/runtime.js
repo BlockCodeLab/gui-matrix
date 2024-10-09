@@ -25,7 +25,7 @@ export default class Runtime extends BaseRuntime {
     if (raster) {
       super.when(eventName, (done) => {
         listener(raster, done);
-        raster.util.clones.forEach((clone) => listener(clone, done));
+        raster.util.clones?.forEach((clone) => listener(clone, done));
       });
     } else {
       super.when(eventName, listener);

@@ -12,6 +12,8 @@ import styles from './blocks-editor.module.css';
 
 const Editor = codeTab.Content;
 
+const XYBlocks = ['glide', 'move', 'set'];
+
 let updateTimer;
 
 export default function BlocksEditor() {
@@ -106,7 +108,7 @@ export default function BlocksEditor() {
     const workspace = ScratchBlocks.getMainWorkspace();
     if (workspace) {
       if (!isStage) {
-        ['glide', 'move', 'set'].forEach((prefix) => {
+        XYBlocks.forEach((prefix) => {
           updateToolboxBlockValue(`${prefix}x`, Math.round(target.x).toString());
           updateToolboxBlockValue(`${prefix}y`, Math.round(target.y).toString());
         });

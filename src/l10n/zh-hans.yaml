@@ -33,7 +33,7 @@ arcade.menu.device.erasing: 正在清除…
 arcade.menu.device.erased: 清除完成。
 arcade.menu.device.config: 系统配置
 
-arcade.deletePrompt.title: 删除 {name}
+arcade.deletePrompt.title: 删除“{name}”
 arcade.deletePrompt.label: 确认要删除这个角色吗？
 
 arcade.greenFlag: 运行
@@ -46,6 +46,7 @@ arcade.contextMenu.export: 导出
 arcade.contextMenu.delete: 删除
 arcade.actionButton.uploadSprite: 上传角色
 arcade.actionButton.uploadBackdrop: 上传背景
+arcade.actionButton.uploadError: 上传“{file}”失败。
 arcade.actionButton.surprise: 随机
 arcade.actionButton.paint: 绘制
 arcade.actionButton.sprite: 选择一个角色

@@ -5,11 +5,17 @@ import RotationStyle from './rotation-style';
 import deserializeBlocks from './sb3-deserializer';
 import { getBlockByOpcode, getInputOrFieldByOpcode } from './sb3-blocks';
 
+const VIEW_WIDTH = 320;
+const VIEW_HEIGHT = 240;
+const IMAGE_SCALE = 320 / 480;
+const IMAGE_DATA_OFFSET = 'data:image/png;base64,'.length;
+const EMPTY_IMAGE = 'data:,';
+
+const XYBlocks = ['motion_gotoxy', 'motion_glidesecstoxy', 'motion_setx', 'motion_sety'];
+
 const xmlEscape = (unsafe) => {
   if (typeof unsafe !== 'string') {
     if (Array.isArray(unsafe)) {
-      // This happens when we have hacked blocks from 2.0
-      // See #1030
       unsafe = String(unsafe);
     } else {
       log.error('Unexpected input recieved in replaceUnsafeChars');
@@ -53,7 +59,7 @@ const mutationToXML = (mutation) => {
   return mutationString;
 };
 
-const blockToXML = (blockId, blocks, editor) => {
+const blockToXML = (blockId, blocks, editor, isScale = false) => {
   const block = blocks[blockId];
   // block should exist, but currently some blocks' next property point
   // to a blockId for non-existent blocks. Until we track down that behavior,
@@ -71,6 +77,10 @@ const blockToXML = (blockId, blocks, editor) => {
   if (block.mutation) {
     xmlString += mutationToXML(block.mutation);
   }
+  // Scale x/y
+  if (XYBlocks.indexOf(blockType) !== -1) {
+    isScale = true;
+  }
   // Add any inputs on this block.
   for (const input in block.inputs) {
     if (!Object.prototype.hasOwnProperty.call(block.inputs, input)) continue;
@@ -79,11 +89,11 @@ const blockToXML = (blockId, blocks, editor) => {
     if (blockInput.block || blockInput.shadow) {
       xmlString += `<value name="${blockInput.name}">`;
       if (blockInput.block) {
-        xmlString += blockToXML(blockInput.block, blocks, editor);
+        xmlString += blockToXML(blockInput.block, blocks, editor, isScale);
       }
       if (blockInput.shadow && blockInput.shadow !== blockInput.block) {
         // Obscured shadow.
-        xmlString += blockToXML(blockInput.shadow, blocks, editor);
+        xmlString += blockToXML(blockInput.shadow, blocks, editor, isScale);
       }
       xmlString += '</value>';
     }
@@ -104,6 +114,9 @@ const blockToXML = (blockId, blocks, editor) => {
     let value = blockField.value;
     if (typeof value === 'string') {
       value = xmlEscape(blockField.value);
+    }
+    if (isScale && blockField.name === 'NUM') {
+      value = Math.round(+value * IMAGE_SCALE);
     }
     xmlString += `>${value}</field>`;
   }
@@ -156,8 +169,6 @@ const sb3Parse = (file) =>
     });
   });
 
-const IMAGE_SCALE = 320 / 480;
-
 const convertImage = (file) =>
   new Promise(async (resolve) => {
     const type = mime.getType(file.name);
@@ -165,19 +176,31 @@ const convertImage = (file) =>
     const image = new Image();
     image.src = `data:${type};base64,${base64}`;
     image.addEventListener('load', () => {
-      const width = Math.round(image.width * IMAGE_SCALE);
-      const height = Math.round(image.height * IMAGE_SCALE);
+      const imageWidth = Math.round(image.width * IMAGE_SCALE);
+      const imageHeight = Math.round(image.height * IMAGE_SCALE);
+
+      let width = Math.min(VIEW_WIDTH, imageWidth);
+      let height = Math.min(VIEW_HEIGHT, imageHeight);
 
       const canvas = document.createElement('canvas');
       canvas.width = width;
       canvas.height = height;
 
       const ctx = canvas.getContext('2d');
-      ctx.drawImage(image, 0, 0, width, height);
+      const sx = Math.round((imageWidth - width) / 2);
+      const sy = Math.round((imageHeight - height) / 2);
+      ctx.drawImage(image, -sx, -sy, imageWidth, imageHeight);
+
       const type = 'image/png';
       const dataUrl = canvas.toDataURL(type);
-      const data = dataUrl.replace(`data:${type};base64,`, '');
-      resolve({ width, height, data, type });
+      let data = dataUrl.slice(IMAGE_DATA_OFFSET);
+      if (dataUrl === EMPTY_IMAGE) {
+        data =
+          'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAAtJREFUGFdjYAACAAAFAAGq1chRAAAAAElFTkSuQmCC';
+        width = 1;
+        height = 1;
+      }
+      resolve({ width, height, sx, sy, data, type });
     });
   });
 
@@ -201,13 +224,13 @@ export default async function (file) {
   projectJson.targets.sort((a, b) => a.layerOrder - b.layerOrder);
   for (const target of projectJson.targets) {
     const file = {
-      id: uid(),
+      id: target.isStage ? 'stage' : uid(),
       name: target.name,
       assets: [],
       frame: target.currentCostume,
       type: 'text/x-python',
-      x: target.x,
-      y: target.y,
+      x: target.x || 0,
+      y: target.y || 0,
     };
 
     // deserialize blocks
@@ -221,16 +244,17 @@ export default async function (file) {
     }
 
     // deserialize variables
+    // TODO
 
     // convert image
     for (const costume of target.costumes) {
       file.assets.push(costume.assetId);
       const assetFile = sb3File[costume.md5ext];
-      const asset = await convertImage(assetFile);
+      const { sx, sy, ...asset } = await convertImage(assetFile);
       asset.id = costume.assetId;
       asset.name = costume.name;
-      asset.centerX = Math.round(costume.rotationCenterX * IMAGE_SCALE);
-      asset.centerY = Math.round(costume.rotationCenterY * IMAGE_SCALE);
+      asset.centerX = Math.round(costume.rotationCenterX * IMAGE_SCALE - sx);
+      asset.centerY = Math.round(costume.rotationCenterY * IMAGE_SCALE - sy);
       assetList.push(asset);
     }
 
@@ -241,6 +265,8 @@ export default async function (file) {
       if (!selectedFileId) {
         selectedFileId = file.id;
       }
+      file.x = file.x * IMAGE_SCALE;
+      file.y = file.y * IMAGE_SCALE;
       file.size = target.size;
       file.direction = target.direction;
       file.rotationStyle = RotationStyle[target.rotationStyle];

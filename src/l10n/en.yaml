@@ -33,7 +33,7 @@ arcade.menu.device.erasing: Erasing...
 arcade.menu.device.erased: Erase completed.
 arcade.menu.device.config: System config
 
-arcade.deletePrompt.title: Delete {name}
+arcade.deletePrompt.title: Delete "{name}"
 arcade.deletePrompt.label: Do you want to delete the sprite?
 
 arcade.greenFlag: Go
@@ -46,6 +46,7 @@ arcade.contextMenu.export: export
 arcade.contextMenu.delete: delete
 arcade.actionButton.uploadSprite: Upload Sprite
 arcade.actionButton.uploadBackdrop: Upload Backdrop
+arcade.actionButton.uploadError: Upload "{file}" failed.
 arcade.actionButton.surprise: Surprise
 arcade.actionButton.paint: Paint
 arcade.actionButton.sprite: Choose a Sprite

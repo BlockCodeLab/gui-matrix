@@ -42,7 +42,7 @@ javascriptGenerator['control_stop'] = (block) => {
       code += 'runtime.stop();\n';
       break;
     case 'this script':
-      code += 'counter--;\nreturn done();\n';
+      code += 'return done();\n';
       break;
     case 'other scripts in sprite':
       code += 'abort = true;\n';

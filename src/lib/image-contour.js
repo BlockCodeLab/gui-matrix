@@ -1,4 +1,4 @@
-export const ALPHA_THRESHOLD = 40;
+export const ALPHA_THRESHOLD = 20;
 
 const MOVE_NONE = 0;
 const MOVE_UP = 1;

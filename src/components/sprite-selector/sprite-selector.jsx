@@ -4,7 +4,7 @@ import { classNames, IconSelector, ActionButton } from '@blockcode/ui';
 import SpriteInfo from '../sprite-info/sprite-info';
 
 import uid from '../../lib/uid';
-import { uploadImage, loadImageWithDataURL } from '../../lib/load-image';
+import { uploadImage, loadImageFromURL } from '../../lib/load-image';
 import RotationStyle from '../../lib/rotation-style';
 
 import styles from './sprite-selector.module.css';
@@ -27,19 +27,19 @@ export default function SpriteSelector({ playing, stageSize, onStop }) {
   };
   const handleCloseLibrary = () => setSpritesLibrary(false);
 
-  const handleSelectSprite = async (sprite) => {
+  const handleSelectSprite = async ({ tags, ...sprite }) => {
     const spriteId = uid();
     createAlert('importing', { id: spriteId });
 
     const assetIdList = [];
     for (const costume of sprite.costumes) {
       const costumeId = uid();
-      const image = await loadImageWithDataURL(`./assets/${costume.id}.png`);
+      const image = await loadImageFromURL(`./assets/${costume.id}.png`);
       addAsset({
         ...costume,
         id: costumeId,
         type: 'image/png',
-        data: image.dataset.url.slice(`data:image/png;base64,`.length),
+        data: image.dataset.data,
         width: image.width,
         height: image.height,
       });
@@ -77,12 +77,27 @@ export default function SpriteSelector({ playing, stageSize, onStop }) {
         const spriteId = uid();
         const imageId = uid();
         const imageName = file.name.slice(0, file.name.lastIndexOf('.'));
-        const image = await uploadImage(file);
+        let image = await uploadImage(file);
+        if (!image) {
+          createAlert(
+            {
+              message: getText('arcade.actionButton.uploadError', 'Upload "{file}" failed.', { file: file.name }),
+            },
+            2000,
+          );
+          image = {
+            dataset: {
+              data: 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAAtJREFUGFdjYAACAAAFAAGq1chRAAAAAElFTkSuQmCC',
+            },
+            width: 1,
+            height: 1,
+          };
+        }
         addAsset({
           id: imageId,
-          type: file.type,
+          type: 'image/png',
           name: imageName,
-          data: image.dataset.url.slice(`data:${file.type};base64,`.length),
+          data: image.dataset.data,
           width: image.width,
           height: image.height,
           centerX: Math.floor(image.width / 2),

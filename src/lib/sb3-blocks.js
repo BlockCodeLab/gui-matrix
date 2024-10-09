@@ -77,8 +77,8 @@ const sb3BlocksToArcadeBlocks = {
       _mouse_: '_center_',
     },
   },
-  sensing_touchingcolor: 'unsupported_statement',
-  sensing_coloristouchingcolor: 'unsupported_statement',
+  sensing_touchingcolor: 'unsupported_boolean',
+  sensing_coloristouchingcolor: 'unsupported_boolean',
   sensing_keyoptions: {
     KEY_OPTION: {
       space: 'any',
@@ -122,7 +122,7 @@ const sb3BlocksToArcadeBlocks = {
   },
   sensing_askandwait: 'unsupported_statement',
   sensing_answer: 'unsupported_string',
-  sensing_mousedown: 'unsupported_statement',
+  sensing_mousedown: 'unsupported_boolean',
   sensing_mousex: 'unsupported_number',
   sensing_mousey: 'unsupported_number',
   sensing_setdragmode: 'unsupported_statement',

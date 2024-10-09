@@ -4,7 +4,7 @@ import { classNames, Text, ActionButton } from '@blockcode/ui';
 import BackdropsLibrary from '../libraries/backdrops-library';
 
 import uid from '../../lib/uid';
-import { uploadImage, loadImageWithDataURL } from '../../lib/load-image';
+import { uploadImage, loadImageFromURL } from '../../lib/load-image';
 
 import styles from './stage-selector.module.css';
 import backdropIcon from './icon-backdrop.svg';
@@ -40,16 +40,16 @@ export default function StageSelector({ onStop }) {
   };
   const handleCloseLibrary = () => setBackdropsLibrary(false);
 
-  const handleSelectBackdrop = async (backdrop) => {
+  const handleSelectBackdrop = async ({ tags, ...backdrop }) => {
     const backdropId = uid();
     createAlert('importing', { id: backdropId });
 
-    const image = await loadImageWithDataURL(`./assets/${backdrop.id}.png`);
+    const image = await loadImageFromURL(`./assets/${backdrop.id}.png`);
     addAsset({
       ...backdrop,
       id: backdropId,
       type: 'image/png',
-      data: image.dataset.url.slice('data:image/png;base64,'.length),
+      data: image.dataset.data,
       width: image.width,
       height: image.height,
     });
@@ -72,34 +72,54 @@ export default function StageSelector({ onStop }) {
     fileInput.accept = 'image/*';
     fileInput.multiple = true;
     fileInput.click();
-    fileInput.addEventListener('change', async (e) => {
+    fileInput.addEventListener('change', async ({ target }) => {
       const alertId = uid();
       createAlert('importing', { id: alertId });
 
-      for (const file of e.target.files) {
+      const totalCount = target.files.length;
+      let failedCount = target.files.length;
+      for (const file of target.files) {
         const imageId = uid();
         const imageName = file.name.slice(0, file.name.lastIndexOf('.'));
-        const image = await uploadImage(file);
+        let image = await uploadImage(file);
+        if (!image) {
+          createAlert(
+            {
+              message: getText('arcade.actionButton.uploadError', 'Upload "{file}" failed.', { file: file.name }),
+            },
+            2000,
+          );
+          image = {
+            dataset: {
+              data: 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAAtJREFUGFdjYAACAAAFAAGq1chRAAAAAElFTkSuQmCC',
+            },
+            width: 1,
+            height: 1,
+          };
+        }
         addAsset({
           id: imageId,
-          type: file.type,
+          type: 'image/png',
           name: imageName,
-          data: image.dataset.url.slice(`data:${file.type};base64,`.length),
+          data: image.dataset.data,
           width: image.width,
           height: image.height,
           centerX: Math.floor(image.width / 2),
           centerY: Math.floor(image.height / 2),
         });
         backdropIdList.push(imageId);
+        failedCount--;
       }
       removeAlert(alertId);
 
-      modifyFile({
-        id: stage.id,
-        assets: backdropIdList,
-        frame: backdropIdList.length - 1,
-      });
-      openFile(stage.id);
+      if (failedCount < totalCount) {
+        modifyFile({
+          id: stage.id,
+          assets: backdropIdList,
+          frame: backdropIdList.length - 1,
+        });
+        openFile(stage.id);
+      }
     });
   };
 
