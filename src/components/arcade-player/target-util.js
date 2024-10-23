@@ -196,7 +196,7 @@ class SpriteUtil extends Util {
         this.raster.image = image;
         this.raster.pivot = new paperCore.Point(asset.centerX - asset.width / 2, asset.centerY - asset.height / 2);
         this.createContour();
-        this.goto(this.x, this.y, true);
+        this.goto(this.data.x, this.data.y, true);
       });
     }
   }
@@ -408,15 +408,15 @@ class SpriteUtil extends Util {
     const radian = degToRad(this.direction - Runtime.DEFAULT_DIRECTION);
     const dx = steps * Math.cos(radian);
     const dy = steps * Math.sin(radian);
-    this.goto(this.x + dx, this.y - dy);
+    this.goto(this.data.x + dx, this.data.y - dy);
   }
 
   towards(target) {
     if (typeof target === 'number') {
       this.direction = target;
     } else {
-      const dx = target.x - this.x;
-      const dy = target.y - this.y;
+      const dx = target.data.x - this.data.x;
+      const dy = target.data.y - this.data.y;
       this.direction = Runtime.DEFAULT_DIRECTION - radToDeg(Math.atan2(dy, dx));
     }
   }
@@ -432,8 +432,8 @@ class SpriteUtil extends Util {
     }
     duration *= 1000;
 
-    const startx = this.x;
-    const starty = this.y;
+    const startx = this.data.x;
+    const starty = this.data.y;
     const dx = x - startx;
     const dy = y - starty;
     let frac;
@@ -507,7 +507,7 @@ class SpriteUtil extends Util {
     if (this.contour.bounds.bottom > this.stageBounds.bottom) {
       dy += this.stageBounds.bottom - this.contour.bounds.bottom;
     }
-    this.goto(this.x + dx, this.y - dy);
+    this.goto(this.data.x + dx, this.data.y - dy);
   }
 
   get dialog() {
@@ -834,8 +834,8 @@ class SpriteUtil extends Util {
     if (!target) {
       target = { x: 0, y: 0 };
     }
-    const dx = target.x - this.x;
-    const dy = target.y - this.y;
+    const dx = target.x - this.data.x;
+    const dy = target.y - this.data.y;
     return Math.sqrt(dx * dx + dy * dy);
   }
 }
