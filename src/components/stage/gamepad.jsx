@@ -123,15 +123,52 @@ export default function Gamepad({ runtime }) {
 
   return (
     <div className={styles.gamepadWrapper}>
-      <div className={styles.buttonsGroup}>
-        <div className={styles.joystickXLeft}></div>
-        <div className={styles.joystickY}></div>
-        <div className={styles.joystickXRight}></div>
-        <Button
-          className={classNames(styles.button, styles.joystick)}
-          onMouseDown={handleMouseDown}
-        ></Button>
-      </div>
+      {JOYSTICK ? (
+        <div className={styles.buttonsGroup}>
+          <div className={styles.joystickXLeft}></div>
+          <div className={styles.joystickY}></div>
+          <div className={styles.joystickXRight}></div>
+          <Button
+            className={classNames(styles.button, styles.joystick)}
+            onMouseDown={handleMouseDown}
+          ></Button>
+        </div>
+      ) : (
+        <div className={styles.buttonsGroup}>
+          <Button
+            title="↑"
+            className={classNames(styles.button, styles.up)}
+            onMouseDown={mouseDownHandler('ArrowUp')}
+            onMouseUp={mouseUpHandler('ArrowUp')}
+          >
+            ▲
+          </Button>
+          <Button
+            title="↓"
+            className={classNames(styles.button, styles.down)}
+            onMouseDown={mouseDownHandler('ArrowDown')}
+            onMouseUp={mouseUpHandler('ArrowDown')}
+          >
+            ▼
+          </Button>
+          <Button
+            title="←"
+            className={classNames(styles.button, styles.left)}
+            onMouseDown={mouseDownHandler('ArrowLeft')}
+            onMouseUp={mouseUpHandler('ArrowLeft')}
+          >
+            ◀︎
+          </Button>
+          <Button
+            title="→"
+            className={classNames(styles.button, styles.right)}
+            onMouseDown={mouseDownHandler('ArrowRight')}
+            onMouseUp={mouseUpHandler('ArrowRight')}
+          >
+            ►
+          </Button>
+        </div>
+      )}
       <div className={styles.buttonsGroup}>
         <Button
           title={isMac ? '⌥' : 'Alt'}

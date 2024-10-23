@@ -27,6 +27,7 @@ export default {
   ],
   define: {
     DEVELOPMENT: JSON.stringify(Bun.env.BUN_ENV !== 'production'),
+    JOYSTICK: JSON.stringify(['no', 'off', 'disable'].indexOf(`${Bun.env.JOYSTICK}`.toLowerCase()) === -1),
   },
   external: [
     'preact',
