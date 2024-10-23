@@ -1,5 +1,20 @@
 // from https://github.com/scratchfoundation/scratch-vm/blob/develop/src/serialization/sb3.js
-import uid from './uid';
+const soup_ = '!#%()*+,-./:;=?@[]^_`{|}~ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+/**
+ * Generate a unique ID, from Blockly.  This should be globally unique.
+ * 87 characters ^ 20 length > 128 bits (better than a UUID).
+ * @return {string} A globally unique ID string.
+ */
+const uid = () => {
+  const length = 20;
+  const soupLength = soup_.length;
+  const id = [];
+  for (let i = 0; i < length; i++) {
+    id[i] = soup_.charAt(Math.random() * soupLength);
+  }
+  return id.join('');
+};
 
 const Variable = {
   SCALAR_TYPE: '',

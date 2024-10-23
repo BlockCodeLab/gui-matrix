@@ -68,11 +68,8 @@ const blockToXML = (blockId, blocks, editor, isScale = false) => {
   // Encode properties of this block.
   const tagName = block.shadow ? 'shadow' : 'block';
   const blockType = getBlockByOpcode(block.opcode, editor);
-  let xmlString = `<${tagName}
-           id="${block.id}"
-           type="${blockType}"
-           ${block.topLevel ? `x="${block.x}" y="${block.y}"` : ''}
-       >`;
+  const blockXY = `${block.topLevel ? `x="${block.x}" y="${block.y}"` : ''}`;
+  let xmlString = `<${tagName} id="${block.id}" type="${blockType}" ${blockXY}>`;
   // Add any mutation. Must come before inputs.
   if (block.mutation) {
     xmlString += mutationToXML(block.mutation);
