@@ -12,12 +12,12 @@ export default {
   // l10n
   translations: {
     en: {
-      name: 'Scratch Arcade',
+      // name: 'Scratch Arcade',
       description: 'Arcade game edit and play.',
       collaborator: 'Scratch Arcade Studio',
     },
     'zh-Hans': {
-      name: 'Scratch 编程学习机',
+      // name: 'Scratch 编程学习机',
       description: '在学习机上学习游戏编程。',
       collaborator: 'Scratch Arcade 工作室',
     },
