@@ -44,7 +44,7 @@ pythonGenerator['sensing_keyoptions'] = (block) => {
 
 pythonGenerator['sensing_keypressed'] = (block) => {
   const keyCode = pythonGenerator.valueToCode(block, 'KEY_OPTION', pythonGenerator.ORDER_NONE) || 'any';
-  return [`buttons.${keyCode}.pressed`, pythonGenerator.ORDER_MEMBER];
+  return [`runtime.is_pressed("${keyCode}")`, pythonGenerator.ORDER_MEMBER];
 };
 
 pythonGenerator['sensing_of_object_menu'] = (block) => {
