@@ -1,8 +1,8 @@
 import { useLocale, useLayout, useEditor } from '@blockcode/core';
 import { ScratchBlocks } from '@blockcode/blocks-editor';
 import { codeTab } from '@blockcode/workspace-blocks/app';
-import { javascriptGenerator } from '../../generators/javascript';
 import { pythonGenerator } from '../../generators/python';
+import { javascriptGenerator } from '../../generators/javascript';
 import uid from '../../lib/uid';
 
 import makeToolboxXML from '../../lib/make-toolbox-xml';
@@ -120,18 +120,6 @@ export default function BlocksEditor() {
     }
   }, 50);
 
-  const handleLoadExtension = ({ id: extensionId, blocks }) => {
-    // generate javascript for player
-    blocks.forEach((block) => {
-      const blockId = `${extensionId}_${block.id}`;
-      if (block.vm) {
-        javascriptGenerator[blockId] = block.vm.bind(javascriptGenerator);
-      } else {
-        javascriptGenerator[blockId] = () => '';
-      }
-    });
-  };
-
   const listAssets = (assets) => {
     const res = {
       imports: [],
@@ -183,9 +171,8 @@ export default function BlocksEditor() {
         toolbox={toolbox}
         messages={messages}
         deviceId="arcade"
-        generator={pythonGenerator}
+        generators={[pythonGenerator, javascriptGenerator]}
         onExtensionsFilter={() => ['blocks', ['arcade', 'espnow', 'pwm', 'adc', 'signal', 'data']]}
-        onLoadExtension={handleLoadExtension}
       />
 
       {thumb && (
