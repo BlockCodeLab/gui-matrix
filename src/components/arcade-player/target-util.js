@@ -320,7 +320,9 @@ class SpriteUtil extends Util {
   set size(value) {
     const size = this._size(value);
     if (this.editing || size !== this.data.size) {
-      const scaling = size / 100;
+      // const scaling = size / 100;
+      let scaling = Math.floor(size / 100);
+      scaling = Math.min(Math.max(scaling, 0.5), 3);
       this.data.size = size;
       this.raster.scaling.x = scaling;
       this.raster.scaling.y = scaling;
@@ -378,7 +380,9 @@ class SpriteUtil extends Util {
       this.data.rotationStyle = style;
 
       if (this.data.rotationStyle === RotationStyle.ALL_AROUND) {
-        this.raster.rotation = this.direction - Runtime.DEFAULT_DIRECTION;
+        let rotation = this.direction - Runtime.DEFAULT_DIRECTION;
+        rotation = Math.round(rotation / 30) * 30;
+        this.raster.rotation = rotation;
       } else if (this.data.rotationStyle === RotationStyle.HORIZONTAL_FLIP) {
         this.raster.rotation = 0;
 
