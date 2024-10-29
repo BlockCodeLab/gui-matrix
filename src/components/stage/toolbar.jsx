@@ -32,7 +32,7 @@ export default function Toolbar({ stageSize, playing, onPlay, onStop, onSizeTogg
       </div>
       <div className={styles.toolbarButtonsGroup}>
         <ToggleButtons
-          disabled={playing}
+          // disabled={playing}
           items={[
             {
               icon: iconSmallStage,

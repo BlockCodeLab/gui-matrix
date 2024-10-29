@@ -70,9 +70,6 @@ export default function ArcadePlayer({ stageSize, playing, onReady, onRequestSto
   };
 
   if (canvas) {
-    paperCore.view.viewSize = viewSize;
-    paperCore.view.zoom = zoomRatio;
-
     const stageLayer = paperCore.project.layers.stage;
     const spriteLayer = paperCore.project.layers.sprite;
     const contourLayer = paperCore.project.layers.contour;
@@ -116,6 +113,9 @@ export default function ArcadePlayer({ stageSize, playing, onReady, onRequestSto
         });
         onReady(null);
       } else {
+        paperCore.view.viewSize = viewSize;
+        paperCore.view.zoom = zoomRatio;
+
         spriteLayer.onMouseDown = (e) => {
           for (const hitTarget of spriteLayer.hitTestAll(e.point)) {
             if (hitTarget.item.getAverageColor(e.point)) {
@@ -190,6 +190,7 @@ export default function ArcadePlayer({ stageSize, playing, onReady, onRequestSto
 
   const handleSetup = (canvas) => {
     setCanvas(canvas);
+    paperCore.view.viewSize = new paperCore.Size(Runtime.VIEW_WIDTH, Runtime.VIEW_HEIGHT);
     new paperCore.Layer({ name: 'stage' });
     new paperCore.Layer({ name: 'contour' });
     new paperCore.Layer({ name: 'sprite' });
