@@ -13,13 +13,12 @@ import PaintText from './components/paint-text/paint-text';
 import BackdropsLibrary from './components/libraries/backdrops-library';
 import CostumesLibrary from './components/libraries/costumes-library';
 import SoundsLibrary from './components/libraries/sounds-library';
-import WifiMenuItem from './components/menu-items/wifi-menu-item';
+import WifiItem from './components/menu-items/wifi-item';
 import ImportSB3Item from './components/menu-items/import-sb3-item';
 import FirmwareSection from './components/menu-items/firmware-section';
 
 /* assets */
 import tutorials from './tutorials/tutorials';
-import defaultProject from './lib/default-project';
 import deviceIcon from './icon-device.svg';
 import paintIcon from './icon-paint.svg';
 import soundIcon from './icon-sound.svg';
@@ -41,7 +40,7 @@ export default function ArcadeBlocksWorkspace({ addLocaleData, openProject: defa
   };
 
   const createProject = () => {
-    openProject(defaultProject);
+      openProject(defaultProject);
   };
   createProject();
 
@@ -54,7 +53,7 @@ export default function ArcadeBlocksWorkspace({ addLocaleData, openProject: defa
     };
   };
 
-  const downloadProjectToDevice = (name, fileList, assetList) => {
+  const beforeDownload = (name, fileList, assetList) => {
     const assets = generateAssets(assetList);
     const stage = fileList[0];
     stage.content = stage.content.replace(/Stage\(runtime, "[^"]*",/g, `Stage(runtime, "${name}",`);
@@ -74,8 +73,7 @@ export default function ArcadeBlocksWorkspace({ addLocaleData, openProject: defa
     createProject,
     openProject,
     saveProject,
-    downloadProjectToDevice,
-    showDownloadScreen: 'arcade',
+    beforeDownload,
   });
 
   // extends file menu
@@ -102,7 +100,7 @@ export default function ArcadeBlocksWorkspace({ addLocaleData, openProject: defa
     return (
       <DeviceMenu itemClassName={itemClassName}>
         <MenuSection>
-          <WifiMenuItem className={itemClassName} />
+          <WifiItem className={itemClassName} />
           <MenuItem
             disabled
             className={itemClassName}

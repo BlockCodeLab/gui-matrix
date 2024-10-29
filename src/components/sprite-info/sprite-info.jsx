@@ -21,13 +21,13 @@ export default function SpriteInfo({ playing, stageSize }) {
 
   const sprite = isStage
     ? {
-        name: '',
-        x: '',
-        y: '',
-        size: '',
-        direction: '',
-        rotationStyle: RotationStyle.ALL_AROUND,
-      }
+      name: '',
+      x: '',
+      y: '',
+      size: '',
+      direction: '',
+      rotationStyle: RotationStyle.ALL_AROUND,
+    }
     : fileList.find((file) => file.id === selectedFileId);
 
   const handleChangeInfo = (key, value) => {
@@ -75,6 +75,7 @@ export default function SpriteInfo({ playing, stageSize }) {
     >
       <BufferedInput
         small
+        type="number"
         disabled={disabled}
         placeholder={getText('arcade.spriteInfo.x', 'x')}
         onSubmit={(value) => handleChangeInfo('x', value)}
@@ -97,6 +98,7 @@ export default function SpriteInfo({ playing, stageSize }) {
     >
       <BufferedInput
         small
+        type="number"
         disabled={disabled}
         placeholder={getText('arcade.spriteInfo.y', 'y')}
         onSubmit={(value) => handleChangeInfo('y', value)}
@@ -168,6 +170,7 @@ export default function SpriteInfo({ playing, stageSize }) {
         >
           <BufferedInput
             small
+            type="number"
             disabled={disabled}
             className={styles.largeInput}
             onSubmit={(value) => handleChangeInfo('size', value)}
@@ -186,6 +189,7 @@ export default function SpriteInfo({ playing, stageSize }) {
           >
             <BufferedInput
               small
+              type="number"
               disabled={disabled}
               className={styles.largeInput}
               onSubmit={(value) => handleChangeInfo('direction', value)}

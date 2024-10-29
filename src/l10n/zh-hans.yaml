@@ -18,17 +18,21 @@ arcade.menu.device.wifiPassword: Wi-Fi 密码
 arcade.menu.device.wifiOk: Wi-Fi 配置已储存。
 arcade.menu.device.wifiCancel: 取消 Wi-Fi 配置。
 arcade.menu.device.manual: 查看使用手册
-arcade.menu.device.firmware: 更新固件
-arcade.menu.device.firmwareLabal: 准备好更新固件了吗？请按下列步骤准备好您的学习机。
+arcade.menu.device.update: 升级固件
+arcade.menu.device.restore: 还原固件
+arcade.menu.device.firmwareUpdateLabal: 准备好升级固件了吗？请按下列步骤准备好您的学习机。
+arcade.menu.device.firmwareRestoreLabal: 准备好还原固件了吗？固件还原后学习机内所有作品将被清除，请按下列步骤准备好您的学习机。
 arcade.menu.device.firmwareTip1-1: 下载
 arcade.menu.device.firmwareTip1-2: 最新的固件。
 arcade.menu.device.firmwareTip2: 接入 USB 直到屏幕点亮。
 arcade.menu.device.firmwareTip3: 按住 Fn 键然后按下 RESET 键。
-arcade.menu.device.firmwareUpdating: 正在更新固件…{progress}%
-arcade.menu.device.firmwareRestoring: 正在恢复学习机…
-arcade.menu.device.firmwareDone: 固件更新完成。
-arcade.menu.device.erase: 清除存储器
-arcade.menu.device.eraseLabel: 确认清除学习机存储器内的固件及所有程序吗？
+arcade.menu.device.firmwareUpdating: 正在升级固件…{progress}%
+arcade.menu.device.firmwareRestoring: 正在还原固件…{progress}%
+arcade.menu.device.firmwareRecovering: 正在恢复学习机…
+arcade.menu.device.firmwareUpdateDone: 固件升级完成，请按下 RESET 键。
+arcade.menu.device.firmwareRestoreDone: 固件还原完成，请按下 RESET 键。
+arcade.menu.device.erase: 清除所有作品
+arcade.menu.device.eraseLabel: 确认清除学习机内的所有作品吗？
 arcade.menu.device.erasing: 正在清除…
 arcade.menu.device.erased: 清除完成。
 arcade.menu.device.config: 系统配置
