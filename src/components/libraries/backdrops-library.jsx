@@ -17,12 +17,14 @@ export default function BackdropsLibrary({ onSelect, onClose }) {
     setData(
       allBackdrops.map((backdrop) => ({
         name: backdrop.name,
+        author: backdrop.author,
+        copyright: backdrop.copyright,
         tags: backdrop.tags,
         image: `./assets/${backdrop.id}.png`,
         onSelect: setSelectHandler(backdrop),
       })),
     );
-  }, []);
+  });
 
   return (
     <Library

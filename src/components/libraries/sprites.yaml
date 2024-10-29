@@ -1,4 +1,5 @@
 - name: Abby
+  copyright: Scratch
   tags:
     - people
     - person
@@ -21,6 +22,7 @@
       centerX: 21
       centerY: 67
 - name: Andie
+  copyright: Scratch
   tags:
     - sports
     - basketball
@@ -47,6 +49,7 @@
       centerX: 47
       centerY: 38
 - name: Apple
+  copyright: Scratch
   tags:
     - food
     - red
@@ -58,6 +61,7 @@
       centerX: 21
       centerY: 21
 - name: Arrow1
+  copyright: Scratch
   tags:
     - icons
     - symbols
@@ -81,6 +85,7 @@
       centerX: 15
       centerY: 19
 - name: Avery
+  copyright: Scratch
   tags:
     - people
   costumes:
@@ -93,6 +98,7 @@
       centerX: 26
       centerY: 63
 - name: Avery Walking
+  copyright: Scratch
   tags:
     - people
     - walking
@@ -114,6 +120,7 @@
       centerX: 33
       centerY: 67
 - name: Ball
+  copyright: Scratch
   tags:
     - round
     - game
@@ -147,6 +154,7 @@
       centerX: 15
       centerY: 15
 - name: Ballerina
+  copyright: Scratch
   tags:
     - people
     - dance
@@ -168,6 +176,7 @@
       centerX: 24
       centerY: 52
 - name: Balloon1
+  copyright: Scratch
   tags:
     - party
     - pop
@@ -191,6 +200,7 @@
       centerX: 21
       centerY: 63
 - name: Bananas
+  copyright: Scratch
   tags:
     - food
     - yellow
@@ -203,6 +213,7 @@
       centerX: 26
       centerY: 25
 - name: Baseball
+  copyright: Scratch
   tags:
     - baseball
     - sports
@@ -214,6 +225,7 @@
       centerX: 19
       centerY: 19
 - name: Basketball
+  copyright: Scratch
   tags:
     - sports
     - basketball
@@ -224,6 +236,7 @@
       centerX: 15
       centerY: 15
 - name: Bat
+  copyright: Scratch
   tags:
     - fantasy
     - spooky
@@ -249,6 +262,7 @@
       centerX: 19
       centerY: 41
 - name: Batter
+  copyright: Scratch
   tags:
     - baseball
     - sports
@@ -272,6 +286,7 @@
       centerX: 47
       centerY: 68
 - name: Beachball
+  copyright: Scratch
   tags:
     - round
     - sports
@@ -283,6 +298,7 @@
       centerX: 23
       centerY: 22
 - name: Bear
+  copyright: Scratch
   tags:
     - animals
     - ipzy
@@ -297,6 +313,7 @@
       centerX: 63
       centerY: 127
 - name: Bear-walking
+  copyright: Scratch
   tags:
     - animals
     - ipzy
@@ -335,6 +352,7 @@
       centerX: 87
       centerY: 63
 - name: Beetle
+  copyright: Scratch
   tags:
     - animals
     - insect
@@ -346,6 +364,7 @@
       centerX: 29
       centerY: 25
 - name: Bell
+  copyright: Scratch
   tags:
     - music
     - holiday
@@ -357,6 +376,7 @@
       centerX: 39
       centerY: 46
 - name: Ben
+  copyright: Scratch
   tags:
     - sports
     - soccer
@@ -381,6 +401,7 @@
       centerX: 29
       centerY: 47
 - name: Bowl
+  copyright: Scratch
   tags:
     - thing
     - food
@@ -390,6 +411,7 @@
       centerX: 20
       centerY: 10
 - name: Bowtie
+  copyright: Scratch
   tags:
     - fashion
     - clothing
@@ -400,6 +422,7 @@
       centerX: 10
       centerY: 5
 - name: Bread
+  copyright: Scratch
   tags:
     - food
     - ipzy
@@ -409,6 +432,7 @@
       centerX: 25
       centerY: 8
 - name: Broom
+  copyright: Scratch
   tags:
     - fantasy
     - ipzy
@@ -420,6 +444,7 @@
       centerX: 90
       centerY: 17
 - name: Buildings
+  copyright: Scratch
   tags:
     - things
     - city
@@ -467,6 +492,7 @@
       centerX: 19
       centerY: 22
 - name: Butterfly 1
+  copyright: Scratch
   tags:
     - animals
     - insect
@@ -487,6 +513,7 @@
       centerX: 43
       centerY: 33
 - name: Butterfly 2
+  copyright: Scratch
   tags:
     - animals
     - drawing
@@ -505,6 +532,7 @@
       centerX: 50
       centerY: 50
 - name: Button1
+  copyright: Scratch
   tags:
     - icons
     - round
@@ -516,6 +544,7 @@
       centerX: 48
       centerY: 48
 - name: Button2
+  copyright: Scratch
   tags:
     - icons
     - blue
@@ -530,6 +559,7 @@
       centerX: 48
       centerY: 48
 - name: Button3
+  copyright: Scratch
   tags:
     - icons
     - gray
@@ -545,6 +575,7 @@
       centerX: 48
       centerY: 48
 - name: Button4
+  copyright: Scratch
   tags:
     - icons
     - checkmark
@@ -558,6 +589,7 @@
       centerX: 23
       centerY: 23
 - name: Button5
+  copyright: Scratch
   tags:
     - icons
     - symbols
@@ -574,6 +606,7 @@
       centerX: 48
       centerY: 48
 - name: Cake
+  copyright: Scratch
   tags:
     - food
     - bakery
@@ -593,6 +626,7 @@
       centerX: 43
       centerY: 28
 - name: Casey
+  copyright: Scratch
   tags:
     - sports
     - basketball
@@ -616,6 +650,7 @@
       centerX: 47
       centerY: 49
 - name: Cat
+  copyright: Scratch
   tags:
     - animals
     - cat
@@ -634,6 +669,7 @@
       centerX: 31
       centerY: 35
 - name: Cat 2
+  copyright: Scratch
   tags:
     - cat
     - kitty
@@ -646,6 +682,7 @@
       centerX: 58
       centerY: 26
 - name: Cat Flying
+  copyright: Scratch
   tags:
     - animals
     - cat
@@ -661,6 +698,7 @@
       centerX: 29
       centerY: 31
 - name: Catcher
+  copyright: Scratch
   tags:
     - baseball
     - sports
@@ -684,6 +722,7 @@
       centerX: 57
       centerY: 31
 - name: Centaur
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -707,6 +746,7 @@
       centerX: 73
       centerY: 93
 - name: Characters 1
+  copyright: Scratch
   tags:
     - people
     - person
@@ -770,6 +810,7 @@
       centerX: 37
       centerY: 84
 - name: Characters 2
+  copyright: Scratch
   tags:
     - people
     - person
@@ -821,6 +862,7 @@
       centerX: 32
       centerY: 85
 - name: Chick
+  copyright: Scratch
   tags:
     - animals
     - chicken
@@ -840,6 +882,7 @@
       centerX: 14
       centerY: 16
 - name: City Bus
+  copyright: Scratch
   tags:
     - city
     - bus
@@ -855,6 +898,7 @@
       centerX: 71
       centerY: 44
 - name: Cloud
+  copyright: Scratch
   tags:
     - thing
     - weather
@@ -865,6 +909,7 @@
       centerX: 47
       centerY: 30
 - name: Clouds
+  copyright: Scratch
   tags:
     - flying
     - weather
@@ -888,6 +933,7 @@
       centerX: 58
       centerY: 14
 - name: Convertible
+  copyright: Scratch
   tags:
     - car
     - transportation
@@ -897,6 +943,7 @@
       centerX: 60
       centerY: 15
 - name: Convertible 2
+  copyright: Scratch
   tags:
     - transportation
     - car
@@ -907,6 +954,7 @@
       centerX: 50
       centerY: 50
 - name: Crab
+  copyright: Scratch
   tags:
     - animals
     - crustacean
@@ -928,6 +976,7 @@
       centerX: 50
       centerY: 50
 - name: Crystal
+  copyright: Scratch
   tags:
     - fantasy
     - ipzy
@@ -942,6 +991,7 @@
       centerX: 8
       centerY: 16
 - name: Dani
+  copyright: Scratch
   tags:
     - people
   costumes:
@@ -958,6 +1008,7 @@
       centerX: 25
       centerY: 92
 - name: Dee
+  copyright: Scratch
   tags:
     - people
   costumes:
@@ -982,6 +1033,7 @@
       centerX: 21
       centerY: 66
 - name: Devin
+  copyright: Scratch
   tags:
     - people
   costumes:
@@ -1002,6 +1054,7 @@
       centerX: 27
       centerY: 63
 - name: Dinosaur1
+  copyright: Scratch
   tags:
     - animals
     - dinosaur
@@ -1024,6 +1077,7 @@
       centerX: 66
       centerY: 61
 - name: Dinosaur2
+  copyright: Scratch
   tags:
     - animals
     - dinosaur
@@ -1047,6 +1101,7 @@
       centerX: 49
       centerY: 45
 - name: Dinosaur3
+  copyright: Scratch
   tags:
     - animals
     - dinosaur
@@ -1075,6 +1130,7 @@
       centerX: 27
       centerY: 27
 - name: Dinosaur4
+  copyright: Scratch
   tags:
     - animals
     - dinosaur
@@ -1100,6 +1156,7 @@
       centerX: 59
       centerY: 59
 - name: Dinosaur5
+  copyright: Scratch
   tags:
     - animals
     - dinosaur
@@ -1138,6 +1195,7 @@
       centerX: 36
       centerY: 45
 - name: Diver1
+  copyright: Scratch
   tags:
     - people
     - underwater
@@ -1151,6 +1209,7 @@
       centerX: 50
       centerY: 50
 - name: Diver2
+  copyright: Scratch
   tags:
     - people
     - underwater
@@ -1164,6 +1223,7 @@
       centerX: 50
       centerY: 50
 - name: Dog1
+  copyright: Scratch
   tags:
     - animals
     - puppy
@@ -1179,6 +1239,7 @@
       centerX: 55
       centerY: 53
 - name: Dog2
+  copyright: Scratch
   tags:
     - animals
     - puppy
@@ -1198,6 +1259,7 @@
       centerX: 50
       centerY: 50
 - name: Donut
+  copyright: Scratch
   tags:
     - food
     - sweets
@@ -1213,6 +1275,7 @@
       centerX: 48
       centerY: 10
 - name: Dorian
+  copyright: Scratch
   tags:
     - sports
     - basketball
@@ -1236,6 +1299,7 @@
       centerX: 51
       centerY: 35
 - name: Dot
+  copyright: Scratch
   tags:
     - space
     - dog
@@ -1259,6 +1323,7 @@
       centerX: 38
       centerY: 45
 - name: Dove
+  copyright: Scratch
   tags:
     - animals
     - bird
@@ -1273,6 +1338,7 @@
       centerX: 59
       centerY: 38
 - name: Dragon
+  copyright: Scratch
   tags:
     - fantasy
     - animals
@@ -1292,6 +1358,7 @@
       centerX: 83
       centerY: 71
 - name: Dragonfly
+  copyright: Scratch
   tags:
     - animals
     - insect
@@ -1308,6 +1375,7 @@
       centerX: 72
       centerY: 31
 - name: Dress
+  copyright: Scratch
   tags:
     - fashion
     - dress
@@ -1326,6 +1394,7 @@
       centerX: 33
       centerY: 55
 - name: Drum
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -1339,6 +1408,7 @@
       centerX: 29
       centerY: 40
 - name: Drum Kit
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -1352,6 +1422,7 @@
       centerX: 39
       centerY: 52
 - name: Drum-cymbal
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -1365,6 +1436,7 @@
       centerX: 20
       centerY: 49
 - name: Drum-highhat
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -1378,6 +1450,7 @@
       centerX: 22
       centerY: 49
 - name: Drum-snare
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -1391,6 +1464,7 @@
       centerX: 23
       centerY: 32
 - name: Drums Conga
+  copyright: Scratch
   tags:
     - drums
     - drum
@@ -1407,6 +1481,7 @@
       centerX: 44
       centerY: 63
 - name: Drums Tabla
+  copyright: Scratch
   tags:
     - drums
     - drum
@@ -1423,6 +1498,7 @@
       centerX: 57
       centerY: 49
 - name: Duck
+  copyright: Scratch
   tags:
     - animals
     - chrisg
@@ -1435,6 +1511,7 @@
       centerX: 41
       centerY: 39
 - name: Earth
+  copyright: Scratch
   tags:
     - space
     - planet
@@ -1446,6 +1523,7 @@
       centerX: 37
       centerY: 37
 - name: Easel
+  copyright: Scratch
   tags:
     - bedroom
     - art
@@ -1464,6 +1542,7 @@
       centerX: 45
       centerY: 63
 - name: Egg
+  copyright: Scratch
   tags:
     - food
     - breakfast
@@ -1494,6 +1573,7 @@
       centerX: 21
       centerY: 17
 - name: Elephant
+  copyright: Scratch
   tags:
     - animals
     - mammals
@@ -1508,6 +1588,7 @@
       centerX: 63
       centerY: 27
 - name: Elf
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -1535,6 +1616,7 @@
       centerX: 33
       centerY: 93
 - name: Fairy
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -1562,6 +1644,7 @@
       centerX: 57
       centerY: 93
 - name: Fish
+  copyright: Scratch
   tags:
     - animals
     - ocean
@@ -1586,6 +1669,7 @@
       centerX: 42
       centerY: 30
 - name: Fishbowl
+  copyright: Scratch
   tags:
     - fishbowl
     - fish
@@ -1601,6 +1685,7 @@
       centerX: 19
       centerY: 16
 - name: Food Truck
+  copyright: Scratch
   tags:
     - city
     - truck
@@ -1621,6 +1706,7 @@
       centerX: 81
       centerY: 61
 - name: Fox
+  copyright: Scratch
   tags:
     - animals
     - mammal
@@ -1639,6 +1725,7 @@
       centerX: 32
       centerY: 25
 - name: Frank
+  copyright: Scratch
   tags:
     - fantasy
     - spooky
@@ -1665,6 +1752,7 @@
       centerX: 71
       centerY: 71
 - name: Frog
+  copyright: Scratch
   tags:
     - animals
     - amphibian
@@ -1677,7 +1765,8 @@
       name: frog
       centerX: 32
       centerY: 20
-- name: "Frog 2 "
+- name: 'Frog 2 '
+  copyright: Scratch
   tags:
     - animals
     - insect
@@ -1698,6 +1787,7 @@
       centerX: 64
       centerY: 58
 - name: Fruit Salad
+  copyright: Scratch
   tags:
     - food
     - fruit
@@ -1707,6 +1797,7 @@
       centerX: 20
       centerY: 15
 - name: Ghost
+  copyright: Scratch
   tags:
     - fantasy
     - spooky
@@ -1732,6 +1823,7 @@
       centerX: 52
       centerY: 46
 - name: Gift
+  copyright: Scratch
   tags:
     - thing
     - holiday
@@ -1745,6 +1837,7 @@
       centerX: 22
       centerY: 17
 - name: Giga
+  copyright: Scratch
   tags:
     - fantasy
     - drawing
@@ -1766,6 +1859,7 @@
       centerX: 49
       centerY: 64
 - name: Giga Walking
+  copyright: Scratch
   tags:
     - fantasy
     - walking
@@ -1783,6 +1877,7 @@
       centerX: 47
       centerY: 71
 - name: Giraffe
+  copyright: Scratch
   tags:
     - animals
     - savanna
@@ -1801,6 +1896,7 @@
       centerX: 57
       centerY: 88
 - name: Glass Water
+  copyright: Scratch
   tags:
     - food
     - things
@@ -1815,6 +1911,7 @@
       centerX: 26
       centerY: 32
 - name: Glasses
+  copyright: Scratch
   tags:
     - fashion
     - glasses
@@ -1837,6 +1934,7 @@
       centerX: 26
       centerY: 35
 - name: Goalie
+  copyright: Scratch
   tags:
     - sports
     - soccer
@@ -1864,6 +1962,7 @@
       centerX: 39
       centerY: 46
 - name: Goblin
+  copyright: Scratch
   tags:
     - fantasy
     - ipzy
@@ -1886,6 +1985,7 @@
       centerX: 27
       centerY: 53
 - name: Gobo
+  copyright: Scratch
   tags:
     - fantasy
     - drawing
@@ -1905,6 +2005,7 @@
       centerX: 31
       centerY: 37
 - name: Grasshopper
+  copyright: Scratch
   tags:
     - animals
     - insect
@@ -1937,6 +2038,7 @@
       centerX: 15
       centerY: 36
 - name: Green Flag
+  copyright: Scratch
   tags:
     - thing
   costumes:
@@ -1945,6 +2047,7 @@
       centerX: 47
       centerY: 20
 - name: Griffin
+  copyright: Scratch
   tags:
     - fantasy
     - animals
@@ -1968,6 +2071,7 @@
       centerX: 96
       centerY: 46
 - name: Guitar
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -1981,6 +2085,7 @@
       centerX: 31
       centerY: 55
 - name: Guitar-electric1
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -1994,6 +2099,7 @@
       centerX: 28
       centerY: 57
 - name: Guitar-electric2
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -2007,6 +2113,7 @@
       centerX: 25
       centerY: 63
 - name: Hannah
+  copyright: Scratch
   tags:
     - people
     - sports
@@ -2024,6 +2131,7 @@
       centerX: 57
       centerY: 43
 - name: Hare
+  copyright: Scratch
   tags:
     - animals
     - rabbit
@@ -2048,6 +2156,7 @@
       centerX: 27
       centerY: 27
 - name: Harper
+  copyright: Scratch
   tags:
     - people
     - fashion
@@ -2065,7 +2174,8 @@
       name: harper-c
       centerX: 37
       centerY: 92
-- name: "Hat1 "
+- name: 'Hat1 '
+  copyright: Scratch
   tags:
     - fashion
     - hat
@@ -2088,6 +2198,7 @@
       centerX: 30
       centerY: 20
 - name: Hatchling
+  copyright: Scratch
   tags:
     - animals
     - chicken
@@ -2107,6 +2218,7 @@
       centerX: 25
       centerY: 48
 - name: Heart
+  copyright: Scratch
   tags:
     - holiday
     - red
@@ -2123,6 +2235,7 @@
       centerX: 44
       centerY: 41
 - name: Heart Candy
+  copyright: Scratch
   tags:
     - food
     - sweethearts
@@ -2144,6 +2257,7 @@
       centerX: 49
       centerY: 48
 - name: Heart Face
+  copyright: Scratch
   tags:
     - emotions
   costumes:
@@ -2152,6 +2266,7 @@
       centerX: 39
       centerY: 35
 - name: Hedgehog
+  copyright: Scratch
   tags:
     - animals
     - daria skrybchencko
@@ -2179,6 +2294,7 @@
       centerX: 41
       centerY: 30
 - name: Hen
+  copyright: Scratch
   tags:
     - animals
     - chicken
@@ -2202,6 +2318,7 @@
       centerX: 34
       centerY: 51
 - name: Hippo1
+  copyright: Scratch
   tags:
     - animals
     - mammals
@@ -2221,6 +2338,7 @@
       centerX: 46
       centerY: 45
 - name: Home Button
+  copyright: Scratch
   tags:
     - ui
     - thing
@@ -2230,6 +2348,7 @@
       centerX: 48
       centerY: 48
 - name: Horse
+  copyright: Scratch
   tags:
     - animals
     - hoof
@@ -2247,6 +2366,7 @@
       centerX: 69
       centerY: 65
 - name: Jaime
+  copyright: Scratch
   tags:
     - people
   costumes:
@@ -2279,6 +2399,7 @@
       centerX: 28
       centerY: 57
 - name: Jamal
+  copyright: Scratch
   tags:
     - sports
     - basketball
@@ -2302,6 +2423,7 @@
       centerX: 36
       centerY: 63
 - name: Jar
+  copyright: Scratch
   tags:
     - food
     - ipzy
@@ -2316,6 +2438,7 @@
       centerX: 13
       centerY: 17
 - name: Jellyfish
+  copyright: Scratch
   tags:
     - animals
     - ocean
@@ -2341,6 +2464,7 @@
       centerX: 66
       centerY: 57
 - name: Jordyn
+  copyright: Scratch
   tags:
     - sports
     - soccer
@@ -2365,6 +2489,7 @@
       centerX: 27
       centerY: 41
 - name: Kai
+  copyright: Scratch
   tags:
     - people
   costumes:
@@ -2377,6 +2502,7 @@
       centerX: 27
       centerY: 53
 - name: Key
+  copyright: Scratch
   tags:
     - thing
     - fantasy
@@ -2386,6 +2512,7 @@
       centerX: 28
       centerY: 18
 - name: Keyboard
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -2399,6 +2526,7 @@
       centerX: 48
       centerY: 45
 - name: Kia
+  copyright: Scratch
   tags:
     - people
     - person
@@ -2422,6 +2550,7 @@
       centerX: 37
       centerY: 89
 - name: Kiran
+  copyright: Scratch
   tags:
     - space
     - people
@@ -2452,6 +2581,7 @@
       centerX: 41
       centerY: 63
 - name: Knight
+  copyright: Scratch
   tags:
     - people
     - castle
@@ -2462,6 +2592,7 @@
       centerX: 50
       centerY: 50
 - name: Ladybug1
+  copyright: Scratch
   tags:
     - animals
     - insect
@@ -2473,6 +2604,7 @@
       centerX: 27
       centerY: 29
 - name: Ladybug2
+  copyright: Scratch
   tags:
     - animals
     - insect
@@ -2489,6 +2621,7 @@
       centerX: 33
       centerY: 19
 - name: Laptop
+  copyright: Scratch
   tags:
     - things
     - computers
@@ -2498,6 +2631,7 @@
       centerX: 50
       centerY: 50
 - name: Lightning
+  copyright: Scratch
   tags:
     - weather
     - whether
@@ -2510,6 +2644,7 @@
       centerX: 14
       centerY: 55
 - name: Line
+  copyright: Scratch
   tags:
     - lava
     - shape
@@ -2520,6 +2655,7 @@
       centerX: 159
       centerY: 5
 - name: Lion
+  copyright: Scratch
   tags:
     - cat
     - animals
@@ -2540,6 +2676,7 @@
       centerX: 63
       centerY: 29
 - name: Llama
+  copyright: Scratch
   tags:
     - animals
     - mammal
@@ -2558,6 +2695,7 @@
       centerX: 49
       centerY: 26
 - name: Luca
+  copyright: Scratch
   tags:
     - people
     - person
@@ -2581,6 +2719,7 @@
       centerX: 34
       centerY: 87
 - name: Magic Wand
+  copyright: Scratch
   tags:
     - fantasy
     - things
@@ -2591,6 +2730,7 @@
       centerX: 27
       centerY: 12
 - name: Max
+  copyright: Scratch
   tags:
     - sports
     - basketball
@@ -2614,6 +2754,7 @@
       centerX: 25
       centerY: 39
 - name: Mermaid
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -2637,6 +2778,7 @@
       centerX: 100
       centerY: 77
 - name: Microphone
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -2650,6 +2792,7 @@
       centerX: 27
       centerY: 59
 - name: Milk
+  copyright: Scratch
   tags:
     - food
     - drink
@@ -2676,6 +2819,7 @@
       centerX: 23
       centerY: 30
 - name: Monet
+  copyright: Scratch
   tags:
     - space
     - people
@@ -2702,6 +2846,7 @@
       centerX: 43
       centerY: 59
 - name: Monkey
+  copyright: Scratch
   tags:
     - animals
     - mammals
@@ -2721,6 +2866,7 @@
       centerX: 45
       centerY: 66
 - name: Motorcycle
+  copyright: Scratch
   tags:
     - city
     - vehicle
@@ -2744,6 +2890,7 @@
       centerX: 34
       centerY: 29
 - name: Mouse1
+  copyright: Scratch
   tags:
     - animals
     - mammals
@@ -2758,6 +2905,7 @@
       centerX: 43
       centerY: 14
 - name: Muffin
+  copyright: Scratch
   tags:
     - food
   costumes:
@@ -2770,6 +2918,7 @@
       centerX: 57
       centerY: 32
 - name: Nano
+  copyright: Scratch
   tags:
     - fantasy
     - drawing
@@ -2791,6 +2940,7 @@
       centerX: 41
       centerY: 40
 - name: Neigh Pony
+  copyright: Scratch
   tags:
     - animals
     - fantasy
@@ -2800,6 +2950,7 @@
       centerX: 49
       centerY: 52
 - name: Noor
+  copyright: Scratch
   tags:
     - people
     - person
@@ -2823,6 +2974,7 @@
       centerX: 34
       centerY: 87
 - name: Octopus
+  copyright: Scratch
   tags:
     - animals
     - ocean
@@ -2851,6 +3003,7 @@
       centerX: 59
       centerY: 57
 - name: Orange
+  copyright: Scratch
   tags:
     - food
     - fruit
@@ -2860,6 +3013,7 @@
       centerX: 13
       centerY: 12
 - name: Orange2
+  copyright: Scratch
   tags:
     - food
     - fruit
@@ -2874,6 +3028,7 @@
       centerX: 33
       centerY: 18
 - name: Outfielder
+  copyright: Scratch
   tags:
     - baseball
     - sports
@@ -2897,6 +3052,7 @@
       centerX: 87
       centerY: 76
 - name: Owl
+  copyright: Scratch
   tags:
     - animals
     - bird
@@ -2915,6 +3071,7 @@
       centerX: 73
       centerY: 27
 - name: Paddle
+  copyright: Scratch
   tags:
     - thing
   costumes:
@@ -2923,6 +3080,7 @@
       centerX: 29
       centerY: 5
 - name: Panther
+  copyright: Scratch
   tags:
     - animals
     - tiger
@@ -2942,6 +3100,7 @@
       centerX: 83
       centerY: 54
 - name: Pants
+  copyright: Scratch
   tags:
     - fashion
     - pants
@@ -2956,6 +3115,7 @@
       centerX: 23
       centerY: 44
 - name: Parrot
+  copyright: Scratch
   tags:
     - animals
     - bird
@@ -2974,6 +3134,7 @@
       centerX: 33
       centerY: 21
 - name: Party Hats
+  copyright: Scratch
   tags:
     - fashion
     - holiday
@@ -2991,6 +3152,7 @@
       centerX: 35
       centerY: 29
 - name: Pencil
+  copyright: Scratch
   tags:
     - thing
     - yellow
@@ -3004,6 +3166,7 @@
       centerX: 32
       centerY: 45
 - name: Penguin
+  copyright: Scratch
   tags:
     - animals
     - penguin
@@ -3028,6 +3191,7 @@
       centerX: 23
       centerY: 31
 - name: Penguin 2
+  copyright: Scratch
   tags:
     - animals
     - bird
@@ -3051,6 +3215,7 @@
       centerX: 32
       centerY: 41
 - name: Pico
+  copyright: Scratch
   tags:
     - fantasy
     - drawing
@@ -3072,6 +3237,7 @@
       centerX: 37
       centerY: 44
 - name: Pico Walking
+  copyright: Scratch
   tags:
     - fantasy
     - walking
@@ -3093,6 +3259,7 @@
       centerX: 36
       centerY: 47
 - name: Pitcher
+  copyright: Scratch
   tags:
     - baseball
     - sports
@@ -3116,6 +3283,7 @@
       centerX: 56
       centerY: 38
 - name: Planet2
+  copyright: Scratch
   tags:
     - space
   costumes:
@@ -3124,6 +3292,7 @@
       centerX: 48
       centerY: 48
 - name: Polar Bear
+  copyright: Scratch
   tags:
     - animals
     - bear
@@ -3149,6 +3318,7 @@
       centerX: 69
       centerY: 29
 - name: Potion
+  copyright: Scratch
   tags:
     - fantasy
     - ipzy
@@ -3167,6 +3337,7 @@
       centerX: 10
       centerY: 28
 - name: Prince
+  copyright: Scratch
   tags:
     - people
     - ☥
@@ -3177,6 +3348,7 @@
       centerX: 50
       centerY: 50
 - name: Princess
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -3205,6 +3377,7 @@
       centerX: 50
       centerY: 100
 - name: Pufferfish
+  copyright: Scratch
   tags:
     - animals
     - ocean
@@ -3229,6 +3402,7 @@
       centerX: 46
       centerY: 41
 - name: Rabbit
+  copyright: Scratch
   tags:
     - animals
     - daria skrybchencko
@@ -3258,6 +3432,7 @@
       centerX: 56
       centerY: 56
 - name: Radio
+  copyright: Scratch
   tags:
     - radio
     - music
@@ -3273,6 +3448,7 @@
       centerX: 34
       centerY: 56
 - name: Rainbow
+  copyright: Scratch
   tags:
     - things
     - flying
@@ -3284,6 +3460,7 @@
       centerX: 48
       centerY: 24
 - name: Referee
+  copyright: Scratch
   tags:
     - sports
     - soccer
@@ -3307,6 +3484,7 @@
       centerX: 33
       centerY: 42
 - name: Reindeer
+  copyright: Scratch
   tags:
     - animals
     - mammals
@@ -3317,6 +3495,7 @@
       centerX: 26
       centerY: 47
 - name: Retro Robot
+  copyright: Scratch
   tags:
     - robot
   costumes:
@@ -3333,6 +3512,7 @@
       centerX: 47
       centerY: 60
 - name: Ripley
+  copyright: Scratch
   tags:
     - space
     - people
@@ -3363,6 +3543,7 @@
       centerX: 39
       centerY: 60
 - name: Robot
+  copyright: Scratch
   tags:
     - space
     - robot
@@ -3385,6 +3566,7 @@
       centerX: 39
       centerY: 63
 - name: Rocketship
+  copyright: Scratch
   tags:
     - space
     - spaceship
@@ -3411,6 +3593,7 @@
       centerX: 38
       centerY: 57
 - name: Rocks
+  copyright: Scratch
   tags:
     - things
     - potassium
@@ -3420,6 +3603,7 @@
       centerX: 39
       centerY: 10
 - name: Rooster
+  copyright: Scratch
   tags:
     - animals
     - chicken
@@ -3439,6 +3623,7 @@
       centerX: 36
       centerY: 48
 - name: Ruby
+  copyright: Scratch
   tags:
     - people
   costumes:
@@ -3451,6 +3636,7 @@
       centerX: 25
       centerY: 47
 - name: Sasha
+  copyright: Scratch
   tags:
     - people
     - person
@@ -3474,6 +3660,7 @@
       centerX: 37
       centerY: 88
 - name: Saxophone
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -3487,6 +3674,7 @@
       centerX: 31
       centerY: 53
 - name: Scarf
+  copyright: Scratch
   tags:
     - fashion
     - red
@@ -3504,6 +3692,7 @@
       centerX: 20
       centerY: 29
 - name: Shark
+  copyright: Scratch
   tags:
     - animals
     - underwater
@@ -3519,6 +3708,7 @@
       centerX: 100
       centerY: 40
 - name: Shark 2
+  copyright: Scratch
   tags:
     - animals
     - ocean
@@ -3541,6 +3731,7 @@
       centerX: 51
       centerY: 25
 - name: Shirt
+  copyright: Scratch
   tags:
     - fashion
     - shirt
@@ -3550,6 +3741,7 @@
       centerX: 31
       centerY: 27
 - name: Shoes
+  copyright: Scratch
   tags:
     - fashion
     - shoes
@@ -3573,6 +3765,7 @@
       centerX: 30
       centerY: 22
 - name: Shorts
+  copyright: Scratch
   tags:
     - fashion
     - pants
@@ -3592,6 +3785,7 @@
       centerX: 23
       centerY: 19
 - name: Singer1
+  copyright: Scratch
   tags:
     - people
     - music
@@ -3601,6 +3795,7 @@
       centerX: 50
       centerY: 50
 - name: Skeleton
+  copyright: Scratch
   tags:
     - fantasy
     - spooky
@@ -3626,6 +3821,7 @@
       centerX: 37
       centerY: 59
 - name: Snake
+  copyright: Scratch
   tags:
     - animals
     - reptile
@@ -3644,6 +3840,7 @@
       centerX: 95
       centerY: 45
 - name: Snowflake
+  copyright: Scratch
   tags:
     - winter
   costumes:
@@ -3652,6 +3849,7 @@
       centerX: 69
       centerY: 69
 - name: Snowman
+  copyright: Scratch
   tags:
     - fantasy
     - drawing
@@ -3662,6 +3860,7 @@
       centerX: 50
       centerY: 50
 - name: Soccer Ball
+  copyright: Scratch
   tags:
     - sports
     - soccer
@@ -3673,6 +3872,7 @@
       centerX: 15
       centerY: 15
 - name: Speaker
+  copyright: Scratch
   tags:
     - music
     - things
@@ -3685,6 +3885,7 @@
       centerX: 35
       centerY: 53
 - name: Star
+  copyright: Scratch
   tags:
     - shapes
     - space
@@ -3694,6 +3895,7 @@
       centerX: 15
       centerY: 15
 - name: Starfish
+  copyright: Scratch
   tags:
     - animals
     - echinodermata
@@ -3706,10 +3908,11 @@
       centerX: 50
       centerY: 50
     - id: 01a7480f0466a59fdc77c9543abe95f8
-      name: "starfish-b "
+      name: 'starfish-b '
       centerX: 35
       centerY: 40
 - name: Stop
+  copyright: Scratch
   tags:
     - shapes
     - things
@@ -3719,6 +3922,7 @@
       centerX: 17
       centerY: 17
 - name: Strawberry
+  copyright: Scratch
   tags:
     - food
     - fruit
@@ -3745,6 +3949,7 @@
       centerX: 21
       centerY: 24
 - name: Sun
+  copyright: Scratch
   tags:
     - space
     - star
@@ -3758,6 +3963,7 @@
       centerX: 36
       centerY: 36
 - name: Sunglasses1
+  copyright: Scratch
   tags:
     - fashion
     - cool
@@ -3771,6 +3977,7 @@
       centerX: 19
       centerY: 7
 - name: Taco
+  copyright: Scratch
   tags:
     - food
     - designerd
@@ -3784,6 +3991,7 @@
       centerX: 83
       centerY: 55
 - name: Takeout
+  copyright: Scratch
   tags:
     - food
     - alex eben meyer
@@ -3809,6 +4017,7 @@
       centerX: 27
       centerY: 23
 - name: Tatiana
+  copyright: Scratch
   tags:
     - people
     - person
@@ -3836,6 +4045,7 @@
       centerX: 33
       centerY: 37
 - name: Taylor
+  copyright: Scratch
   tags:
     - people
     - person
@@ -3863,6 +4073,7 @@
       centerX: 33
       centerY: 34
 - name: Tennis Ball
+  copyright: Scratch
   tags:
     - ball
     - sports
@@ -3872,6 +4083,7 @@
       centerX: 10
       centerY: 10
 - name: Tera
+  copyright: Scratch
   tags:
     - fantasy
     - drawing
@@ -3893,6 +4105,7 @@
       centerX: 33
       centerY: 42
 - name: Toucan
+  copyright: Scratch
   tags:
     - animals
     - bird
@@ -3911,6 +4124,7 @@
       centerX: 53
       centerY: 42
 - name: Tree1
+  copyright: Scratch
   tags:
     - plants
     - wood
@@ -3921,6 +4135,7 @@
       centerX: 51
       centerY: 84
 - name: Trees
+  copyright: Scratch
   tags:
     - plants
     - wood
@@ -3935,6 +4150,7 @@
       centerX: 24
       centerY: 58
 - name: Trisha
+  copyright: Scratch
   tags:
     - people
     - person
@@ -3962,6 +4178,7 @@
       centerX: 42
       centerY: 37
 - name: Truck
+  copyright: Scratch
   tags:
     - truck
     - city
@@ -3981,6 +4198,7 @@
       centerX: 116
       centerY: 38
 - name: Trumpet
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -3994,6 +4212,7 @@
       centerX: 37
       centerY: 25
 - name: Unicorn
+  copyright: Scratch
   tags:
     - fantasy
     - animals
@@ -4004,6 +4223,7 @@
       centerX: 61
       centerY: 63
 - name: Unicorn 2
+  copyright: Scratch
   tags:
     - fantasy
     - animals
@@ -4016,6 +4236,7 @@
       centerX: 50
       centerY: 50
 - name: Unicorn Running
+  copyright: Scratch
   tags:
     - fantasy
     - animals
@@ -4047,6 +4268,7 @@
       centerX: 78
       centerY: 57
 - name: Wand
+  copyright: Scratch
   tags:
     - fantasy
     - ipzy
@@ -4057,6 +4279,7 @@
       centerX: 8
       centerY: 28
 - name: Wanda
+  copyright: Scratch
   tags:
     - people
   costumes:
@@ -4065,6 +4288,7 @@
       centerX: 33
       centerY: 45
 - name: Watermelon
+  copyright: Scratch
   tags:
     - food
     - fruit
@@ -4086,9 +4310,10 @@
       centerX: 14
       centerY: 11
 - name: Winter Hat
+  copyright: Scratch
   tags:
     - fashion
-    - " clothing"
+    - ' clothing'
     - winter
     - hat
   costumes:
@@ -4097,6 +4322,7 @@
       centerX: 23
       centerY: 26
 - name: Witch
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -4122,6 +4348,7 @@
       centerX: 43
       centerY: 93
 - name: Wizard
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -4143,6 +4370,7 @@
       centerX: 58
       centerY: 100
 - name: Wizard Girl
+  copyright: Scratch
   tags:
     - people
     - female
@@ -4156,6 +4384,7 @@
       centerX: 53
       centerY: 61
 - name: Wizard Hat
+  copyright: Scratch
   tags:
     - fashion
     - fantasy
@@ -4166,6 +4395,7 @@
       centerX: 23
       centerY: 40
 - name: Wizard-toad
+  copyright: Scratch
   tags:
     - fantasy
     - animals
@@ -4184,6 +4414,7 @@
       centerX: 58
       centerY: 53
 - name: Zebra
+  copyright: Scratch
   tags:
     - animals
     - zebra
@@ -4199,6 +4430,7 @@
       centerX: 64
       centerY: 37
 - name: Block-A
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4208,6 +4440,7 @@
       centerX: 19
       centerY: 25
 - name: Block-B
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4217,6 +4450,7 @@
       centerX: 19
       centerY: 28
 - name: Block-C
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4226,6 +4460,7 @@
       centerX: 23
       centerY: 29
 - name: Block-D
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4235,6 +4470,7 @@
       centerX: 21
       centerY: 27
 - name: Block-E
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4244,6 +4480,7 @@
       centerX: 17
       centerY: 26
 - name: Block-F
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4253,6 +4490,7 @@
       centerX: 15
       centerY: 27
 - name: Block-G
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4262,6 +4500,7 @@
       centerX: 19
       centerY: 26
 - name: Block-H
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4271,6 +4510,7 @@
       centerX: 18
       centerY: 25
 - name: Block-I
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4280,6 +4520,7 @@
       centerX: 13
       centerY: 26
 - name: Block-J
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4289,6 +4530,7 @@
       centerX: 17
       centerY: 27
 - name: Block-K
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4298,6 +4540,7 @@
       centerX: 16
       centerY: 27
 - name: Block-L
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4307,6 +4550,7 @@
       centerX: 17
       centerY: 27
 - name: Block-M
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4316,6 +4560,7 @@
       centerX: 23
       centerY: 25
 - name: Block-N
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4325,6 +4570,7 @@
       centerX: 19
       centerY: 25
 - name: Block-O
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4334,6 +4580,7 @@
       centerX: 21
       centerY: 27
 - name: Block-P
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4343,6 +4590,7 @@
       centerX: 12
       centerY: 22
 - name: Block-Q
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4352,6 +4600,7 @@
       centerX: 17
       centerY: 22
 - name: Block-R
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4361,6 +4610,7 @@
       centerX: 15
       centerY: 22
 - name: Block-S
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4370,6 +4620,7 @@
       centerX: 9
       centerY: 20
 - name: Block-T
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4379,6 +4630,7 @@
       centerX: 17
       centerY: 22
 - name: Block-U
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4388,6 +4640,7 @@
       centerX: 19
       centerY: 27
 - name: Block-V
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4397,6 +4650,7 @@
       centerX: 23
       centerY: 27
 - name: Block-W
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4406,6 +4660,7 @@
       centerX: 31
       centerY: 26
 - name: Block-X
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4415,6 +4670,7 @@
       centerX: 17
       centerY: 21
 - name: Block-Y
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4424,6 +4680,7 @@
       centerX: 17
       centerY: 22
 - name: Block-Z
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4433,6 +4690,7 @@
       centerX: 16
       centerY: 25
 - name: Glow-0
+  copyright: Scratch
   tags:
     - numbers
     - digits
@@ -4442,6 +4700,7 @@
       centerX: 19
       centerY: 26
 - name: Glow-1
+  copyright: Scratch
   tags:
     - numbers
     - digits
@@ -4451,6 +4710,7 @@
       centerX: 16
       centerY: 26
 - name: Glow-2
+  copyright: Scratch
   tags:
     - numbers
     - digits
@@ -4460,6 +4720,7 @@
       centerX: 19
       centerY: 27
 - name: Glow-3
+  copyright: Scratch
   tags:
     - numbers
     - digits
@@ -4469,6 +4730,7 @@
       centerX: 22
       centerY: 28
 - name: Glow-4
+  copyright: Scratch
   tags:
     - numbers
     - digits
@@ -4478,6 +4740,7 @@
       centerX: 21
       centerY: 25
 - name: Glow-5
+  copyright: Scratch
   tags:
     - numbers
     - digits
@@ -4487,6 +4750,7 @@
       centerX: 20
       centerY: 25
 - name: Glow-6
+  copyright: Scratch
   tags:
     - numbers
     - digits
@@ -4496,6 +4760,7 @@
       centerX: 20
       centerY: 25
 - name: Glow-7
+  copyright: Scratch
   tags:
     - numbers
     - digits
@@ -4505,6 +4770,7 @@
       centerX: 21
       centerY: 28
 - name: Glow-8
+  copyright: Scratch
   tags:
     - numbers
     - digits
@@ -4514,6 +4780,7 @@
       centerX: 21
       centerY: 25
 - name: Glow-9
+  copyright: Scratch
   tags:
     - numbers
     - digits
@@ -4523,6 +4790,7 @@
       centerX: 19
       centerY: 24
 - name: Glow-A
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4532,6 +4800,7 @@
       centerX: 24
       centerY: 25
 - name: Glow-B
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4541,6 +4810,7 @@
       centerX: 21
       centerY: 23
 - name: Glow-C
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4550,6 +4820,7 @@
       centerX: 18
       centerY: 23
 - name: Glow-D
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4559,6 +4830,7 @@
       centerX: 22
       centerY: 23
 - name: Glow-E
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4568,6 +4840,7 @@
       centerX: 23
       centerY: 25
 - name: Glow-F
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4577,6 +4850,7 @@
       centerX: 23
       centerY: 27
 - name: Glow-G
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4586,6 +4860,7 @@
       centerX: 21
       centerY: 26
 - name: Glow-H
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4595,6 +4870,7 @@
       centerX: 23
       centerY: 31
 - name: Glow-I
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4604,6 +4880,7 @@
       centerX: 14
       centerY: 25
 - name: Glow-J
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4613,6 +4890,7 @@
       centerX: 19
       centerY: 26
 - name: Glow-K
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4622,6 +4900,7 @@
       centerX: 25
       centerY: 24
 - name: Glow-L
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4631,6 +4910,7 @@
       centerX: 22
       centerY: 23
 - name: Glow-M
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4640,6 +4920,7 @@
       centerX: 28
       centerY: 26
 - name: Glow-N
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4649,6 +4930,7 @@
       centerX: 25
       centerY: 26
 - name: Glow-O
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4658,6 +4940,7 @@
       centerX: 19
       centerY: 26
 - name: Glow-P
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4667,6 +4950,7 @@
       centerX: 21
       centerY: 26
 - name: Glow-Q
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4676,6 +4960,7 @@
       centerX: 22
       centerY: 29
 - name: Glow-R
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4685,6 +4970,7 @@
       centerX: 23
       centerY: 25
 - name: Glow-S
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4694,6 +4980,7 @@
       centerX: 18
       centerY: 27
 - name: Glow-T
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4703,6 +4990,7 @@
       centerX: 23
       centerY: 25
 - name: Glow-U
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4712,6 +5000,7 @@
       centerX: 25
       centerY: 25
 - name: Glow-V
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4721,6 +5010,7 @@
       centerX: 23
       centerY: 28
 - name: Glow-W
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4730,6 +5020,7 @@
       centerX: 30
       centerY: 27
 - name: Glow-X
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4739,6 +5030,7 @@
       centerX: 27
       centerY: 26
 - name: Glow-Y
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4748,6 +5040,7 @@
       centerX: 25
       centerY: 27
 - name: Glow-Z
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4757,6 +5050,7 @@
       centerX: 20
       centerY: 26
 - name: Story-A
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4774,6 +5068,7 @@
       centerX: 15
       centerY: 16
 - name: Story-B
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4791,6 +5086,7 @@
       centerX: 12
       centerY: 15
 - name: Story-C
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4808,6 +5104,7 @@
       centerX: 13
       centerY: 16
 - name: Story-D
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4825,6 +5122,7 @@
       centerX: 15
       centerY: 15
 - name: Story-E
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4842,6 +5140,7 @@
       centerX: 12
       centerY: 15
 - name: Story-F
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4859,6 +5158,7 @@
       centerX: 11
       centerY: 15
 - name: Story-G
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4876,6 +5176,7 @@
       centerX: 14
       centerY: 16
 - name: Story-H
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4893,6 +5194,7 @@
       centerX: 15
       centerY: 16
 - name: Story-I
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4910,6 +5212,7 @@
       centerX: 5
       centerY: 15
 - name: Story-J
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4927,6 +5230,7 @@
       centerX: 8
       centerY: 16
 - name: Story-K
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4944,6 +5248,7 @@
       centerX: 14
       centerY: 16
 - name: Story-L
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4961,6 +5266,7 @@
       centerX: 11
       centerY: 15
 - name: Story-M
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4978,6 +5284,7 @@
       centerX: 18
       centerY: 16
 - name: Story-N
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -4995,6 +5302,7 @@
       centerX: 16
       centerY: 15
 - name: Story-O
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5012,6 +5320,7 @@
       centerX: 15
       centerY: 16
 - name: Story-P
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5029,6 +5338,7 @@
       centerX: 11
       centerY: 16
 - name: Story-Q
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5046,6 +5356,7 @@
       centerX: 15
       centerY: 19
 - name: Story-R
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5063,6 +5374,7 @@
       centerX: 13
       centerY: 15
 - name: Story-S
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5080,6 +5392,7 @@
       centerX: 9
       centerY: 15
 - name: Story-T
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5097,6 +5410,7 @@
       centerX: 13
       centerY: 16
 - name: Story-U
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5114,6 +5428,7 @@
       centerX: 14
       centerY: 16
 - name: Story-V
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5131,6 +5446,7 @@
       centerX: 15
       centerY: 15
 - name: Story-W
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5148,6 +5464,7 @@
       centerX: 23
       centerY: 16
 - name: Story-X
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5165,6 +5482,7 @@
       centerX: 13
       centerY: 16
 - name: Story-Y
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5182,6 +5500,7 @@
       centerX: 13
       centerY: 16
 - name: Story-Z
+  copyright: Scratch
   tags:
     - alphabet
     - letters

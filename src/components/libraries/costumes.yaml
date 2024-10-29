@@ -1,5 +1,6 @@
 - id: 37387292e0048215050c8c2183b36ad3
   name: Abby-a
+  copyright: Scratch
   tags:
     - people
     - person
@@ -8,6 +9,7 @@
   centerY: 67
 - id: 1896658efd41bdbea5782a53c90f8ced
   name: Abby-b
+  copyright: Scratch
   tags:
     - people
     - person
@@ -16,6 +18,7 @@
   centerY: 67
 - id: 6edfa85c6f88ca8784dfa2e6d71140b7
   name: Abby-c
+  copyright: Scratch
   tags:
     - people
     - person
@@ -24,6 +27,7 @@
   centerY: 67
 - id: 3be04ed635485ca1665054c28f926846
   name: Abby-d
+  copyright: Scratch
   tags:
     - people
     - person
@@ -32,6 +36,7 @@
   centerY: 67
 - id: db164b64be188206253778925305f298
   name: Andie-a
+  copyright: Scratch
   tags:
     - sports
     - basketball
@@ -44,6 +49,7 @@
   centerY: 43
 - id: dc0bd3eef5b147eb37c4b48fbe0cff3d
   name: Andie-b
+  copyright: Scratch
   tags:
     - sports
     - basketball
@@ -56,6 +62,7 @@
   centerY: 61
 - id: ed90191c94f067caab5c2a64d6129ddb
   name: Andie-c
+  copyright: Scratch
   tags:
     - sports
     - basketball
@@ -68,6 +75,7 @@
   centerY: 33
 - id: 6aa88f364ad6dc12f92dba1c650ac194
   name: Andie-d
+  copyright: Scratch
   tags:
     - sports
     - basketball
@@ -80,6 +88,7 @@
   centerY: 38
 - id: f97338e009114e96aded855880623db2
   name: Apple
+  copyright: Scratch
   tags:
     - food
     - red
@@ -89,6 +98,7 @@
   centerY: 21
 - id: 503dcd77e73942c36a131023b5c42ec4
   name: Arrow1-a
+  copyright: Scratch
   tags:
     - icons
     - symbols
@@ -97,6 +107,7 @@
   centerY: 15
 - id: a28e60b76f45d7a0e0f031e4b19a56cf
   name: Arrow1-b
+  copyright: Scratch
   tags:
     - icons
     - symbols
@@ -105,6 +116,7 @@
   centerY: 15
 - id: 104b6297ec6a71e0b5b10d902dab055e
   name: Arrow1-c
+  copyright: Scratch
   tags:
     - icons
     - symbols
@@ -113,6 +125,7 @@
   centerY: 19
 - id: c5bad6f002d681194aa7958da8889675
   name: Arrow1-d
+  copyright: Scratch
   tags:
     - icons
     - symbols
@@ -121,6 +134,7 @@
   centerY: 19
 - id: 3ae3d0aea62c76758714ff6ccf059092
   name: Avery Walking-a
+  copyright: Scratch
   tags:
     - people
     - walking
@@ -128,6 +142,7 @@
   centerY: 63
 - id: 4b1b314f1abb756aa26d2ce05edbd360
   name: Avery Walking-b
+  copyright: Scratch
   tags:
     - people
     - walking
@@ -135,6 +150,7 @@
   centerY: 68
 - id: 81e96cae04100d34db7da452d38dccea
   name: Avery Walking-c
+  copyright: Scratch
   tags:
     - people
     - walking
@@ -142,6 +158,7 @@
   centerY: 63
 - id: 0c4824b114262fe063713b269e7f726e
   name: Avery Walking-d
+  copyright: Scratch
   tags:
     - people
     - walking
@@ -149,18 +166,21 @@
   centerY: 67
 - id: 6e80914e5860d38b89fe44d1e002332f
   name: Avery-a
+  copyright: Scratch
   tags:
     - people
   centerX: 26
   centerY: 63
 - id: 059ff8317b9590be88cf0ca9701dcbb1
   name: Avery-b
+  copyright: Scratch
   tags:
     - people
   centerX: 26
   centerY: 63
 - id: 4765caa1933ca104a57a01c949a61160
   name: Ball-a
+  copyright: Scratch
   tags:
     - round
     - game
@@ -172,6 +192,7 @@
   centerY: 15
 - id: a7d5a9bd887cbf122b76651d8a1e7871
   name: Ball-b
+  copyright: Scratch
   tags:
     - round
     - game
@@ -183,6 +204,7 @@
   centerY: 15
 - id: 74ef19a6e890d6bdcb82bfc0298ac66b
   name: Ball-c
+  copyright: Scratch
   tags:
     - round
     - game
@@ -194,6 +216,7 @@
   centerY: 15
 - id: 3be85fa203dba342ed761b0b702c599b
   name: Ball-d
+  copyright: Scratch
   tags:
     - round
     - game
@@ -205,6 +228,7 @@
   centerY: 15
 - id: 03dd7d8b12d65bcde11dd898dd689112
   name: Ball-e
+  copyright: Scratch
   tags:
     - round
     - game
@@ -216,30 +240,35 @@
   centerY: 15
 - id: f9ff7c7ff9c91440ef964ec569622755
   name: Ballerina-a
+  copyright: Scratch
   tags:
     - dance
   centerX: 21
   centerY: 33
 - id: d045196db1dfb1b70f8bf22af161556e
   name: Ballerina-b
+  copyright: Scratch
   tags:
     - dance
   centerX: 20
   centerY: 16
 - id: ca8685ce1dbc54b5e53026b56e66a8e1
   name: Ballerina-c
+  copyright: Scratch
   tags:
     - dance
   centerX: 40
   centerY: 39
 - id: a71437a7c69520f2e93c1c75c29f56e3
   name: Ballerina-d
+  copyright: Scratch
   tags:
     - dance
   centerX: 24
   centerY: 52
 - id: 3fa6530dcf4155f381c21a09c20dbb1c
   name: Balloon1-a
+  copyright: Scratch
   tags:
     - party
     - pop
@@ -251,6 +280,7 @@
   centerY: 63
 - id: d4c99f368b4235c2e32e36a3be5308e3
   name: Balloon1-b
+  copyright: Scratch
   tags:
     - party
     - pop
@@ -262,6 +292,7 @@
   centerY: 63
 - id: 8f435b77c44c6d48bd16136d76dc1154
   name: Balloon1-c
+  copyright: Scratch
   tags:
     - party
     - pop
@@ -273,6 +304,7 @@
   centerY: 63
 - id: 11b67a66cd7b81b9264a6b93c080783b
   name: Bananas
+  copyright: Scratch
   tags:
     - food
     - yellow
@@ -283,6 +315,7 @@
   centerY: 25
 - id: 406490a7fb0f9a36c2b2291ce5682e90
   name: Baseball
+  copyright: Scratch
   tags:
     - baseball
     - sports
@@ -292,6 +325,7 @@
   centerY: 19
 - id: 5f89644491ade86f8593c25a8249b185
   name: Basketball
+  copyright: Scratch
   tags:
     - sports
     - basketball
@@ -300,6 +334,7 @@
   centerY: 15
 - id: 1d5b2af9a8921c911be924b30b5dc691
   name: Bat-a
+  copyright: Scratch
   tags:
     - fantasy
     - spooky
@@ -311,6 +346,7 @@
   centerY: 40
 - id: a96531c6a2d399b56676c51fa33856ed
   name: Bat-b
+  copyright: Scratch
   tags:
     - fantasy
     - spooky
@@ -322,6 +358,7 @@
   centerY: 41
 - id: 3019ba00c90ddf4424183a834eab3ed9
   name: Bat-c
+  copyright: Scratch
   tags:
     - fantasy
     - spooky
@@ -333,6 +370,7 @@
   centerY: 44
 - id: 82ce8dd60a4573893a1fb346fcd74171
   name: Bat-d
+  copyright: Scratch
   tags:
     - fantasy
     - spooky
@@ -344,6 +382,7 @@
   centerY: 41
 - id: 6f6cee9781237acd001d48ce9e26ffb4
   name: Batter-a
+  copyright: Scratch
   tags:
     - baseball
     - sports
@@ -353,6 +392,7 @@
   centerY: 53
 - id: eba9522dc5efb0a89979d8209ea60ec7
   name: Batter-b
+  copyright: Scratch
   tags:
     - baseball
     - sports
@@ -362,6 +402,7 @@
   centerY: 45
 - id: 562055ab25a26825a997cf272df9b179
   name: Batter-c
+  copyright: Scratch
   tags:
     - baseball
     - sports
@@ -371,6 +412,7 @@
   centerY: 44
 - id: ac60fe97fc2485a6d2df74108bd24320
   name: Batter-d
+  copyright: Scratch
   tags:
     - baseball
     - sports
@@ -380,6 +422,7 @@
   centerY: 68
 - id: bbed3dee8faa4dbefca1d39ac77977ec
   name: Beachball
+  copyright: Scratch
   tags:
     - round
     - sports
@@ -389,6 +432,7 @@
   centerY: 22
 - id: 5f2d81e4e04b0949567615d9598226a3
   name: Bear-a
+  copyright: Scratch
   tags:
     - animals
     - ipzy
@@ -397,6 +441,7 @@
   centerY: 60
 - id: b23fea2f6caa8073b9b4f506fabf0465
   name: Bear-b
+  copyright: Scratch
   tags:
     - animals
     - ipzy
@@ -405,6 +450,7 @@
   centerY: 127
 - id: b433c82431f84eb54e63396bb0d43ada
   name: Bear-walk-a
+  copyright: Scratch
   tags:
     - animals
     - ipzy
@@ -413,6 +459,7 @@
   centerY: 63
 - id: 1b914f4a10844f311de1a783dd11e10f
   name: Bear-walk-b
+  copyright: Scratch
   tags:
     - animals
     - ipzy
@@ -421,6 +468,7 @@
   centerY: 63
 - id: 97f563e61377a37353182c3dc568e1c2
   name: Bear-walk-c
+  copyright: Scratch
   tags:
     - animals
     - ipzy
@@ -429,6 +477,7 @@
   centerY: 63
 - id: dd74e9a5673081342da75cb8e6ee6b9c
   name: Bear-walk-d
+  copyright: Scratch
   tags:
     - animals
     - ipzy
@@ -437,6 +486,7 @@
   centerY: 63
 - id: c36e9fd4c684ad2980a01154508656ac
   name: Bear-walk-e
+  copyright: Scratch
   tags:
     - animals
     - ipzy
@@ -445,6 +495,7 @@
   centerY: 63
 - id: f4d854fd1c530f3d1d1fb76991a69898
   name: Bear-walk-f
+  copyright: Scratch
   tags:
     - animals
     - ipzy
@@ -453,6 +504,7 @@
   centerY: 63
 - id: 01c5389ffbebe4cd62c4a360845f1e2a
   name: Bear-walk-g
+  copyright: Scratch
   tags:
     - animals
     - ipzy
@@ -461,6 +513,7 @@
   centerY: 63
 - id: c2b483052f687b44d37fc132bc79044b
   name: Bear-walk-h
+  copyright: Scratch
   tags:
     - animals
     - ipzy
@@ -469,6 +522,7 @@
   centerY: 63
 - id: f87769b050068dc0c59d1c917a3426cf
   name: Beetle
+  copyright: Scratch
   tags:
     - animals
     - insect
@@ -478,6 +532,7 @@
   centerY: 25
 - id: 4a46fc44eb6d82f0e833a01886ffefed
   name: Bell1
+  copyright: Scratch
   tags:
     - music
     - holiday
@@ -487,6 +542,7 @@
   centerY: 46
 - id: 40dd73b4b9c3efcf21a991a3371dad77
   name: Ben-a
+  copyright: Scratch
   tags:
     - sports
     - soccer
@@ -497,6 +553,7 @@
   centerY: 46
 - id: 52965196efd3cd909952753fa9450302
   name: Ben-b
+  copyright: Scratch
   tags:
     - sports
     - soccer
@@ -507,6 +564,7 @@
   centerY: 46
 - id: 4e37ac494bca6687b27215b8cc5b93ff
   name: Ben-c
+  copyright: Scratch
   tags:
     - sports
     - soccer
@@ -517,6 +575,7 @@
   centerY: 47
 - id: 8caa44b8d5cdce5e7d6839ed0911706f
   name: Ben-d
+  copyright: Scratch
   tags:
     - sports
     - soccer
@@ -527,6 +586,7 @@
   centerY: 47
 - id: 48a1dd8e8cc7daba6bc7cced80b2983b
   name: Bowl-a
+  copyright: Scratch
   tags:
     - thing
     - food
@@ -534,12 +594,14 @@
   centerY: 10
 - id: 9fc8cf183897a3a8fa3d8309b7c6edb7
   name: Bowtie
+  copyright: Scratch
   tags:
     - fashion
   centerX: 10
   centerY: 5
 - id: 164e2f03d4d40bcfc4460fee5631fa68
   name: Bread
+  copyright: Scratch
   tags:
     - food
     - ipzy
@@ -547,6 +609,7 @@
   centerY: 8
 - id: 7ce1ccd941c7bbfa1ae4ed294204845e
   name: Broom
+  copyright: Scratch
   tags:
     - fantasy
     - ipzy
@@ -556,6 +619,7 @@
   centerY: 17
 - id: f7729364f9b119fd0dedffa7627c27a7
   name: Building-a
+  copyright: Scratch
   tags:
     - things
     - city
@@ -565,6 +629,7 @@
   centerY: 20
 - id: a2b8606d0cc48f72823def5abf6271f6
   name: Building-b
+  copyright: Scratch
   tags:
     - things
     - city
@@ -574,6 +639,7 @@
   centerY: -7
 - id: 3c8dab21b026b6a63209953fcbebaf45
   name: Building-c
+  copyright: Scratch
   tags:
     - things
     - city
@@ -583,6 +649,7 @@
   centerY: 11
 - id: 49d5c16552189f62b4698852a185ad68
   name: Building-d
+  copyright: Scratch
   tags:
     - things
     - city
@@ -592,6 +659,7 @@
   centerY: -7
 - id: 4799d0209336e6b06a51c01b06bc9f2d
   name: Building-e
+  copyright: Scratch
   tags:
     - things
     - city
@@ -601,6 +669,7 @@
   centerY: 37
 - id: e2e8cafdd13109b0de9a1d5a9c89ce89
   name: Building-f
+  copyright: Scratch
   tags:
     - things
     - city
@@ -610,6 +679,7 @@
   centerY: 18
 - id: b3094b73fa0da1bd871ae0720931a838
   name: Building-g
+  copyright: Scratch
   tags:
     - things
     - city
@@ -619,6 +689,7 @@
   centerY: -43
 - id: cfdaeeca7818f37cc7be592509ff94c7
   name: Building-h
+  copyright: Scratch
   tags:
     - things
     - city
@@ -628,6 +699,7 @@
   centerY: 91
 - id: c557dbb65362a8b6106a7f7874885cb5
   name: Building-i
+  copyright: Scratch
   tags:
     - things
     - city
@@ -637,6 +709,7 @@
   centerY: -8
 - id: 82ed20b9ef05bb4164120fdddf35a7f3
   name: Building-j
+  copyright: Scratch
   tags:
     - things
     - city
@@ -646,6 +719,7 @@
   centerY: 22
 - id: 71db7d1f49ab18a33b620716f836e166
   name: Butterfly1-a
+  copyright: Scratch
   tags:
     - animals
     - insect
@@ -656,6 +730,7 @@
   centerY: 33
 - id: 2122496fbbb926d757b9e59599af1ea7
   name: Butterfly1-b
+  copyright: Scratch
   tags:
     - animals
     - insect
@@ -666,6 +741,7 @@
   centerY: 33
 - id: 2d0ee2e9ace7920973a7a7149919d131
   name: Butterfly1-c
+  copyright: Scratch
   tags:
     - animals
     - insect
@@ -676,6 +752,7 @@
   centerY: 33
 - id: a4e2da3fbaf619569369e0f989391f25
   name: Butterfly2-a
+  copyright: Scratch
   tags:
     - animals
     - drawing
@@ -687,6 +764,7 @@
   centerY: 50
 - id: eeaa58916731ff0a3dc379d6ab62486a
   name: Butterfly2-b
+  copyright: Scratch
   tags:
     - animals
     - drawing
@@ -698,6 +776,7 @@
   centerY: 50
 - id: 8275ada899009d48b24b7d4b7963e287
   name: Button1
+  copyright: Scratch
   tags:
     - icons
     - round
@@ -707,6 +786,7 @@
   centerY: 48
 - id: ad3100d156b3bfde2f0bd07e40b3e650
   name: Button2-a
+  copyright: Scratch
   tags:
     - icons
     - blue
@@ -715,6 +795,7 @@
   centerY: 48
 - id: e06edbec3ee5b5d28ef6d08ecf4fd2f7
   name: Button2-b
+  copyright: Scratch
   tags:
     - icons
     - orange
@@ -723,6 +804,7 @@
   centerY: 48
 - id: cdb0aaffd16aed08a47c9f09af855d27
   name: Button3-a
+  copyright: Scratch
   tags:
     - icons
     - gray
@@ -731,6 +813,7 @@
   centerY: 48
 - id: 0132fafab78cc50e0e792257fec68aa6
   name: Button3-b
+  copyright: Scratch
   tags:
     - icons
     - blue
@@ -739,6 +822,7 @@
   centerY: 48
 - id: 829fbdb828b8ca99d74ca830aa737d80
   name: Button4-a
+  copyright: Scratch
   tags:
     - icons
     - checkmark
@@ -746,6 +830,7 @@
   centerY: 23
 - id: ba83e63d826ec32746bcc76abd87c383
   name: Button4-b
+  copyright: Scratch
   tags:
     - icons
     - checkmark
@@ -753,6 +838,7 @@
   centerY: 23
 - id: 3611a4738a5bd7512ceffbaf8df7570e
   name: Button5-a
+  copyright: Scratch
   tags:
     - icons
     - symbols
@@ -762,6 +848,7 @@
   centerY: 48
 - id: 646b661761e162c9de359dcb85e231c0
   name: Button5-b
+  copyright: Scratch
   tags:
     - icons
     - symbols
@@ -771,6 +858,7 @@
   centerY: 48
 - id: 0007d7ac4fcd477e7bfa70fce191db0b
   name: Cake-a
+  copyright: Scratch
   tags:
     - food
     - bakery
@@ -783,6 +871,7 @@
   centerY: 33
 - id: 44b8d47984fd89de9f5d61f4c4920860
   name: Cake-b
+  copyright: Scratch
   tags:
     - food
     - bakery
@@ -796,6 +885,7 @@
   centerY: 28
 - id: 7a9e53eda7a5abb218fc27651f669f81
   name: Casey-a
+  copyright: Scratch
   tags:
     - sports
     - basketball
@@ -805,6 +895,7 @@
   centerY: 41
 - id: 62663eaded51c8b783aa16d1be0edcff
   name: Casey-b
+  copyright: Scratch
   tags:
     - sports
     - basketball
@@ -814,6 +905,7 @@
   centerY: 49
 - id: ac9a8e33dfeb530a5f5da10f794c9635
   name: Casey-c
+  copyright: Scratch
   tags:
     - sports
     - basketball
@@ -823,6 +915,7 @@
   centerY: 48
 - id: 678f0444c6689b41930e39f529fe2314
   name: Casey-d
+  copyright: Scratch
   tags:
     - sports
     - basketball
@@ -832,6 +925,7 @@
   centerY: 49
 - id: 6d173123790be7c71a0f9744c9c1fdf2
   name: Cat 2
+  copyright: Scratch
   tags:
     - kitty
     - kitten
@@ -841,6 +935,7 @@
   centerY: 26
 - id: e8adb4ad89a66e41c8c53c16fdc03ee2
   name: Cat Flying-a
+  copyright: Scratch
   tags:
     - animals
     - cat
@@ -850,6 +945,7 @@
   centerY: 25
 - id: 406b533c962047e7e35198e3531c3736
   name: Cat Flying-b
+  copyright: Scratch
   tags:
     - animals
     - cat
@@ -859,6 +955,7 @@
   centerY: 31
 - id: ca4bae0b042ecff0a4f3fb1a6469c548
   name: Cat-a
+  copyright: Scratch
   tags:
     - animals
     - cat
@@ -871,6 +968,7 @@
   centerY: 33
 - id: 5c3d0f003b0c72204407b4beac704be8
   name: Cat-b
+  copyright: Scratch
   tags:
     - animals
     - cat
@@ -883,6 +981,7 @@
   centerY: 35
 - id: 1a9a437e856a728f2b3ddebbac78726e
   name: Catcher-a
+  copyright: Scratch
   tags:
     - baseball
     - sports
@@ -892,6 +991,7 @@
   centerY: 34
 - id: caa1bcd418c85969c19c1f53ab4a8e30
   name: Catcher-b
+  copyright: Scratch
   tags:
     - baseball
     - sports
@@ -901,6 +1001,7 @@
   centerY: 31
 - id: 3994f15811fa4fe0b36c07a6cd90dc25
   name: Catcher-c
+  copyright: Scratch
   tags:
     - baseball
     - sports
@@ -910,6 +1011,7 @@
   centerY: 58
 - id: 84148fc6e658c22360af825e102706c1
   name: Catcher-d
+  copyright: Scratch
   tags:
     - baseball
     - sports
@@ -919,6 +1021,7 @@
   centerY: 31
 - id: c59f49e4417c60531b93b50b9698f4be
   name: Centaur-a
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -928,6 +1031,7 @@
   centerY: 93
 - id: 046d4bd37cef3685e26208f27e6e4359
   name: Centaur-b
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -937,6 +1041,7 @@
   centerY: 93
 - id: 57726edeb815e761e0512468100db0c9
   name: Centaur-c
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -946,6 +1051,7 @@
   centerY: 93
 - id: 73f1708a9168d095cbe0fb5b518f5c05
   name: Centaur-d
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -955,6 +1061,7 @@
   centerY: 93
 - id: c1f006e19a61590205666fe079ef2d8c
   name: Character1-a
+  copyright: Scratch
   tags:
     - people
     - person
@@ -968,6 +1075,7 @@
   centerY: 83
 - id: a099ed11b3f6c002732dd53d00e3db3b
   name: Character1-b
+  copyright: Scratch
   tags:
     - disability
     - disabled
@@ -983,6 +1091,7 @@
   centerY: 82
 - id: c73a60416b8fd8bec381271512b76bbe
   name: Character1-c
+  copyright: Scratch
   tags:
     - people
     - person
@@ -996,6 +1105,7 @@
   centerY: 85
 - id: 3eb6eebd5909ea29e30ce57a554fbffb
   name: Character1-d
+  copyright: Scratch
   tags:
     - people
     - person
@@ -1009,6 +1119,7 @@
   centerY: 83
 - id: 5131c2bf892cd6c85ed0d4a0c682763c
   name: Character1-e
+  copyright: Scratch
   tags:
     - disability
     - disabled
@@ -1025,6 +1136,7 @@
   centerY: 80
 - id: a81afdbafbed124348109bd01bc1e0cd
   name: Character1-f
+  copyright: Scratch
   tags:
     - people
     - person
@@ -1038,6 +1150,7 @@
   centerY: 85
 - id: e0f9859b90b0e2cb8bc7f0d2b2227678
   name: Character1-g
+  copyright: Scratch
   tags:
     - people
     - person
@@ -1051,6 +1164,7 @@
   centerY: 84
 - id: c481032d3bb477b3ffde145754e6509b
   name: Character1-h
+  copyright: Scratch
   tags:
     - people
     - person
@@ -1064,6 +1178,7 @@
   centerY: 84
 - id: 3e4389abebe135b5f16c66717a8560fe
   name: Character1-i
+  copyright: Scratch
   tags:
     - people
     - person
@@ -1077,6 +1192,7 @@
   centerY: 83
 - id: a5dd9d534ff44ca11091ca5650cb13a9
   name: Character1-j
+  copyright: Scratch
   tags:
     - people
     - person
@@ -1090,6 +1206,7 @@
   centerY: 85
 - id: b0194d8d690845eb7b43603daef2dcae
   name: Character1-k
+  copyright: Scratch
   tags:
     - people
     - person
@@ -1103,6 +1220,7 @@
   centerY: 82
 - id: 1d37c62f8a84ff25de120f26585d37b8
   name: Character1-l
+  copyright: Scratch
   tags:
     - people
     - person
@@ -1116,6 +1234,7 @@
   centerY: 83
 - id: 76c7d61986c349183d98b8d78428260b
   name: Character1-m
+  copyright: Scratch
   tags:
     - old
     - grandma
@@ -1132,6 +1251,7 @@
   centerY: 84
 - id: 7414950a7a26e984b12cf169b258f528
   name: Character2-a
+  copyright: Scratch
   tags:
     - people
     - person
@@ -1145,6 +1265,7 @@
   centerY: 85
 - id: 53570baf538b90172baa43e2aa8144d0
   name: Character2-b
+  copyright: Scratch
   tags:
     - people
     - person
@@ -1158,6 +1279,7 @@
   centerY: 83
 - id: 214bee268785c5d41ed0ce80a015afe9
   name: Character2-c
+  copyright: Scratch
   tags:
     - people
     - person
@@ -1171,6 +1293,7 @@
   centerY: 82
 - id: e3387d81b68fd379b391180ed09092d0
   name: Character2-d
+  copyright: Scratch
   tags:
     - people
     - person
@@ -1184,6 +1307,7 @@
   centerY: 85
 - id: 9083d754c3faf005043c736a133ed2fd
   name: Character2-e
+  copyright: Scratch
   tags:
     - people
     - person
@@ -1197,6 +1321,7 @@
   centerY: 82
 - id: 573d5740c8eaff007fecf491dd4028e8
   name: Character2-f
+  copyright: Scratch
   tags:
     - people
     - person
@@ -1210,6 +1335,7 @@
   centerY: 85
 - id: ca4f7bb26133fbb913198059e25fbd7a
   name: Character2-g
+  copyright: Scratch
   tags:
     - people
     - person
@@ -1223,6 +1349,7 @@
   centerY: 84
 - id: 837beb7ac0ca05443bd88609a7141987
   name: Character2-h
+  copyright: Scratch
   tags:
     - disability
     - disabled
@@ -1238,6 +1365,7 @@
   centerY: 85
 - id: ed9c02a2df16000a53ac21e5f1fa31a3
   name: Character2-i
+  copyright: Scratch
   tags:
     - people
     - person
@@ -1251,6 +1379,7 @@
   centerY: 85
 - id: d82ccc16a4e3fc0b29108fdb6645c53b
   name: Character2-j
+  copyright: Scratch
   tags:
     - people
     - person
@@ -1264,6 +1393,7 @@
   centerY: 85
 - id: f20c9e5a0993136052c7cbcf875e9c93
   name: Chick-a
+  copyright: Scratch
   tags:
     - animals
     - chicken
@@ -1273,6 +1403,7 @@
   centerY: 25
 - id: 6c8e4df4506e22038f75ea54516c8d9a
   name: Chick-b
+  copyright: Scratch
   tags:
     - animals
     - chicken
@@ -1282,6 +1413,7 @@
   centerY: 25
 - id: da1551684b77d7da6a25e1cf3e521f77
   name: Chick-c
+  copyright: Scratch
   tags:
     - animals
     - chicken
@@ -1291,6 +1423,7 @@
   centerY: 16
 - id: 85da1a754c2c5ed4c1d539765ec164e4
   name: City Bus-a
+  copyright: Scratch
   tags:
     - city
     - bus
@@ -1300,6 +1433,7 @@
   centerY: 44
 - id: 38be2b8b57886e18b37c6c208c128586
   name: City Bus-b
+  copyright: Scratch
   tags:
     - city
     - bus
@@ -1309,6 +1443,7 @@
   centerY: 44
 - id: 34c22976a5510f184d5754290776f0b5
   name: Cloud
+  copyright: Scratch
   tags:
     - thing
     - weather
@@ -1317,6 +1452,7 @@
   centerY: 30
 - id: 244520e1b2518939bdc300ad68e48e6c
   name: Cloud-a
+  copyright: Scratch
   tags:
     - flying
     - weather
@@ -1326,6 +1462,7 @@
   centerY: 13
 - id: 769a60a078e8707bed02ad3feba65f20
   name: Cloud-b
+  copyright: Scratch
   tags:
     - flying
     - weather
@@ -1335,6 +1472,7 @@
   centerY: 13
 - id: 1c4e5f0a366d16751c41be40db930dc3
   name: Cloud-c
+  copyright: Scratch
   tags:
     - flying
     - weather
@@ -1344,6 +1482,7 @@
   centerY: 6
 - id: f2bf5dc56326667d2a32e44a8d81a12f
   name: Cloud-d
+  copyright: Scratch
   tags:
     - flying
     - weather
@@ -1353,6 +1492,7 @@
   centerY: 14
 - id: 7efdb060ce2064cf63a91ce071a6a233
   name: Convertible
+  copyright: Scratch
   tags:
     - car
     - transportation
@@ -1360,6 +1500,7 @@
   centerY: 15
 - id: fa7d726eaf5a43ff4a2067a49f234575
   name: Convertible 3
+  copyright: Scratch
   tags:
     - transportation
     - car
@@ -1368,6 +1509,7 @@
   centerY: 50
 - id: f9183ac7197bbbb293592df37123e13c
   name: Crab-a
+  copyright: Scratch
   tags:
     - animals
     - crustacean
@@ -1383,6 +1525,7 @@
   centerY: 50
 - id: 92a879f016cdbb3de08e842f3a664937
   name: Crab-b
+  copyright: Scratch
   tags:
     - animals
     - crustacean
@@ -1398,6 +1541,7 @@
   centerY: 50
 - id: f205099ae20a5a12ed42691e5c97f6ed
   name: Crystal-a
+  copyright: Scratch
   tags:
     - fantasy
     - ipzy
@@ -1406,6 +1550,7 @@
   centerY: 10
 - id: 4dd15670edcba9667670e11ffbfc0ef2
   name: Crystal-b
+  copyright: Scratch
   tags:
     - fantasy
     - ipzy
@@ -1414,78 +1559,91 @@
   centerY: 16
 - id: cdbfd2b552685dea32d496eb58d82d9d
   name: Dani-a
+  copyright: Scratch
   tags:
     - people
   centerX: 25
   centerY: 94
 - id: 6d6e3c498e0c00b80a976098b2dfaec5
   name: Dani-b
+  copyright: Scratch
   tags:
     - people
   centerX: 57
   centerY: 94
 - id: 9fe7e8ea5e2e71c186ed16978b3f5bf3
   name: Dani-c
+  copyright: Scratch
   tags:
     - people
   centerX: 25
   centerY: 92
 - id: 832473fb545350007933578d2729b529
   name: Dee-a
+  copyright: Scratch
   tags:
     - people
   centerX: 35
   centerY: 66
 - id: 4579968d8a7f5802e2b5ca26ef793bea
   name: Dee-b
+  copyright: Scratch
   tags:
     - people
   centerX: 22
   centerY: 66
 - id: 5f1deeda625f18f61a8c7e1d01a6a396
   name: Dee-c
+  copyright: Scratch
   tags:
     - people
   centerX: 24
   centerY: 68
 - id: 9ef7507f800aa0f2a3ef9fad592f2027
   name: Dee-d
+  copyright: Scratch
   tags:
     - people
   centerX: 22
   centerY: 66
 - id: f1dd59800c8d3d8bf29e71921652b491
   name: Dee-e
+  copyright: Scratch
   tags:
     - people
   centerX: 21
   centerY: 66
 - id: 27d75774bf36436e8661ea663ee1c973
   name: Devin-a
+  copyright: Scratch
   tags:
     - people
   centerX: 26
   centerY: 63
 - id: 4c31f1644ba55bef17b69f80d40cdf94
   name: Devin-b
+  copyright: Scratch
   tags:
     - people
   centerX: 27
   centerY: 64
 - id: 6aa6f6df66a8e09e9b73198c6658c94a
   name: Devin-c
+  copyright: Scratch
   tags:
     - people
   centerX: 21
   centerY: 63
 - id: f85c694499b6c91da23f792629d3367f
   name: Devin-d
+  copyright: Scratch
   tags:
     - people
   centerX: 27
   centerY: 63
 - id: 86afc9702ada8d86e20a204f2aefd145
   name: Dinosaur1-a
+  copyright: Scratch
   tags:
     - animals
     - dinosaur
@@ -1495,6 +1653,7 @@
   centerY: 61
 - id: 747b69eebb17ae17ea5c150e26133d2d
   name: Dinosaur1-b
+  copyright: Scratch
   tags:
     - animals
     - dinosaur
@@ -1504,6 +1663,7 @@
   centerY: 31
 - id: 191dfd778b3bbdc646281ed2dead1851
   name: Dinosaur1-c
+  copyright: Scratch
   tags:
     - animals
     - dinosaur
@@ -1513,6 +1673,7 @@
   centerY: 61
 - id: f892e8d8942006a71a0e57f0e5715133
   name: Dinosaur1-d
+  copyright: Scratch
   tags:
     - animals
     - dinosaur
@@ -1522,6 +1683,7 @@
   centerY: 61
 - id: 3b8d7f011b85ed11bd1e2b7ef75fa9d3
   name: Dinosaur2-a
+  copyright: Scratch
   tags:
     - animals
     - dinosaur
@@ -1531,6 +1693,7 @@
   centerY: 45
 - id: a74215cb04384834021f75af7c2a9256
   name: Dinosaur2-b
+  copyright: Scratch
   tags:
     - animals
     - dinosaur
@@ -1540,6 +1703,7 @@
   centerY: 45
 - id: d703f9fe4ac5386ab91e46cde2afb40f
   name: Dinosaur2-c
+  copyright: Scratch
   tags:
     - animals
     - dinosaur
@@ -1549,6 +1713,7 @@
   centerY: 45
 - id: 38dc594c125c845d888eb41cd57701d2
   name: Dinosaur2-d
+  copyright: Scratch
   tags:
     - animals
     - dinosaur
@@ -1558,6 +1723,7 @@
   centerY: 45
 - id: 151dc0767aa6af4becdd09ac0e997832
   name: Dinosaur3-a
+  copyright: Scratch
   tags:
     - animals
     - dinosaur
@@ -1568,6 +1734,7 @@
   centerY: 28
 - id: 5c41d9ec683a4d965a18a1369c916c5d
   name: Dinosaur3-b
+  copyright: Scratch
   tags:
     - animals
     - dinosaur
@@ -1578,6 +1745,7 @@
   centerY: 39
 - id: 566fa6781ad866750a0a4ce2d16ec300
   name: Dinosaur3-c
+  copyright: Scratch
   tags:
     - animals
     - dinosaur
@@ -1588,6 +1756,7 @@
   centerY: 39
 - id: 95349aca88ecae0d0127b52bc5bca675
   name: Dinosaur3-d
+  copyright: Scratch
   tags:
     - animals
     - dinosaur
@@ -1598,6 +1767,7 @@
   centerY: 43
 - id: 73936c2fa272b483b5c886e68be49e10
   name: Dinosaur3-e
+  copyright: Scratch
   tags:
     - animals
     - dinosaur
@@ -1607,6 +1777,7 @@
   centerY: 27
 - id: defb94152cb4c5e4bce537e534a2d57a
   name: Dinosaur4-a
+  copyright: Scratch
   tags:
     - animals
     - dinosaur
@@ -1618,6 +1789,7 @@
   centerY: 35
 - id: e9a671b8f4cd2ba9adb5a17e29ee7ca2
   name: Dinosaur4-b
+  copyright: Scratch
   tags:
     - animals
     - dinosaur
@@ -1629,6 +1801,7 @@
   centerY: 35
 - id: 0b88dbe78adfb85185f0b9316488f3df
   name: Dinosaur4-c
+  copyright: Scratch
   tags:
     - animals
     - dinosaur
@@ -1640,6 +1813,7 @@
   centerY: 35
 - id: 754e824137a1ef19474215ffe6c2d2f6
   name: Dinosaur4-d
+  copyright: Scratch
   tags:
     - animals
     - dinosaur
@@ -1651,6 +1825,7 @@
   centerY: 59
 - id: 752971d419f57c8c7e73ed3686fa1c78
   name: Diver1
+  copyright: Scratch
   tags:
     - people
     - underwater
@@ -1662,6 +1837,7 @@
   centerY: 50
 - id: 7bfc41979cba99ab3b6c731bdeae1d0b
   name: Diver2
+  copyright: Scratch
   tags:
     - people
     - underwater
@@ -1673,6 +1849,7 @@
   centerY: 50
 - id: 6df4e0cefc1f83745252b74537735310
   name: Dog1-a
+  copyright: Scratch
   tags:
     - animals
     - puppy
@@ -1682,6 +1859,7 @@
   centerY: 53
 - id: 7bb0ab9369b319052ea96311fb11431f
   name: Dog1-b
+  copyright: Scratch
   tags:
     - animals
     - puppy
@@ -1691,6 +1869,7 @@
   centerY: 53
 - id: 97d15b3635ffaecbe94ac5487b8852a2
   name: Dog2-a
+  copyright: Scratch
   tags:
     - animals
     - puppy
@@ -1700,6 +1879,7 @@
   centerY: 50
 - id: 4b662d41a287642cc97a8441d58114b9
   name: Dog2-b
+  copyright: Scratch
   tags:
     - animals
     - puppy
@@ -1709,6 +1889,7 @@
   centerY: 50
 - id: 52bd45a7366e40cf4b59aaf048ccb4d4
   name: Dog2-c
+  copyright: Scratch
   tags:
     - animals
     - puppy
@@ -1718,6 +1899,7 @@
   centerY: 50
 - id: 7015114ed5aabd258c4ede1634a77eca
   name: Donut
+  copyright: Scratch
   tags:
     - food
     - sweets
@@ -1731,6 +1913,7 @@
   centerY: 10
 - id: de6ac955ec3c3ea47928f603ff0ce3f7
   name: Dorian-a
+  copyright: Scratch
   tags:
     - sports
     - basketball
@@ -1740,6 +1923,7 @@
   centerY: 43
 - id: 8a3c75cb98570c52f0416fa0203e3ab7
   name: Dorian-b
+  copyright: Scratch
   tags:
     - sports
     - basketball
@@ -1749,6 +1933,7 @@
   centerY: 43
 - id: 4b1d907276268ca3434655d26530732d
   name: Dorian-c
+  copyright: Scratch
   tags:
     - sports
     - basketball
@@ -1758,6 +1943,7 @@
   centerY: 45
 - id: 8199b9c1e23d708e3714ceb559a03e92
   name: Dorian-d
+  copyright: Scratch
   tags:
     - sports
     - basketball
@@ -1767,6 +1953,7 @@
   centerY: 35
 - id: 06be72a0036101b78136da9aa83c7a1f
   name: Dot-a
+  copyright: Scratch
   tags:
     - animals
     - space
@@ -1776,6 +1963,7 @@
   centerY: 45
 - id: f7d891b7bceb4acb812c183be11f8279
   name: Dot-b
+  copyright: Scratch
   tags:
     - animals
     - space
@@ -1785,6 +1973,7 @@
   centerY: 45
 - id: 209ae8fc0a37810ae7b23d5feb89b7cf
   name: Dot-c
+  copyright: Scratch
   tags:
     - animals
     - space
@@ -1794,6 +1983,7 @@
   centerY: 46
 - id: 30dbb309f214e394f932afdc23aff7d9
   name: Dot-d
+  copyright: Scratch
   tags:
     - animals
     - space
@@ -1803,6 +1993,7 @@
   centerY: 45
 - id: fe8f8bfa5a4f21a1c84e1297ea331721
   name: Dove-a
+  copyright: Scratch
   tags:
     - animals
     - bird
@@ -1811,6 +2002,7 @@
   centerY: 39
 - id: 40eaced440dbcf96db3bf54cc7c1b234
   name: Dove-b
+  copyright: Scratch
   tags:
     - animals
     - bird
@@ -1819,6 +2011,7 @@
   centerY: 38
 - id: 4aa87099c54fa5105863437c5de64f25
   name: Dragon-a
+  copyright: Scratch
   tags:
     - fantasy
     - animals
@@ -1828,6 +2021,7 @@
   centerY: 71
 - id: bb5b84cd19b20c1b58a71b86220e9357
   name: Dragon-b
+  copyright: Scratch
   tags:
     - fantasy
     - animals
@@ -1837,6 +2031,7 @@
   centerY: 66
 - id: 213e71cde5d69579ae65c72078b2e29e
   name: Dragon-c
+  copyright: Scratch
   tags:
     - fantasy
     - animals
@@ -1846,6 +2041,7 @@
   centerY: 71
 - id: 7597793ab507f61fe623d06c1695bb8d
   name: Dragon1-a
+  copyright: Scratch
   tags:
     - fantasy
     - reptile
@@ -1855,6 +2051,7 @@
   centerY: 40
 - id: 359ce3f07467b3dfbb0acc80da8dc6ee
   name: Dragon1-b
+  copyright: Scratch
   tags:
     - fantasy
     - reptile
@@ -1864,6 +2061,7 @@
   centerY: 37
 - id: 8a38a8d3dcd2c4806bf61e5348706ce4
   name: Dragonfly-a
+  copyright: Scratch
   tags:
     - animals
     - insect
@@ -1874,6 +2072,7 @@
   centerY: 35
 - id: c9de6a630a7d3ed6b97ebe35a392d2ca
   name: Dragonfly-b
+  copyright: Scratch
   tags:
     - animals
     - insect
@@ -1884,24 +2083,28 @@
   centerY: 31
 - id: a7b6dfcd4a82d92440abae4f73e9eaca
   name: Dress-a
+  copyright: Scratch
   tags:
     - fashion
   centerX: 38
   centerY: 55
 - id: d48b3504f3aa7df2dee2f142fa3c95be
   name: Dress-b
+  copyright: Scratch
   tags:
     - fashion
   centerX: 39
   centerY: 55
 - id: 275f7f7d4778896a879445a179b18e72
   name: Dress-c
+  copyright: Scratch
   tags:
     - fashion
   centerX: 33
   centerY: 55
 - id: b893afdc5f3b69e233eaf43055bc3607
   name: Drum-a
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -1909,6 +2112,7 @@
   centerY: 40
 - id: 1fb65edd3e972e692ebca49af9b5e977
   name: Drum-b
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -1916,6 +2120,7 @@
   centerY: 40
 - id: 06b49bc966a4f83634ae332d262347c8
   name: Drum-cymbal-a
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -1923,6 +2128,7 @@
   centerY: 49
 - id: 9d2e87709e1fd5d5c3fa35daf361cea4
   name: Drum-cymbal-b
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -1930,6 +2136,7 @@
   centerY: 49
 - id: 0c97e24f91e115e975370abeb638255c
   name: Drum-highhat-a
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -1937,6 +2144,7 @@
   centerY: 49
 - id: 2e407f3d41a1fb78b7f4cd4fe04a35f0
   name: Drum-highhat-b
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -1944,6 +2152,7 @@
   centerY: 49
 - id: 979a2cb44db7230268e6015769d7bd4b
   name: Drum-kit
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -1951,6 +2160,7 @@
   centerY: 52
 - id: d82f09481ceb100e5af0aa52c3d42356
   name: Drum-kit-b
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -1958,6 +2168,7 @@
   centerY: 52
 - id: cab4625e9a3a45a1fb46b2d0db53bd2f
   name: Drum-snare-a
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -1965,6 +2176,7 @@
   centerY: 21
 - id: b32fbb901e95d9e579923b69e98ea85d
   name: Drum-snare-b
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -1972,6 +2184,7 @@
   centerY: 32
 - id: 67cc84d6e9b66818690894d6319a7616
   name: Drums Conga-a
+  copyright: Scratch
   tags:
     - drums
     - ' music'
@@ -1980,6 +2193,7 @@
   centerY: 44
 - id: 309ac2486895fe959050fbe7abd2efec
   name: Drums Conga-b
+  copyright: Scratch
   tags:
     - drums
     - ' music'
@@ -1988,6 +2202,7 @@
   centerY: 63
 - id: 7d4bfead3be5051561612d9e56cee3e9
   name: Duck
+  copyright: Scratch
   tags:
     - animals
     - chrisg
@@ -1998,6 +2213,7 @@
   centerY: 39
 - id: d02a5d95d994439784e212e8535b0809
   name: Earth
+  copyright: Scratch
   tags:
     - space
     - planet
@@ -2007,6 +2223,7 @@
   centerY: 37
 - id: 74f71f6b9ad9c0560ea18b869e93bb0c
   name: Easel-a
+  copyright: Scratch
   tags:
     - bedroom
     - art
@@ -2015,6 +2232,7 @@
   centerY: 63
 - id: 411d2aa98149da8b96fd06f0fd4a2fcd
   name: Easel-b
+  copyright: Scratch
   tags:
     - bedroom
     - art
@@ -2023,6 +2241,7 @@
   centerY: 63
 - id: fef2fb32ed7b6561fff4e3d77a1c143d
   name: Easel-c
+  copyright: Scratch
   tags:
     - bedroom
     - art
@@ -2031,6 +2250,7 @@
   centerY: 63
 - id: fa5f6abfb640cce25dd8d9aef7b1e122
   name: Egg-a
+  copyright: Scratch
   tags:
     - food
     - breakfast
@@ -2039,6 +2259,7 @@
   centerY: 17
 - id: 6bbdad84c2a301648ec1c1dea548c10a
   name: Egg-b
+  copyright: Scratch
   tags:
     - food
     - breakfast
@@ -2047,6 +2268,7 @@
   centerY: 18
 - id: 642e529c60a7ae080f619a2c5365b01f
   name: Egg-c
+  copyright: Scratch
   tags:
     - food
     - breakfast
@@ -2055,6 +2277,7 @@
   centerY: 18
 - id: a8728baa1717cc7abd720b164f28f3e7
   name: Egg-d
+  copyright: Scratch
   tags:
     - food
     - breakfast
@@ -2063,6 +2286,7 @@
   centerY: 18
 - id: d297b92ee4f668d79db3fc909a6a3212
   name: Egg-e
+  copyright: Scratch
   tags:
     - food
     - breakfast
@@ -2071,6 +2295,7 @@
   centerY: 17
 - id: 3574b9fd289145b5e6af8cbf2b7d7043
   name: Egg-f
+  copyright: Scratch
   tags:
     - food
     - breakfast
@@ -2079,6 +2304,7 @@
   centerY: 17
 - id: 93ddb76453d930333f21cec9d876f010
   name: Elephant-a
+  copyright: Scratch
   tags:
     - animals
     - mammals
@@ -2087,6 +2313,7 @@
   centerY: 22
 - id: 1f9de88d30e5002f72c4920513e4b599
   name: Elephant-b
+  copyright: Scratch
   tags:
     - animals
     - mammals
@@ -2095,6 +2322,7 @@
   centerY: 27
 - id: 139378cfffdd99259b134435652e9336
   name: Elf-a
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -2104,6 +2332,7 @@
   centerY: 93
 - id: e66953e0b29f8f2f2be3c074c50d34e2
   name: Elf-b
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -2113,6 +2342,7 @@
   centerY: 93
 - id: 1b1e2121bc1303d35c5add20856e5e92
   name: Elf-c
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -2122,6 +2352,7 @@
   centerY: 93
 - id: ea3edbb56cbab74afa44e5dd13058c23
   name: Elf-d
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -2131,6 +2362,7 @@
   centerY: 93
 - id: 246f16bcf0caa155d2bc3d9153cf4377
   name: Elf-e
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -2140,6 +2372,7 @@
   centerY: 93
 - id: ca59bead20c17ce22c82fed11752b616
   name: Fairy-a
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -2149,6 +2382,7 @@
   centerY: 93
 - id: 57f154345d37b12a2d7955b3576dfbaf
   name: Fairy-b
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -2158,6 +2392,7 @@
   centerY: 93
 - id: 3477978da704e67295aaaf3c95135323
   name: Fairy-c
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -2167,6 +2402,7 @@
   centerY: 93
 - id: b59b0c16b0f138652a4e8026e8f09374
   name: Fairy-d
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -2176,6 +2412,7 @@
   centerY: 93
 - id: d663368ea7fac2f980e0beeb10701598
   name: Fairy-e
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -2185,6 +2422,7 @@
   centerY: 93
 - id: e2c94d984ce73b45ee7475e6e910aaee
   name: Fish-a
+  copyright: Scratch
   tags:
     - animals
     - ocean
@@ -2195,6 +2433,7 @@
   centerY: 30
 - id: 3732841f5b77be0fda9111f524568cd7
   name: Fish-b
+  copyright: Scratch
   tags:
     - animals
     - ocean
@@ -2205,6 +2444,7 @@
   centerY: 30
 - id: e611c817c897d3bc2a9a70936d46fab7
   name: Fish-c
+  copyright: Scratch
   tags:
     - animals
     - ocean
@@ -2215,6 +2455,7 @@
   centerY: 30
 - id: 925dcec861bd0219f88c1dda007ce88b
   name: Fish-d
+  copyright: Scratch
   tags:
     - animals
     - ocean
@@ -2225,6 +2466,7 @@
   centerY: 30
 - id: 046dd5802a2bf6cce56478386ddf5ec8
   name: Fishbowl-a
+  copyright: Scratch
   tags:
     - fishbowl
     - fish
@@ -2234,6 +2476,7 @@
   centerY: 16
 - id: e5f5cb0e16c7eb603b37618405e14114
   name: Fishbowl-b
+  copyright: Scratch
   tags:
     - fishbowl
     - fish
@@ -2243,6 +2486,7 @@
   centerY: 16
 - id: b5b05e51b01c694f3717dc5d86f9dca5
   name: Food Truck-a
+  copyright: Scratch
   tags:
     - city
     - truck
@@ -2253,6 +2497,7 @@
   centerY: 82
 - id: bb071bbc51b662404ce49e401f76d5dc
   name: Food Truck-b
+  copyright: Scratch
   tags:
     - city
     - truck
@@ -2263,6 +2508,7 @@
   centerY: 67
 - id: 5df9c6173f5b130dff72c83b698d057b
   name: Food Truck-c
+  copyright: Scratch
   tags:
     - city
     - truck
@@ -2273,6 +2519,7 @@
   centerY: 61
 - id: f2953d0aaa33104c658b6e5aa82856b9
   name: Fox-a
+  copyright: Scratch
   tags:
     - animals
     - mammal
@@ -2281,6 +2528,7 @@
   centerY: 29
 - id: f1cd7f57363680b2949e8b4feeca4661
   name: Fox-b
+  copyright: Scratch
   tags:
     - animals
     - mammal
@@ -2289,6 +2537,7 @@
   centerY: 33
 - id: d6ddc2067d7b38aff111ac239237b404
   name: Fox-c
+  copyright: Scratch
   tags:
     - animals
     - mammal
@@ -2297,6 +2546,7 @@
   centerY: 25
 - id: 124b52e1754828582224297e380a218b
   name: Frank-a
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -2309,6 +2559,7 @@
   centerY: 42
 - id: f769160aa91e150eafe346dc8fbf3a63
   name: Frank-b
+  copyright: Scratch
   tags:
     - fantasy
     - spooky
@@ -2321,6 +2572,7 @@
   centerY: 42
 - id: 25bfb34b7814709afc0db60cc75847f9
   name: Frank-c
+  copyright: Scratch
   tags:
     - fantasy
     - spooky
@@ -2333,6 +2585,7 @@
   centerY: 39
 - id: 460fa1bf8364300345d3ee77643c1f26
   name: Frank-d
+  copyright: Scratch
   tags:
     - fantasy
     - spooky
@@ -2345,6 +2598,7 @@
   centerY: 71
 - id: 770deffc19d139e3a220f4127bc5d6ab
   name: Frog
+  copyright: Scratch
   tags:
     - animals
     - amphibian
@@ -2356,6 +2610,7 @@
   centerY: 20
 - id: c53b47871dddf7a57d8f4c437aa437ad
   name: Frog 2-a
+  copyright: Scratch
   tags:
     - animals
     - frog
@@ -2365,6 +2620,7 @@
   centerY: 40
 - id: e51244514361e732ce69b95d6ec7c73a
   name: Frog 2-b
+  copyright: Scratch
   tags:
     - animals
     - frog
@@ -2374,6 +2630,7 @@
   centerY: 39
 - id: dd15e2a00c44c824cad121e8db761563
   name: Frog 2-c
+  copyright: Scratch
   tags:
     - animals
     - frog
@@ -2383,6 +2640,7 @@
   centerY: 58
 - id: 962893e60edaa2aa94c175cac6ad1b9f
   name: Fruitsalad
+  copyright: Scratch
   tags:
     - food
     - fruit
@@ -2390,6 +2648,7 @@
   centerY: 15
 - id: 4c6a3017b1ed7542a5324f53da809c79
   name: Ghost-a
+  copyright: Scratch
   tags:
     - fantasy
     - spooky
@@ -2401,6 +2660,7 @@
   centerY: 45
 - id: c206d01bba0cd91706b8f651eae0b82f
   name: Ghost-b
+  copyright: Scratch
   tags:
     - fantasy
     - spooky
@@ -2412,6 +2672,7 @@
   centerY: 45
 - id: 8406b771d3f3f5df1c8903e29fa76838
   name: Ghost-c
+  copyright: Scratch
   tags:
     - fantasy
     - spooky
@@ -2423,6 +2684,7 @@
   centerY: 48
 - id: 1dd06efc86511d46f963b5678d060054
   name: Ghost-d
+  copyright: Scratch
   tags:
     - fantasy
     - spooky
@@ -2434,6 +2696,7 @@
   centerY: 46
 - id: 31b3e847e0ac59b79d61b80881631d32
   name: Gift-a
+  copyright: Scratch
   tags:
     - thing
     - holiday
@@ -2441,6 +2704,7 @@
   centerY: 17
 - id: 4aeb214e5363061c48d799288c34b3c5
   name: Gift-b
+  copyright: Scratch
   tags:
     - thing
     - holiday
@@ -2448,6 +2712,7 @@
   centerY: 17
 - id: 3b9e9376fd7e3e5882354e619acfb6bf
   name: Giga Walk1
+  copyright: Scratch
   tags:
     - fantasy
     - walking
@@ -2455,6 +2720,7 @@
   centerY: 71
 - id: fc192ffa8732256ee186df986244add2
   name: Giga Walk2
+  copyright: Scratch
   tags:
     - fantasy
     - walking
@@ -2462,6 +2728,7 @@
   centerY: 71
 - id: 44c3dfa21983546a1d78196b1569bd81
   name: Giga Walk3
+  copyright: Scratch
   tags:
     - fantasy
     - walking
@@ -2469,6 +2736,7 @@
   centerY: 71
 - id: 0e4f00f7c8cc69debdfe3650aa8c0e3a
   name: Giga-a
+  copyright: Scratch
   tags:
     - fantasy
     - drawing
@@ -2477,6 +2745,7 @@
   centerY: 64
 - id: 3c4e792dac2c671270689738e48c9770
   name: Giga-b
+  copyright: Scratch
   tags:
     - fantasy
     - drawing
@@ -2485,6 +2754,7 @@
   centerY: 64
 - id: 9e1e55193f1eba2ae4bf3899e6c0a2a8
   name: Giga-c
+  copyright: Scratch
   tags:
     - fantasy
     - drawing
@@ -2493,6 +2763,7 @@
   centerY: 64
 - id: 0b91ebba11505e91637b8c03b67e2515
   name: Giga-d
+  copyright: Scratch
   tags:
     - fantasy
     - drawing
@@ -2501,6 +2772,7 @@
   centerY: 64
 - id: 07ef7fe15bae5644268e38eabbb448a0
   name: Giraffe-a
+  copyright: Scratch
   tags:
     - animals
     - savanna
@@ -2509,6 +2781,7 @@
   centerY: 88
 - id: 0579671706e2b8a304c81549b1b756eb
   name: Giraffe-b
+  copyright: Scratch
   tags:
     - animals
     - savanna
@@ -2517,6 +2790,7 @@
   centerY: 88
 - id: b52c2a8784cb2f57c0cd9bb2d118b158
   name: Giraffe-c
+  copyright: Scratch
   tags:
     - animals
     - savanna
@@ -2525,6 +2799,7 @@
   centerY: 88
 - id: 8972cbd796eea047a188ae19aa457066
   name: Glass Water-a
+  copyright: Scratch
   tags:
     - food
     - things
@@ -2533,6 +2808,7 @@
   centerY: 32
 - id: 01b4c83ce8e8fa5f6e2f29b16fb550b1
   name: Glass Water-b
+  copyright: Scratch
   tags:
     - food
     - things
@@ -2542,6 +2818,7 @@
   centerY: 32
 - id: 0ade5e1bffb3037d1a4b64a99c3f88d6
   name: Glasses-a
+  copyright: Scratch
   tags:
     - fashion
     - glasses
@@ -2549,6 +2826,7 @@
   centerY: 9
 - id: 8e9805657dd28793be1fc319670aeac5
   name: Glasses-b
+  copyright: Scratch
   tags:
     - fashion
     - glasses
@@ -2556,6 +2834,7 @@
   centerY: 9
 - id: 8f8ecd33fbdebbf987ee7057d8e6840b
   name: Glasses-c
+  copyright: Scratch
   tags:
     - fashion
     - glasses
@@ -2563,6 +2842,7 @@
   centerY: 8
 - id: 97d9261eee1c8df4bfd3333e2ee42312
   name: Glasses-e
+  copyright: Scratch
   tags:
     - fashion
     - glasses
@@ -2570,6 +2850,7 @@
   centerY: 35
 - id: fda05d42a2dd21d1fdfbbd98ecd7837d
   name: Goalie-a
+  copyright: Scratch
   tags:
     - sports
     - soccer
@@ -2579,6 +2860,7 @@
   centerY: 42
 - id: f102e6f96cc38f27b3243ea86ee567dc
   name: Goalie-b
+  copyright: Scratch
   tags:
     - sports
     - soccer
@@ -2588,6 +2870,7 @@
   centerY: 42
 - id: 931231b97136dcec5dd4c4b71b147a0e
   name: Goalie-c
+  copyright: Scratch
   tags:
     - sports
     - soccer
@@ -2597,6 +2880,7 @@
   centerY: 41
 - id: 730626e7f71d44d241bd06b6c3a0f4db
   name: Goalie-d
+  copyright: Scratch
   tags:
     - sports
     - soccer
@@ -2606,6 +2890,7 @@
   centerY: 41
 - id: d1613e351ba6cb872897697635d5bb95
   name: Goalie-e
+  copyright: Scratch
   tags:
     - sports
     - soccer
@@ -2615,6 +2900,7 @@
   centerY: 46
 - id: f56e38dab1817cd7797a0d0de2eea210
   name: Goblin-a
+  copyright: Scratch
   tags:
     - fantasy
     - ipzy
@@ -2623,6 +2909,7 @@
   centerY: 53
 - id: 4242fe1479e69649c353f2e31ac72054
   name: Goblin-b
+  copyright: Scratch
   tags:
     - fantasy
     - ipzy
@@ -2631,6 +2918,7 @@
   centerY: 53
 - id: 08d6dccc9dac099e4613c0ff81aae4c2
   name: Goblin-c
+  copyright: Scratch
   tags:
     - fantasy
     - ipzy
@@ -2639,6 +2927,7 @@
   centerY: 53
 - id: b643609ce147fcbcf45eb8559624965f
   name: Goblin-d
+  copyright: Scratch
   tags:
     - fantasy
     - ipzy
@@ -2647,6 +2936,7 @@
   centerY: 53
 - id: 54fae03ad4da5693661f1412ecedde32
   name: Gobo-a
+  copyright: Scratch
   tags:
     - fantasy
     - drawing
@@ -2656,6 +2946,7 @@
   centerY: 37
 - id: feae95c2230323b6f60fedbdd9b7e894
   name: Gobo-b
+  copyright: Scratch
   tags:
     - fantasy
     - drawing
@@ -2665,6 +2956,7 @@
   centerY: 37
 - id: 3a2bd7860454a19d7b88edce27ae68b9
   name: Gobo-c
+  copyright: Scratch
   tags:
     - fantasy
     - drawing
@@ -2674,6 +2966,7 @@
   centerY: 37
 - id: c91193ee8c39a8cfe7939b5333d3c132
   name: Grasshopper-a
+  copyright: Scratch
   tags:
     - animals
     - insect
@@ -2684,6 +2977,7 @@
   centerY: 29
 - id: 0807e1c3afae1dbd09c408649c80f5af
   name: Grasshopper-b
+  copyright: Scratch
   tags:
     - animals
     - insect
@@ -2694,6 +2988,7 @@
   centerY: 79
 - id: 91c01665368d2f5c54dac3a452dd4700
   name: Grasshopper-c
+  copyright: Scratch
   tags:
     - animals
     - insect
@@ -2704,6 +2999,7 @@
   centerY: 113
 - id: 826363191f5a297fb0bedf78333521f8
   name: Grasshopper-d
+  copyright: Scratch
   tags:
     - animals
     - insect
@@ -2714,6 +3010,7 @@
   centerY: 67
 - id: e520c05e7d58a8c02724b6dd809c88c2
   name: Grasshopper-e
+  copyright: Scratch
   tags:
     - animals
     - insect
@@ -2724,6 +3021,7 @@
   centerY: 57
 - id: 9d4ac4b493ac7358da5e807b7418eb50
   name: Grasshopper-f
+  copyright: Scratch
   tags:
     - animals
     - insect
@@ -2734,12 +3032,14 @@
   centerY: 36
 - id: c579968e6dbbc8aa497208d4274233fd
   name: Green Flag
+  copyright: Scratch
   tags:
     - thing
   centerX: 47
   centerY: 20
 - id: 52664f2165e555c1054894a04ee50373
   name: Griffin-a
+  copyright: Scratch
   tags:
     - fantasy
     - animals
@@ -2749,6 +3049,7 @@
   centerY: 73
 - id: c2db17fa97575951e642465dd8b5f107
   name: Griffin-b
+  copyright: Scratch
   tags:
     - fantasy
     - animals
@@ -2758,6 +3059,7 @@
   centerY: 51
 - id: af31059f60db9ce0500cf0f52b92923e
   name: Griffin-c
+  copyright: Scratch
   tags:
     - fantasy
     - animals
@@ -2767,6 +3069,7 @@
   centerY: 73
 - id: 95f12fcbf8b0a4bdc56045b747aa4160
   name: Griffin-d
+  copyright: Scratch
   tags:
     - fantasy
     - animals
@@ -2776,6 +3079,7 @@
   centerY: 46
 - id: ddd00450bfe79f80f1337a1098c83dfc
   name: Guitar-a
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -2783,6 +3087,7 @@
   centerY: 55
 - id: 445b86304239baa344f86fc18cbf0a0f
   name: Guitar-b
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -2790,6 +3095,7 @@
   centerY: 55
 - id: 42d102d1046edc175ab6be724be60b21
   name: Guitar-electric1-a
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -2797,6 +3103,7 @@
   centerY: 57
 - id: 1e337a289b0e102f8e510cfa40789dcb
   name: Guitar-electric1-b
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -2804,6 +3111,7 @@
   centerY: 57
 - id: adb08524b66fc05bfe140e47ae2f3741
   name: Guitar-electric2-a
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -2811,6 +3119,7 @@
   centerY: 63
 - id: 0a1db6b30f8ffe698e45e142b4dec85c
   name: Guitar-electric2-b
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -2818,6 +3127,7 @@
   centerY: 63
 - id: 04efd305fad354f106c820cdec4f4265
   name: Hannah-a
+  copyright: Scratch
   tags:
     - people
     - run
@@ -2828,6 +3138,7 @@
   centerY: 42
 - id: 3d127a6a49b801174c92d864f7c181da
   name: Hannah-b
+  copyright: Scratch
   tags:
     - people
     - sports
@@ -2835,6 +3146,7 @@
   centerY: 53
 - id: 9b5d98466d8143e0b6d28821536322ac
   name: Hannah-c
+  copyright: Scratch
   tags:
     - people
     - sports
@@ -2842,6 +3154,7 @@
   centerY: 43
 - id: 08e231eb977c861248b30560f58cef9a
   name: Hare-a
+  copyright: Scratch
   tags:
     - animals
     - rabbit
@@ -2856,6 +3169,7 @@
   centerY: 33
 - id: 3bf3337a53aa129e308aa4aae31e0afd
   name: Hare-b
+  copyright: Scratch
   tags:
     - animals
     - rabbit
@@ -2870,6 +3184,7 @@
   centerY: 23
 - id: 80ba7d0b17853d509c183031f9c9ec31
   name: Hare-c
+  copyright: Scratch
   tags:
     - animals
     - rabbit
@@ -2884,6 +3199,7 @@
   centerY: 27
 - id: a6a3869d7003f54c83aaa1a430a43c26
   name: Harper-a
+  copyright: Scratch
   tags:
     - people
     - fashion
@@ -2891,6 +3207,7 @@
   centerY: 95
 - id: 8c3bdfab6ba3881bd6506435f8fd1792
   name: Harper-b
+  copyright: Scratch
   tags:
     - people
     - fashion
@@ -2898,6 +3215,7 @@
   centerY: 89
 - id: bfd125b4afc711890f13c3470e39d312
   name: Harper-c
+  copyright: Scratch
   tags:
     - people
     - fashion
@@ -2905,6 +3223,7 @@
   centerY: 92
 - id: 301c307801efc87ccb59ec9430868bbd
   name: Hat-a
+  copyright: Scratch
   tags:
     - fashion
     - hat
@@ -2912,6 +3231,7 @@
   centerY: 20
 - id: 6acf03bd246c0af4ca56ef0f41807612
   name: Hat-b
+  copyright: Scratch
   tags:
     - fashion
     - hat
@@ -2919,6 +3239,7 @@
   centerY: 15
 - id: 737bdd5a777c9daece6d4740abebb016
   name: Hat-c
+  copyright: Scratch
   tags:
     - fashion
     - hat
@@ -2926,6 +3247,7 @@
   centerY: 18
 - id: 94e0481bc4b57319d1da55b88f5eeeaf
   name: Hat-d
+  copyright: Scratch
   tags:
     - fashion
     - hat
@@ -2933,6 +3255,7 @@
   centerY: 20
 - id: 8323793fff4bb60505147dff73967417
   name: Hatchling-a
+  copyright: Scratch
   tags:
     - animals
     - chicken
@@ -2942,6 +3265,7 @@
   centerY: 15
 - id: 8e4539b3eb032f0ba2ebffde655bfe69
   name: Hatchling-b
+  copyright: Scratch
   tags:
     - animals
     - chicken
@@ -2951,6 +3275,7 @@
   centerY: 25
 - id: 656c89cd6c18451d2cedc93a2498016e
   name: Hatchling-c
+  copyright: Scratch
   tags:
     - animals
     - chicken
@@ -2960,6 +3285,7 @@
   centerY: 48
 - id: 1a090157815e07437bc32b35a20398cf
   name: Heart Code
+  copyright: Scratch
   tags:
     - food
     - sweethearts
@@ -2967,12 +3293,14 @@
   centerY: 48
 - id: 543dd243c6574e7bb81c71b1c3379fc7
   name: Heart Face
+  copyright: Scratch
   tags:
     - emotions
   centerX: 39
   centerY: 35
 - id: bbd36f0a72d7bea9ea040fc25347935e
   name: Heart Love
+  copyright: Scratch
   tags:
     - food
     - sweethearts
@@ -2980,6 +3308,7 @@
   centerY: 48
 - id: 6ea565ee5bfb92d7618792d4e9e5e85b
   name: Heart Purple
+  copyright: Scratch
   tags:
     - holiday
     - purple
@@ -2990,6 +3319,7 @@
   centerY: 41
 - id: 62306386aad4423009531b018d144b41
   name: Heart Red
+  copyright: Scratch
   tags:
     - holiday
     - red
@@ -3000,6 +3330,7 @@
   centerY: 37
 - id: 92bee1b1e53a449aeee6ba55eac21c0f
   name: Heart Smile
+  copyright: Scratch
   tags:
     - food
     - sweethearts
@@ -3007,6 +3338,7 @@
   centerY: 48
 - id: b56fd43454a44c2390262862d933601e
   name: Heart Sweet
+  copyright: Scratch
   tags:
     - food
     - sweethearts
@@ -3014,6 +3346,7 @@
   centerY: 48
 - id: 22850dfce5874ec904790df611914df5
   name: Hedgehog-a
+  copyright: Scratch
   tags:
     - animals
     - daria skrybchencko
@@ -3023,6 +3356,7 @@
   centerY: 37
 - id: 8b5ffdd8f520e8c6af1358134c068ffe
   name: Hedgehog-b
+  copyright: Scratch
   tags:
     - animals
     - daria skrybchencko
@@ -3032,6 +3366,7 @@
   centerY: 37
 - id: 34f174e261f8d442307bc9e6eb090dfe
   name: Hedgehog-c
+  copyright: Scratch
   tags:
     - animals
     - daria skrybchencko
@@ -3041,6 +3376,7 @@
   centerY: 37
 - id: b70ee7493a47bf29cc00b278285c386d
   name: Hedgehog-d
+  copyright: Scratch
   tags:
     - animals
     - daria skrybchencko
@@ -3050,6 +3386,7 @@
   centerY: 37
 - id: 09cfb86285c7426ae2c819d27fdca153
   name: Hedgehog-e
+  copyright: Scratch
   tags:
     - animals
     - daria skrybchencko
@@ -3059,6 +3396,7 @@
   centerY: 30
 - id: 0e2f90040dced28c8d48e99e673d3827
   name: Hen-a
+  copyright: Scratch
   tags:
     - animals
     - chicken
@@ -3068,6 +3406,7 @@
   centerY: 35
 - id: e94997cc592ab35067881f9ac166ef51
   name: Hen-b
+  copyright: Scratch
   tags:
     - animals
     - chicken
@@ -3077,6 +3416,7 @@
   centerY: 33
 - id: 3112c651865cc4dc4d56a6b0a5c197f9
   name: Hen-c
+  copyright: Scratch
   tags:
     - animals
     - chicken
@@ -3086,6 +3426,7 @@
   centerY: 35
 - id: 45782c8d323a4365483a1e2d6581ce2f
   name: Hen-d
+  copyright: Scratch
   tags:
     - animals
     - chicken
@@ -3095,6 +3436,7 @@
   centerY: 51
 - id: 84244b6b21f3e0521b6f819017fe2e53
   name: Hippo1-a
+  copyright: Scratch
   tags:
     - animals
     - mammals
@@ -3106,6 +3448,7 @@
   centerY: 43
 - id: 01442589740007268824879c59844aa0
   name: Hippo1-b
+  copyright: Scratch
   tags:
     - animals
     - mammals
@@ -3117,6 +3460,7 @@
   centerY: 45
 - id: 6c200a54688feee43903eda334d7981c
   name: Home Button
+  copyright: Scratch
   tags:
     - ui
     - thing
@@ -3124,6 +3468,7 @@
   centerY: 48
 - id: 3862a49517a7affab5d75efd6e716523
   name: Horse-a
+  copyright: Scratch
   tags:
     - animals
     - hoof
@@ -3135,6 +3480,7 @@
   centerY: 55
 - id: 139cf797d1f8ac6169b82e56117d4a3b
   name: Horse-b
+  copyright: Scratch
   tags:
     - animals
     - hoof
@@ -3146,48 +3492,56 @@
   centerY: 65
 - id: 1707e1680ca5e95a62d1c49a7f82e5bf
   name: Jaime Walking-a
+  copyright: Scratch
   tags:
     - people
   centerX: 35
   centerY: 57
 - id: 82b3299ea0795c8c237be665eb2d0524
   name: Jaime Walking-b
+  copyright: Scratch
   tags:
     - people
   centerX: 17
   centerY: 59
 - id: c46a2b2fafd34781386b9b02f29e854c
   name: Jaime Walking-c
+  copyright: Scratch
   tags:
     - people
   centerX: 29
   centerY: 57
 - id: 2c5ed463edb8b04dafaafebed94a10c8
   name: Jaime Walking-d
+  copyright: Scratch
   tags:
     - people
   centerX: 15
   centerY: 58
 - id: 31321da79a647f5473f4b62b56006458
   name: Jaime Walking-e
+  copyright: Scratch
   tags:
     - people
   centerX: 28
   centerY: 57
 - id: 6d196cadc3709c3f05bc3bfc47ee33ff
   name: Jaime-a
+  copyright: Scratch
   tags:
     - people
   centerX: 25
   centerY: 51
 - id: f90d5d96416693b8f4484cffc1624f4d
   name: Jaime-b
+  copyright: Scratch
   tags:
     - people
   centerX: 23
   centerY: 51
 - id: 57ee691fceb4c5860bc0c1fc7b2d87bf
   name: Jamal-a
+  copyright: Scratch
   tags:
     - sports
     - basketball
@@ -3197,6 +3551,7 @@
   centerY: 33
 - id: 060dbb1b5b43e1e47e98625112c02a28
   name: Jamal-b
+  copyright: Scratch
   tags:
     - sports
     - basketball
@@ -3206,6 +3561,7 @@
   centerY: 35
 - id: 05f9c10989b5a6d62e332c6f8d2801f1
   name: Jamal-c
+  copyright: Scratch
   tags:
     - sports
     - basketball
@@ -3215,6 +3571,7 @@
   centerY: 68
 - id: 0f069c088658e49a933ccfeaa183f926
   name: Jamal-d
+  copyright: Scratch
   tags:
     - sports
     - basketball
@@ -3224,6 +3581,7 @@
   centerY: 63
 - id: bc10b23b2d545a2eb3703ac449a6dd11
   name: Jar-a
+  copyright: Scratch
   tags:
     - food
     - ipzy
@@ -3233,6 +3591,7 @@
   centerY: 17
 - id: be07ac6bf97d405156a300fddd470377
   name: Jar-b
+  copyright: Scratch
   tags:
     - food
     - ipzy
@@ -3241,6 +3600,7 @@
   centerY: 17
 - id: 595c93e4ac748e9f96f8875894732bf8
   name: Jellyfish-a
+  copyright: Scratch
   tags:
     - animals
     - ocean
@@ -3250,6 +3610,7 @@
   centerY: 57
 - id: 99d3dcbd250875d34a3d514212af3640
   name: Jellyfish-b
+  copyright: Scratch
   tags:
     - animals
     - ocean
@@ -3259,6 +3620,7 @@
   centerY: 57
 - id: d1e74e8225ae8392c3fa9419329feb1c
   name: Jellyfish-c
+  copyright: Scratch
   tags:
     - animals
     - ocean
@@ -3268,6 +3630,7 @@
   centerY: 57
 - id: c7d2fd3931866a3eb245f06f79e6f7b8
   name: Jellyfish-d
+  copyright: Scratch
   tags:
     - animals
     - ocean
@@ -3277,6 +3640,7 @@
   centerY: 57
 - id: 02829d1b6779f329df5c0f935383da84
   name: Jordyn-a
+  copyright: Scratch
   tags:
     - sports
     - soccer
@@ -3287,6 +3651,7 @@
   centerY: 41
 - id: 7d4560b35fce75a68b2a6cbd67325044
   name: Jordyn-b
+  copyright: Scratch
   tags:
     - sports
     - soccer
@@ -3297,6 +3662,7 @@
   centerY: 42
 - id: 84b40db48031482660dac8e62be45729
   name: Jordyn-c
+  copyright: Scratch
   tags:
     - sports
     - soccer
@@ -3307,6 +3673,7 @@
   centerY: 41
 - id: 7cb1ab94265c2c21f7c462eda6cab948
   name: Jordyn-d
+  copyright: Scratch
   tags:
     - sports
     - soccer
@@ -3317,18 +3684,21 @@
   centerY: 41
 - id: b60360b097947b8ba9cc3e143cd95e87
   name: Kai-a
+  copyright: Scratch
   tags:
     - people
   centerX: 23
   centerY: 53
 - id: c6e7bed1eebf8a5dd9293747e413fe84
   name: Kai-b
+  copyright: Scratch
   tags:
     - people
   centerX: 27
   centerY: 53
 - id: 0c3c3c3720ed5639ce4e8731151a2cf4
   name: Key
+  copyright: Scratch
   tags:
     - fantasy
     - thing
@@ -3336,6 +3706,7 @@
   centerY: 18
 - id: 22bfe799c2f5dea066f1114ce76e3b45
   name: Keyboard-a
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -3343,6 +3714,7 @@
   centerY: 45
 - id: aea32317b68e3ff9a886a600793d5291
   name: Keyboard-b
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -3350,6 +3722,7 @@
   centerY: 45
 - id: 7b87b5c1259ff1becd636953b5d5f751
   name: Kia-a
+  copyright: Scratch
   tags:
     - people
     - person
@@ -3363,6 +3736,7 @@
   centerY: 89
 - id: e2926d631c8ad79de5b88be2ab467ea7
   name: Kia-b
+  copyright: Scratch
   tags:
     - people
     - person
@@ -3376,6 +3750,7 @@
   centerY: 89
 - id: 1f1060ee4ea5d42d8338fb513e821dc4
   name: Kia-c
+  copyright: Scratch
   tags:
     - people
     - person
@@ -3389,6 +3764,7 @@
   centerY: 89
 - id: 699ae59a1739199f3bc6b487403a57f8
   name: Kiran-a
+  copyright: Scratch
   tags:
     - space
     - people
@@ -3397,6 +3773,7 @@
   centerY: 63
 - id: 43ce6a39bcd3efdb7a134d92f3fe2b09
   name: Kiran-b
+  copyright: Scratch
   tags:
     - space
     - people
@@ -3405,6 +3782,7 @@
   centerY: 63
 - id: 285609c93f3705184c1ffd80178fca6e
   name: Kiran-c
+  copyright: Scratch
   tags:
     - space
     - people
@@ -3413,6 +3791,7 @@
   centerY: 63
 - id: afa6817da3544e29b1a708ce3de2745c
   name: Kiran-d
+  copyright: Scratch
   tags:
     - space
     - people
@@ -3421,6 +3800,7 @@
   centerY: 63
 - id: 3e769340ccde0e4077a8ed9797822b22
   name: Kiran-e
+  copyright: Scratch
   tags:
     - space
     - people
@@ -3429,6 +3809,7 @@
   centerY: 63
 - id: 55c5ec2d26596961937de1ca265d0092
   name: Kiran-f
+  copyright: Scratch
   tags:
     - space
     - people
@@ -3437,6 +3818,7 @@
   centerY: 63
 - id: b70395cbca913f7583bcf2ff0847f0d1
   name: Knight
+  copyright: Scratch
   tags:
     - people
     - castle
@@ -3445,6 +3827,7 @@
   centerY: 50
 - id: 8ae64fd15f5a25ef96c4db186bf85ff3
   name: Ladybug2
+  copyright: Scratch
   tags:
     - animals
     - insect
@@ -3454,6 +3837,7 @@
   centerY: 29
 - id: e63477196edf0bbd3d590deb932aa418
   name: Ladybug2-a
+  copyright: Scratch
   tags:
     - animals
     - insect
@@ -3464,6 +3848,7 @@
   centerY: 19
 - id: 0427a35634fde1428675351295e87b63
   name: Ladybug2-b
+  copyright: Scratch
   tags:
     - animals
     - insect
@@ -3474,6 +3859,7 @@
   centerY: 19
 - id: a0a75f6e8f175af0190517a4893ca39a
   name: Laptop
+  copyright: Scratch
   tags:
     - things
     - computers
@@ -3481,6 +3867,7 @@
   centerY: 50
 - id: cc71accea19770940e96a7e9a82824c2
   name: Lightning
+  copyright: Scratch
   tags:
     - weather
     - whether
@@ -3491,6 +3878,7 @@
   centerY: 55
 - id: 088bf1f7a2e4f2889a9841cd159eb2be
   name: Line
+  copyright: Scratch
   tags:
     - lava
     - shape
@@ -3499,6 +3887,7 @@
   centerY: 5
 - id: f33998e87dc6735fd88269bd9984d3f3
   name: Lion-a
+  copyright: Scratch
   tags:
     - cat
     - animals
@@ -3509,6 +3898,7 @@
   centerY: 29
 - id: 1b12383f7eb47d05ba8eeeeb3ac5665c
   name: Lion-b
+  copyright: Scratch
   tags:
     - cat
     - animals
@@ -3519,6 +3909,7 @@
   centerY: 29
 - id: 67e1f8c794183858989be532715da90e
   name: Lion-c
+  copyright: Scratch
   tags:
     - cat
     - animals
@@ -3529,6 +3920,7 @@
   centerY: 29
 - id: a435ff33444ee89d4d8dca4b75eb8c52
   name: Llama
+  copyright: Scratch
   tags:
     - animals
     - mammal
@@ -3537,6 +3929,7 @@
   centerY: 63
 - id: 58224c23266d4a5880a42d7c95745981
   name: Llama-b
+  copyright: Scratch
   tags:
     - animals
     - mammal
@@ -3545,6 +3938,7 @@
   centerY: 60
 - id: b89c0592b36e394fff6259e3ba476905
   name: Llama-c
+  copyright: Scratch
   tags:
     - animals
     - mammal
@@ -3553,6 +3947,7 @@
   centerY: 26
 - id: 9b991d83f147bfa82d62a88d44aee172
   name: Luca-a
+  copyright: Scratch
   tags:
     - people
     - person
@@ -3566,6 +3961,7 @@
   centerY: 87
 - id: f2a549dd0eb477549a96d1e600f47849
   name: Luca-b
+  copyright: Scratch
   tags:
     - people
     - person
@@ -3579,6 +3975,7 @@
   centerY: 87
 - id: e458975f7d7c26d7b37d6f3c394db09a
   name: Luca-c
+  copyright: Scratch
   tags:
     - people
     - person
@@ -3592,6 +3989,7 @@
   centerY: 87
 - id: 8957668e4b1553f7c94449902df253f6
   name: Magicwand
+  copyright: Scratch
   tags:
     - fantasy
     - things
@@ -3600,6 +3998,7 @@
   centerY: 12
 - id: b15e5ce18b92b0198d05dc1b2124c032
   name: Max-a
+  copyright: Scratch
   tags:
     - sports
     - basketball
@@ -3609,6 +4008,7 @@
   centerY: 41
 - id: 0546703140f3cfa19d9454bd2ffc86c6
   name: Max-b
+  copyright: Scratch
   tags:
     - sports
     - basketball
@@ -3618,6 +4018,7 @@
   centerY: 43
 - id: f958a1d1bf676cdc7eacf81f4ff92df6
   name: Max-c
+  copyright: Scratch
   tags:
     - sports
     - basketball
@@ -3627,6 +4028,7 @@
   centerY: 39
 - id: 3ebc7cc6dad3142449bc0de5b1a74584
   name: Max-d
+  copyright: Scratch
   tags:
     - sports
     - basketball
@@ -3636,6 +4038,7 @@
   centerY: 39
 - id: 240a0610f918db68209b7a2b6888d358
   name: Mermaid-a
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -3645,6 +4048,7 @@
   centerY: 87
 - id: 8922715db1933c741dd9fdd6c58b5e19
   name: Mermaid-b
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -3654,6 +4058,7 @@
   centerY: 87
 - id: 2b1eb2110d742ed571887f798197136f
   name: Mermaid-c
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -3663,6 +4068,7 @@
   centerY: 77
 - id: 90f8d47d8d4f59420fbdf4c18bacbad2
   name: Mermaid-d
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -3672,6 +4078,7 @@
   centerY: 77
 - id: 82b119bf1f19c412aa3fcc293fcf9404
   name: Microphone-a
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -3679,6 +4086,7 @@
   centerY: 59
 - id: 0c253439e943f7b9ea99dd550d781788
   name: Microphone-b
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -3686,6 +4094,7 @@
   centerY: 59
 - id: 90b9ea2c0e158a44e40f8a116ab1a872
   name: Milk-a
+  copyright: Scratch
   tags:
     - food
     - drink
@@ -3694,6 +4103,7 @@
   centerY: 42
 - id: 3d82d4e936210f9413a11d8581e5be63
   name: Milk-b
+  copyright: Scratch
   tags:
     - food
     - drink
@@ -3702,6 +4112,7 @@
   centerY: 43
 - id: 8e5ee7c4552ad603695440d01c0b8aff
   name: Milk-c
+  copyright: Scratch
   tags:
     - food
     - drink
@@ -3710,6 +4121,7 @@
   centerY: 37
 - id: 1af06f51dd2ee9ffa0448f33284e6bd9
   name: Milk-d
+  copyright: Scratch
   tags:
     - food
     - drink
@@ -3718,6 +4130,7 @@
   centerY: 43
 - id: bb6e7934ba7d01609e20826a1caa4571
   name: Milk-e
+  copyright: Scratch
   tags:
     - food
     - drink
@@ -3726,6 +4139,7 @@
   centerY: 30
 - id: 5012ab18bc8dfe8b8d9a19dea9c64da8
   name: Monet-a
+  copyright: Scratch
   tags:
     - space
     - people
@@ -3734,6 +4148,7 @@
   centerY: 58
 - id: 8964bcf2b1129e327cbca4a664f76851
   name: Monet-b
+  copyright: Scratch
   tags:
     - space
     - people
@@ -3742,6 +4157,7 @@
   centerY: 58
 - id: f38434845a06ef2a31a827928d87f50d
   name: Monet-c
+  copyright: Scratch
   tags:
     - space
     - people
@@ -3750,6 +4166,7 @@
   centerY: 58
 - id: e1af9e8c75dd3cfffa4768e058effb7d
   name: Monet-d
+  copyright: Scratch
   tags:
     - space
     - people
@@ -3758,6 +4175,7 @@
   centerY: 58
 - id: 49eeb99b9bb78d24a3ef9151a2ff7b04
   name: Monet-e
+  copyright: Scratch
   tags:
     - space
     - people
@@ -3766,6 +4184,7 @@
   centerY: 59
 - id: daf0bd1f905df2b25e066b2b0dccaf5b
   name: Monkey-a
+  copyright: Scratch
   tags:
     - animals
     - mammals
@@ -3775,6 +4194,7 @@
   centerY: 66
 - id: e91c36e57d4cd2f1baf7f4eb8ef47df3
   name: Monkey-b
+  copyright: Scratch
   tags:
     - animals
     - mammals
@@ -3784,6 +4204,7 @@
   centerY: 66
 - id: 569fafff005669608b63b37648d94763
   name: Monkey-c
+  copyright: Scratch
   tags:
     - animals
     - mammals
@@ -3793,6 +4214,7 @@
   centerY: 66
 - id: 5825ea011313b37489778acc91a71e5a
   name: Motorcycle-a
+  copyright: Scratch
   tags:
     - city
     - bike
@@ -3802,6 +4224,7 @@
   centerY: 29
 - id: 59550f47d505ed47a74eaa4288a6eb60
   name: Motorcycle-b
+  copyright: Scratch
   tags:
     - city
     - vehicle
@@ -3811,6 +4234,7 @@
   centerY: 29
 - id: 6af689a78877e0cb310dafd5e60cdde8
   name: Motorcycle-c
+  copyright: Scratch
   tags:
     - city
     - vehicle
@@ -3820,6 +4244,7 @@
   centerY: 29
 - id: 98b35e39646eeef7aea14253d6cc76b8
   name: Motorcycle-d
+  copyright: Scratch
   tags:
     - city
     - vehicle
@@ -3829,6 +4254,7 @@
   centerY: 29
 - id: fc21cb39923be86a8321df18a6918a73
   name: Mouse1-a
+  copyright: Scratch
   tags:
     - animals
     - mammals
@@ -3837,6 +4263,7 @@
   centerY: 18
 - id: b839a8a5cb24d645af42d8e429f6bd23
   name: Mouse1-b
+  copyright: Scratch
   tags:
     - animals
     - mammals
@@ -3845,12 +4272,14 @@
   centerY: 14
 - id: 3c874111ecaeeab14d701086a3ef63d2
   name: Muffin-a
+  copyright: Scratch
   tags:
     - food
   centerX: 57
   centerY: 32
 - id: 02d468db3520d6e79616b6b82fe9ab3f
   name: Muffin-b
+  copyright: Scratch
   tags:
     - food
     - eaten
@@ -3858,6 +4287,7 @@
   centerY: 32
 - id: 44c80895819376bcea2e7e8b9557a336
   name: Nano-a
+  copyright: Scratch
   tags:
     - fantasy
     - drawing
@@ -3865,6 +4295,7 @@
   centerY: 40
 - id: adb457cac53e34edb4334645a63ad400
   name: Nano-b
+  copyright: Scratch
   tags:
     - fantasy
     - drawing
@@ -3873,6 +4304,7 @@
   centerY: 40
 - id: 73653dc0210a1af2e5057e05442c3c14
   name: Nano-c
+  copyright: Scratch
   tags:
     - fantasy
     - drawing
@@ -3881,6 +4313,7 @@
   centerY: 40
 - id: 8c075cccfccf61468c9cd4cb6cd6d358
   name: Nano-d
+  copyright: Scratch
   tags:
     - fantasy
     - drawing
@@ -3889,6 +4322,7 @@
   centerY: 40
 - id: f2c845bd4f756f3a4e53d32644904b48
   name: Neigh Pony
+  copyright: Scratch
   tags:
     - animals
     - fantasy
@@ -3896,6 +4330,7 @@
   centerY: 52
 - id: 619802ad6e3e7a6263d033bf93b5f89f
   name: Noor-a
+  copyright: Scratch
   tags:
     - people
     - person
@@ -3909,6 +4344,7 @@
   centerY: 87
 - id: 2b5c935c9d4c03497af9bdf327143a44
   name: Noor-b
+  copyright: Scratch
   tags:
     - people
     - person
@@ -3922,6 +4358,7 @@
   centerY: 87
 - id: 8aa0bb6e4add22a26f046fbad9f0c6cb
   name: Noor-c
+  copyright: Scratch
   tags:
     - people
     - person
@@ -3935,6 +4372,7 @@
   centerY: 87
 - id: 099a42433e6680a8ac872f95d6ab909c
   name: Octopus-a
+  copyright: Scratch
   tags:
     - animals
     - ocean
@@ -3944,6 +4382,7 @@
   centerY: 57
 - id: 1dd86c1ec7ffdae8aa3f320eb84677b1
   name: Octopus-b
+  copyright: Scratch
   tags:
     - animals
     - ocean
@@ -3953,6 +4392,7 @@
   centerY: 57
 - id: ff1fe0eda0e5952064332feba6c6e963
   name: Octopus-c
+  copyright: Scratch
   tags:
     - animals
     - ocean
@@ -3963,6 +4403,7 @@
   centerY: 57
 - id: a84dc6c5359addd2e82dcf88458df572
   name: Octopus-d
+  copyright: Scratch
   tags:
     - animals
     - ocean
@@ -3973,6 +4414,7 @@
   centerY: 57
 - id: 14d7825b61391e20b065ba58082d05d0
   name: Octopus-e
+  copyright: Scratch
   tags:
     - animals
     - ocean
@@ -3983,6 +4425,7 @@
   centerY: 57
 - id: 1d63cf55f24fdc0c4c677925e94d4d0a
   name: Orange
+  copyright: Scratch
   tags:
     - food
     - fruit
@@ -3990,6 +4433,7 @@
   centerY: 12
 - id: aa01fecadd03f5ff365758b388a13000
   name: Orange2-a
+  copyright: Scratch
   tags:
     - food
     - fruit
@@ -3998,6 +4442,7 @@
   centerY: 16
 - id: e903b10a19bd309336e4fe828c155c7a
   name: Orange2-b
+  copyright: Scratch
   tags:
     - food
     - fruit
@@ -4006,6 +4451,7 @@
   centerY: 18
 - id: 0a15eb8d67b243e9cf58b574997fd576
   name: Outfielder-a
+  copyright: Scratch
   tags:
     - baseball
     - sports
@@ -4015,6 +4461,7 @@
   centerY: 52
 - id: e496d7386f20a6425d005ab82f9e128b
   name: Outfielder-b
+  copyright: Scratch
   tags:
     - baseball
     - sports
@@ -4024,6 +4471,7 @@
   centerY: 49
 - id: a72aa68921e83b11f37f3dff60df871d
   name: Outfielder-c
+  copyright: Scratch
   tags:
     - baseball
     - sports
@@ -4033,6 +4481,7 @@
   centerY: 65
 - id: 427e6cc7702a0bc7a1768613a04cd6f7
   name: Outfielder-d
+  copyright: Scratch
   tags:
     - baseball
     - sports
@@ -4042,6 +4491,7 @@
   centerY: 76
 - id: 6973468062b59319d0ce1a8e4a14e4d8
   name: Owl-a
+  copyright: Scratch
   tags:
     - animals
     - bird
@@ -4050,6 +4500,7 @@
   centerY: 27
 - id: c408dd08e77a7a5c9ed805a90a257d15
   name: Owl-b
+  copyright: Scratch
   tags:
     - animals
     - bird
@@ -4058,6 +4509,7 @@
   centerY: 31
 - id: 2e4f3b2c9dbd01bd6bb484ec1dbcc527
   name: Owl-c
+  copyright: Scratch
   tags:
     - animals
     - bird
@@ -4066,12 +4518,14 @@
   centerY: 27
 - id: 2ad1a5f456face9329c4ad437424b842
   name: Paddle
+  copyright: Scratch
   tags:
     - thing
   centerX: 29
   centerY: 5
 - id: d5c0cae4538d756eb7c5008c5f28c70e
   name: Panther-a
+  copyright: Scratch
   tags:
     - animals
     - tiger
@@ -4081,6 +4535,7 @@
   centerY: 54
 - id: 89e3f58add1d95c3438eb155c784e2c2
   name: Panther-b
+  copyright: Scratch
   tags:
     - animals
     - tiger
@@ -4090,6 +4545,7 @@
   centerY: 54
 - id: 1d3ea37e9910295c18190d8ce5a270bb
   name: Panther-c
+  copyright: Scratch
   tags:
     - animals
     - tiger
@@ -4099,6 +4555,7 @@
   centerY: 54
 - id: f2208476671135aba20b85aee1468dc2
   name: Pants-a
+  copyright: Scratch
   tags:
     - fashion
     - pants
@@ -4106,6 +4563,7 @@
   centerY: 44
 - id: 76d2948eeb9daae2b7fa9f0dfc423a56
   name: Pants-b
+  copyright: Scratch
   tags:
     - fashion
     - pants
@@ -4113,6 +4571,7 @@
   centerY: 44
 - id: 472efb0b43422dec95b1b0fac6a2c0a3
   name: Parrot-a
+  copyright: Scratch
   tags:
     - animals
     - bird
@@ -4124,6 +4583,7 @@
   centerY: 71
 - id: 40d5e801cb789b2be634123aea64fd67
   name: Parrot-b
+  copyright: Scratch
   tags:
     - animals
     - bird
@@ -4135,6 +4595,7 @@
   centerY: 21
 - id: f182cd5136dd9b8ad7eb06cba897eb0b
   name: Party Hat-a
+  copyright: Scratch
   tags:
     - fashion
     - winter
@@ -4142,6 +4603,7 @@
   centerY: 37
 - id: bc2c9802aaaf0917767b53f6b5642bbc
   name: Party Hat-b
+  copyright: Scratch
   tags:
     - fashion
     - winter
@@ -4149,6 +4611,7 @@
   centerY: 41
 - id: e1206987a460d8659155b8cac411f2ee
   name: Party Hat-e
+  copyright: Scratch
   tags:
     - fashion
     - winter
@@ -4156,6 +4619,7 @@
   centerY: 29
 - id: dc34a781bd7f58433bf54710703270ba
   name: Pencil-a
+  copyright: Scratch
   tags:
     - thing
     - yellow
@@ -4163,6 +4627,7 @@
   centerY: 36
 - id: 7d1e7c9d164bf34ede8488517f80cbb4
   name: Pencil-b
+  copyright: Scratch
   tags:
     - thing
     - yellow
@@ -4170,6 +4635,7 @@
   centerY: 45
 - id: 440afb8e5f96a1e555db38d35733e4de
   name: Penguin-a
+  copyright: Scratch
   tags:
     - penguin
     - animals
@@ -4185,6 +4651,7 @@
   centerY: 31
 - id: d540347fcad20f8db483a096e74f5236
   name: Penguin-b
+  copyright: Scratch
   tags:
     - animals
     - penguin
@@ -4200,6 +4667,7 @@
   centerY: 31
 - id: acbff52035f10a03e7744383128bf13c
   name: Penguin-c
+  copyright: Scratch
   tags:
     - animals
     - penguin
@@ -4215,6 +4683,7 @@
   centerY: 31
 - id: f69a365a9923d7582c2db95f4eade5c2
   name: Penguin2-a
+  copyright: Scratch
   tags:
     - animals
     - bird
@@ -4224,6 +4693,7 @@
   centerY: 41
 - id: d50d8479f74943c57b233e3f3adc0425
   name: Penguin2-b
+  copyright: Scratch
   tags:
     - animals
     - bird
@@ -4233,6 +4703,7 @@
   centerY: 41
 - id: d29fcc7407412428957f601a2ea93132
   name: Penguin2-c
+  copyright: Scratch
   tags:
     - animals
     - bird
@@ -4242,6 +4713,7 @@
   centerY: 41
 - id: c420e81117a50955fba8f7576e0cbc77
   name: Penguin2-d
+  copyright: Scratch
   tags:
     - animals
     - bird
@@ -4251,6 +4723,7 @@
   centerY: 41
 - id: b7e878e68a9b97d8ec6afa84e32063d0
   name: Pico Walk1
+  copyright: Scratch
   tags:
     - fantasy
     - walking
@@ -4258,6 +4731,7 @@
   centerY: 47
 - id: 48a8e53b003253456b1e31f0b21f332f
   name: Pico Walk2
+  copyright: Scratch
   tags:
     - fantasy
     - walking
@@ -4265,6 +4739,7 @@
   centerY: 47
 - id: 5bd5c011fda860a79ce4dd7c9d8fbb7e
   name: Pico Walk3
+  copyright: Scratch
   tags:
     - fantasy
     - walking
@@ -4272,6 +4747,7 @@
   centerY: 47
 - id: 463365a0ba7a02aefec88297d21d0216
   name: Pico Walk4
+  copyright: Scratch
   tags:
     - fantasy
     - walking
@@ -4279,6 +4755,7 @@
   centerY: 47
 - id: 6f77d6f5704a712213842f8dda847f8b
   name: Pico-a
+  copyright: Scratch
   tags:
     - fantasy
     - drawing
@@ -4286,6 +4763,7 @@
   centerY: 44
 - id: 2b8679a4d1bf5a1adfefae2c715f6168
   name: Pico-b
+  copyright: Scratch
   tags:
     - fantasy
     - drawing
@@ -4294,6 +4772,7 @@
   centerY: 44
 - id: 01c97edaa2cede3686f99a942b7330bd
   name: Pico-c
+  copyright: Scratch
   tags:
     - fantasy
     - drawing
@@ -4302,6 +4781,7 @@
   centerY: 44
 - id: b19241ec68efc4ee7d9eafe53af883a1
   name: Pico-d
+  copyright: Scratch
   tags:
     - fantasy
     - drawing
@@ -4310,6 +4790,7 @@
   centerY: 44
 - id: 3bc4b8d32a4689b7eaca3fc592c61c6c
   name: Pitcher-a
+  copyright: Scratch
   tags:
     - baseball
     - sports
@@ -4319,6 +4800,7 @@
   centerY: 49
 - id: 63f49e4b472ce9f286d0106463df664e
   name: Pitcher-b
+  copyright: Scratch
   tags:
     - baseball
     - sports
@@ -4328,6 +4810,7 @@
   centerY: 65
 - id: e8db7615353cbfd3e606eca257354aa8
   name: Pitcher-c
+  copyright: Scratch
   tags:
     - baseball
     - sports
@@ -4337,6 +4820,7 @@
   centerY: 65
 - id: a15b8091236e34d807d703af207ec360
   name: Pitcher-d
+  copyright: Scratch
   tags:
     - baseball
     - sports
@@ -4346,12 +4830,14 @@
   centerY: 38
 - id: a90905d163323d628d82e1dbd0c9a801
   name: Planet2
+  copyright: Scratch
   tags:
     - space
   centerX: 48
   centerY: 48
 - id: ef7a0474485503781a05ed5b1c27c25f
   name: Polar Bear-a
+  copyright: Scratch
   tags:
     - bear
     - animals
@@ -4366,6 +4852,7 @@
   centerY: 28
 - id: c79308840e0036203db80302ae51e364
   name: Polar Bear-b
+  copyright: Scratch
   tags:
     - bear
     - animals
@@ -4380,6 +4867,7 @@
   centerY: 31
 - id: ec4c19a9ea0da28516d9c3084c39511a
   name: Polar Bear-c
+  copyright: Scratch
   tags:
     - bear
     - animals
@@ -4394,6 +4882,7 @@
   centerY: 29
 - id: a8f9cd67b6e3a6817026606d96475dfa
   name: Potion-a
+  copyright: Scratch
   tags:
     - fantasy
     - ipzy
@@ -4402,6 +4891,7 @@
   centerY: 14
 - id: 2fe452b4ba59df63f601c53bee6159ca
   name: Potion-b
+  copyright: Scratch
   tags:
     - fantasy
     - ipzy
@@ -4410,6 +4900,7 @@
   centerY: 19
 - id: 9253b8f01b666045fd9421198cda2004
   name: Potion-c
+  copyright: Scratch
   tags:
     - fantasy
     - ipzy
@@ -4418,6 +4909,7 @@
   centerY: 28
 - id: af078bb1f2a45af170986a0785bb3d95
   name: Prince
+  copyright: Scratch
   tags:
     - people
     - ☥
@@ -4426,6 +4918,7 @@
   centerY: 50
 - id: 50539975ebedac5ca1c87f656365811f
   name: Princess-a
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -4436,6 +4929,7 @@
   centerY: 100
 - id: adda9561b48499a461fe4014a8811e62
   name: Princess-b
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -4446,6 +4940,7 @@
   centerY: 100
 - id: ba9cb037032b9117c9e7d618175dd32f
   name: Princess-c
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -4456,6 +4951,7 @@
   centerY: 100
 - id: d3966b206d340870c3d408be46da51e0
   name: Princess-d
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -4466,6 +4962,7 @@
   centerY: 100
 - id: 86fea3dd5b61048be77009f1f143d90d
   name: Princess-e
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -4476,6 +4973,7 @@
   centerY: 100
 - id: ee78bc9ec5f014214b2ed5d14a55ff4d
   name: Pufferfish-a
+  copyright: Scratch
   tags:
     - animals
     - ocean
@@ -4485,6 +4983,7 @@
   centerY: 41
 - id: 6b40fce20c29539f8e453c43b357b558
   name: Pufferfish-b
+  copyright: Scratch
   tags:
     - animals
     - ocean
@@ -4494,6 +4993,7 @@
   centerY: 41
 - id: 93b77257db0fe52e6977d2fa48691fce
   name: Pufferfish-c
+  copyright: Scratch
   tags:
     - animals
     - ocean
@@ -4503,6 +5003,7 @@
   centerY: 41
 - id: 489194ad0f348e842df6aeb32be7fb91
   name: Pufferfish-d
+  copyright: Scratch
   tags:
     - animals
     - ocean
@@ -4512,6 +5013,7 @@
   centerY: 41
 - id: 68eb7997471c068a3e5adcb9a3eb7a82
   name: Rabbit-a
+  copyright: Scratch
   tags:
     - animals
     - daria skrybchencko
@@ -4523,6 +5025,7 @@
   centerY: 56
 - id: 3477ad6dfd2d30fb472b269b49c46024
   name: Rabbit-b
+  copyright: Scratch
   tags:
     - animals
     - daria skrybchencko
@@ -4534,6 +5037,7 @@
   centerY: 56
 - id: 04fb6a105a66762530ae7c6e0b95436f
   name: Rabbit-c
+  copyright: Scratch
   tags:
     - animals
     - daria skrybchencko
@@ -4545,6 +5049,7 @@
   centerY: 56
 - id: 4babc245e6f7a793222c4f153425e874
   name: Rabbit-d
+  copyright: Scratch
   tags:
     - animals
     - daria skrybchencko
@@ -4556,6 +5061,7 @@
   centerY: 56
 - id: 2ea1c770cc404e78cde941d82aec0707
   name: Rabbit-e
+  copyright: Scratch
   tags:
     - animals
     - daria skrybchencko
@@ -4567,6 +5073,7 @@
   centerY: 56
 - id: af84d5567479daeef85283821ce4e27a
   name: Radio-a
+  copyright: Scratch
   tags:
     - radio
     - music
@@ -4575,6 +5082,7 @@
   centerY: 25
 - id: 888e11ba49d78f862357def03612e85b
   name: Radio-b
+  copyright: Scratch
   tags:
     - radio
     - music
@@ -4583,6 +5091,7 @@
   centerY: 56
 - id: ab3faf319bb71e465c094fd6b8c797a6
   name: Rainbow
+  copyright: Scratch
   tags:
     - things
     - flying
@@ -4592,6 +5101,7 @@
   centerY: 24
 - id: 22fe621d0744325607eaba19326a1871
   name: Referee-a
+  copyright: Scratch
   tags:
     - sports
     - soccer
@@ -4601,6 +5111,7 @@
   centerY: 42
 - id: e36e05c826b1d7930a9774959e2c2823
   name: Referee-b
+  copyright: Scratch
   tags:
     - sports
     - soccer
@@ -4610,6 +5121,7 @@
   centerY: 42
 - id: 29f172c9fcfd84d05a29f3cd349e4ea1
   name: Referee-c
+  copyright: Scratch
   tags:
     - sports
     - soccer
@@ -4619,6 +5131,7 @@
   centerY: 41
 - id: d7bb1a9a241f72775b38177d4a9536fd
   name: Referee-d
+  copyright: Scratch
   tags:
     - sports
     - soccer
@@ -4628,6 +5141,7 @@
   centerY: 42
 - id: 61b92515d71f1386fd30d9cfda20d0f7
   name: Reindeer
+  copyright: Scratch
   tags:
     - animals
     - mammals
@@ -4636,24 +5150,28 @@
   centerY: 47
 - id: d831ef8a6db4458bce7975bd55733357
   name: Retro Robot A
+  copyright: Scratch
   tags:
     - robot
   centerX: 37
   centerY: 57
 - id: a9383b983061da412ba457a244d45aab
   name: Retro Robot B
+  copyright: Scratch
   tags:
     - robot
   centerX: 34
   centerY: 58
 - id: ead89afdc83424593576cf4f3448198b
   name: Retro Robot C
+  copyright: Scratch
   tags:
     - robot
   centerX: 47
   centerY: 60
 - id: 3acebedc7ea9077afb1feb6835dc0a6c
   name: Ripley-a
+  copyright: Scratch
   tags:
     - space
     - people
@@ -4662,6 +5180,7 @@
   centerY: 59
 - id: d70de22e9c81543e0a6f8b9b65bc6021
   name: Ripley-b
+  copyright: Scratch
   tags:
     - space
     - people
@@ -4670,6 +5189,7 @@
   centerY: 59
 - id: 9fbe8329807f1563f114531f3224aaa9
   name: Ripley-c
+  copyright: Scratch
   tags:
     - space
     - people
@@ -4678,6 +5198,7 @@
   centerY: 59
 - id: 82544f931817fcc293fdf53eb764a6e8
   name: Ripley-d
+  copyright: Scratch
   tags:
     - space
     - people
@@ -4686,6 +5207,7 @@
   centerY: 59
 - id: a6d4f0d2aca1869427f5984ebab33a92
   name: Ripley-e
+  copyright: Scratch
   tags:
     - space
     - people
@@ -4694,6 +5216,7 @@
   centerY: 59
 - id: 2af4b86b465c3f6038ca35afb44eeaef
   name: Ripley-f
+  copyright: Scratch
   tags:
     - space
     - people
@@ -4702,6 +5225,7 @@
   centerY: 60
 - id: 7b443527df03bde4c0ee9bca18bffde0
   name: Robot-a
+  copyright: Scratch
   tags:
     - space
     - robot
@@ -4710,6 +5234,7 @@
   centerY: 64
 - id: 8176b74248f47ff649f3278bc7799928
   name: Robot-b
+  copyright: Scratch
   tags:
     - space
     - robot
@@ -4718,6 +5243,7 @@
   centerY: 64
 - id: c73d716207088ca3345d96700923b75c
   name: Robot-c
+  copyright: Scratch
   tags:
     - space
     - robot
@@ -4726,6 +5252,7 @@
   centerY: 65
 - id: 11eaa62feda02b60d06fd02d72942bda
   name: Robot-d
+  copyright: Scratch
   tags:
     - space
     - robot
@@ -4734,6 +5261,7 @@
   centerY: 63
 - id: b7282eec3e7444175df3b7a1d576c021
   name: Rocketship-a
+  copyright: Scratch
   tags:
     - space
     - spaceship
@@ -4742,6 +5270,7 @@
   centerY: 61
 - id: b4ea8045c96cabd5ecee11566955f1ad
   name: Rocketship-b
+  copyright: Scratch
   tags:
     - space
     - spaceship
@@ -4750,6 +5279,7 @@
   centerY: 61
 - id: 1b9573e2eade97bde5919320df86ea1a
   name: Rocketship-c
+  copyright: Scratch
   tags:
     - space
     - spaceship
@@ -4758,6 +5288,7 @@
   centerY: 61
 - id: 785332e1bfebf0ba1f335c04bcd8bde4
   name: Rocketship-d
+  copyright: Scratch
   tags:
     - space
     - spaceship
@@ -4766,6 +5297,7 @@
   centerY: 61
 - id: 27daa5854db84372262ca7ff863219d1
   name: Rocketship-e
+  copyright: Scratch
   tags:
     - space
     - spaceship
@@ -4774,6 +5306,7 @@
   centerY: 57
 - id: ea72da407410dbbf2912b2004d424c74
   name: Rocks
+  copyright: Scratch
   tags:
     - things
     - potassium
@@ -4781,6 +5314,7 @@
   centerY: 10
 - id: a278d097316c9b47a608a05cdb8c50a2
   name: Rooster-a
+  copyright: Scratch
   tags:
     - animals
     - chicken
@@ -4790,6 +5324,7 @@
   centerY: 47
 - id: ea8fe5d5eed979dd019c7b2b31c91ac8
   name: Rooster-b
+  copyright: Scratch
   tags:
     - animals
     - chicken
@@ -4799,6 +5334,7 @@
   centerY: 47
 - id: f4afadf02e3b89132512dc69a75c239e
   name: Rooster-c
+  copyright: Scratch
   tags:
     - animals
     - chicken
@@ -4808,18 +5344,21 @@
   centerY: 48
 - id: b3b85a64b5b41e3b70babcbe49fd1d73
   name: Ruby-a
+  copyright: Scratch
   tags:
     - people
   centerX: 18
   centerY: 57
 - id: fc9d405a42e4868f7282e2388b5038a6
   name: Ruby-b
+  copyright: Scratch
   tags:
     - people
   centerX: 25
   centerY: 47
 - id: 8fe95ad92679cce4aa7f4c84a76f1efc
   name: Sasha-a
+  copyright: Scratch
   tags:
     - people
     - person
@@ -4833,6 +5372,7 @@
   centerY: 88
 - id: e2e634b669f109e3623b10fdeab2ff63
   name: Sasha-b
+  copyright: Scratch
   tags:
     - people
     - person
@@ -4846,6 +5386,7 @@
   centerY: 88
 - id: 734f82fa94470c1189795e66f875a297
   name: Sasha-c
+  copyright: Scratch
   tags:
     - people
     - person
@@ -4859,6 +5400,7 @@
   centerY: 88
 - id: 836879c032b0aaf7d90084f02aae9d00
   name: Saxophone-a
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -4866,6 +5408,7 @@
   centerY: 53
 - id: 8a1d947ade07f21e25e7da50c4ee7780
   name: Saxophone-b
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -4873,6 +5416,7 @@
   centerY: 53
 - id: 4817b8727219918f91146cb51bc38a7d
   name: Scarf-a
+  copyright: Scratch
   tags:
     - fashion
     - clothing
@@ -4882,6 +5426,7 @@
   centerY: 15
 - id: 138f8f0a834e1e86b3d2019f26569563
   name: Scarf-b
+  copyright: Scratch
   tags:
     - fashion
     - clothing
@@ -4891,6 +5436,7 @@
   centerY: 15
 - id: 84f1c3d656f1f475a5f38730b0f196d8
   name: Scarf-c
+  copyright: Scratch
   tags:
     - fashionclothing
     - scarf
@@ -4899,6 +5445,7 @@
   centerY: 29
 - id: f395fc03a3e8352df30f153acd9b4c0d
   name: Shark-a
+  copyright: Scratch
   tags:
     - animals
     - underwater
@@ -4908,6 +5455,7 @@
   centerY: 40
 - id: 993eec86022edd2b089c5c831ff6f457
   name: Shark-b
+  copyright: Scratch
   tags:
     - animals
     - underwater
@@ -4917,6 +5465,7 @@
   centerY: 40
 - id: fad6e7747e3a42d5ace2ea74c63d054d
   name: Shark2-a
+  copyright: Scratch
   tags:
     - animals
     - ocean
@@ -4929,6 +5478,7 @@
   centerY: 50
 - id: 9032ac1c020847aa09e0e328f883ae3d
   name: Shark2-b
+  copyright: Scratch
   tags:
     - animals
     - ocean
@@ -4941,6 +5491,7 @@
   centerY: 50
 - id: b38ecde3524b473cd75d987485225a72
   name: Shark2-c
+  copyright: Scratch
   tags:
     - animals
     - ocean
@@ -4953,6 +5504,7 @@
   centerY: 25
 - id: 69f2c0d7a6e135a39025366551143c56
   name: Shirt-a
+  copyright: Scratch
   tags:
     - fashion
     - shirt
@@ -4960,6 +5512,7 @@
   centerY: 27
 - id: 28a3bc399dc4c0c55f163255706f2a33
   name: Shoes-a
+  copyright: Scratch
   tags:
     - fashion
     - shoes
@@ -4967,6 +5520,7 @@
   centerY: 9
 - id: adbf34d1efd998017cd5c6676cd03599
   name: Shoes-b
+  copyright: Scratch
   tags:
     - fashion
     - shoes
@@ -4974,6 +5528,7 @@
   centerY: 21
 - id: 5c37783035d82f905ee2376b05d36027
   name: Shoes-c
+  copyright: Scratch
   tags:
     - fashion
     - shoes
@@ -4981,6 +5536,7 @@
   centerY: 22
 - id: 6d684d7525b804aceff101936a42cfd5
   name: Shoes-d
+  copyright: Scratch
   tags:
     - fashion
     - shoes
@@ -4988,6 +5544,7 @@
   centerY: 21
 - id: 4231cdeb7edfedd949a04643fc0a3c2d
   name: Shorts-a
+  copyright: Scratch
   tags:
     - fashion
     - pants
@@ -4997,6 +5554,7 @@
   centerY: 25
 - id: b1015462c05c3e345ab46ce5ca053e3c
   name: Shorts-b
+  copyright: Scratch
   tags:
     - fashion
     - pants
@@ -5006,6 +5564,7 @@
   centerY: 24
 - id: dfb94d31e2d6d0143362a52d3bbf771d
   name: Shorts-c
+  copyright: Scratch
   tags:
     - fashion
     - pants
@@ -5015,6 +5574,7 @@
   centerY: 19
 - id: 51d828e452d0ff5b006c9d4fe0005310
   name: Singer1
+  copyright: Scratch
   tags:
     - people
     - music
@@ -5022,6 +5582,7 @@
   centerY: 50
 - id: 0178c7b01ddc93502ff36bbb465ead48
   name: Skeleton-a
+  copyright: Scratch
   tags:
     - fantasy
     - spooky
@@ -5033,6 +5594,7 @@
   centerY: 67
 - id: 3500359ff091391b924132d72aca3ef6
   name: Skeleton-b
+  copyright: Scratch
   tags:
     - fantasy
     - spooky
@@ -5044,6 +5606,7 @@
   centerY: 60
 - id: 7be06e8d99eb34e9632afc7ac6baec35
   name: Skeleton-d
+  copyright: Scratch
   tags:
     - fantasy
     - spooky
@@ -5055,6 +5618,7 @@
   centerY: 67
 - id: aef458d314ab20716b6e432d2c1fc16a
   name: Skeleton-e
+  copyright: Scratch
   tags:
     - fantasy
     - spooky
@@ -5066,6 +5630,7 @@
   centerY: 59
 - id: de4793ff922607a8051150a7e93da190
   name: Snake-a
+  copyright: Scratch
   tags:
     - animals
     - reptile
@@ -5074,6 +5639,7 @@
   centerY: 45
 - id: b471270012be20ed1f3d3f5608537e53
   name: Snake-b
+  copyright: Scratch
   tags:
     - animals
     - reptile
@@ -5082,6 +5648,7 @@
   centerY: 45
 - id: ae9d8dc2b5f88d38ea41d0d671119113
   name: Snake-c
+  copyright: Scratch
   tags:
     - animals
     - reptile
@@ -5090,12 +5657,14 @@
   centerY: 45
 - id: 4e742bcd6fc7446fde6841a262db8ec9
   name: Snowflake
+  copyright: Scratch
   tags:
     - winter
   centerX: 69
   centerY: 69
 - id: 063c4bd8ff4fccaed82a8d943a681ea5
   name: Snowman
+  copyright: Scratch
   tags:
     - fantasy
     - drawing
@@ -5104,6 +5673,7 @@
   centerY: 50
 - id: 0249b81a98953dda81d2bd09e2d96f71
   name: Soccer Ball
+  copyright: Scratch
   tags:
     - sports
     - soccer
@@ -5113,6 +5683,7 @@
   centerY: 15
 - id: b30aeec6869c4b7b91bf42b6ae15abeb
   name: Speaker
+  copyright: Scratch
   tags:
     - music
     - things
@@ -5123,6 +5694,7 @@
   centerY: 53
 - id: 5f28fdcfb9fb0841b9bce00e7cc57d9f
   name: Star
+  copyright: Scratch
   tags:
     - shapes
     - space
@@ -5130,6 +5702,7 @@
   centerY: 15
 - id: 7af1e59e3ae9a113431d255f15ddbd97
   name: Starfish-a
+  copyright: Scratch
   tags:
     - animals
     - echinodermata
@@ -5140,6 +5713,7 @@
   centerY: 50
 - id: 01a7480f0466a59fdc77c9543abe95f8
   name: 'Starfish-b '
+  copyright: Scratch
   tags:
     - animals
     - echinodermata
@@ -5150,6 +5724,7 @@
   centerY: 40
 - id: a0fabcd0ceb853d967a8191c34abcde7
   name: Stop
+  copyright: Scratch
   tags:
     - shapes
     - things
@@ -5157,6 +5732,7 @@
   centerY: 17
 - id: 3c25556ba4131900c57a6bd4995415be
   name: Strawberry-a
+  copyright: Scratch
   tags:
     - food
     - fruit
@@ -5165,6 +5741,7 @@
   centerY: 31
 - id: df12721d3ba7e2180bdab3e5f154af18
   name: Strawberry-b
+  copyright: Scratch
   tags:
     - food
     - fruit
@@ -5173,6 +5750,7 @@
   centerY: 31
 - id: 83a274441b2d6bd46a3adfbad7dddbbd
   name: Strawberry-c
+  copyright: Scratch
   tags:
     - food
     - fruit
@@ -5181,6 +5759,7 @@
   centerY: 31
 - id: 1af1854e5b2df87007d404e99b95bed4
   name: Strawberry-d
+  copyright: Scratch
   tags:
     - food
     - fruit
@@ -5189,6 +5768,7 @@
   centerY: 31
 - id: 80d636609c6bd12c48c66ff49bbb08d1
   name: Strawberry-e
+  copyright: Scratch
   tags:
     - food
     - fruit
@@ -5197,6 +5777,7 @@
   centerY: 24
 - id: 798396949daa84409ee7fe07f001e4cb
   name: Sun
+  copyright: Scratch
   tags:
     - space
     - star
@@ -5208,6 +5789,7 @@
   centerY: 36
 - id: 80798425cd657fc6655ae8db350271ab
   name: Sunglasses-a
+  copyright: Scratch
   tags:
     - fashion
     - cool
@@ -5215,6 +5797,7 @@
   centerY: 9
 - id: bcc8b56f14adea751ab88a4d2b217eb9
   name: Sunglasses-b
+  copyright: Scratch
   tags:
     - fashion
     - cool
@@ -5222,6 +5805,7 @@
   centerY: 7
 - id: e6495ec1e991daa68430e1d2853c9db6
   name: Tabla-a
+  copyright: Scratch
   tags:
     - drums
     - ' music'
@@ -5230,6 +5814,7 @@
   centerY: 45
 - id: e1f0c7668ab4cda86f34f15a134da3f2
   name: Tabla-b
+  copyright: Scratch
   tags:
     - drums
     - ' music'
@@ -5238,6 +5823,7 @@
   centerY: 49
 - id: f3bded4e3c474f263c8b3fbe67ff7085
   name: Taco
+  copyright: Scratch
   tags:
     - food
     - designerd
@@ -5245,6 +5831,7 @@
   centerY: 32
 - id: 381634007e966df8d666c5fb9ae080cc
   name: Taco-wizard
+  copyright: Scratch
   tags:
     - food
     - fantasy
@@ -5255,6 +5842,7 @@
   centerY: 55
 - id: 128408e42caac3acd06fa794d66ee863
   name: Takeout-a
+  copyright: Scratch
   tags:
     - food
     - alex eben meyer
@@ -5262,6 +5850,7 @@
   centerY: 27
 - id: 0122bf456de54f55828e48473e38ac82
   name: Takeout-b
+  copyright: Scratch
   tags:
     - food
     - alex eben meyer
@@ -5269,6 +5858,7 @@
   centerY: 28
 - id: d573963d839349d990e976d1fbd48c02
   name: Takeout-c
+  copyright: Scratch
   tags:
     - food
     - alex eben meyer
@@ -5276,6 +5866,7 @@
   centerY: 35
 - id: 9d09c5eb1746a039085c759cecf33628
   name: Takeout-d
+  copyright: Scratch
   tags:
     - food
     - alex eben meyer
@@ -5283,6 +5874,7 @@
   centerY: 28
 - id: 71d32ec00341cf6fa01f7a1f8d6d2903
   name: Takeout-e
+  copyright: Scratch
   tags:
     - food
     - alex eben meyer
@@ -5290,6 +5882,7 @@
   centerY: 23
 - id: 2f363ed48849dd670b21220ce2ed5d78
   name: Tatiana-a
+  copyright: Scratch
   tags:
     - people
     - person
@@ -5303,6 +5896,7 @@
   centerY: 36
 - id: 5820ab795e47a4edfdb532ddd7aec59a
   name: Tatiana-b
+  copyright: Scratch
   tags:
     - people
     - person
@@ -5316,6 +5910,7 @@
   centerY: 41
 - id: c008d8df34be82fd79921ef44c37f285
   name: Tatiana-c
+  copyright: Scratch
   tags:
     - people
     - person
@@ -5329,6 +5924,7 @@
   centerY: 36
 - id: 5a172ff9e312330db345e30e631b51fe
   name: Tatiana-d
+  copyright: Scratch
   tags:
     - people
     - person
@@ -5342,6 +5938,7 @@
   centerY: 37
 - id: a412e8c4b0225446be67f3c8f3c61f00
   name: Taylor-a
+  copyright: Scratch
   tags:
     - people
     - person
@@ -5355,6 +5952,7 @@
   centerY: 35
 - id: 7cc190b9ca1e7e5f0732a25f0ec640bc
   name: Taylor-b
+  copyright: Scratch
   tags:
     - people
     - person
@@ -5368,6 +5966,7 @@
   centerY: 35
 - id: a412e8c4b0225446be67f3c8f3c61f00
   name: Taylor-c
+  copyright: Scratch
   tags:
     - people
     - person
@@ -5381,6 +5980,7 @@
   centerY: 35
 - id: 47fe1c084796b7b9dc77cd09fdd3de4a
   name: Taylor-d
+  copyright: Scratch
   tags:
     - people
     - person
@@ -5394,6 +5994,7 @@
   centerY: 34
 - id: 0f4471b9dd5a4b558f72437944ab9b68
   name: Tennisball
+  copyright: Scratch
   tags:
     - ball
     - sports
@@ -5401,6 +6002,7 @@
   centerY: 10
 - id: aa91aaf8a936b1d3432ee36a287413fb
   name: Tera-a
+  copyright: Scratch
   tags:
     - fantasy
     - drawing
@@ -5408,6 +6010,7 @@
   centerY: 42
 - id: 51952692a4e94f6eaafc1ba8db4bbfe6
   name: Tera-b
+  copyright: Scratch
   tags:
     - fantasy
     - drawing
@@ -5416,6 +6019,7 @@
   centerY: 43
 - id: 9d15b71f682cfade44eb01f702887d12
   name: Tera-c
+  copyright: Scratch
   tags:
     - fantasy
     - drawing
@@ -5424,6 +6028,7 @@
   centerY: 42
 - id: 78a4a359cb146377186bd78d97cff79b
   name: Tera-d
+  copyright: Scratch
   tags:
     - fantasy
     - drawing
@@ -5432,6 +6037,7 @@
   centerY: 42
 - id: 854722dbbce40831398b9285e2db2d2c
   name: Toucan-a
+  copyright: Scratch
   tags:
     - animals
     - bird
@@ -5440,6 +6046,7 @@
   centerY: 42
 - id: b4f0096a5c9ce93594932cbd3d2ab2b3
   name: Toucan-b
+  copyright: Scratch
   tags:
     - animals
     - bird
@@ -5448,6 +6055,7 @@
   centerY: 42
 - id: 7d9ada8b11b04eaaed882afe13c98306
   name: Toucan-c
+  copyright: Scratch
   tags:
     - animals
     - bird
@@ -5456,6 +6064,7 @@
   centerY: 42
 - id: d062c6a89cfc4013a877fb2688fadb82
   name: Tree1
+  copyright: Scratch
   tags:
     - plants
     - wood
@@ -5464,6 +6073,7 @@
   centerY: 84
 - id: bd16a0dde9d09a173f472fe838658d92
   name: Trees-a
+  copyright: Scratch
   tags:
     - plants
     - wood
@@ -5472,6 +6082,7 @@
   centerY: 63
 - id: 1f0ba53586a000c370acb62f0d63f916
   name: Trees-b
+  copyright: Scratch
   tags:
     - plants
     - wood
@@ -5480,6 +6091,7 @@
   centerY: 58
 - id: 5c81f8fe4892d55bd1de5ed92659d773
   name: Trisha-a
+  copyright: Scratch
   tags:
     - people
     - person
@@ -5493,6 +6105,7 @@
   centerY: 38
 - id: 1fa27077ca15bae100dcec7d36553b1f
   name: Trisha-b
+  copyright: Scratch
   tags:
     - people
     - person
@@ -5506,6 +6119,7 @@
   centerY: 41
 - id: 5c81f8fe4892d55bd1de5ed92659d773
   name: Trisha-c
+  copyright: Scratch
   tags:
     - people
     - person
@@ -5519,6 +6133,7 @@
   centerY: 38
 - id: c8de7e306eeb8d3c5162af99ad2ccc74
   name: Trisha-d
+  copyright: Scratch
   tags:
     - people
     - person
@@ -5532,6 +6147,7 @@
   centerY: 37
 - id: 03ec63b5747d4ff89e6ed95c32f19f18
   name: Truck-a
+  copyright: Scratch
   tags:
     - truck
     - city
@@ -5541,6 +6157,7 @@
   centerY: 32
 - id: d66d5ebe81f617e32d3a33a0acef6a16
   name: Truck-b
+  copyright: Scratch
   tags:
     - truck
     - city
@@ -5550,6 +6167,7 @@
   centerY: 39
 - id: 9a0f8d2a846e95a41b0122688659c061
   name: Truck-c
+  copyright: Scratch
   tags:
     - truck
     - city
@@ -5559,6 +6177,7 @@
   centerY: 38
 - id: a32939e90995da7ed7327e70b056e046
   name: Trumpet-a
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -5566,6 +6185,7 @@
   centerY: 25
 - id: 4e0f2a9bc5e8f2f3b7cc75cb128ba4ef
   name: Trumpet-b
+  copyright: Scratch
   tags:
     - music
     - andrew rae
@@ -5573,6 +6193,7 @@
   centerY: 25
 - id: 182c6a1be28cbf36f1476ec5c7bad17d
   name: Unicorn
+  copyright: Scratch
   tags:
     - fantasy
     - animals
@@ -5581,6 +6202,7 @@
   centerY: 63
 - id: 2fc13b2a84a32434c481b68d1000edf9
   name: Unicorn 2
+  copyright: Scratch
   tags:
     - fantasy
     - animals
@@ -5591,6 +6213,7 @@
   centerY: 50
 - id: b048d94d398535a963c9e2fa1868cf16
   name: Unicorn Running-a
+  copyright: Scratch
   tags:
     - fantasy
     - animals
@@ -5600,6 +6223,7 @@
   centerY: 60
 - id: d4117ec0332ae83d07fa8f52c82c83ae
   name: Unicorn Running-b
+  copyright: Scratch
   tags:
     - fantasy
     - animals
@@ -5609,6 +6233,7 @@
   centerY: 59
 - id: 9bc831568def45e94c0967e4ca65b76a
   name: Unicorn Running-c
+  copyright: Scratch
   tags:
     - fantasy
     - animals
@@ -5618,6 +6243,7 @@
   centerY: 60
 - id: f9f83cd2f75a6047f0bc7b10f020f8c9
   name: Unicorn Running-d
+  copyright: Scratch
   tags:
     - fantasy
     - animals
@@ -5627,6 +6253,7 @@
   centerY: 58
 - id: 1b812896d5bb66a74b2c2d6dab1ff6fe
   name: Unicorn Running-e
+  copyright: Scratch
   tags:
     - fantasy
     - animals
@@ -5636,6 +6263,7 @@
   centerY: 60
 - id: 5538fe62e4e17f17fe2ba96eb6f36b94
   name: Unicorn Running-f
+  copyright: Scratch
   tags:
     - fantasy
     - animals
@@ -5645,6 +6273,7 @@
   centerY: 57
 - id: 9a3759aaa4044cd70e6883b20c91fd15
   name: Wand
+  copyright: Scratch
   tags:
     - fantasy
     - ipzy
@@ -5653,12 +6282,14 @@
   centerY: 28
 - id: ecd9749886beb1e48776de91ce503859
   name: Wanda
+  copyright: Scratch
   tags:
     - people
   centerX: 33
   centerY: 45
 - id: 05067a4b47081229e4c55c6af9bcd796
   name: Watermelon-a
+  copyright: Scratch
   tags:
     - food
     - fruit
@@ -5670,6 +6301,7 @@
   centerY: 19
 - id: 6ae5947b7189453560bd9a3bd6646aa3
   name: Watermelon-b
+  copyright: Scratch
   tags:
     - food
     - fruit
@@ -5680,6 +6312,7 @@
   centerY: 19
 - id: 5ebb6e507179bbbd0a5763f7ac73344c
   name: Watermelon-c
+  copyright: Scratch
   tags:
     - food
     - fruit
@@ -5690,6 +6323,7 @@
   centerY: 11
 - id: 32845761754d251b6cc556ea3c7bfdfa
   name: Winter Hat
+  copyright: Scratch
   tags:
     - fashion
     - winter
@@ -5698,6 +6332,7 @@
   centerY: 26
 - id: cda9ffc43c9b437cc675029931469540
   name: Witch
+  copyright: Scratch
   tags:
     - fantasy
     - broom
@@ -5709,6 +6344,7 @@
   centerY: 39
 - id: cf44fbe1824492dae2f7e7e653a069c8
   name: Witch-a
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -5720,6 +6356,7 @@
   centerY: 93
 - id: 01a99fae078f47c533dfb8be99a6fb3d
   name: Witch-b
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -5731,6 +6368,7 @@
   centerY: 93
 - id: e495e7fc1519459eb6711828d5f9aa99
   name: Witch-c
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -5742,6 +6380,7 @@
   centerY: 93
 - id: d9f49d45885e7e2ca38970c71f678c62
   name: Witch-d
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -5753,6 +6392,7 @@
   centerY: 93
 - id: e4893ce50f9e4322ac7e6169dddda065
   name: Wizard Girl
+  copyright: Scratch
   tags:
     - people
     - female
@@ -5764,6 +6404,7 @@
   centerY: 61
 - id: 69ccb2bf74baabeb551d912df72192a2
   name: Wizard Hat
+  copyright: Scratch
   tags:
     - fashion
     - fantasy
@@ -5772,6 +6413,7 @@
   centerY: 40
 - id: ff057f07fbd29ab4d6002af13ac82134
   name: Wizard-a
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -5783,6 +6425,7 @@
   centerY: 100
 - id: cf9d963e1e3454df0bd6e36bc2d9350d
   name: Wizard-b
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -5794,6 +6437,7 @@
   centerY: 96
 - id: 649a238111a9a8c7c400a240973c5b15
   name: Wizard-c
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -5805,6 +6449,7 @@
   centerY: 100
 - id: 6c48cac80c60e91667935f153cc49fd9
   name: Wizard-toad-a
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -5818,6 +6463,7 @@
   centerY: 53
 - id: e2fd7352c7d9840adb07ec22ff2a96eb
   name: Wizard-toad-b
+  copyright: Scratch
   tags:
     - fantasy
     - people
@@ -5830,6 +6476,7 @@
   centerY: 53
 - id: 0f24ce73fcfb8d0626bf69eadcfc3c36
   name: Zebra-a
+  copyright: Scratch
   tags:
     - animals
     - savanna
@@ -5839,6 +6486,7 @@
   centerY: 37
 - id: cc37768fd8c1ff5ae1f44df815522120
   name: Zebra-b
+  copyright: Scratch
   tags:
     - animals
     - savanna
@@ -5848,6 +6496,7 @@
   centerY: 37
 - id: 7eb6425d4624ebacc2d381018e92a59c
   name: Block-a
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5855,6 +6504,7 @@
   centerY: 25
 - id: 15ebd37cd52bc4e8e935cbc33c4711b0
   name: Block-b
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5862,6 +6512,7 @@
   centerY: 28
 - id: f1fb2f800e36522bb2ea73910553b5c6
   name: Block-c
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5869,6 +6520,7 @@
   centerY: 29
 - id: 145f19262f77aedf03a5df1e0d8fab73
   name: Block-d
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5876,6 +6528,7 @@
   centerY: 27
 - id: 78f036ba803587830e48826e7ef2a5d1
   name: Block-e
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5883,6 +6536,7 @@
   centerY: 26
 - id: 39f150e0f44769422508c8d6638b1db1
   name: Block-f
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5890,6 +6544,7 @@
   centerY: 27
 - id: cc2bebff4e13179f42ef270a5c09e943
   name: Block-g
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5897,6 +6552,7 @@
   centerY: 26
 - id: a9a0a0c3264963527f9450b5ae90279f
   name: Block-h
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5904,6 +6560,7 @@
   centerY: 25
 - id: 2d640534a5b25994c95d4d82820a5a60
   name: Block-i
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5911,6 +6568,7 @@
   centerY: 26
 - id: fe56068756443973b8bcf12670e66d79
   name: Block-j
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5918,6 +6576,7 @@
   centerY: 27
 - id: 404bb0ffa527bfa50e75660d78ff1b29
   name: Block-k
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5925,6 +6584,7 @@
   centerY: 27
 - id: 460b9cd6b8df987051408d9a649a19a8
   name: Block-l
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5932,6 +6592,7 @@
   centerY: 27
 - id: ba400d7caeeeff49f31f443833f1b422
   name: Block-m
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5939,6 +6600,7 @@
   centerY: 25
 - id: 4f624c4695889a8f66911de3a4574b07
   name: Block-n
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5946,6 +6608,7 @@
   centerY: 25
 - id: 5987d23a0b20edefbea013312a2c1c8c
   name: Block-o
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5953,6 +6616,7 @@
   centerY: 27
 - id: 8ff1d08c4ec96a7dbf8455e9fa0264ca
   name: Block-p
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5960,6 +6624,7 @@
   centerY: 22
 - id: 4ece3db7ced8275fbb079854a7d00bae
   name: Block-q
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5967,6 +6632,7 @@
   centerY: 22
 - id: c382bb54de3fc794fd1bcf7f568efd02
   name: Block-r
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5974,6 +6640,7 @@
   centerY: 22
 - id: ba78dd3b850213e137dfa7324ed68d78
   name: Block-s
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5981,6 +6648,7 @@
   centerY: 20
 - id: e1311e2b7bf0db2afbb9547f875bfec9
   name: Block-t
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5988,6 +6656,7 @@
   centerY: 22
 - id: 1120b3cf6851c70d80a5017439703f2d
   name: Block-u
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -5995,6 +6664,7 @@
   centerY: 27
 - id: f79cadf6ded90e462fefb76b60bc476d
   name: Block-v
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6002,6 +6672,7 @@
   centerY: 27
 - id: de7103f348010fe30a9acbba0339a6b9
   name: Block-w
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6009,6 +6680,7 @@
   centerY: 26
 - id: 40de4cc0d556f9acb7d685673e5646e9
   name: Block-x
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6016,6 +6688,7 @@
   centerY: 21
 - id: 6f0abefb04fcaeeb77daf8bcef312fca
   name: Block-y
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6023,6 +6696,7 @@
   centerY: 22
 - id: e724baa402eed8271176f59c209af90e
   name: Block-z
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6030,6 +6704,7 @@
   centerY: 25
 - id: 68f08f3a23bbcdebca20a7ed756ac442
   name: Glow-0
+  copyright: Scratch
   tags:
     - numbers
     - digits
@@ -6037,6 +6712,7 @@
   centerY: 26
 - id: dda93adf16c89148fa37492ca164deda
   name: Glow-1
+  copyright: Scratch
   tags:
     - numbers
     - digits
@@ -6044,6 +6720,7 @@
   centerY: 26
 - id: 68f30310a051998ae7bdaf0d4404ea9a
   name: Glow-2
+  copyright: Scratch
   tags:
     - numbers
     - digits
@@ -6051,6 +6728,7 @@
   centerY: 27
 - id: 92f5c5e75415516b2bfac10a57c346ee
   name: Glow-3
+  copyright: Scratch
   tags:
     - numbers
     - digits
@@ -6058,6 +6736,7 @@
   centerY: 28
 - id: 078db0100e77249437e8614f71bd9266
   name: Glow-4
+  copyright: Scratch
   tags:
     - numbers
     - digits
@@ -6065,6 +6744,7 @@
   centerY: 25
 - id: ed41084410090d90960b7dc3acf4f465
   name: Glow-5
+  copyright: Scratch
   tags:
     - numbers
     - digits
@@ -6072,6 +6752,7 @@
   centerY: 25
 - id: 3c65289b7d112c07349a496c4b235f90
   name: Glow-6
+  copyright: Scratch
   tags:
     - numbers
     - digits
@@ -6079,6 +6760,7 @@
   centerY: 25
 - id: d8ff3caa114a2e8a275b2bcd59c1437c
   name: Glow-7
+  copyright: Scratch
   tags:
     - numbers
     - digits
@@ -6086,6 +6768,7 @@
   centerY: 28
 - id: fa0a5ce4c574f5872a516cd4ff3efab6
   name: Glow-8
+  copyright: Scratch
   tags:
     - numbers
     - digits
@@ -6093,6 +6776,7 @@
   centerY: 25
 - id: 7432c4a168bf01f9a0edba4987480191
   name: Glow-9
+  copyright: Scratch
   tags:
     - numbers
     - digits
@@ -6100,6 +6784,7 @@
   centerY: 24
 - id: c36bffe1a66ac5287b17e73559bc2f4c
   name: Glow-A
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6107,6 +6792,7 @@
   centerY: 25
 - id: f4c15ee9c64b53ef7aba4338f21a5f4f
   name: Glow-B
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6114,6 +6800,7 @@
   centerY: 23
 - id: f75d96d3f83fdb8a4732a05ef2bbd396
   name: Glow-C
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6121,6 +6808,7 @@
   centerY: 23
 - id: f2bb6d8ae6d49481393788828901ebde
   name: Glow-D
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6128,6 +6816,7 @@
   centerY: 23
 - id: b97a2535bbcb289bcad3fa4d0f3b60af
   name: Glow-E
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6135,6 +6824,7 @@
   centerY: 25
 - id: 318ee54e005af2c05d5b54b8330a8775
   name: Glow-F
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6142,6 +6832,7 @@
   centerY: 27
 - id: cef9a84f60f301ccf4efc75a77412cbe
   name: Glow-G
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6149,6 +6840,7 @@
   centerY: 26
 - id: 9b49adc4a97533244008b0fbba62a212
   name: Glow-H
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6156,6 +6848,7 @@
   centerY: 31
 - id: e6a877d824d01a0414be90a90f83c152
   name: Glow-I
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6163,6 +6856,7 @@
   centerY: 25
 - id: 51ccb96f11096d19f3d4a887b6dcb13b
   name: Glow-J
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6170,6 +6864,7 @@
   centerY: 26
 - id: 067eb33c29fd1116f0102bbf60687a00
   name: Glow-K
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6177,6 +6872,7 @@
   centerY: 24
 - id: 4521afb7e08eafa50d653d04d48df8dc
   name: Glow-L
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6184,6 +6880,7 @@
   centerY: 23
 - id: d5a4a0013f6547c8cec52a4947efbb3d
   name: Glow-M
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6191,6 +6888,7 @@
   centerY: 26
 - id: 5e8edcf13ca816e2fc9045df16dc73d5
   name: Glow-N
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6198,6 +6896,7 @@
   centerY: 26
 - id: 68f08f3a23bbcdebca20a7ed756ac442
   name: Glow-O
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6205,6 +6904,7 @@
   centerY: 26
 - id: 6625c1e875b84a50ef8e0a0bd8f2130f
   name: Glow-P
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6212,6 +6912,7 @@
   centerY: 26
 - id: 43ad691356ad3ebb5cb50bf0ad157ba0
   name: Glow-Q
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6219,6 +6920,7 @@
   centerY: 29
 - id: 6be449e5ee0a5b1afd08dc1e42c3f80f
   name: Glow-R
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6226,6 +6928,7 @@
   centerY: 25
 - id: 58a88d1e67f4126f6f8dc8871bc038c3
   name: Glow-S
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6233,6 +6936,7 @@
   centerY: 27
 - id: 32d1ee882751fb72cc2748833ecbb2c9
   name: Glow-T
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6240,6 +6944,7 @@
   centerY: 25
 - id: 2a9e7af1f98e439c2a275c36c3785383
   name: Glow-U
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6247,6 +6952,7 @@
   centerY: 25
 - id: 31e499c7f9bdee4eebf773fe32fb0e83
   name: Glow-V
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6254,6 +6960,7 @@
   centerY: 28
 - id: dd513fca23935fc7c8de4041e6a5b2aa
   name: Glow-W
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6261,6 +6968,7 @@
   centerY: 27
 - id: adac4a714cb478872d79c09658bd0b7c
   name: Glow-X
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6268,6 +6976,7 @@
   centerY: 26
 - id: bde7714a64f480a87b91134c64de36c1
   name: Glow-Y
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6275,6 +6984,7 @@
   centerY: 27
 - id: 35beb6ff795e4dbf08656f1c88e8bdc6
   name: Glow-Z
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6282,6 +6992,7 @@
   centerY: 26
 - id: 050b92c27a1fea2e408237918c510b2f
   name: story-A-1
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6289,6 +7000,7 @@
   centerY: 17
 - id: 3e87114ba767de1e3fa5b6fed776ae29
   name: story-A-2
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6296,6 +7008,7 @@
   centerY: 17
 - id: f0b6d445e4330c555f1c85505a62d2d0
   name: story-A-3
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6303,6 +7016,7 @@
   centerY: 16
 - id: ae8267b448ca8beafc296d0ceb4f469f
   name: story-B-1
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6310,6 +7024,7 @@
   centerY: 17
 - id: 768eeb5ce7c4286cee2e2bd271c7b589
   name: story-B-2
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6317,6 +7032,7 @@
   centerY: 17
 - id: 3ab9e02439419b4f697c164d9fb78669
   name: story-B-3
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6324,6 +7040,7 @@
   centerY: 15
 - id: 86f7779cb4b79b1a5208cbfead45b9fb
   name: story-C-1
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6331,6 +7048,7 @@
   centerY: 17
 - id: 4c3e255a99ca2decd23d7afd3db38cb5
   name: story-C-2
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6338,6 +7056,7 @@
   centerY: 17
 - id: 77814575998917b708cff9ae4ba66718
   name: story-C-3
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6345,6 +7064,7 @@
   centerY: 16
 - id: caa79002dadddfacf8a27aecbfec65e0
   name: story-D-1
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6352,6 +7072,7 @@
   centerY: 17
 - id: 7969e048f1e310c2240e62d4bcf8847a
   name: story-D-2
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6359,6 +7080,7 @@
   centerY: 17
 - id: 23ecc6748f4c54743783f7fbf5479879
   name: story-D-3
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6366,6 +7088,7 @@
   centerY: 15
 - id: cba377729395d29da4ceae3d2692acfb
   name: story-E-1
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6373,6 +7096,7 @@
   centerY: 17
 - id: 304f621f9d41321e41ee0aa71680204f
   name: story-E-2
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6380,6 +7104,7 @@
   centerY: 17
 - id: 5a5b1d9a4e5b6adc4a407df27c313229
   name: story-E-3
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6387,6 +7112,7 @@
   centerY: 15
 - id: 8e4ad4868443d743b76e177a07296abc
   name: story-F-1
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6394,6 +7120,7 @@
   centerY: 17
 - id: 00e23ea406fe14b4040d7eeef4ebe216
   name: story-F-2
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6401,6 +7128,7 @@
   centerY: 17
 - id: e7b4c39156db22bc1df155c618b3be25
   name: story-F-3
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6408,6 +7136,7 @@
   centerY: 15
 - id: 047e569ee7c0c52f19680e356cdffb81
   name: story-G-1
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6415,6 +7144,7 @@
   centerY: 17
 - id: 3b676fc13bc8c550502f1f815dae2200
   name: story-G-2
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6422,6 +7152,7 @@
   centerY: 17
 - id: 24d33db0d7d4b3a8e7e73d400c4d08d5
   name: story-G-3
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6429,6 +7160,7 @@
   centerY: 16
 - id: 3e85f5e22e8d83b4ec65d4e8aa2fab1f
   name: story-H-1
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6436,6 +7168,7 @@
   centerY: 17
 - id: 4afa0598958927043d1b2e258d386ec7
   name: story-H-2
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6443,6 +7176,7 @@
   centerY: 17
 - id: d4f52d8aa2acf118e3fade07ed8748bb
   name: story-H-3
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6450,6 +7184,7 @@
   centerY: 16
 - id: 281b1039181fd7da1c1dc71bb62b0844
   name: story-I-1
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6457,6 +7192,7 @@
   centerY: 17
 - id: a37de3eb0e12d9ecff6dc96766ad790c
   name: story-I-2
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6464,6 +7200,7 @@
   centerY: 17
 - id: f5659d744ff6eb929d428993f21db18f
   name: story-I-3
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6471,6 +7208,7 @@
   centerY: 15
 - id: 9847c1ba37f8d724b266d3423fcc5177
   name: story-J-1
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6478,6 +7216,7 @@
   centerY: 17
 - id: 2e105508e00e11fa6195f87a2e8c2885
   name: story-J-2
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6485,6 +7224,7 @@
   centerY: 17
 - id: ceb17640f2755db8dbbeb100f030951d
   name: story-J-3
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6492,6 +7232,7 @@
   centerY: 16
 - id: 03730abbba3aac317d8f0f20fc185f42
   name: story-K-1
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6499,6 +7240,7 @@
   centerY: 17
 - id: ba91f7c547b96ddef7c6d173854afa67
   name: story-K-2
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6506,6 +7248,7 @@
   centerY: 17
 - id: fba8ab8f27cabea78d1d6ea89e9ce54b
   name: story-K-3
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6513,6 +7256,7 @@
   centerY: 16
 - id: 4c2138f54c49cc3596098af91ab8f0d2
   name: story-L-1
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6520,6 +7264,7 @@
   centerY: 17
 - id: 29b194e13a30e04185e9a59788d7bd4a
   name: story-L-2
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6527,6 +7272,7 @@
   centerY: 17
 - id: 46e5db8da0fc7a059ee8d8e2441bc1dc
   name: story-L-3
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6534,6 +7280,7 @@
   centerY: 15
 - id: af2699684f06a469cd9f7fbbc46076f9
   name: story-M-1
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6541,6 +7288,7 @@
   centerY: 17
 - id: f4a3524ffdef8f497e8b5c0123b7eb96
   name: story-M-2
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6548,6 +7296,7 @@
   centerY: 17
 - id: 29defbb91d04cd1fd70dbcffb4f85d18
   name: story-M-3
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6555,6 +7304,7 @@
   centerY: 16
 - id: 830673279ac591edaa2f389c0f960254
   name: story-N-1
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6562,6 +7312,7 @@
   centerY: 17
 - id: 4e8096f177a4fb4dcd70d07e140a9056
   name: story-N-2
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6569,6 +7320,7 @@
   centerY: 17
 - id: 3e0aa7f96023e56288d08d39f8a2f8ca
   name: story-N-3
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6576,6 +7328,7 @@
   centerY: 15
 - id: 7f26576a274da0051fb4b362d5a70af4
   name: story-O-1
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6583,6 +7336,7 @@
   centerY: 17
 - id: 86a874ee8cf3f092b0407c0213e24b0d
   name: story-O-2
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6590,6 +7344,7 @@
   centerY: 17
 - id: f1f2785f3117a927009ab9fcd94c2ee5
   name: story-O-3
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6597,6 +7352,7 @@
   centerY: 16
 - id: dc02caeb331d5d601d25a2da20c745bb
   name: story-P-1
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6604,6 +7360,7 @@
   centerY: 17
 - id: afadaf2cc7ea1dacb04c4ac8b486d8c9
   name: story-P-2
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6611,6 +7368,7 @@
   centerY: 17
 - id: b456ef3c61427dc058063d3f3dab7b26
   name: story-P-3
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6618,6 +7376,7 @@
   centerY: 16
 - id: 2f4aa7ea7ac2cfa6efe286a7ccab1280
   name: story-Q-1
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6625,6 +7384,7 @@
   centerY: 20
 - id: ca86a711c628ffc5a362e4815e6ae997
   name: story-Q-2
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6632,6 +7392,7 @@
   centerY: 20
 - id: 8498d35483bffce37b96a4a6d6557687
   name: story-Q-3
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6639,6 +7400,7 @@
   centerY: 19
 - id: 8dd810afb66d4c274c311ffa80f79b04
   name: story-R-1
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6646,6 +7408,7 @@
   centerY: 17
 - id: ab3b76ccb8d3c1bfe7ecaf12e80a47a9
   name: story-R-2
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6653,6 +7416,7 @@
   centerY: 17
 - id: c0dc50c663b2c635a57042c1d219ef57
   name: story-R-3
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6660,6 +7424,7 @@
   centerY: 15
 - id: 80b5ec07d09ea2a6869241b41a2fd66a
   name: story-S-1
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6667,6 +7432,7 @@
   centerY: 17
 - id: 81f9f7cc1ce6fd84b226c3c6a60b3a33
   name: story-S-2
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6674,6 +7440,7 @@
   centerY: 17
 - id: 234f66c3a9b2cb9812108ce1e375a6cb
   name: story-S-3
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6681,6 +7448,7 @@
   centerY: 15
 - id: 3f280d904abbca7ee5c6dd8b964df1f5
   name: story-T-1
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6688,6 +7456,7 @@
   centerY: 18
 - id: 3bc6de94cf4b2433b95e3a13818ee4f4
   name: story-T-2
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6695,6 +7464,7 @@
   centerY: 18
 - id: e1f6349c6f938a3b118eda4d4c2718db
   name: story-T-3
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6702,6 +7472,7 @@
   centerY: 16
 - id: 2667bf39a92b2974dec1a3c723e72e67
   name: story-U-1
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6709,6 +7480,7 @@
   centerY: 17
 - id: 3bc82a34426244dc36a45c2559a49051
   name: story-U-2
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6716,6 +7488,7 @@
   centerY: 17
 - id: c6ad7c2e08ba32db0624363e3ca88626
   name: story-U-3
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6723,6 +7496,7 @@
   centerY: 16
 - id: 728d8478ac9e33a72a9a5065dd029bd4
   name: story-V-1
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6730,6 +7504,7 @@
   centerY: 17
 - id: 7b480b531d052d52229743777cb576bb
   name: story-V-2
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6737,6 +7512,7 @@
   centerY: 17
 - id: 7906967ec4b61102051e383d69356451
   name: story-V-3
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6744,6 +7520,7 @@
   centerY: 15
 - id: 7117b1c142fd5e82a9168c7c8b1cf777
   name: story-W-1
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6751,6 +7528,7 @@
   centerY: 17
 - id: 3eeb05dc86fff992cbbd9fd93ddec27d
   name: story-W-2
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6758,6 +7536,7 @@
   centerY: 17
 - id: c072bde77347d0cfd362900d2592f447
   name: story-W-3
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6765,6 +7544,7 @@
   centerY: 16
 - id: 187e268bff0a655e53aee4b16825a6f5
   name: story-X-1
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6772,6 +7552,7 @@
   centerY: 17
 - id: d4d8e7f4c10d30d27279876cb4b18349
   name: story-X-2
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6779,6 +7560,7 @@
   centerY: 17
 - id: 380ce7917232c5a7a69b9e1bf7f91508
   name: story-X-3
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6786,6 +7568,7 @@
   centerY: 16
 - id: fe6e859f4290936c69eb2d0dec2e10e6
   name: story-Y-1
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6793,6 +7576,7 @@
   centerY: 18
 - id: 545ee85c0926df21c3c7880041d17bb7
   name: story-Y-2
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6800,6 +7584,7 @@
   centerY: 18
 - id: 61a3d4648082da8512cbce72d475c74b
   name: story-Y-3
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6807,6 +7592,7 @@
   centerY: 16
 - id: 824ab51e318c54a3b35788d61c4ba490
   name: story-Z-1
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6814,6 +7600,7 @@
   centerY: 17
 - id: 0f66f2896ac2d22e4422b3162d2bde92
   name: story-Z-2
+  copyright: Scratch
   tags:
     - alphabet
     - letters
@@ -6821,6 +7608,7 @@
   centerY: 17
 - id: f41584012e587c86e30b6c86cbbc8d03
   name: story-Z-3
+  copyright: Scratch
   tags:
     - alphabet
     - letters

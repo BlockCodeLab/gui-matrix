@@ -36,6 +36,8 @@ export default function SoundsLibrary({ onSelect, onClose }) {
     setData(
       allSounds.map((sound) => ({
         name: sound.name,
+        author: sound.author,
+        copyright: sound.copyright,
         tags: sound.tags,
         image: soundIcon,
         onSelect: setSelectHandler(sound),
@@ -43,7 +45,7 @@ export default function SoundsLibrary({ onSelect, onClose }) {
         onMouseLeave: handleMouseLeave,
       })),
     );
-  }, []);
+  });
 
   return (
     <Library

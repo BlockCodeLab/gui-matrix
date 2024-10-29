@@ -31,6 +31,8 @@ export default function SpritesLibrary({ onSelect, onClose }) {
     setData(
       allSprites.map((sprite) => ({
         name: sprite.name,
+        author: sprite.author,
+        copyright: sprite.copyright,
         tags: sprite.tags,
         image: `./assets/${sprite.costumes[0].id}.png`,
         onSelect: setSelectHandler(sprite),
@@ -38,7 +40,7 @@ export default function SpritesLibrary({ onSelect, onClose }) {
         onMouseLeave: setMouseLeaveHandler(sprite),
       })),
     );
-  }, []);
+  });
 
   return (
     <Library

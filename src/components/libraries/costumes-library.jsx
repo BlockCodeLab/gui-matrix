@@ -17,12 +17,14 @@ export default function CostumesLibrary({ onSelect, onClose }) {
     setData(
       allCostumes.map((costume) => ({
         name: costume.name,
+        author: costume.author,
+        copyright: costume.copyright,
         tags: costume.tags,
         image: `./assets/${costume.id}.png`,
         onSelect: setSelectHandler(costume),
       })),
     );
-  }, []);
+  });
 
   return (
     <Library
