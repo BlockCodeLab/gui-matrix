@@ -45,7 +45,7 @@ export default function SoundsLibrary({ onSelect, onClose }) {
         onMouseLeave: handleMouseLeave,
       })),
     );
-  });
+  }, []);
 
   return (
     <Library

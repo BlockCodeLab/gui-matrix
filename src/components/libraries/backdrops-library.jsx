@@ -24,7 +24,7 @@ export default function BackdropsLibrary({ onSelect, onClose }) {
         onSelect: setSelectHandler(backdrop),
       })),
     );
-  });
+  }, []);
 
   return (
     <Library

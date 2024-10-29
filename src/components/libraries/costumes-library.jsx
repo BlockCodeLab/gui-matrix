@@ -24,7 +24,7 @@ export default function CostumesLibrary({ onSelect, onClose }) {
         onSelect: setSelectHandler(costume),
       })),
     );
-  });
+  }, []);
 
   return (
     <Library

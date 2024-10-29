@@ -4,6 +4,8 @@ import { Library } from '@blockcode/ui';
 import allSprites from './sprites.yaml';
 import spriteTags from './sprite-tags';
 
+let timer;
+
 export default function SpritesLibrary({ onSelect, onClose }) {
   const [data, setData] = useState([]);
   const { getText } = useLocale();
@@ -13,8 +15,10 @@ export default function SpritesLibrary({ onSelect, onClose }) {
     onClose();
   };
 
-  let timer;
   const setMouseEnterHandler = (sprite) => (e) => {
+    if (timer) {
+      clearInterval(timer);
+    }
     const len = sprite.costumes.length;
     if (len > 1) {
       let i = 0;
@@ -24,6 +28,7 @@ export default function SpritesLibrary({ onSelect, onClose }) {
 
   const setMouseLeaveHandler = (sprite) => (e) => {
     clearInterval(timer);
+    timer = null;
     e.target.src = `./assets/${sprite.costumes[0].id}.png`;
   };
 
@@ -40,7 +45,7 @@ export default function SpritesLibrary({ onSelect, onClose }) {
         onMouseLeave: setMouseLeaveHandler(sprite),
       })),
     );
-  });
+  }, []);
 
   return (
     <Library
