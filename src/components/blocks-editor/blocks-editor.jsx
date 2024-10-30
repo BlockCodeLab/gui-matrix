@@ -172,7 +172,12 @@ export default function BlocksEditor() {
         messages={messages}
         deviceId="arcade"
         generators={[pythonGenerator, javascriptGenerator]}
-        onExtensionsFilter={() => ['blocks', ['arcade', 'espnow', 'pwm', 'adc', 'signal', 'data']]}
+        onExtensionsFilter={() => [
+          'arcade',
+          ['blocks', 'communication'],
+          ['blocks', 'data'],
+          ['blocks', 'sensor', '!multipin'],
+        ]}
       />
 
       {thumb && (
