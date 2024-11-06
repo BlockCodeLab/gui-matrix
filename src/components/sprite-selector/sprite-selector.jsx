@@ -233,6 +233,7 @@ export default function SpriteSelector({ playing, stageSize, onStop }) {
                     [
                       {
                         label: getText('arcade.contextMenu.delete', 'delete'),
+                        disabled: fileList.length <= 2,
                         className: styles.deleteMenuItem,
                         onClick: () => handleDelete(index),
                       },
@@ -242,7 +243,7 @@ export default function SpriteSelector({ playing, stageSize, onStop }) {
           )}
           selectedIndex={fileList.findIndex((file) => file.id === selectedFileId)}
           onSelect={(index) => openFile(fileList[index].id)}
-          onDelete={handleDelete}
+          onDelete={fileList.length > 2 ? handleDelete : null}
         />
 
         <ActionButton

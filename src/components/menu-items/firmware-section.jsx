@@ -62,6 +62,7 @@ export default function FirmwareSection({ itemClassName }) {
 
   const closeAlert = () => {
     removeAlert(alertId);
+    alertId = null;
   };
 
   const errorAlert = (err) => {

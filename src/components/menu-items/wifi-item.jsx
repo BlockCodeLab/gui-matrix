@@ -1,6 +1,6 @@
 import { useLayout, useLocale, useEditor } from '@blockcode/core';
 import { Text, MenuItem } from '@blockcode/ui';
-import { connectDevice, configDevice } from '@blockcode/device-pyboard';
+import { checkDevice, connectDevice, configDevice } from '@blockcode/device-pyboard';
 import deviceFilters from '../../lib/device-filters.yaml';
 
 const STORAGE_WIFI_SSID = 'device.wifi.ssid';
