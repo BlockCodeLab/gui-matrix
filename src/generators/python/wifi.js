@@ -1,30 +1,30 @@
 import { pythonGenerator } from './generator';
 
-pythonGenerator['wifi_whenconnected'] = () => {
-  const branchCode = pythonGenerator.eventToCode('wifi_connected', 'target');
+pythonGenerator['wifi_whenconnected'] = function () {
+  const branchCode = this.eventToCode('wifi_connected', 'target');
   return `@when_wificonnected\n${branchCode}`;
 };
 
-pythonGenerator['wifi_connectto'] = (block) => {
+pythonGenerator['wifi_connectto'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  const ssidCode = pythonGenerator.valueToCode(block, 'SSID', pythonGenerator.ORDER_NONE) || '""';
-  const passwordCode = pythonGenerator.valueToCode(block, 'PASSWORD', pythonGenerator.ORDER_NONE) || '""';
+  const ssidCode = this.valueToCode(block, 'SSID', this.ORDER_NONE) || '""';
+  const passwordCode = this.valueToCode(block, 'PASSWORD', this.ORDER_NONE) || '""';
   code += `runtime.connect_wifi(str(${ssidCode}), str(${passwordCode}))\n`;
   return code;
 };
 
-pythonGenerator['wifi_disconnect'] = () => {
+pythonGenerator['wifi_disconnect'] = function () {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
   code += 'runtime.disconnect_wifi()\n';
   return code;
 };
 
-pythonGenerator['wifi_isconnected'] = () => {
-  return ['runtime.wifi_connected', pythonGenerator.ORDER_MEMBER];
+pythonGenerator['wifi_isconnected'] = function () {
+  return ['runtime.wifi_connected', this.ORDER_MEMBER];
 };

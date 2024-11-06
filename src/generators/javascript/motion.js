@@ -2,57 +2,57 @@ import { javascriptGenerator } from './generator';
 
 const AWAIT_ABORT = 'if (abort || !runtime.running) break;\n';
 
-javascriptGenerator['motion_movesteps'] = (block) => {
+javascriptGenerator['motion_movesteps'] = function (block) {
   let code = '';
-  if (javascriptGenerator.STATEMENT_PREFIX) {
-    code += javascriptGenerator.injectId(javascriptGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  const stepsCode = javascriptGenerator.valueToCode(block, 'STEPS', javascriptGenerator.ORDER_NONE) || 10;
+  const stepsCode = this.valueToCode(block, 'STEPS', this.ORDER_NONE) || 10;
   code += `target.util.move(runtime.number(${stepsCode}));\n`;
   return code;
 };
 
-javascriptGenerator['motion_turnright'] = (block) => {
+javascriptGenerator['motion_turnright'] = function (block) {
   let code = '';
-  if (javascriptGenerator.STATEMENT_PREFIX) {
-    code += javascriptGenerator.injectId(javascriptGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  const degreesCode = javascriptGenerator.valueToCode(block, 'DEGREES', javascriptGenerator.ORDER_NONE) || 15;
+  const degreesCode = this.valueToCode(block, 'DEGREES', this.ORDER_NONE) || 15;
   code += `target.util.direction += runtime.number(${degreesCode});\n`;
   return code;
 };
 
-javascriptGenerator['motion_turnleft'] = (block) => {
+javascriptGenerator['motion_turnleft'] = function (block) {
   let code = '';
-  if (javascriptGenerator.STATEMENT_PREFIX) {
-    code += javascriptGenerator.injectId(javascriptGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  const degreesCode = javascriptGenerator.valueToCode(block, 'DEGREES', javascriptGenerator.ORDER_NONE) || 15;
+  const degreesCode = this.valueToCode(block, 'DEGREES', this.ORDER_NONE) || 15;
   code += `target.util.direction -= runtime.number(${degreesCode});\n`;
   return code;
 };
 
-javascriptGenerator['motion_pointindirection'] = (block) => {
+javascriptGenerator['motion_pointindirection'] = function (block) {
   let code = '';
-  if (javascriptGenerator.STATEMENT_PREFIX) {
-    code += javascriptGenerator.injectId(javascriptGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  const directionCode = javascriptGenerator.valueToCode(block, 'DIRECTION', javascriptGenerator.ORDER_NONE) || 90;
+  const directionCode = this.valueToCode(block, 'DIRECTION', this.ORDER_NONE) || 90;
   code += `target.util.direction = runtime.number(${directionCode});\n`;
   return code;
 };
 
-javascriptGenerator['motion_pointtowards_menu'] = (block) => {
-  return [block.getFieldValue('TOWARDS'), javascriptGenerator.ORDER_ATOMIC];
+javascriptGenerator['motion_pointtowards_menu'] = function (block) {
+  return [block.getFieldValue('TOWARDS'), this.ORDER_ATOMIC];
 };
 
-javascriptGenerator['motion_pointtowards'] = (block) => {
+javascriptGenerator['motion_pointtowards'] = function (block) {
   let code = '';
-  if (javascriptGenerator.STATEMENT_PREFIX) {
-    code += javascriptGenerator.injectId(javascriptGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
 
-  let towardsCode = javascriptGenerator.valueToCode(block, 'TOWARDS', javascriptGenerator.ORDER_NONE);
+  let towardsCode = this.valueToCode(block, 'TOWARDS', this.ORDER_NONE);
   if (towardsCode === '_random_') {
     towardsCode = `runtime.random(1, 360)`;
   } else {
@@ -62,28 +62,28 @@ javascriptGenerator['motion_pointtowards'] = (block) => {
   return code;
 };
 
-javascriptGenerator['motion_gotoxy'] = (block) => {
+javascriptGenerator['motion_gotoxy'] = function (block) {
   let code = '';
-  if (javascriptGenerator.STATEMENT_PREFIX) {
-    code += javascriptGenerator.injectId(javascriptGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  const xCode = javascriptGenerator.valueToCode(block, 'X', javascriptGenerator.ORDER_NONE) || 0;
-  const yCode = javascriptGenerator.valueToCode(block, 'Y', javascriptGenerator.ORDER_NONE) || 0;
+  const xCode = this.valueToCode(block, 'X', this.ORDER_NONE) || 0;
+  const yCode = this.valueToCode(block, 'Y', this.ORDER_NONE) || 0;
   code += `target.util.goto(runtime.number(${xCode}), runtime.number(${yCode}));\n`;
   return code;
 };
 
-javascriptGenerator['motion_goto_menu'] = (block) => {
-  return [block.getFieldValue('TO'), javascriptGenerator.ORDER_ATOMIC];
+javascriptGenerator['motion_goto_menu'] = function (block) {
+  return [block.getFieldValue('TO'), this.ORDER_ATOMIC];
 };
 
-javascriptGenerator['motion_goto'] = (block) => {
+javascriptGenerator['motion_goto'] = function (block) {
   let code = '';
-  if (javascriptGenerator.STATEMENT_PREFIX) {
-    code += javascriptGenerator.injectId(javascriptGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
 
-  let toCode = javascriptGenerator.valueToCode(block, 'TO', javascriptGenerator.ORDER_NONE) || '_random_';
+  let toCode = this.valueToCode(block, 'TO', this.ORDER_NONE) || '_random_';
   if (toCode === '_random_') {
     toCode = `{ x: runtime.random('width'), y: runtime.random('height') }`;
   } else {
@@ -93,28 +93,28 @@ javascriptGenerator['motion_goto'] = (block) => {
   return code;
 };
 
-javascriptGenerator['motion_glidesecstoxy'] = (block) => {
+javascriptGenerator['motion_glidesecstoxy'] = function (block) {
   let code = '';
-  if (javascriptGenerator.STATEMENT_PREFIX) {
-    code += javascriptGenerator.injectId(javascriptGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  const secsCode = javascriptGenerator.valueToCode(block, 'SECS', javascriptGenerator.ORDER_NONE) || 1;
-  const xCode = javascriptGenerator.valueToCode(block, 'X', javascriptGenerator.ORDER_NONE) || 0;
-  const yCode = javascriptGenerator.valueToCode(block, 'Y', javascriptGenerator.ORDER_NONE) || 0;
+  const secsCode = this.valueToCode(block, 'SECS', this.ORDER_NONE) || 1;
+  const xCode = this.valueToCode(block, 'X', this.ORDER_NONE) || 0;
+  const yCode = this.valueToCode(block, 'Y', this.ORDER_NONE) || 0;
   code += `await target.util.glide(runtime.number(${secsCode}), runtime.number(${xCode}), runtime.number(${yCode}));\n${AWAIT_ABORT}`;
   return code;
 };
 
 javascriptGenerator['motion_glideto_menu'] = javascriptGenerator['motion_goto_menu'];
 
-javascriptGenerator['motion_glideto'] = (block) => {
+javascriptGenerator['motion_glideto'] = function (block) {
   let code = '';
-  if (javascriptGenerator.STATEMENT_PREFIX) {
-    code += javascriptGenerator.injectId(javascriptGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
 
-  const secsCode = javascriptGenerator.valueToCode(block, 'SECS', javascriptGenerator.ORDER_NONE) || 1;
-  let toCode = javascriptGenerator.valueToCode(block, 'TO', javascriptGenerator.ORDER_NONE) || '_random_';
+  const secsCode = this.valueToCode(block, 'SECS', this.ORDER_NONE) || 1;
+  let toCode = this.valueToCode(block, 'TO', this.ORDER_NONE) || '_random_';
   if (toCode === '_random_') {
     toCode = `{ x: runtime.random('width'), y: runtime.random('height') }`;
   } else {
@@ -124,59 +124,59 @@ javascriptGenerator['motion_glideto'] = (block) => {
   return code;
 };
 
-javascriptGenerator['motion_changexby'] = (block) => {
+javascriptGenerator['motion_changexby'] = function (block) {
   let code = '';
-  if (javascriptGenerator.STATEMENT_PREFIX) {
-    code += javascriptGenerator.injectId(javascriptGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  const dxCode = javascriptGenerator.valueToCode(block, 'DX', javascriptGenerator.ORDER_NONE) || 10;
+  const dxCode = this.valueToCode(block, 'DX', this.ORDER_NONE) || 10;
   code += `target.util.x += runtime.number(${dxCode});\n`;
   return code;
 };
 
-javascriptGenerator['motion_setx'] = (block) => {
+javascriptGenerator['motion_setx'] = function (block) {
   let code = '';
-  if (javascriptGenerator.STATEMENT_PREFIX) {
-    code += javascriptGenerator.injectId(javascriptGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  const xCode = javascriptGenerator.valueToCode(block, 'X', javascriptGenerator.ORDER_NONE) || 0;
+  const xCode = this.valueToCode(block, 'X', this.ORDER_NONE) || 0;
   code += `target.util.x = runtime.number(${xCode});\n`;
   return code;
 };
 
-javascriptGenerator['motion_changeyby'] = (block) => {
+javascriptGenerator['motion_changeyby'] = function (block) {
   let code = '';
-  if (javascriptGenerator.STATEMENT_PREFIX) {
-    code += javascriptGenerator.injectId(javascriptGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  const dyCode = javascriptGenerator.valueToCode(block, 'DY', javascriptGenerator.ORDER_NONE) || 10;
+  const dyCode = this.valueToCode(block, 'DY', this.ORDER_NONE) || 10;
   code += `target.util.y += runtime.number(${dyCode});\n`;
   return code;
 };
 
-javascriptGenerator['motion_sety'] = (block) => {
+javascriptGenerator['motion_sety'] = function (block) {
   let code = '';
-  if (javascriptGenerator.STATEMENT_PREFIX) {
-    code += javascriptGenerator.injectId(javascriptGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  const yCode = javascriptGenerator.valueToCode(block, 'Y', javascriptGenerator.ORDER_NONE) || 0;
+  const yCode = this.valueToCode(block, 'Y', this.ORDER_NONE) || 0;
   code += `target.util.y = runtime.number(${yCode});\n`;
   return code;
 };
 
-javascriptGenerator['motion_ifonedgebounce'] = (block) => {
+javascriptGenerator['motion_ifonedgebounce'] = function (block) {
   let code = '';
-  if (javascriptGenerator.STATEMENT_PREFIX) {
-    code += javascriptGenerator.injectId(javascriptGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
   code += 'target.util.edgeBounce();\n';
   return code;
 };
 
-javascriptGenerator['motion_setrotationstyle'] = (block) => {
+javascriptGenerator['motion_setrotationstyle'] = function (block) {
   let code = '';
-  if (javascriptGenerator.STATEMENT_PREFIX) {
-    code += javascriptGenerator.injectId(javascriptGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
 
   let styleCode;
@@ -197,14 +197,14 @@ javascriptGenerator['motion_setrotationstyle'] = (block) => {
   return code;
 };
 
-javascriptGenerator['motion_xposition'] = () => {
-  return ['target.util.x', javascriptGenerator.ORDER_NONE];
+javascriptGenerator['motion_xposition'] = function () {
+  return ['target.util.x', this.ORDER_NONE];
 };
 
-javascriptGenerator['motion_yposition'] = () => {
-  return ['target.util.y', javascriptGenerator.ORDER_NONE];
+javascriptGenerator['motion_yposition'] = function () {
+  return ['target.util.y', this.ORDER_NONE];
 };
 
-javascriptGenerator['motion_direction'] = () => {
-  return ['target.util.direction', javascriptGenerator.ORDER_NONE];
+javascriptGenerator['motion_direction'] = function () {
+  return ['target.util.direction', this.ORDER_NONE];
 };

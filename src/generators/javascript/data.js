@@ -3,157 +3,154 @@ import { javascriptGenerator } from './generator';
 
 const TARGET_VARIABLE = 'target.util.variable.';
 
-javascriptGenerator['data_variable'] = (block) => {
+javascriptGenerator['data_variable'] = function (block) {
   const varName =
-    TARGET_VARIABLE +
-    javascriptGenerator.variableDB_.getName(block.getFieldValue('VARIABLE'), ScratchBlocks.Variables.NAME_TYPE);
-  return [varName, javascriptGenerator.ORDER_CONDITIONAL];
+    TARGET_VARIABLE + this.variableDB_.getName(block.getFieldValue('VARIABLE'), ScratchBlocks.Variables.NAME_TYPE);
+  return [varName, this.ORDER_CONDITIONAL];
 };
 
-javascriptGenerator['data_setvariableto'] = (block) => {
+javascriptGenerator['data_setvariableto'] = function (block) {
   let code = '';
-  if (javascriptGenerator.STATEMENT_PREFIX) {
-    code += javascriptGenerator.injectId(javascriptGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
 
   const varName =
-    TARGET_VARIABLE +
-    javascriptGenerator.variableDB_.getName(block.getFieldValue('VARIABLE'), ScratchBlocks.Variables.NAME_TYPE);
-  const valueCode = javascriptGenerator.valueToCode(block, 'VALUE', javascriptGenerator.ORDER_NONE) || '""';
+    TARGET_VARIABLE + this.variableDB_.getName(block.getFieldValue('VARIABLE'), ScratchBlocks.Variables.NAME_TYPE);
+  const valueCode = this.valueToCode(block, 'VALUE', this.ORDER_NONE) || '""';
   code += `${varName} = ${valueCode};\n`;
   return code;
 };
 
-javascriptGenerator['data_changevariableby'] = (block) => {
+javascriptGenerator['data_changevariableby'] = function (block) {
   let code = '';
-  if (javascriptGenerator.STATEMENT_PREFIX) {
-    code += javascriptGenerator.injectId(javascriptGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
 
   const varName =
-    TARGET_VARIABLE +
-    javascriptGenerator.variableDB_.getName(block.getFieldValue('VARIABLE'), ScratchBlocks.Variables.NAME_TYPE);
-  const valueCode = javascriptGenerator.valueToCode(block, 'VALUE', javascriptGenerator.ORDER_NONE) || 0;
+    TARGET_VARIABLE + this.variableDB_.getName(block.getFieldValue('VARIABLE'), ScratchBlocks.Variables.NAME_TYPE);
+  const valueCode = this.valueToCode(block, 'VALUE', this.ORDER_NONE) || 0;
   code += `${varName} = runtime.number(${varName}) + runtime.number(${valueCode});\n`;
   return code;
 };
 
-javascriptGenerator['data_listcontents'] = (block) => {
+javascriptGenerator['data_listcontents'] = function (block) {
   const listName =
     TARGET_VARIABLE +
-    javascriptGenerator.variableDB_.getName(block.getFieldValue('LIST'), ScratchBlocks.Variables.NAME_TYPE) +
+    this.variableDB_.getName(block.getFieldValue('LIST'), ScratchBlocks.Variables.NAME_TYPE) +
     ScratchBlocks.LIST_VARIABLE_TYPE;
-  return [listName, javascriptGenerator.ORDER_ATOMIC];
+  return [listName, this.ORDER_ATOMIC];
 };
 
-javascriptGenerator['data_addtolist'] = (block) => {
+javascriptGenerator['data_addtolist'] = function (block) {
   let code = '';
-  if (javascriptGenerator.STATEMENT_PREFIX) {
-    code += javascriptGenerator.injectId(javascriptGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
 
   const listName =
     TARGET_VARIABLE +
-    javascriptGenerator.variableDB_.getName(block.getFieldValue('LIST'), ScratchBlocks.Variables.NAME_TYPE) +
+    this.variableDB_.getName(block.getFieldValue('LIST'), ScratchBlocks.Variables.NAME_TYPE) +
     ScratchBlocks.LIST_VARIABLE_TYPE;
-  const itemValue = javascriptGenerator.valueToCode(block, 'ITEM', javascriptGenerator.ORDER_NONE) || '""';
+  const itemValue = this.valueToCode(block, 'ITEM', this.ORDER_NONE) || '""';
   code += `${listName}.push(${itemValue});\n`;
   return code;
 };
 
-javascriptGenerator['data_deleteoflist'] = (block) => {
+javascriptGenerator['data_deleteoflist'] = function (block) {
   let code = '';
-  if (javascriptGenerator.STATEMENT_PREFIX) {
-    code += javascriptGenerator.injectId(javascriptGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
 
   const listName =
     TARGET_VARIABLE +
-    javascriptGenerator.variableDB_.getName(block.getFieldValue('LIST'), ScratchBlocks.Variables.NAME_TYPE) +
+    this.variableDB_.getName(block.getFieldValue('LIST'), ScratchBlocks.Variables.NAME_TYPE) +
     ScratchBlocks.LIST_VARIABLE_TYPE;
-  const indexCode = javascriptGenerator.valueToCode(block, 'INDEX', javascriptGenerator.ORDER_NONE) || 1;
+  const indexCode = this.valueToCode(block, 'INDEX', this.ORDER_NONE) || 1;
   code += `${listName}.splice(runtime.index(${indexCode}, ${listName}.length), 1);\n`;
   return code;
 };
 
-javascriptGenerator['data_deletealloflist'] = (block) => {
+javascriptGenerator['data_deletealloflist'] = function (block) {
   let code = '';
-  if (javascriptGenerator.STATEMENT_PREFIX) {
-    code += javascriptGenerator.injectId(javascriptGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
 
   const listName =
     TARGET_VARIABLE +
-    javascriptGenerator.variableDB_.getName(block.getFieldValue('LIST'), ScratchBlocks.Variables.NAME_TYPE) +
+    this.variableDB_.getName(block.getFieldValue('LIST'), ScratchBlocks.Variables.NAME_TYPE) +
     ScratchBlocks.LIST_VARIABLE_TYPE;
   code += `${listName}.length = 0;\n`;
   return code;
 };
 
-javascriptGenerator['data_insertatlist'] = (block) => {
+javascriptGenerator['data_insertatlist'] = function (block) {
   let code = '';
-  if (javascriptGenerator.STATEMENT_PREFIX) {
-    code += javascriptGenerator.injectId(javascriptGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
 
   const listName =
     TARGET_VARIABLE +
-    javascriptGenerator.variableDB_.getName(block.getFieldValue('LIST'), ScratchBlocks.Variables.NAME_TYPE) +
+    this.variableDB_.getName(block.getFieldValue('LIST'), ScratchBlocks.Variables.NAME_TYPE) +
     ScratchBlocks.LIST_VARIABLE_TYPE;
-  const indexCode = javascriptGenerator.valueToCode(block, 'INDEX', javascriptGenerator.ORDER_NONE) || 1;
-  const itemValue = javascriptGenerator.valueToCode(block, 'ITEM', javascriptGenerator.ORDER_NONE) || '""';
+  const indexCode = this.valueToCode(block, 'INDEX', this.ORDER_NONE) || 1;
+  const itemValue = this.valueToCode(block, 'ITEM', this.ORDER_NONE) || '""';
   code += `${listName}.splice(runtime.index(${indexCode}, ${listName}.length), 0, ${itemValue});\n`;
   return code;
 };
 
-javascriptGenerator['data_replaceitemoflist'] = (block) => {
+javascriptGenerator['data_replaceitemoflist'] = function (block) {
   let code = '';
-  if (javascriptGenerator.STATEMENT_PREFIX) {
-    code += javascriptGenerator.injectId(javascriptGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
 
   const listName =
     TARGET_VARIABLE +
-    javascriptGenerator.variableDB_.getName(block.getFieldValue('LIST'), ScratchBlocks.Variables.NAME_TYPE) +
+    this.variableDB_.getName(block.getFieldValue('LIST'), ScratchBlocks.Variables.NAME_TYPE) +
     ScratchBlocks.LIST_VARIABLE_TYPE;
-  const indexCode = javascriptGenerator.valueToCode(block, 'INDEX', javascriptGenerator.ORDER_NONE) || 1;
-  const itemValue = javascriptGenerator.valueToCode(block, 'ITEM', javascriptGenerator.ORDER_NONE) || '""';
+  const indexCode = this.valueToCode(block, 'INDEX', this.ORDER_NONE) || 1;
+  const itemValue = this.valueToCode(block, 'ITEM', this.ORDER_NONE) || '""';
   code += `${listName}[runtime.index(${indexCode}, ${listName}.length)] = ${itemValue};\n`;
   return code;
 };
 
-javascriptGenerator['data_itemoflist'] = (block) => {
+javascriptGenerator['data_itemoflist'] = function (block) {
   const listName =
     TARGET_VARIABLE +
-    javascriptGenerator.variableDB_.getName(block.getFieldValue('LIST'), ScratchBlocks.Variables.NAME_TYPE) +
+    this.variableDB_.getName(block.getFieldValue('LIST'), ScratchBlocks.Variables.NAME_TYPE) +
     ScratchBlocks.LIST_VARIABLE_TYPE;
-  const indexCode = javascriptGenerator.valueToCode(block, 'INDEX', javascriptGenerator.ORDER_NONE) || 1;
+  const indexCode = this.valueToCode(block, 'INDEX', this.ORDER_NONE) || 1;
   const code = `${listName}[runtime.index(${indexCode}, ${listName}.length)]`;
-  return [code, javascriptGenerator.ORDER_CONDITIONAL];
+  return [code, this.ORDER_CONDITIONAL];
 };
 
-javascriptGenerator['data_itemnumoflist'] = (block) => {
+javascriptGenerator['data_itemnumoflist'] = function (block) {
   const listName =
     TARGET_VARIABLE +
-    javascriptGenerator.variableDB_.getName(block.getFieldValue('LIST'), ScratchBlocks.Variables.NAME_TYPE) +
+    this.variableDB_.getName(block.getFieldValue('LIST'), ScratchBlocks.Variables.NAME_TYPE) +
     ScratchBlocks.LIST_VARIABLE_TYPE;
-  const itemValue = javascriptGenerator.valueToCode(block, 'ITEM', javascriptGenerator.ORDER_NONE) || 0;
-  return [`(${listName}.indexOf(${itemValue}) + 1)`, javascriptGenerator.ORDER_NONE];
+  const itemValue = this.valueToCode(block, 'ITEM', this.ORDER_NONE) || 0;
+  return [`(${listName}.indexOf(${itemValue}) + 1)`, this.ORDER_NONE];
 };
 
-javascriptGenerator['data_lengthoflist'] = (block) => {
+javascriptGenerator['data_lengthoflist'] = function (block) {
   const listName =
     TARGET_VARIABLE +
-    javascriptGenerator.variableDB_.getName(block.getFieldValue('LIST'), ScratchBlocks.Variables.NAME_TYPE) +
+    this.variableDB_.getName(block.getFieldValue('LIST'), ScratchBlocks.Variables.NAME_TYPE) +
     ScratchBlocks.LIST_VARIABLE_TYPE;
-  return [`${listName}.length`, javascriptGenerator.ORDER_MEMBER];
+  return [`${listName}.length`, this.ORDER_MEMBER];
 };
 
-javascriptGenerator['data_listcontainsitem'] = (block) => {
+javascriptGenerator['data_listcontainsitem'] = function (block) {
   const listName =
     TARGET_VARIABLE +
-    javascriptGenerator.variableDB_.getName(block.getFieldValue('LIST'), ScratchBlocks.Variables.NAME_TYPE) +
+    this.variableDB_.getName(block.getFieldValue('LIST'), ScratchBlocks.Variables.NAME_TYPE) +
     ScratchBlocks.LIST_VARIABLE_TYPE;
-  const itemValue = javascriptGenerator.valueToCode(block, 'ITEM', javascriptGenerator.ORDER_NONE) || 0;
-  return [`${listName}.includes(${itemValue})`, javascriptGenerator.ORDER_FUNCTION_CALL];
+  const itemValue = this.valueToCode(block, 'ITEM', this.ORDER_NONE) || 0;
+  return [`${listName}.includes(${itemValue})`, this.ORDER_FUNCTION_CALL];
 };

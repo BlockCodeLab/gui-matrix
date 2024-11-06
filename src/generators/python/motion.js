@@ -1,56 +1,56 @@
 import { pythonGenerator } from './generator';
 
-pythonGenerator['motion_movesteps'] = (block) => {
+pythonGenerator['motion_movesteps'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  const stepsCode = pythonGenerator.valueToCode(block, 'STEPS', pythonGenerator.ORDER_NONE) || 10;
+  const stepsCode = this.valueToCode(block, 'STEPS', this.ORDER_NONE) || 10;
   code += `target.move(num(${stepsCode}))\n`;
   return code;
 };
 
-pythonGenerator['motion_turnright'] = (block) => {
+pythonGenerator['motion_turnright'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  const degreesCode = pythonGenerator.valueToCode(block, 'DEGREES', pythonGenerator.ORDER_NONE) || 15;
+  const degreesCode = this.valueToCode(block, 'DEGREES', this.ORDER_NONE) || 15;
   code += `target.direction += num(${degreesCode})\n`;
   return code;
 };
 
-pythonGenerator['motion_turnleft'] = (block) => {
+pythonGenerator['motion_turnleft'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  const degreesCode = pythonGenerator.valueToCode(block, 'DEGREES', pythonGenerator.ORDER_NONE) || 15;
+  const degreesCode = this.valueToCode(block, 'DEGREES', this.ORDER_NONE) || 15;
   code += `target.direction -= num(${degreesCode})\n`;
   return code;
 };
 
-pythonGenerator['motion_pointindirection'] = (block) => {
+pythonGenerator['motion_pointindirection'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  const directionCode = pythonGenerator.valueToCode(block, 'DIRECTION', pythonGenerator.ORDER_NONE) || 90;
+  const directionCode = this.valueToCode(block, 'DIRECTION', this.ORDER_NONE) || 90;
   code += `target.direction = num(${directionCode})\n`;
   return code;
 };
 
-pythonGenerator['motion_pointtowards_menu'] = (block) => {
-  return [block.getFieldValue('TOWARDS'), pythonGenerator.ORDER_ATOMIC];
+pythonGenerator['motion_pointtowards_menu'] = function (block) {
+  return [block.getFieldValue('TOWARDS'), this.ORDER_ATOMIC];
 };
 
-pythonGenerator['motion_pointtowards'] = (block) => {
+pythonGenerator['motion_pointtowards'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
 
-  let towardsCode = pythonGenerator.valueToCode(block, 'TOWARDS', pythonGenerator.ORDER_NONE) || '_random_';
+  let towardsCode = this.valueToCode(block, 'TOWARDS', this.ORDER_NONE) || '_random_';
   if (towardsCode === '_random_') {
     towardsCode = '';
   } else {
@@ -60,28 +60,28 @@ pythonGenerator['motion_pointtowards'] = (block) => {
   return code;
 };
 
-pythonGenerator['motion_gotoxy'] = (block) => {
+pythonGenerator['motion_gotoxy'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  const xCode = pythonGenerator.valueToCode(block, 'X', pythonGenerator.ORDER_NONE) || 0;
-  const yCode = pythonGenerator.valueToCode(block, 'Y', pythonGenerator.ORDER_NONE) || 0;
+  const xCode = this.valueToCode(block, 'X', this.ORDER_NONE) || 0;
+  const yCode = this.valueToCode(block, 'Y', this.ORDER_NONE) || 0;
   code += `target.goto(num(${xCode}), num(${yCode}))\n`;
   return code;
 };
 
-pythonGenerator['motion_goto_menu'] = (block) => {
-  return [block.getFieldValue('TO'), pythonGenerator.ORDER_ATOMIC];
+pythonGenerator['motion_goto_menu'] = function (block) {
+  return [block.getFieldValue('TO'), this.ORDER_ATOMIC];
 };
 
-pythonGenerator['motion_goto'] = (block) => {
+pythonGenerator['motion_goto'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
 
-  let toCode = pythonGenerator.valueToCode(block, 'TO', pythonGenerator.ORDER_NONE) || '_random_';
+  let toCode = this.valueToCode(block, 'TO', this.ORDER_NONE) || '_random_';
   if (toCode === '_random_') {
     toCode = '';
   } else {
@@ -91,29 +91,29 @@ pythonGenerator['motion_goto'] = (block) => {
   return code;
 };
 
-pythonGenerator['motion_glidesecstoxy'] = (block) => {
+pythonGenerator['motion_glidesecstoxy'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
 
-  const secsCode = pythonGenerator.valueToCode(block, 'SECS', pythonGenerator.ORDER_NONE) || 1;
-  const xCode = pythonGenerator.valueToCode(block, 'X', pythonGenerator.ORDER_NONE) || 0;
-  const yCode = pythonGenerator.valueToCode(block, 'Y', pythonGenerator.ORDER_NONE) || 0;
+  const secsCode = this.valueToCode(block, 'SECS', this.ORDER_NONE) || 1;
+  const xCode = this.valueToCode(block, 'X', this.ORDER_NONE) || 0;
+  const yCode = this.valueToCode(block, 'Y', this.ORDER_NONE) || 0;
   code += `await target.glide(num(${secsCode}), num(${xCode}), num(${yCode}))\n`;
   return code;
 };
 
 pythonGenerator['motion_glideto_menu'] = pythonGenerator['motion_goto_menu'];
 
-pythonGenerator['motion_glideto'] = (block) => {
+pythonGenerator['motion_glideto'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
 
-  const secsCode = pythonGenerator.valueToCode(block, 'SECS', pythonGenerator.ORDER_NONE) || 1;
-  let toCode = pythonGenerator.valueToCode(block, 'TO', pythonGenerator.ORDER_NONE) || '_random_';
+  const secsCode = this.valueToCode(block, 'SECS', this.ORDER_NONE) || 1;
+  let toCode = this.valueToCode(block, 'TO', this.ORDER_NONE) || '_random_';
   if (toCode === '_random_') {
     toCode = '';
   } else {
@@ -123,59 +123,59 @@ pythonGenerator['motion_glideto'] = (block) => {
   return code;
 };
 
-pythonGenerator['motion_changexby'] = (block) => {
+pythonGenerator['motion_changexby'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  const dxCode = pythonGenerator.valueToCode(block, 'DX', pythonGenerator.ORDER_NONE) || 10;
+  const dxCode = this.valueToCode(block, 'DX', this.ORDER_NONE) || 10;
   code += `target.x += num(${dxCode})\n`;
   return code;
 };
 
-pythonGenerator['motion_setx'] = (block) => {
+pythonGenerator['motion_setx'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  const xCode = pythonGenerator.valueToCode(block, 'X', pythonGenerator.ORDER_NONE) || 0;
+  const xCode = this.valueToCode(block, 'X', this.ORDER_NONE) || 0;
   code += `target.x = num(${xCode})\n`;
   return code;
 };
 
-pythonGenerator['motion_changeyby'] = (block) => {
+pythonGenerator['motion_changeyby'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  const dyCode = pythonGenerator.valueToCode(block, 'DY', pythonGenerator.ORDER_NONE) || 10;
+  const dyCode = this.valueToCode(block, 'DY', this.ORDER_NONE) || 10;
   code += `target.y += num(${dyCode})\n`;
   return code;
 };
 
-pythonGenerator['motion_sety'] = (block) => {
+pythonGenerator['motion_sety'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  const yCode = pythonGenerator.valueToCode(block, 'Y', pythonGenerator.ORDER_NONE) || 0;
+  const yCode = this.valueToCode(block, 'Y', this.ORDER_NONE) || 0;
   code += `target.y = num(${yCode})\n`;
   return code;
 };
 
-pythonGenerator['motion_ifonedgebounce'] = (block) => {
+pythonGenerator['motion_ifonedgebounce'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
   code += 'target.edge_bounce()\n';
   return code;
 };
 
-pythonGenerator['motion_setrotationstyle'] = (block) => {
+pythonGenerator['motion_setrotationstyle'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
 
   let styleCode;
@@ -196,14 +196,14 @@ pythonGenerator['motion_setrotationstyle'] = (block) => {
   return code;
 };
 
-pythonGenerator['motion_xposition'] = () => {
-  return ['target.x', pythonGenerator.ORDER_NONE];
+pythonGenerator['motion_xposition'] = function () {
+  return ['target.x', this.ORDER_NONE];
 };
 
-pythonGenerator['motion_yposition'] = () => {
-  return ['target.y', pythonGenerator.ORDER_NONE];
+pythonGenerator['motion_yposition'] = function () {
+  return ['target.y', this.ORDER_NONE];
 };
 
-pythonGenerator['motion_direction'] = () => {
-  return ['target.direction', pythonGenerator.ORDER_NONE];
+pythonGenerator['motion_direction'] = function () {
+  return ['target.direction', this.ORDER_NONE];
 };

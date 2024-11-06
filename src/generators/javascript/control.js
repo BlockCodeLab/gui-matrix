@@ -2,21 +2,21 @@ import { javascriptGenerator } from './generator';
 
 const EVENT_CALLBACK = `async (target, done) => {\ndo {\n/* code */} while (false);\ndone();\n}`;
 
-javascriptGenerator['control_start_as_clone'] = () => {
+javascriptGenerator['control_start_as_clone'] = function () {
   return `runtime.whenCloneStart(target, ${EVENT_CALLBACK});\n`;
 };
 
-javascriptGenerator['control_create_clone_of_menu'] = (block) => {
-  return [block.getFieldValue('CLONE_OPTION'), javascriptGenerator.ORDER_FUNCTION_CALL];
+javascriptGenerator['control_create_clone_of_menu'] = function (block) {
+  return [block.getFieldValue('CLONE_OPTION'), this.ORDER_FUNCTION_CALL];
 };
 
-javascriptGenerator['control_create_clone_of'] = (block) => {
+javascriptGenerator['control_create_clone_of'] = function (block) {
   let code = '';
-  if (javascriptGenerator.STATEMENT_PREFIX) {
-    code += javascriptGenerator.injectId(javascriptGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
 
-  let cloneCode = javascriptGenerator.valueToCode(block, 'CLONE_OPTION', javascriptGenerator.ORDER_NONE) || '_myself_';
+  let cloneCode = this.valueToCode(block, 'CLONE_OPTION', this.ORDER_NONE) || '_myself_';
   if (cloneCode === '_myself_') {
     cloneCode = 'target';
   } else {
@@ -26,14 +26,14 @@ javascriptGenerator['control_create_clone_of'] = (block) => {
   return code;
 };
 
-javascriptGenerator['control_delete_this_clone'] = () => {
+javascriptGenerator['control_delete_this_clone'] = function () {
   return 'target.util.remove();\n';
 };
 
-javascriptGenerator['control_stop'] = (block) => {
+javascriptGenerator['control_stop'] = function (block) {
   let code = '';
-  if (javascriptGenerator.STATEMENT_PREFIX) {
-    code += javascriptGenerator.injectId(javascriptGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
 
   const stopValue = block.getFieldValue('STOP_OPTION');

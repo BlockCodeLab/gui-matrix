@@ -1,61 +1,58 @@
 import { javascriptGenerator } from './generator';
 
-javascriptGenerator['sensing_touchingobjectmenu'] = (block) => {
-  return [block.getFieldValue('TOUCHINGOBJECTMENU'), javascriptGenerator.ORDER_ATOMIC];
+javascriptGenerator['sensing_touchingobjectmenu'] = function (block) {
+  return [block.getFieldValue('TOUCHINGOBJECTMENU'), this.ORDER_ATOMIC];
 };
 
-javascriptGenerator['sensing_touchingobject_exact'] = (block) => {
-  let touchingCode =
-    javascriptGenerator.valueToCode(block, 'TOUCHINGOBJECTMENU', javascriptGenerator.ORDER_NONE) || '_edge_';
+javascriptGenerator['sensing_touchingobject_exact'] = function (block) {
+  let touchingCode = this.valueToCode(block, 'TOUCHINGOBJECTMENU', this.ORDER_NONE) || '_edge_';
   if (touchingCode === '_edge_') {
     touchingCode = 'null';
   } else {
     touchingCode = `runtime.getSpriteByIdOrName('${touchingCode}').util`;
   }
-  return [`target.util.isTouching(${touchingCode}, true)`, javascriptGenerator.ORDER_FUNCTION_CALL];
+  return [`target.util.isTouching(${touchingCode}, true)`, this.ORDER_FUNCTION_CALL];
 };
 
-javascriptGenerator['sensing_touchingobject'] = (block) => {
-  let touchingCode =
-    javascriptGenerator.valueToCode(block, 'TOUCHINGOBJECTMENU', javascriptGenerator.ORDER_NONE) || '_edge_';
+javascriptGenerator['sensing_touchingobject'] = function (block) {
+  let touchingCode = this.valueToCode(block, 'TOUCHINGOBJECTMENU', this.ORDER_NONE) || '_edge_';
   if (touchingCode === '_edge_') {
     touchingCode = '';
   } else {
     touchingCode = `runtime.getSpriteByIdOrName('${touchingCode}').util`;
   }
-  return [`target.util.isTouching(${touchingCode})`, javascriptGenerator.ORDER_FUNCTION_CALL];
+  return [`target.util.isTouching(${touchingCode})`, this.ORDER_FUNCTION_CALL];
 };
 
-javascriptGenerator['sensing_distancetomenu'] = (block) => {
-  return [block.getFieldValue('DISTANCETOMENU'), javascriptGenerator.ORDER_ATOMIC];
+javascriptGenerator['sensing_distancetomenu'] = function (block) {
+  return [block.getFieldValue('DISTANCETOMENU'), this.ORDER_ATOMIC];
 };
 
-javascriptGenerator['sensing_distanceto'] = (block) => {
-  let distanceCode =
-    javascriptGenerator.valueToCode(block, 'DISTANCETOMENU', javascriptGenerator.ORDER_NONE) || '_center_';
+javascriptGenerator['sensing_distanceto'] = function (block) {
+  let distanceCode = this.valueToCode(block, 'DISTANCETOMENU', this.ORDER_NONE) || '_center_';
   if (distanceCode === '_center_') {
     distanceCode = '';
   } else {
     distanceCode = `runtime.getSpriteByIdOrName('${distanceCode}').util`;
   }
-  return [`target.util.distanceTo(${distanceCode})`, javascriptGenerator.ORDER_FUNCTION_CALL];
+  return [`target.util.distanceTo(${distanceCode})`, this.ORDER_FUNCTION_CALL];
 };
 
-javascriptGenerator['sensing_keyoptions'] = (block) => {
-  return [block.getFieldValue('KEY_OPTION'), javascriptGenerator.ORDER_NONE];
+javascriptGenerator['sensing_keyoptions'] = function (block) {
+  return [block.getFieldValue('KEY_OPTION'), this.ORDER_NONE];
 };
 
-javascriptGenerator['sensing_keypressed'] = (block) => {
-  const keyCode = javascriptGenerator.valueToCode(block, 'KEY_OPTION', javascriptGenerator.ORDER_NONE) || 'any';
-  return [`runtime.${keyCode}Key`, javascriptGenerator.ORDER_MEMBER];
+javascriptGenerator['sensing_keypressed'] = function (block) {
+  const keyCode = this.valueToCode(block, 'KEY_OPTION', this.ORDER_NONE) || 'any';
+  return [`runtime.${keyCode}Key`, this.ORDER_MEMBER];
 };
 
-javascriptGenerator['sensing_of_object_menu'] = (block) => {
-  return [block.getFieldValue('OBJECT'), javascriptGenerator.ORDER_ATOMIC];
+javascriptGenerator['sensing_of_object_menu'] = function (block) {
+  return [block.getFieldValue('OBJECT'), this.ORDER_ATOMIC];
 };
 
-javascriptGenerator['sensing_of'] = (block) => {
-  let objectCode = javascriptGenerator.valueToCode(block, 'OBJECT', javascriptGenerator.ORDER_NONE) || '_stage_';
+javascriptGenerator['sensing_of'] = function (block) {
+  let objectCode = this.valueToCode(block, 'OBJECT', this.ORDER_NONE) || '_stage_';
   if (objectCode === '_stage_') {
     objectCode = `runtime.stage.util`;
   } else {
@@ -91,7 +88,7 @@ javascriptGenerator['sensing_of'] = (block) => {
       objectCode += objectCode === `runtime.stage.util` ? '.costume' : '.backdrop';
       break;
   }
-  return [objectCode, javascriptGenerator.ORDER_MEMBER];
+  return [objectCode, this.ORDER_MEMBER];
 };
 
 javascriptGenerator['sensing_joystick_x'] = () => '';

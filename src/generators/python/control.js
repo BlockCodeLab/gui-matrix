@@ -1,21 +1,21 @@
 import { pythonGenerator } from './generator';
 
-pythonGenerator['control_start_as_clone'] = () => {
-  const branchCode = pythonGenerator.eventToCode('startasclone', 'target');
+pythonGenerator['control_start_as_clone'] = function () {
+  const branchCode = this.eventToCode('startasclone', 'target');
   return `@when_startasclone(target.id)\n${branchCode}`;
 };
 
-pythonGenerator['control_create_clone_of_menu'] = (block) => {
-  return [block.getFieldValue('CLONE_OPTION'), pythonGenerator.ORDER_FUNCTION_CALL];
+pythonGenerator['control_create_clone_of_menu'] = function (block) {
+  return [block.getFieldValue('CLONE_OPTION'), this.ORDER_FUNCTION_CALL];
 };
 
-pythonGenerator['control_create_clone_of'] = (block) => {
+pythonGenerator['control_create_clone_of'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
 
-  let cloneCode = pythonGenerator.valueToCode(block, 'CLONE_OPTION', pythonGenerator.ORDER_NONE) || '_myself_';
+  let cloneCode = this.valueToCode(block, 'CLONE_OPTION', this.ORDER_NONE) || '_myself_';
   if (cloneCode === '_myself_') {
     cloneCode = 'target';
   } else {
@@ -25,6 +25,6 @@ pythonGenerator['control_create_clone_of'] = (block) => {
   return code;
 };
 
-pythonGenerator['control_delete_this_clone'] = () => {
+pythonGenerator['control_delete_this_clone'] = function () {
   return 'target.remove()\n';
 };

@@ -1,181 +1,181 @@
 import { pythonGenerator } from './generator';
 
-pythonGenerator['looks_sayforsecs'] = (block) => {
+pythonGenerator['looks_sayforsecs'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
 
-  const msgCode = pythonGenerator.valueToCode(block, 'MESSAGE', pythonGenerator.ORDER_NONE) || '""';
-  const secCode = pythonGenerator.valueToCode(block, 'SECS', pythonGenerator.ORDER_NONE) || 2;
+  const msgCode = this.valueToCode(block, 'MESSAGE', this.ORDER_NONE) || '""';
+  const secCode = this.valueToCode(block, 'SECS', this.ORDER_NONE) || 2;
   code += `await target.say_wait(str(${msgCode}), num(${secCode}))\n`;
   return code;
 };
 
-pythonGenerator['looks_say'] = (block) => {
+pythonGenerator['looks_say'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
 
-  const msgCode = pythonGenerator.valueToCode(block, 'MESSAGE', pythonGenerator.ORDER_NONE) || '""';
+  const msgCode = this.valueToCode(block, 'MESSAGE', this.ORDER_NONE) || '""';
   code += `target.say(str(${msgCode}))\n`;
   return code;
 };
 
-pythonGenerator['looks_thinkforsecs'] = (block) => {
+pythonGenerator['looks_thinkforsecs'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
 
-  const msgCode = pythonGenerator.valueToCode(block, 'MESSAGE', pythonGenerator.ORDER_NONE) || '""';
-  const secCode = pythonGenerator.valueToCode(block, 'SECS', pythonGenerator.ORDER_NONE) || 2;
+  const msgCode = this.valueToCode(block, 'MESSAGE', this.ORDER_NONE) || '""';
+  const secCode = this.valueToCode(block, 'SECS', this.ORDER_NONE) || 2;
   code += `await target.think_wait(str(${msgCode}), num(${secCode}))\n`;
   return code;
 };
 
-pythonGenerator['looks_think'] = (block) => {
+pythonGenerator['looks_think'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
 
-  const msgCode = pythonGenerator.valueToCode(block, 'MESSAGE', pythonGenerator.ORDER_NONE) || '""';
+  const msgCode = this.valueToCode(block, 'MESSAGE', this.ORDER_NONE) || '""';
   code += `target.think(str(${msgCode}))\n`;
   return code;
 };
 
-pythonGenerator['looks_show'] = (block) => {
+pythonGenerator['looks_show'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
   code += `target.hidden = False\n`;
   return code;
 };
 
-pythonGenerator['looks_hide'] = (block) => {
+pythonGenerator['looks_hide'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
   code += `target.hidden = True\n`;
   return code;
 };
 
-pythonGenerator['looks_changesizeby'] = (block) => {
+pythonGenerator['looks_changesizeby'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  const changeCode = pythonGenerator.valueToCode(block, 'CHANGE', pythonGenerator.ORDER_NONE) || 10;
+  const changeCode = this.valueToCode(block, 'CHANGE', this.ORDER_NONE) || 10;
   code += `target.size += num(${changeCode})\n`;
   return code;
 };
 
-pythonGenerator['looks_setsizeto'] = (block) => {
+pythonGenerator['looks_setsizeto'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  const sizeCode = pythonGenerator.valueToCode(block, 'SIZE', pythonGenerator.ORDER_NONE) || 100;
+  const sizeCode = this.valueToCode(block, 'SIZE', this.ORDER_NONE) || 100;
   code += `target.size = num(${sizeCode})\n`;
   return code;
 };
 
-pythonGenerator['looks_size'] = () => {
-  return ['target.size', pythonGenerator.ORDER_MEMBER];
+pythonGenerator['looks_size'] = function () {
+  return ['target.size', this.ORDER_MEMBER];
 };
 
-pythonGenerator['looks_costume'] = (block) => {
-  const code = pythonGenerator.quote_(block.getFieldValue('COSTUME'));
-  return [code, pythonGenerator.ORDER_ATOMIC];
+pythonGenerator['looks_costume'] = function (block) {
+  const code = this.quote_(block.getFieldValue('COSTUME'));
+  return [code, this.ORDER_ATOMIC];
 };
 
-pythonGenerator['looks_switchcostumeto'] = (block) => {
+pythonGenerator['looks_switchcostumeto'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  const costumeCode = pythonGenerator.valueToCode(block, 'COSTUME', pythonGenerator.ORDER_NONE) || '""';
+  const costumeCode = this.valueToCode(block, 'COSTUME', this.ORDER_NONE) || '""';
   code += `target.frame_name = ${costumeCode}\n`;
   return code;
 };
 
-pythonGenerator['looks_nextcostume'] = (block) => {
+pythonGenerator['looks_nextcostume'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
   code += `target.frame_number += 1\n`;
   return code;
 };
 
-pythonGenerator['looks_backdrops'] = (block) => {
-  const code = pythonGenerator.quote_(block.getFieldValue('BACKDROP'));
-  return [code, pythonGenerator.ORDER_ATOMIC];
+pythonGenerator['looks_backdrops'] = function (block) {
+  const code = this.quote_(block.getFieldValue('BACKDROP'));
+  return [code, this.ORDER_ATOMIC];
 };
 
-pythonGenerator['looks_switchbackdropto'] = (block) => {
+pythonGenerator['looks_switchbackdropto'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  const backdropCode = pythonGenerator.valueToCode(block, 'BACKDROP', pythonGenerator.ORDER_NONE) || '""';
+  const backdropCode = this.valueToCode(block, 'BACKDROP', this.ORDER_NONE) || '""';
   code += `stage.frame_name = ${backdropCode}\n`;
   code += `runtime.backdropswitchesto(${backdropCode})\n`;
   return code;
 };
 
-pythonGenerator['looks_nextbackdrop'] = (block) => {
+pythonGenerator['looks_nextbackdrop'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
   code += `stage.frame_number += 1\n`;
   return code;
 };
 
-pythonGenerator['looks_gotofrontback'] = (block) => {
+pythonGenerator['looks_gotofrontback'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
   const frontOrBackValue = block.getFieldValue('FRONT_BACK');
   code += `target.go_${frontOrBackValue}()\n`;
   return code;
 };
 
-pythonGenerator['looks_goforwardbackwardlayers'] = (block) => {
+pythonGenerator['looks_goforwardbackwardlayers'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
   const forwardOrBackwardValue = block.getFieldValue('FORWARD_BACKWARD');
-  const changeCode = pythonGenerator.valueToCode(block, 'NUM', pythonGenerator.ORDER_NONE);
+  const changeCode = this.valueToCode(block, 'NUM', this.ORDER_NONE);
   code += `target.z_index ${forwardOrBackwardValue === 'backward' ? '-' : '+'}= num(${changeCode})\n`;
   return code;
 };
 
-pythonGenerator['looks_backdropnumbername'] = (block) => {
+pythonGenerator['looks_backdropnumbername'] = function (block) {
   const numberOrNameValue = block.getFieldValue('NUMBER_NAME');
   const code = numberOrNameValue === 'name' ? 'stage.frame_name' : 'stage.frame_number';
-  return [code, pythonGenerator.ORDER_MEMBER];
+  return [code, this.ORDER_MEMBER];
 };
 
-pythonGenerator['looks_costumenumbername'] = (block) => {
+pythonGenerator['looks_costumenumbername'] = function (block) {
   const numberOrNameValue = block.getFieldValue('NUMBER_NAME');
   const code = numberOrNameValue === 'name' ? 'target.frame_name' : 'target.frame_number';
-  return [code, pythonGenerator.ORDER_MEMBER];
+  return [code, this.ORDER_MEMBER];
 };
 
-pythonGenerator['looks_switchbackdroptoandwait'] = (block) => {
+pythonGenerator['looks_switchbackdroptoandwait'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  const backdropCode = pythonGenerator.valueToCode(block, 'BACKDROP', pythonGenerator.ORDER_NONE) || '""';
+  const backdropCode = this.valueToCode(block, 'BACKDROP', this.ORDER_NONE) || '""';
   code += `stage.frame_name = ${backdropCode}\n`;
   code += `await runtime.backdropswitchesto(${backdropCode}, waiting=True)\n`;
   return code;

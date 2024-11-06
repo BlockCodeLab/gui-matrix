@@ -4,7 +4,7 @@ export default function ({ id, type, data }) {
   const wav = new WaveFile();
   wav.fromBase64(data);
   return {
-    id,
+    id: `${id}.wav`,
     type,
     content: wav.toBuffer(),
   };

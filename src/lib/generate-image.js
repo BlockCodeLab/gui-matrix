@@ -24,7 +24,7 @@ export default function ({ id, name, type, data, width, height, centerX, centerY
   const contourData = JSON.stringify(contour).replaceAll('[', '(').replaceAll(']', ',)').replaceAll('(,)', '()');
 
   let imageModule = '';
-  imageModule += 'from scratch import *\n';
+  imageModule += 'from scratch import runtime\n';
   imageModule += 'from micropython import const\n';
   imageModule += `ID = "${id}"\n`;
   imageModule += `NAME = "${name}"\n`;

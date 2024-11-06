@@ -8,4 +8,5 @@ import './python/sound';
 import './python/wifi';
 import './python/unsupported';
 
-export { pythonGenerator } from './python/generator';
+import { ArcadePythonGenerator } from './python/generator';
+export const pythonGenerator = new ArcadePythonGenerator();

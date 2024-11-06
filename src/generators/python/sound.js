@@ -1,35 +1,35 @@
 import { pythonGenerator } from './generator';
 
-pythonGenerator['sound_sounds_menu'] = (block) => {
-  return [block.getFieldValue('SOUND_MENU'), pythonGenerator.ORDER_ATOMIC];
+pythonGenerator['sound_sounds_menu'] = function (block) {
+  return [block.getFieldValue('SOUND_MENU'), this.ORDER_ATOMIC];
 };
 
-pythonGenerator['sound_play'] = (block) => {
+pythonGenerator['sound_play'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  const soundCode = pythonGenerator.valueToCode(block, 'SOUND_MENU', pythonGenerator.ORDER_NONE) || '';
-  // code += `audio.play_sound("${soundCode}")\n`;
+  const soundCode = this.valueToCode(block, 'SOUND_MENU', this.ORDER_NONE) || '';
+  code += `runtime.play_sound(__file__, "${soundCode}")\n`;
   return code;
 };
 
-pythonGenerator['sound_playuntildone'] = (block) => {
+pythonGenerator['sound_playuntildone'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  const soundCode = pythonGenerator.valueToCode(block, 'SOUND_MENU', pythonGenerator.ORDER_NONE) || '';
-  // code += `await audio.play_sound_async("${soundCode}")\n`;
+  const soundCode = this.valueToCode(block, 'SOUND_MENU', this.ORDER_NONE) || '';
+  code += `await runtime.play_sound_wait(__file__, "${soundCode}")\n`;
   return code;
 };
 
-pythonGenerator['sound_stopallsounds'] = (block) => {
+pythonGenerator['sound_stopallsounds'] = function (block) {
   let code = '';
-  if (pythonGenerator.STATEMENT_PREFIX) {
-    code += pythonGenerator.injectId(pythonGenerator.STATEMENT_PREFIX, block);
+  if (this.STATEMENT_PREFIX) {
+    code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  // code += `audio.stop_sound()\n`;
+  code += `runtime.stop_sound()\n`;
   return code;
 };
 

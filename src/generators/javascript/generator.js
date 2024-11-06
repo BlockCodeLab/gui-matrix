@@ -1,7 +1,7 @@
 import { ScratchBlocks } from '@blockcode/blocks-editor';
 import { JavascriptGenerator } from '@blockcode/blocks-player';
 
-class ArcadeJavascriptGenerator extends JavascriptGenerator {
+export class ArcadeJavascriptGenerator extends JavascriptGenerator {
   init(workspace) {
     super.init(workspace);
 
@@ -42,4 +42,4 @@ class ArcadeJavascriptGenerator extends JavascriptGenerator {
   }
 }
 
-export const javascriptGenerator = new ArcadeJavascriptGenerator();
+export const javascriptGenerator = ArcadeJavascriptGenerator.prototype;

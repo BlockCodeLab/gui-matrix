@@ -1,58 +1,58 @@
 import { pythonGenerator } from './generator';
 
-pythonGenerator['sensing_touchingobjectmenu'] = (block) => {
-  return [block.getFieldValue('TOUCHINGOBJECTMENU'), pythonGenerator.ORDER_ATOMIC];
+pythonGenerator['sensing_touchingobjectmenu'] = function (block) {
+  return [block.getFieldValue('TOUCHINGOBJECTMENU'), this.ORDER_ATOMIC];
 };
 
-pythonGenerator['sensing_touchingobject_exact'] = (block) => {
-  let touchingCode = pythonGenerator.valueToCode(block, 'TOUCHINGOBJECTMENU', pythonGenerator.ORDER_NONE) || '_edge_';
+pythonGenerator['sensing_touchingobject_exact'] = function (block) {
+  let touchingCode = this.valueToCode(block, 'TOUCHINGOBJECTMENU', this.ORDER_NONE) || '_edge_';
   if (touchingCode === '_edge_') {
     touchingCode = 'None';
   } else {
     touchingCode = `stage.get_child('${touchingCode}')`;
   }
-  return [`target.is_touching(${touchingCode}, True)`, pythonGenerator.ORDER_FUNCTION_CALL];
+  return [`target.is_touching(${touchingCode}, True)`, this.ORDER_FUNCTION_CALL];
 };
 
-pythonGenerator['sensing_touchingobject'] = (block) => {
-  let touchingCode = pythonGenerator.valueToCode(block, 'TOUCHINGOBJECTMENU', pythonGenerator.ORDER_NONE) || '_edge_';
+pythonGenerator['sensing_touchingobject'] = function (block) {
+  let touchingCode = this.valueToCode(block, 'TOUCHINGOBJECTMENU', this.ORDER_NONE) || '_edge_';
   if (touchingCode === '_edge_') {
     touchingCode = '';
   } else {
     touchingCode = `stage.get_child('${touchingCode}')`;
   }
-  return [`target.is_touching(${touchingCode})`, pythonGenerator.ORDER_FUNCTION_CALL];
+  return [`target.is_touching(${touchingCode})`, this.ORDER_FUNCTION_CALL];
 };
 
-pythonGenerator['sensing_distancetomenu'] = (block) => {
-  return [block.getFieldValue('DISTANCETOMENU'), pythonGenerator.ORDER_ATOMIC];
+pythonGenerator['sensing_distancetomenu'] = function (block) {
+  return [block.getFieldValue('DISTANCETOMENU'), this.ORDER_ATOMIC];
 };
 
-pythonGenerator['sensing_distanceto'] = (block) => {
-  let distanceCode = pythonGenerator.valueToCode(block, 'DISTANCETOMENU', pythonGenerator.ORDER_NONE) || '_center_';
+pythonGenerator['sensing_distanceto'] = function (block) {
+  let distanceCode = this.valueToCode(block, 'DISTANCETOMENU', this.ORDER_NONE) || '_center_';
   if (distanceCode === '_center_') {
     distanceCode = '';
   } else {
     distanceCode = `stage.get_child('${distanceCode}')`;
   }
-  return [`target.distance(${distanceCode})`, pythonGenerator.ORDER_FUNCTION_CALL];
+  return [`target.distance(${distanceCode})`, this.ORDER_FUNCTION_CALL];
 };
 
-pythonGenerator['sensing_keyoptions'] = (block) => {
-  return [block.getFieldValue('KEY_OPTION'), pythonGenerator.ORDER_NONE];
+pythonGenerator['sensing_keyoptions'] = function (block) {
+  return [block.getFieldValue('KEY_OPTION'), this.ORDER_NONE];
 };
 
-pythonGenerator['sensing_keypressed'] = (block) => {
-  const keyCode = pythonGenerator.valueToCode(block, 'KEY_OPTION', pythonGenerator.ORDER_NONE) || 'any';
-  return [`runtime.is_pressed("${keyCode}")`, pythonGenerator.ORDER_MEMBER];
+pythonGenerator['sensing_keypressed'] = function (block) {
+  const keyCode = this.valueToCode(block, 'KEY_OPTION', this.ORDER_NONE) || 'any';
+  return [`runtime.is_pressed("${keyCode}")`, this.ORDER_MEMBER];
 };
 
-pythonGenerator['sensing_of_object_menu'] = (block) => {
-  return [block.getFieldValue('OBJECT'), pythonGenerator.ORDER_MEMBER];
+pythonGenerator['sensing_of_object_menu'] = function (block) {
+  return [block.getFieldValue('OBJECT'), this.ORDER_MEMBER];
 };
 
-pythonGenerator['sensing_of'] = (block) => {
-  let objectCode = pythonGenerator.valueToCode(block, 'OBJECT', pythonGenerator.ORDER_NONE) || '_stage_';
+pythonGenerator['sensing_of'] = function (block) {
+  let objectCode = this.valueToCode(block, 'OBJECT', this.ORDER_NONE) || '_stage_';
   if (objectCode === '_stage_') {
     objectCode = `stage`;
   } else {
@@ -88,7 +88,7 @@ pythonGenerator['sensing_of'] = (block) => {
       objectCode += '.frame_number';
       break;
   }
-  return [objectCode, pythonGenerator.ORDER_MEMBER];
+  return [objectCode, this.ORDER_MEMBER];
 };
 
 pythonGenerator['sensing_joystick_x'] = () => '';

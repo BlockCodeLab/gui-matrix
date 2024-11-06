@@ -1,7 +1,7 @@
 import { ScratchBlocks } from '@blockcode/blocks-editor';
 import { PythonGenerator } from '@blockcode/workspace-blocks/app';
 
-class ArcadePythonGenerator extends PythonGenerator {
+export class ArcadePythonGenerator extends PythonGenerator {
   init(workspace) {
     super.init(workspace);
 
@@ -47,4 +47,4 @@ class ArcadePythonGenerator extends PythonGenerator {
   }
 }
 
-export const pythonGenerator = new ArcadePythonGenerator();
+export const pythonGenerator = ArcadePythonGenerator.prototype;
