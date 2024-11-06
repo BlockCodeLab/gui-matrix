@@ -3,14 +3,15 @@ import CSSLoader from 'bun-loader-css';
 import YamlLoader from 'bun-loader-yaml';
 import CopyPlugin from 'bun-plugin-copy';
 
-const isRelease = Bun.env.BUN_ENV === 'production';
-
 const PROJECT_ROOT = import.meta.dir;
 const SRC_DIR = resolve(PROJECT_ROOT, 'src');
 const DIST_DIR = resolve(PROJECT_ROOT, 'dist');
 
 const checkEnvOn = (env) => ['yes', 'on', 'enable'].indexOf(`${env}`.toLowerCase()) !== -1;
 const checkEnvOff = (env) => ['no', 'off', 'disable'].indexOf(`${env}`.toLowerCase()) === -1;
+
+const isRelease = Bun.env.BUN_ENV === 'production';
+const isIdeal = checkEnvOn(Bun.env.IDEAL);
 
 export default {
   entrypoints: [resolve(SRC_DIR, 'index.jsx'), resolve(SRC_DIR, 'app.jsx')],
@@ -27,10 +28,17 @@ export default {
       from: './public',
       to: 'assets/',
     }),
-  ],
+  ].concat(
+    isIdeal
+      ? CopyPlugin({
+          from: './ideal',
+          to: 'assets/',
+        })
+      : [],
+  ),
   define: {
     DEVELOPMENT: JSON.stringify(Bun.env.BUN_ENV !== 'production'),
-    JOYSTICK: JSON.stringify(checkEnvOff(Bun.env.JOYSTICK)), // default yes
+    IDEAL: JSON.stringify(isIdeal), // default off
   },
   external: [
     'preact',

@@ -1,5 +1,5 @@
 import { Text, MenuSection, MenuItem } from '@blockcode/ui';
-import { locales as blocksLocales, makeMainMenu, codeTab } from '@blockcode/workspace-blocks/app';
+import { locales as blocksLocales, makeMainMenu, codeTab, reviewTab } from '@blockcode/workspace-blocks/app';
 import { PixelPaint, locales as paintLocales } from '@blockcode/pixel-paint';
 import { WaveSurfer, locales as soundLocales } from '@blockcode/wave-surfer';
 import generateMainFile from './lib/generate-main-file';
@@ -26,6 +26,14 @@ import soundIcon from './icon-sound.svg';
 /* languages */
 import locales from './l10n';
 
+/* default project */
+import DefaultProject from './lib/default-project';
+let defaultProject = DefaultProject;
+if (IDEAL) {
+  // default project for long
+  defaultProject = require('./lib/default-project-ideal').default;
+}
+
 export default function ArcadeBlocksWorkspace({ addLocaleData, openProject: defaultOpenProject }) {
   addLocaleData(blocksLocales);
   addLocaleData(paintLocales);
@@ -39,9 +47,7 @@ export default function ArcadeBlocksWorkspace({ addLocaleData, openProject: defa
     });
   };
 
-  const createProject = () => {
-      openProject(defaultProject);
-  };
+  const createProject = () => openProject(defaultProject);
   createProject();
 
   const saveProject = (project) => {
@@ -162,7 +168,7 @@ export default function ArcadeBlocksWorkspace({ addLocaleData, openProject: defa
         ),
         Content: () => <WaveSurfer onSetupLibrary={handleSetupLibrary} />,
       },
-    ],
+    ].concat(DEVELOPMENT ? reviewTab : []),
 
     sidebars: [
       {

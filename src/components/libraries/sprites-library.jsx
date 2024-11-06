@@ -4,6 +4,11 @@ import { Library } from '@blockcode/ui';
 import allSprites from './sprites.yaml';
 import spriteTags from './sprite-tags';
 
+if (IDEAL) {
+  const { default: idealSprites } = require('./sprites-ideal.yaml');
+  allSprites.unshift(...idealSprites);
+}
+
 let timer;
 
 export default function SpritesLibrary({ onSelect, onClose }) {

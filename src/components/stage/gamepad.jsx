@@ -123,17 +123,7 @@ export default function Gamepad({ runtime }) {
 
   return (
     <div className={styles.gamepadWrapper}>
-      {JOYSTICK ? (
-        <div className={styles.buttonsGroup}>
-          <div className={styles.joystickXLeft}></div>
-          <div className={styles.joystickY}></div>
-          <div className={styles.joystickXRight}></div>
-          <Button
-            className={classNames(styles.button, styles.joystick)}
-            onMouseDown={handleMouseDown}
-          ></Button>
-        </div>
-      ) : (
+      {IDEAL ? (
         <div className={styles.buttonsGroup}>
           <Button
             title="↑"
@@ -167,6 +157,16 @@ export default function Gamepad({ runtime }) {
           >
             ►
           </Button>
+        </div>
+      ) : (
+        <div className={styles.buttonsGroup}>
+          <div className={styles.joystickXLeft}></div>
+          <div className={styles.joystickY}></div>
+          <div className={styles.joystickXRight}></div>
+          <Button
+            className={classNames(styles.button, styles.joystick)}
+            onMouseDown={handleMouseDown}
+          ></Button>
         </div>
       )}
       <div className={styles.buttonsGroup}>

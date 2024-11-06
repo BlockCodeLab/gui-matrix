@@ -4,6 +4,11 @@ import { Library } from '@blockcode/ui';
 import allCostumes from './costumes.yaml';
 import costumeTags from './sprite-tags';
 
+if (IDEAL) {
+  const { default: idealCostumes } = require('./costumes-ideal.yaml');
+  allCostumes.unshift(...idealCostumes);
+}
+
 export default function CostumesLibrary({ onSelect, onClose }) {
   const [data, setData] = useState([]);
   const { getText } = useLocale();
