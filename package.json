@@ -28,8 +28,6 @@
     "bun-plugin-copy": "github:kankungyip/bun-plugin-copy"
   },
   "dependencies": {
-    "jszip": "^3.10.1",
-    "mime": "^4.0.4",
     "preact": "^10.18.1",
     "upng-js": "^2.1.0",
     "@blockcode/core": "workspace:*",

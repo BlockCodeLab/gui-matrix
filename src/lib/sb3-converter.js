@@ -1,5 +1,4 @@
-import JSZip from 'jszip';
-import mime from 'mime/lite';
+import { mime, JSZip } from '@blockcode/core';
 import uid from './uid';
 import RotationStyle from './rotation-style';
 import deserializeBlocks from './sb3-deserializer';
