@@ -82,7 +82,7 @@ export default function ArcadePlayer({ stageSize, playing, onReady, onRequestSto
         const runtime = new Runtime(
           language,
           onRequestStop,
-          assetList.filter((asset) => asset.type === 'audio/wav'),
+          assetList.filter((asset) => asset.type.startsWith('audio/')),
         );
         runtime.launch(generate(fileList));
         runtime.handleKeyDown = runtime.handleKeyDown.bind(runtime);

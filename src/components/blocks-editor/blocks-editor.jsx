@@ -170,7 +170,6 @@ export default function BlocksEditor() {
         enableLocalVariable={!isStage}
         toolbox={toolbox}
         messages={messages}
-        deviceId="arcade"
         generators={[pythonGenerator, javascriptGenerator]}
         onExtensionsFilter={() => [
           'arcade',

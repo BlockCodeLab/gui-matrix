@@ -3,6 +3,7 @@ import './python/data';
 import './python/events';
 import './python/looks';
 import './python/motion';
+import './python/procedures';
 import './python/sensing';
 import './python/sound';
 import './python/wifi';

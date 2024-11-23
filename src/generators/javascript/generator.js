@@ -2,6 +2,8 @@ import { ScratchBlocks } from '@blockcode/blocks-editor';
 import { JavascriptGenerator } from '@blockcode/blocks-player';
 
 export class ArcadeJavascriptGenerator extends JavascriptGenerator {
+  TARGET_EVENT_CALLBACK = `async (target, done) => {\nruntime.abort = false;\nconst flash = runtime.flash;\ndo {\n/* code */} while (false);\ndone();\n}`;
+
   init(workspace) {
     super.init(workspace);
 

@@ -1,7 +1,7 @@
 import { pythonGenerator } from './generator';
 
 pythonGenerator['control_start_as_clone'] = function () {
-  const branchCode = this.eventToCode('startasclone', 'target');
+  const branchCode = this.eventToCode('startasclone', 'False', 'target');
   return `@when_startasclone(target.id)\n${branchCode}`;
 };
 

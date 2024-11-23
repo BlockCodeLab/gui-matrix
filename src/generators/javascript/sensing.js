@@ -91,8 +91,12 @@ javascriptGenerator['sensing_of'] = function (block) {
   return [objectCode, this.ORDER_MEMBER];
 };
 
-javascriptGenerator['sensing_joystick_x'] = () => '';
+javascriptGenerator['sensing_joystick_x'] = function () {
+  return ['runtime.joystick.x', this.ORDER_MEMBER];
+};
 
-javascriptGenerator['sensing_joystick_y'] = () => '';
+javascriptGenerator['sensing_joystick_y'] = function () {
+  return ['runtime.joystick.y', this.ORDER_MEMBER];
+};
 
 javascriptGenerator['sensing_loudness'] = () => '';

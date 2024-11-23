@@ -419,6 +419,19 @@ const control = (isStage, spritesCount) => `
 const sensing = (isStage, spritesCount) => `
   <category name="%{BKY_CATEGORY_SENSING}" id="sensing" colour="#4CBFE6" secondaryColour="#2E8EB8">
     ${
+      DEVELOPMENT
+        ? `
+          <block type="sensing_debug">
+            <value name="VALUE">
+              <shadow type="text">
+                <field name="TEXT">debug</field>
+              </shadow>
+            </value>
+          </block>
+          ${blockSeparator}`
+        : ''
+    }
+    ${
       isStage
         ? ''
         : `
@@ -447,9 +460,9 @@ const sensing = (isStage, spritesCount) => `
         <shadow type="sensing_keyoptions"/>
       </value>
     </block>
-    <!--
     <block type="sensing_joystick_x"/>
     <block type="sensing_joystick_y"/>
+    <!--
     ${blockSeparator}
     <block type="sensing_loudness" id="sensing_loudness"/>
     -->

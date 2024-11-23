@@ -1,6 +1,9 @@
 import { classNames, Button } from '@blockcode/ui';
 import styles from './gamepad.module.css';
 
+const MIN_AXIS = 15;
+const MAX_AXIS = 22;
+
 const isMac = /Mac/i.test(navigator.platform || navigator.userAgent);
 
 let pressTimer = null;
@@ -19,6 +22,13 @@ export default function Gamepad({ runtime }) {
       code,
     });
 
+  const updateJoystick = (dx, dy) => {
+    if (runtime?.joystick) {
+      runtime.joystick.x = Math.floor((dx / MAX_AXIS) * 100);
+      runtime.joystick.y = -Math.floor((dy / MAX_AXIS) * 100);
+    }
+  };
+
   const handleMouseDown = (e) => {
     e.stopPropagation();
 
@@ -32,46 +42,47 @@ export default function Gamepad({ runtime }) {
       e.preventDefault();
       let dx = e.clientX - cx;
       let dy = e.clientY - cy;
-      if (dy < -15) {
+      if (dy < -MIN_AXIS) {
         if (!target.dataset.up) {
           pressKey('ArrowUp');
           target.dataset.up = true;
         }
-        if (dy < -22) dy = -22;
+        if (dy < -MAX_AXIS) dy = -MAX_AXIS;
       } else {
         delete target.dataset.up;
         releaseKey('ArrowUp');
       }
-      if (dy > 15) {
+      if (dy > MIN_AXIS) {
         if (!target.dataset.down) {
           pressKey('ArrowDown');
           target.dataset.down = true;
         }
-        if (dy > 22) dy = 22;
+        if (dy > MAX_AXIS) dy = MAX_AXIS;
       } else {
         delete target.dataset.down;
         releaseKey('ArrowDown');
       }
-      if (dx < -15) {
+      if (dx < -MIN_AXIS) {
         if (!target.dataset.left) {
           pressKey('ArrowLeft');
           target.dataset.left = true;
         }
-        if (dx < -22) dx = -22;
+        if (dx < -MAX_AXIS) dx = -MAX_AXIS;
       } else {
         delete target.dataset.left;
         releaseKey('ArrowLeft');
       }
-      if (dx > 15) {
+      if (dx > MIN_AXIS) {
         if (!target.dataset.right) {
           pressKey('ArrowRight');
           target.dataset.right = true;
         }
-        if (dx > 22) dx = 22;
+        if (dx > MAX_AXIS) dx = MAX_AXIS;
       } else {
         delete target.dataset.right;
         releaseKey('ArrowRight');
       }
+      updateJoystick(dx, dy);
 
       target.style.left = `${dx + left}px`;
       target.style.top = `${dy + top}px`;
@@ -80,6 +91,7 @@ export default function Gamepad({ runtime }) {
     const mouseUp = () => {
       document.removeEventListener('mousemove', mouseMove);
       document.removeEventListener('mouseup', mouseUp);
+      updateJoystick(0, 0);
       target.style.left = `${left}px`;
       target.style.top = `${top}px`;
       if (target.dataset.right) {

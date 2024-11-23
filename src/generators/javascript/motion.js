@@ -1,7 +1,5 @@
 import { javascriptGenerator } from './generator';
 
-const AWAIT_ABORT = 'if (abort || !runtime.running) break;\n';
-
 javascriptGenerator['motion_movesteps'] = function (block) {
   let code = '';
   if (this.STATEMENT_PREFIX) {
@@ -101,7 +99,8 @@ javascriptGenerator['motion_glidesecstoxy'] = function (block) {
   const secsCode = this.valueToCode(block, 'SECS', this.ORDER_NONE) || 1;
   const xCode = this.valueToCode(block, 'X', this.ORDER_NONE) || 0;
   const yCode = this.valueToCode(block, 'Y', this.ORDER_NONE) || 0;
-  code += `await target.util.glide(runtime.number(${secsCode}), runtime.number(${xCode}), runtime.number(${yCode}));\n${AWAIT_ABORT}`;
+  const toCode = `{ x: runtime.number(${xCode}), y: runtime.number(${yCode}) }`;
+  code += this.wrapAsync(`target.util.glide(runtime.number(flash ? 0 : ${secsCode}), ${toCode});`);
   return code;
 };
 
@@ -120,7 +119,7 @@ javascriptGenerator['motion_glideto'] = function (block) {
   } else {
     toCode = `runtime.getSpriteByIdOrName('${toCode}').util`;
   }
-  code += `await target.util.glide(${secsCode}, ${toCode});\n${AWAIT_ABORT}`;
+  code += this.wrapAsync(`target.util.glide(runtime.number(flash ? 0 : ${secsCode}), ${toCode})`);
   return code;
 };
 

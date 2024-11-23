@@ -1,7 +1,5 @@
 import { javascriptGenerator } from './generator';
 
-const AWAIT_ABORT = 'if (abort || !runtime.running) break;\n';
-
 javascriptGenerator['looks_sayforsecs'] = function (block) {
   let code = '';
   if (this.STATEMENT_PREFIX) {
@@ -10,7 +8,7 @@ javascriptGenerator['looks_sayforsecs'] = function (block) {
 
   const msgCode = this.valueToCode(block, 'MESSAGE', this.ORDER_NONE) || '""';
   const secCode = this.valueToCode(block, 'SECS', this.ORDER_NONE) || 2;
-  code += `await target.util.say(String(${msgCode}), runtime.number(${secCode}));\n${AWAIT_ABORT}`;
+  code += this.wrapAsync(`target.util.say(String(${msgCode}), runtime.number(${secCode}))`);
   return code;
 };
 
@@ -33,7 +31,7 @@ javascriptGenerator['looks_thinkforsecs'] = function (block) {
 
   const msgCode = this.valueToCode(block, 'MESSAGE', this.ORDER_NONE) || '""';
   const secCode = this.valueToCode(block, 'SECS', this.ORDER_NONE) || 2;
-  code += `await target.util.think(String(${msgCode}), runtime.number(${secCode}));\n${AWAIT_ABORT}`;
+  code += this.wrapAsync(`target.util.think(String(${msgCode}), runtime.number(${secCode}))`);
   return code;
 };
 
@@ -177,6 +175,7 @@ javascriptGenerator['looks_switchbackdroptoandwait'] = function (block) {
     code += this.injectId(this.STATEMENT_PREFIX, block);
   }
   const backdropCode = this.valueToCode(block, 'BACKDROP', this.ORDER_NONE) || '""';
-  code += `stage.util.backdrop = ${backdropCode};\nawait runtime.fire('backdropswitchesto:' + ${backdropCode});\n${AWAIT_ABORT}`;
+  code += `stage.util.backdrop = ${backdropCode};\n`;
+  code += this.wrapAsync(`runtime.fire('backdropswitchesto:' + ${backdropCode})`);
   return code;
 };

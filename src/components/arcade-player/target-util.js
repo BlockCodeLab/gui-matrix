@@ -1,7 +1,7 @@
 import { paperCore } from '@blockcode/blocks-player';
 import { EventEmitter } from 'node:events';
 
-import { loadImageFromDataURL } from '../../lib/load-image';
+// import { loadImageFromDataURL } from '../../lib/load-image';
 import RotationStyle from '../../lib/rotation-style';
 
 import createContour from './create-contour';
@@ -144,13 +144,11 @@ class StageUtil extends Util {
       if (!asset) return;
 
       this.data.frame = frame;
-      loadImageFromDataURL(asset).then((image) => {
-        this.raster.image = image;
-        this.raster.pivot = new paperCore.Point(asset.centerX - asset.width / 2, asset.centerY - asset.height / 2);
-        this.raster.position.x = paperCore.view.center.x;
-        this.raster.position.y = paperCore.view.center.y;
-        this.requestUpdate();
-      });
+      this.raster.source = `data:${asset.type};base64,${asset.data}`;
+      this.raster.pivot = new paperCore.Point(asset.centerX - asset.width / 2, asset.centerY - asset.height / 2);
+      this.raster.position.x = paperCore.view.center.x;
+      this.raster.position.y = paperCore.view.center.y;
+      this.requestUpdate();
     }
   }
 }
@@ -190,14 +188,10 @@ class SpriteUtil extends Util {
       if (!asset) return;
 
       this.data.frame = frame;
-      this.requestUpdate();
-
-      loadImageFromDataURL(asset).then((image) => {
-        this.raster.image = image;
-        this.raster.pivot = new paperCore.Point(asset.centerX - asset.width / 2, asset.centerY - asset.height / 2);
-        this.createContour();
-        this.goto(this.data.x, this.data.y, true);
-      });
+      this.raster.source = `data:${asset.type};base64,${asset.data}`;
+      this.raster.pivot = new paperCore.Point(asset.centerX - asset.width / 2, asset.centerY - asset.height / 2);
+      this.createContour();
+      this.goto(this.data.x, this.data.y, true);
     }
   }
 
@@ -225,6 +219,7 @@ class SpriteUtil extends Util {
   }
 
   set x(x) {
+    if (isNaN(x)) return;
     if (this.editing || x != this.data.x || isNaN(this.raster.position.x)) {
       this.data.x = x;
       this.raster.position.x = paperCore.view.center.x + this.data.x;
@@ -239,6 +234,7 @@ class SpriteUtil extends Util {
   }
 
   set y(y) {
+    if (isNaN(y)) return;
     if (this.editing || y != this.data.y || isNaN(this.raster.position.y)) {
       this.data.y = y;
       this.raster.position.y = paperCore.view.center.y - this.data.y;
@@ -258,6 +254,7 @@ class SpriteUtil extends Util {
       y = x.y;
       x = x.x;
     }
+    if (isNaN(x) || isNaN(y)) return;
     if (
       this.editing ||
       force ||
@@ -454,6 +451,7 @@ class SpriteUtil extends Util {
         break;
       }
       if (this.editing) break;
+      if (this.abort) break;
     }
   }
 
@@ -474,7 +472,7 @@ class SpriteUtil extends Util {
     return nearestEdge;
   }
 
-  async edgeBounce() {
+  edgeBounce() {
     if (!this.contour) return;
 
     // Find the nearest edge.

@@ -91,8 +91,12 @@ pythonGenerator['sensing_of'] = function (block) {
   return [objectCode, this.ORDER_MEMBER];
 };
 
-pythonGenerator['sensing_joystick_x'] = () => '';
+pythonGenerator['sensing_joystick_x'] = function () {
+  return ['-runtime.joystick.x_axis', this.ORDER_MEMBER];
+};
 
-pythonGenerator['sensing_joystick_y'] = () => '';
+pythonGenerator['sensing_joystick_y'] = function () {
+  return ['runtime.joystick.y_axis', this.ORDER_MEMBER];
+};
 
 pythonGenerator['sensing_loudness'] = () => '';

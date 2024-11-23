@@ -1,8 +1,9 @@
 import './javascript/control';
 import './javascript/data';
-import './javascript/event';
+import './javascript/events';
 import './javascript/looks';
 import './javascript/motion';
+import './javascript/procedures';
 import './javascript/sensing';
 import './javascript/sound';
 import './javascript/wifi';

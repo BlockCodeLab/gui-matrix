@@ -8,13 +8,17 @@ export default class Runtime extends BaseRuntime {
   static VIEW_HEIGHT = VIEW_HEIGHT;
   static DEFAULT_DIRECTION = DEFAULT_DIRECTION;
 
-  constructor(language, onRequestStop, soundsList) {
-    super(onRequestStop);
+  constructor(language, onRequestStop, soundsList, flashMode) {
+    super(onRequestStop, flashMode);
     this._language = language;
     this._tone = new Tone({ type: 'square' });
     this._soundsList = soundsList;
     this._waveList = new Map();
     this._wifiConnected = true;
+    this._joystick = {
+      x: 0,
+      y: 0,
+    };
   }
 
   get language() {
@@ -23,9 +27,13 @@ export default class Runtime extends BaseRuntime {
 
   when(eventName, listener, raster = null) {
     if (raster) {
-      super.when(eventName, (done) => {
-        listener(raster, done);
-        raster.util.clones?.forEach((clone) => listener(clone, done));
+      super.when(eventName, async (...args) => {
+        listener(raster, ...args);
+        if (raster.util.clones) {
+          for (const clone of raster.util.clones) {
+            listener(clone, ...args);
+          }
+        }
       });
     } else {
       super.when(eventName, listener);
@@ -130,6 +138,10 @@ export default class Runtime extends BaseRuntime {
       this.xKey ||
       this.yKey
     );
+  }
+
+  get joystick() {
+    return this._joystick;
   }
 
   _fireKey(key) {

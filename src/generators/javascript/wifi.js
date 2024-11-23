@@ -1,9 +1,7 @@
 import { javascriptGenerator } from './generator';
 
-const EVENT_CALLBACK = `async (target, done) => {\ndo {\n/* code */} while (false);\ndone();\n}`;
-
 javascriptGenerator['wifi_whenconnected'] = function () {
-  return `runtime.when('wifi_connected', ${EVENT_CALLBACK}, target);\n`;
+  return `runtime.when('wifi_connected', ${this.TARGET_EVENT_CALLBACK}, target);\n`;
 };
 
 javascriptGenerator['wifi_connectto'] = function (block) {

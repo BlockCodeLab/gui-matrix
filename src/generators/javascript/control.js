@@ -1,9 +1,7 @@
 import { javascriptGenerator } from './generator';
 
-const EVENT_CALLBACK = `async (target, done) => {\ndo {\n/* code */} while (false);\ndone();\n}`;
-
 javascriptGenerator['control_start_as_clone'] = function () {
-  return `runtime.whenCloneStart(target, ${EVENT_CALLBACK});\n`;
+  return `runtime.whenCloneStart(target, ${this.TARGET_EVENT_CALLBACK});\n`;
 };
 
 javascriptGenerator['control_create_clone_of_menu'] = function (block) {
@@ -28,25 +26,4 @@ javascriptGenerator['control_create_clone_of'] = function (block) {
 
 javascriptGenerator['control_delete_this_clone'] = function () {
   return 'target.util.remove();\n';
-};
-
-javascriptGenerator['control_stop'] = function (block) {
-  let code = '';
-  if (this.STATEMENT_PREFIX) {
-    code += this.injectId(this.STATEMENT_PREFIX, block);
-  }
-
-  const stopValue = block.getFieldValue('STOP_OPTION');
-  switch (stopValue) {
-    case 'all':
-      code += 'runtime.stop();\n';
-      break;
-    case 'this script':
-      code += 'return done();\n';
-      break;
-    case 'other scripts in sprite':
-      code += 'abort = true;\n';
-      break;
-  }
-  return code;
 };

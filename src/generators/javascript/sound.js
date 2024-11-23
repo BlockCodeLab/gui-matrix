@@ -1,7 +1,5 @@
 import { javascriptGenerator } from './generator';
 
-const AWAIT_ABORT = 'if (abort || !runtime.running) break;\n';
-
 javascriptGenerator['sound_sounds_menu'] = function (block) {
   return [block.getFieldValue('SOUND_MENU'), this.ORDER_ATOMIC];
 };
@@ -24,7 +22,7 @@ javascriptGenerator['sound_playuntildone'] = function (block) {
   }
 
   const soundCode = this.valueToCode(block, 'SOUND_MENU', this.ORDER_NONE) || 'SILENT';
-  code += `await runtime.playWave('${soundCode}')\n${AWAIT_ABORT}`;
+  code += this.wrapAsync(`runtime.playWave('${soundCode}')`);
   return code;
 };
 
@@ -33,7 +31,7 @@ javascriptGenerator['sound_stopallsounds'] = function (block) {
   if (this.STATEMENT_PREFIX) {
     code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  code += `await runtime.pauseAllWaves()\n${AWAIT_ABORT}`;
+  code += this.wrapAsync(`runtime.pauseAllWaves()`);
   return code;
 };
 

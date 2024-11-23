@@ -219,6 +219,8 @@ export default async function (file) {
 
   projectJson.targets.sort((a, b) => a.layerOrder - b.layerOrder);
   for (const target of projectJson.targets) {
+    const xmls = [];
+
     const file = {
       id: target.isStage ? 'stage' : uid(),
       name: target.name,
@@ -229,18 +231,28 @@ export default async function (file) {
       y: target.y || 0,
     };
 
+    // deserialize variables and lists
+    const vars = [];
+    const localVar = target.isStage ? 'false' : 'true';
+    if (target.variables) {
+      for (const [varId, varObj] of Object.entries(target.variables)) {
+        vars.push(`<variable type="" id="${varId}" islocal="${localVar}" iscloud="false">${varObj[0]}</variable>`);
+      }
+    }
+    if (target.lists) {
+      for (const [varId, varObj] of Object.entries(target.lists)) {
+        vars.push(`<variable type="list" id="${varId}" islocal="${localVar}" iscloud="false">${varObj[0]}</variable>`);
+      }
+    }
+    xmls.push(`<variables>${vars.join('')}</variables>`);
+
     // deserialize blocks
-    const xmls = [];
     const blocks = deserializeBlocks(target.blocks);
-    for (const blockId in blocks) {
-      const block = target.blocks[blockId];
+    for (const [blockId, block] of Object.entries(blocks)) {
       if (!block.parent) {
         xmls.push(blockToXML(blockId, target.blocks, editor));
       }
     }
-
-    // deserialize variables
-    // TODO
 
     // convert image
     for (const costume of target.costumes) {
@@ -270,8 +282,8 @@ export default async function (file) {
       file.zIndex = target.layerOrder - 1;
     }
 
+    console.log(`<xml xmlns="http://www.w3.org/1999/xhtml">${xmls.join('')}</xml>`);
     file.xml = `<xml xmlns="http://www.w3.org/1999/xhtml">${xmls.join('')}</xml>`;
-
     fileList.push(file);
   }
 

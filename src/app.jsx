@@ -34,7 +34,7 @@ if (IDEAL) {
   defaultProject = require('./lib/default-project-ideal').default;
 }
 
-export default function ArcadeBlocksWorkspace({ addLocaleData, openProject: defaultOpenProject }) {
+export default function ArcadeBlocksWorkspace({ addLocaleData, openProject: defaultOpenProject, useDefaultProject }) {
   addLocaleData(blocksLocales);
   addLocaleData(paintLocales);
   addLocaleData(soundLocales);
@@ -48,7 +48,9 @@ export default function ArcadeBlocksWorkspace({ addLocaleData, openProject: defa
   };
 
   const createProject = () => openProject(defaultProject);
-  createProject();
+  if (useDefaultProject) {
+    createProject();
+  }
 
   const saveProject = (project) => {
     const canvas = document.querySelector('#blockcode-blocks-player');
@@ -59,11 +61,14 @@ export default function ArcadeBlocksWorkspace({ addLocaleData, openProject: defa
     };
   };
 
-  const beforeDownload = (name, fileList, assetList) => {
+  const beforeDownload = (info, fileList, assetList) => {
     const assets = generateAssets(assetList);
     const stage = fileList[0];
-    stage.content = stage.content.replace(/Stage\(runtime, "[^"]*",/g, `Stage(runtime, "${name}",`);
-    return [].concat(generateMainFile(stage, fileList.slice(1)), ...assets);
+    stage.content = stage.content.replace(/Stage\(runtime, "[^"]*",/g, `Stage(runtime, "${info.name}",`);
+    return [].concat(generateMainFile(stage, fileList.slice(1)), ...assets).map((file) => ({
+      ...file,
+      id: file.id.startsWith('extensions/') ? file.id : `proj${info.key}/${file.id}`,
+    }));
   };
 
   const deviceName = (

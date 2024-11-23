@@ -1,7 +1,7 @@
 import { pythonGenerator } from './generator';
 
 pythonGenerator['wifi_whenconnected'] = function () {
-  const branchCode = this.eventToCode('wifi_connected', 'target');
+  const branchCode = this.eventToCode('wifi_connected', 'False', 'target');
   return `@when_wificonnected\n${branchCode}`;
 };
 

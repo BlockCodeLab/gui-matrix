@@ -8,7 +8,7 @@ import styles from './sidebar.module.css';
 
 export default function Sidebar() {
   const [playing, setPlaying] = useState(false);
-  const [stageSize, setStageSize] = useState(window.innerWidth < 1280 ? 'small' : 'large');
+  const [stageSize, setStageSize] = useState(window.innerWidth < 1600 ? 'small' : 'large');
 
   const handleStop = () => setPlaying(false);
 
