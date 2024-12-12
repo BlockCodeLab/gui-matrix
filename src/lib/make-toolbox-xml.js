@@ -296,41 +296,48 @@ const looks = (isStage, costumeValue, backdropValue) => `
   </category>
 `;
 
-const sound = (sound) => `
+const sound = (isStage, soundValue) => `
   <category name="%{BKY_CATEGORY_SOUND}" id="sound" colour="#D65CD6" secondaryColour="#BD42BD">
-    <block type="sound_playuntildone">
-      <value name="SOUND_MENU">
-        <shadow type="sound_sounds_menu">
-          <field name="SOUND_MENU">${sound}</field>
-        </shadow>
-      </value>
-    </block>
-    <block type="sound_play">
-      <value name="SOUND_MENU">
-        <shadow type="sound_sounds_menu">
-          <field name="SOUND_MENU">${sound}</field>
-        </shadow>
-      </value>
-    </block>
-    <block type="sound_stopallsounds"/>
-    ${categorySeparator}
-    <!--
-    <block type="sound_changevolumeby" id="sound_changevolumeby">
-      <value name="VOLUME">
-        <shadow type="math_number">
-          <field name="NUM">-10</field>
-        </shadow>
-      </value>
-    </block>
-    <block type="sound_setvolumeto" id="sound_setvolumeto">
-      <value name="VOLUME">
-        <shadow type="math_number">
-          <field name="NUM">100</field>
-        </shadow>
-      </value>
-    </block>
-    <block type="sound_volume" id="sound_volume"></block>
-    -->
+  ${
+    isStage
+      ? `
+          <block type="sound_playuntildone">
+            <value name="SOUND_MENU">
+              <shadow type="sound_sounds_menu">
+                <field name="SOUND_MENU">${soundValue}</field>
+              </shadow>
+            </value>
+          </block>
+          <block type="sound_play">
+            <value name="SOUND_MENU">
+              <shadow type="sound_sounds_menu">
+                <field name="SOUND_MENU">${soundValue}</field>
+              </shadow>
+            </value>
+          </block>
+        `
+      : `
+        `
+  }
+  <block type="sound_stopallsounds"/>
+  ${categorySeparator}
+  <!--
+  <block type="sound_changevolumeby" id="sound_changevolumeby">
+    <value name="VOLUME">
+      <shadow type="math_number">
+        <field name="NUM">-10</field>
+      </shadow>
+    </value>
+  </block>
+  <block type="sound_setvolumeto" id="sound_setvolumeto">
+    <value name="VOLUME">
+      <shadow type="math_number">
+        <field name="NUM">100</field>
+      </shadow>
+    </value>
+  </block>
+  <block type="sound_volume" id="sound_volume"></block>
+  -->
   </category>
 `;
 
@@ -502,7 +509,7 @@ export default function (isStage, spritesCount, backdropValue, costumeValue, sou
     },
     {
       id: 'sound',
-      xml: sound(soundValue),
+      xml: sound(isStage, soundValue),
     },
     {
       id: 'events',
