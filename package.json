@@ -1,6 +1,6 @@
 {
   "name": "@blockcode/workspace-arcade",
-  "version": "0.6.2",
+  "version": "0.6.4",
   "module": "dist/index.js",
   "exports": {
     ".": {
@@ -19,7 +19,7 @@
   },
   "firmware": {
     "url": "https://gitee.com/blockcodelab/arcade-firmware/releases/",
-    "version": "0.9.4"
+    "version": "0.9.5"
   },
   "devDependencies": {
     "bun-types": "latest",
