@@ -8,7 +8,7 @@
 }
 
 .green-flag,
-.stop-all {
+.stop {
   width: 2rem;
   height: 2rem;
   padding: 0.375rem;
@@ -19,24 +19,24 @@
 }
 
 .green-flag:hover,
-.stop-all:hover {
-  background: var(--motion-light-transparent);
+.stop:hover {
+  background: var(--theme-light-transparent);
 }
 
 .green-flag.actived {
-  background: var(--motion-transparent);
+  background: var(--theme-transparent);
 }
 
-.stop-all {
+.stop {
   opacity: 0.5;
 }
 
-.stop-all.actived {
+.stop.actived {
   opacity: 1;
 }
 
 .green-flag.disabled,
-.stop-all.disabled {
+.stop.disabled {
   opacity: 0.5;
 }
 

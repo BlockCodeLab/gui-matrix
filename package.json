@@ -1,42 +1,23 @@
 {
-  "name": "@blockcode/workspace-arcade",
-  "version": "0.6.4",
+  "name": "@blockcode/gui-arcade",
+  "private": "true",
+  "version": "1.0.0",
+  "type": "module",
   "module": "dist/index.js",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.js"
+      "import": "./dist/index.js"
     },
-    "./app": {
-      "import": "./dist/app.js",
-      "require": "./dist/app.js"
+    "./info": {
+      "import": "./dist/info.js"
     }
   },
-  "type": "module",
-  "scripts": {
-    "build": "bun-build",
-    "dev": "bun-build --watch ./src"
-  },
-  "firmware": {
-    "url": "https://gitee.com/blockcodelab/arcade-firmware/releases/",
-    "version": "0.9.5"
+  "dependencies": {
+    "@preact/signals": "^1.3.0",
+    "preact": "^10.25.0"
   },
   "devDependencies": {
-    "bun-types": "latest",
-    "bun-loader-css": "github:kankungyip/bun-loader-css",
-    "bun-loader-yaml": "github:kankungyip/bun-loader-yaml",
-    "bun-plugin-copy": "github:kankungyip/bun-plugin-copy"
-  },
-  "dependencies": {
-    "preact": "^10.18.1",
-    "upng-js": "^2.1.0",
-    "@blockcode/core": "workspace:*",
-    "@blockcode/ui": "workspace:*",
-    "@blockcode/blocks-editor": "workspace:*",
-    "@blockcode/blocks-player": "workspace:*",
-    "@blockcode/tone-player": "workspace:*",
-    "@blockcode/workspace-blocks": "workspace:*",
-    "@blockcode/pixel-paint": "workspace:*",
-    "@blockcode/wave-surfer": "workspace:*"
+    "@types/bun": "latest",
+    "bun-copy-plugin": "^0.2.1"
   }
 }

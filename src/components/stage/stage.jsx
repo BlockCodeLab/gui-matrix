@@ -1,36 +1,34 @@
-import { useState } from 'preact/hooks';
-import { classNames } from '@blockcode/ui';
-import ArcadePlayer from '../arcade-player/arcade-player';
-import Toolbar from './toolbar';
-import Gamepad from './gamepad';
+import { useSignal } from '@preact/signals';
+import { classNames } from '@blockcode/utils';
+import { useAppContext } from '@blockcode/core';
+import { StageConfig } from '../emulator/emulator-config';
+
+import { ArcadeEmulator } from '../emulator/emulator';
+import { Toolbar } from './toolbar';
+import { Gamepad } from './gamepad';
 import styles from './stage.module.css';
 
-export default function Stage({ playing, size, onSizeToggle, onPlay }) {
-  const [runtime, setRuntime] = useState(null);
+export function Stage() {
+  const { appState } = useAppContext();
 
-  const handlePlay = () => onPlay(true);
-  const handleStop = () => onPlay(false);
+  const runtime = useSignal(null);
 
   return (
     <div className={styles.stageWrapper}>
-      <Toolbar
-        onSizeToggle={onSizeToggle}
-        stageSize={size}
-        playing={playing}
-        onPlay={handlePlay}
-        onStop={handleStop}
-      />
+      <Toolbar />
 
-      <div className={classNames(styles.stage, { [styles.smallStage]: size === 'small' })}>
-        <ArcadePlayer
-          stageSize={size}
-          playing={playing}
-          onReady={setRuntime}
-          onRequestStop={handleStop}
+      <div
+        className={classNames(styles.stage, {
+          [styles.smallStage]: appState.value?.stageSize !== StageConfig.Large,
+        })}
+      >
+        <ArcadeEmulator
+          runtime={runtime.value}
+          onRuntime={(val) => (runtime.value = val)}
         />
       </div>
 
-      <Gamepad runtime={runtime} />
+      <Gamepad runtime={runtime.value} />
     </div>
   );
 }

@@ -1,68 +1,86 @@
-import { useEffect, useState } from 'preact/hooks';
-import { useLocale } from '@blockcode/core';
-import { Library } from '@blockcode/ui';
-import allSprites from './sprites.yaml';
-import spriteTags from './sprite-tags';
+import { Text, Library } from '@blockcode/core';
+import { getAssetUrl } from '../../lib/get-asset-url';
+import spriteTags from '../../lib/libraries/sprite-tags';
+import sprites from '../../lib/libraries/sprites.yaml';
 
-if (IDEAL) {
-  const { default: idealSprites } = require('./sprites-ideal.yaml');
-  allSprites.unshift(...idealSprites);
-}
-
+// 动图计时器
 let timer;
 
-export default function SpritesLibrary({ onSelect, onClose }) {
-  const [data, setData] = useState([]);
-  const { getText } = useLocale();
-
-  const setSelectHandler = (sprite) => () => {
-    onSelect(sprite);
-    onClose();
-  };
-
-  const setMouseEnterHandler = (sprite) => (e) => {
-    if (timer) {
-      clearInterval(timer);
-    }
-    const len = sprite.costumes.length;
-    if (len > 1) {
-      let i = 0;
-      timer = setInterval(() => (e.target.src = `./assets/${sprite.costumes[++i % len].id}.png`), 333);
-    }
-  };
-
-  const setMouseLeaveHandler = (sprite) => (e) => {
+// 鼠标进入时，如果角色存在多个造型则动图轮播
+const mouseEnterHandler = (sprite) => (e) => {
+  if (timer) {
     clearInterval(timer);
     timer = null;
-    e.target.src = `./assets/${sprite.costumes[0].id}.png`;
-  };
+  }
+  const len = sprite.costumes.length;
+  if (len > 1) {
+    let i = 0;
+    timer = setInterval(() => {
+      e.target.src = getAssetUrl(sprite, {
+        id: sprite.costumes[++i % len].id,
+        extname: 'png',
+      });
+    }, 300);
+  }
+};
 
-  useEffect(() => {
-    setData(
-      allSprites.map((sprite) => ({
-        name: sprite.name,
-        author: sprite.author,
-        copyright: sprite.copyright,
-        tags: sprite.tags,
-        image: `./assets/${sprite.costumes[0].id}.png`,
-        onSelect: setSelectHandler(sprite),
-        onMouseEnter: setMouseEnterHandler(sprite),
-        onMouseLeave: setMouseLeaveHandler(sprite),
-      })),
-    );
-  }, []);
+// 鼠标离开时，停止轮播，显示第一张图
+const mouseLeaveHandler = (sprite) => (e) => {
+  clearInterval(timer);
+  timer = null;
+  e.target.src = getAssetUrl(sprite, {
+    id: sprite.costumes[0].id,
+    extname: 'png',
+  });
+};
 
+const getSpritesItmes = (onSelect, onClose) => {
+  return sprites.map((sprite) => ({
+    name: sprite.name,
+    copyright: sprite.copyright,
+    tags: sprite.tags,
+    image: getAssetUrl(sprite, {
+      id: sprite.costumes[0].id,
+      extname: 'png',
+    }),
+    onMouseEnter: mouseEnterHandler(sprite),
+    onMouseLeave: mouseLeaveHandler(sprite),
+    onSelect() {
+      clearInterval(timer);
+      onSelect(sprite);
+      onClose();
+      timer = null;
+    },
+  }));
+};
+
+export function SpritesLibrary({ onSelect, onClose }) {
   return (
     <Library
       filterable
       tags={spriteTags}
-      items={data}
-      filterPlaceholder={getText('gui.library.search', 'Search')}
-      title={getText('arcade.libraries.sprite', 'Choose a Sprite')}
-      emptyText={getText('arcade.libraries.empty', 'No more!')}
+      items={getSpritesItmes(onSelect, onClose)}
+      filterPlaceholder={
+        <Text
+          id="gui.library.search"
+          defaultMessage="Search"
+        />
+      }
+      title={
+        <Text
+          id="arcade.libraries.sprite"
+          defaultMessage="Choose a Sprite"
+        />
+      }
+      emptyMessage={
+        <Text
+          id="arcade.libraries.empty"
+          defaultMessage="No more!"
+        />
+      }
       onClose={onClose}
     />
   );
 }
 
-SpritesLibrary.surprise = () => allSprites[Math.floor(Math.random() * allSprites.length)];
+SpritesLibrary.surprise = () => sprites[Math.floor(Math.random() * sprites.length)];

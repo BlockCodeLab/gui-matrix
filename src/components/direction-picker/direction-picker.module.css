@@ -27,8 +27,8 @@
 }
 
 .dial-gauge-path {
-  fill: var(--motion-transparent);
-  stroke: var(--motion-primary);
+  fill: var(--theme-transparent);
+  stroke: var(--theme-primary);
   stroke-width: 1px;
 }
 

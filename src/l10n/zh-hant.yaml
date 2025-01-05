@@ -1,0 +1,151 @@
+blocks.dataPrompt.forAllTargets: 適用於所有角色
+blocks.dataPrompt.forThisTarget: 僅適用於當前角色
+blocks.dataPrompt.availableToAllTargets: 所有角色都可使用該變量。
+blocks.dataPrompt.listAvailableToAllTargets: 所有角色都可使用該列表。
+
+blocks.myBlockPrompt.warpLabel: 運行時不刷新屏幕
+
+arcade.paintEditor.costumes: 造型
+arcade.paintEditor.backdrops: 背景
+
+arcade.soundEditor.sounds: 聲音
+
+arcade.menu.file.importSB3: 導入 Scratch 3（.sb3）文件…
+arcade.menu.device: 學習機
+arcade.menu.device.wifi: Wi-Fi 網絡配置
+arcade.menu.device.wifiNamePassword: Wi-Fi 名稱和密碼
+arcade.menu.device.wifiName: Wi-Fi 名稱
+arcade.menu.device.wifiPassword: Wi-Fi 密碼
+arcade.menu.device.wifiOk: Wi-Fi 配置已儲存。
+arcade.menu.device.wifiCancel: 取消 Wi-Fi 配置。
+arcade.menu.device.manual: 查看使用手冊
+arcade.menu.device.update: 升級固件
+arcade.menu.device.restore: 還原固件
+arcade.menu.device.firmwareUpdateLabal: 準備好升級固件了嗎？請按下列步驟準備好您的學習機。
+arcade.menu.device.firmwareRestoreLabal: 準備好還原固件了嗎？固件還原後學習機內所有作品將被清除，請按下列步驟準備好您的學習機。
+arcade.menu.device.firmwareTip1-1: 下載
+arcade.menu.device.firmwareTip1-2: 最新的固件。
+arcade.menu.device.firmwareTip2: 接入 USB 直到屏幕點亮。
+arcade.menu.device.firmwareTip3: 按住 Fn 鍵然後按下 RESET 鍵。
+arcade.menu.device.firmwareUpdating: 正在升級固件…{progress}%
+arcade.menu.device.firmwareRestoring: 正在還原固件…{progress}%
+arcade.menu.device.firmwareRecovering: 正在恢復學習機…
+arcade.menu.device.firmwareUpdateDone: 固件升級完成，請按下 RESET 鍵。
+arcade.menu.device.firmwareRestoreDone: 固件還原完成，請按下 RESET 鍵。
+arcade.menu.device.erase: 清除所有作品
+arcade.menu.device.eraseLabel: 確認清除學習機內的所有作品嗎？
+arcade.menu.device.erasing: 正在清除…
+arcade.menu.device.erased: 清除完成。
+arcade.menu.device.config: 系統配置
+
+arcade.deletePrompt.title: 刪除「{name}」
+arcade.deletePrompt.label: 確認要刪除這個角色嗎？
+
+arcade.emu.greenFlag: 運行
+arcade.emu.stop: 停止
+arcade.emu.smallStage: 縮小舞臺
+arcade.emu.largeStage: 放大舞臺
+
+arcade.contextMenu.duplicate: 復製
+arcade.contextMenu.export: 導出
+arcade.contextMenu.delete: 刪除
+
+arcade.actionButton.uploadSprite: 上傳角色
+arcade.actionButton.uploadBackdrop: 上傳背景
+arcade.actionButton.uploadError: 上傳「{file}」失敗。
+arcade.actionButton.surprise: 隨機
+arcade.actionButton.paint: 繪製
+arcade.actionButton.sprite: 選擇一個角色
+arcade.actionButton.backdrop: 選擇一個背景
+
+arcade.stageSelector.title: 舞臺
+arcade.stageSelector.backdrops: 背景
+
+arcade.spriteInfo.sprite: 角色
+arcade.spriteInfo.name: 名字
+arcade.spriteInfo.x: x
+arcade.spriteInfo.y: y
+arcade.spriteInfo.display: 顯示
+arcade.spriteInfo.show: 顯示角色
+arcade.spriteInfo.hide: 隱藏角色
+arcade.spriteInfo.size: 大小
+arcade.spriteInfo.direction: 方向
+
+arcade.directionPicker.allAround: 任意旋轉
+arcade.directionPicker.leftRight: 左右翻轉
+arcade.directionPicker.dontRotate: 不旋轉
+
+arcade.libraries.empty: 空空如也！
+arcade.libraries.sprite: 選擇一個角色
+arcade.libraries.costume: 選擇一個造型
+arcade.libraries.backdrop: 選擇一個背景
+arcade.libraries.sound: 選擇一個聲音
+
+arcade.libraries.tags.fantasy: 奇幻
+arcade.libraries.tags.music: 音樂
+arcade.libraries.tags.sports: 運動
+arcade.libraries.tags.outdoors: 室外
+arcade.libraries.tags.indoors: 室內
+arcade.libraries.tags.space: 太空
+arcade.libraries.tags.underwater: 水下
+arcade.libraries.tags.patterns: 圖案
+arcade.libraries.tags.animals: 動物
+arcade.libraries.tags.people: 人物
+arcade.libraries.tags.dance: 舞蹈
+arcade.libraries.tags.food: 食物
+arcade.libraries.tags.fashion: 時尚
+arcade.libraries.tags.letters: 字母
+arcade.libraries.tags.effects: 效果
+arcade.libraries.tags.loops: 可循環
+arcade.libraries.tags.notes: 音符
+arcade.libraries.tags.percussion: 打擊樂器
+arcade.libraries.tags.voice: 人聲
+arcade.libraries.tags.wacky: 古怪
+
+arcade.defaultProject.stageName: 舞臺
+arcade.defaultProject.spriteName: 角色
+arcade.defaultProject.backdropName: 背景
+arcade.defaultProject.costumeName: 造型
+arcade.defaultProject.soundName: 聲音
+
+arcade.blocks.textBubble: '%1 %2'
+arcade.blocks.textBubbleAndWait: '%1 %2 %3 秒'
+arcade.blocks.say: 說出
+arcade.blocks.shout: 喊出
+arcade.blocks.think: 想著
+arcade.blocks.spark: 靈感
+arcade.blocks.isConnected: Wi-Fi 已經連接？
+arcade.blocks.whenConnected: 當 Wi-Fi 連接成功
+arcade.blocks.connectTo: '連接 Wi-Fi: %1 密碼: %2'
+arcade.blocks.disconnect: 斷開 Wi-Fi 連接
+arcade.blocks.fnButton: fn
+arcade.blocks.stopOther: 該角色的其他腳本
+arcade.blocks.touchingExact: 碰到 %1（精準）？
+arcade.blocks.joystick.x: 搖桿 x 軸
+arcade.blocks.joystick.y: 搖桿 y 軸
+arcade.blocks.sensingOfDistanceto.center: 中心
+arcade.blocks.soundEffects.tempo: 速度
+arcade.blocks.musicMenu.dadadadum: 開場
+arcade.blocks.musicMenu.entertainer: 娛樂
+arcade.blocks.musicMenu.prelude: 前奏
+arcade.blocks.musicMenu.ode: 頌歌
+arcade.blocks.musicMenu.nyan: 初音
+arcade.blocks.musicMenu.ringtone: 鈴聲
+arcade.blocks.musicMenu.funk: 恐慌
+arcade.blocks.musicMenu.blues: 藍調
+arcade.blocks.musicMenu.birthday: 生日
+arcade.blocks.musicMenu.wedding: 婚禮
+arcade.blocks.musicMenu.funeral: 葬禮
+arcade.blocks.musicMenu.punchline: 笑點
+arcade.blocks.musicMenu.python: 貪吃蛇
+arcade.blocks.musicMenu.baddy: 壞人
+arcade.blocks.musicMenu.chase: 追逐
+arcade.blocks.musicMenu.baDing: 獎勵
+arcade.blocks.musicMenu.wawawawaa: 退場
+arcade.blocks.musicMenu.jumpUp: 跳起來
+arcade.blocks.musicMenu.jumpDown: 跳下去
+arcade.blocks.musicMenu.powerUp: 打開電源
+arcade.blocks.musicMenu.powerDown: 關閉電源
+arcade.blocks.unsupported: 不支持的積木
+
+arcade.tutorials.gettingStarted: 入門

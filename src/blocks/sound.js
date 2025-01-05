@@ -1,4 +1,4 @@
-import { ScratchBlocks } from '@blockcode/blocks-editor';
+import { ScratchBlocks } from '@blockcode/blocks';
 
 ScratchBlocks.Blocks['sound_sounds_menu'] = {
   init() {

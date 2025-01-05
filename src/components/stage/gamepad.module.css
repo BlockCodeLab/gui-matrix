@@ -1,5 +1,4 @@
 .gamepad-wrapper {
-  z-index: 9;
   height: 100px;
   display: flex;
   align-items: center;
@@ -28,7 +27,7 @@
 }
 
 .button:active {
-  background: var(--extensions-light);
+  background: var(--ui-light);
 }
 
 .fn {

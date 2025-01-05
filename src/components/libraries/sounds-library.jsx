@@ -1,63 +1,77 @@
-import { useEffect, useState } from 'preact/hooks';
-import { useLocale } from '@blockcode/core';
-import { Library } from '@blockcode/ui';
-import allSounds from './sounds.yaml';
-import soundTags from './sound-tags';
-
+import { Text, Library } from '@blockcode/core';
+import { getAssetUrl } from '../../lib/get-asset-url';
+import soundTags from '../../lib/libraries/sound-tags';
+import sounds from '../../lib/libraries/sounds.yaml';
 import soundIcon from './icon-sound.svg';
 
+// 声音播放器
 const audioPlayer = new Audio();
 
-export default function SoundsLibrary({ onSelect, onClose }) {
-  const [data, setData] = useState([]);
-  const { getText } = useLocale();
+// 声音延迟播放计时器
+let timer;
 
-  const setSelectHandler = (sound) => () => {
-    audioPlayer.pause();
-    onSelect(sound);
-    onClose();
-  };
-
-  let timer;
-  const setMouseEnterHandler = (soundId) => () => {
-    timer = setTimeout(() => {
-      audioPlayer.pause();
-      audioPlayer.src = `./assets/${soundId}.wav`;
-      audioPlayer.play();
-    }, 200);
-  };
-
-  const handleMouseLeave = () => {
+// 鼠标进入时，延迟播放声音
+const mouseEnterHandler = (sound) => () => {
+  if (timer) {
     clearTimeout(timer);
+    timer = null;
+  }
+  timer = setTimeout(() => {
     audioPlayer.pause();
-  };
+    audioPlayer.src = getAssetUrl(sound, 'wav');
+    audioPlayer.play();
+  }, 200);
+};
 
-  useEffect(() => {
-    setData(
-      allSounds.map((sound) => ({
-        name: sound.name,
-        author: sound.author,
-        copyright: sound.copyright,
-        tags: sound.tags,
-        image: soundIcon,
-        onSelect: setSelectHandler(sound),
-        onMouseEnter: setMouseEnterHandler(sound.id),
-        onMouseLeave: handleMouseLeave,
-      })),
-    );
-  }, []);
+const handleMouseLeave = () => {
+  clearTimeout(timer);
+  timer = null;
+  audioPlayer.pause();
+};
 
+const getSoundsItmes = (onSelect, onClose) => {
+  return sounds.map((sound) => ({
+    name: sound.name,
+    copyright: sound.copyright,
+    tags: sound.tags,
+    image: soundIcon,
+    onMouseEnter: mouseEnterHandler(sound),
+    onMouseLeave: handleMouseLeave,
+    onSelect() {
+      audioPlayer.pause();
+      onSelect(sound);
+      onClose();
+    },
+  }));
+};
+
+export function SoundsLibrary({ onSelect, onClose }) {
   return (
     <Library
       filterable
       tags={soundTags}
-      items={data}
-      filterPlaceholder={getText('gui.library.search', 'Search')}
-      title={getText('arcade.libraries.sound', 'Choose a Sound')}
-      emptyText={getText('arcade.libraries.empty', 'No more!')}
+      items={getSoundsItmes(onSelect, onClose)}
+      filterPlaceholder={
+        <Text
+          id="gui.library.search"
+          defaultMessage="Search"
+        />
+      }
+      title={
+        <Text
+          id="arcade.libraries.sound"
+          defaultMessage="Choose a Sound"
+        />
+      }
+      emptyMessage={
+        <Text
+          id="arcade.libraries.empty"
+          defaultMessage="No more!"
+        />
+      }
       onClose={onClose}
     />
   );
 }
 
-SoundsLibrary.surprise = () => allSounds[Math.floor(Math.random() * allSounds.length)];
+SoundsLibrary.surprise = () => sounds[Math.floor(Math.random() * sounds.length)];

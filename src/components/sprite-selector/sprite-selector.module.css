@@ -9,13 +9,7 @@
 }
 
 .selector-items-wrapper {
-  padding-bottom: 120px;
-  width: 400px;
-  min-height: 100%;
-}
-
-.selector-items-wrapper.small {
-  width: 240px;
+  padding-bottom: 60px;
 }
 
 .delete-menu-item:hover {

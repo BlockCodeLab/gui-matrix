@@ -1,68 +1,115 @@
-import { useState } from 'preact/hooks';
-import { useLocale, useLayout, useEditor, exportFile } from '@blockcode/core';
-import { classNames, IconSelector, ActionButton } from '@blockcode/ui';
-import SpriteInfo from '../sprite-info/sprite-info';
+import { useCallback, useEffect, useMemo, useRef } from 'preact/hooks';
+import { batch, useSignal } from '@preact/signals';
+import { nanoid, MathUtils } from '@blockcode/utils';
+import {
+  useLocalesContext,
+  useProjectContext,
+  translate,
+  setAppState,
+  openTab,
+  setAlert,
+  delAlert,
+  openPromptModal,
+  openFile,
+  addFile,
+  delFile,
+  addAsset,
+  delAsset,
+} from '@blockcode/core';
+import { loadImageFromFile, loadImageFromURL, BlankImageData } from '@blockcode/paint';
+import { getAssetUrl } from '../../lib/get-asset-url';
+import { StageConfig, RotationStyle } from '../emulator/emulator-config';
 
-import uid from '../../lib/uid';
-import { uploadImage, loadImageFromURL } from '../../lib/load-image';
-import RotationStyle from '../../lib/rotation-style';
-
+import { Text, IconSelector, ActionButton } from '@blockcode/core';
+import { SpriteInfo } from '../sprite-info/sprite-info';
+import { SpritesLibrary } from '../libraries/sprites-library';
 import styles from './sprite-selector.module.css';
-import spriteIcon from './icon-sprite.svg';
-import surpriseIcon from './icon-surprise.svg';
-import searchIcon from './icon-search.svg';
-import paintIcon from './icon-paint.svg';
-import fileUploadIcon from './icon-file-upload.svg';
-import SpritesLibrary from '../libraries/sprites-library';
 
-export default function SpriteSelector({ playing, stageSize, onStop }) {
-  const [spritesLibrary, setSpritesLibrary] = useState(false);
-  const { getText } = useLocale();
-  const { selectTab, createAlert, removeAlert, createPrompt } = useLayout();
-  const { fileList, assetList, selectedFileId, addFile, openFile, deleteFile, addAsset, deleteAsset } = useEditor();
+import spriteIcon from './icons/icon-sprite.svg';
+import surpriseIcon from './icons/icon-surprise.svg';
+import searchIcon from './icons/icon-search.svg';
+import paintIcon from './icons/icon-paint.svg';
+import fileUploadIcon from './icons/icon-file-upload.svg';
 
-  const handleShowLibrary = () => {
-    onStop();
-    setSpritesLibrary(true);
-  };
-  const handleCloseLibrary = () => setSpritesLibrary(false);
+const DefaultSpriteIcon = `data:image/png;base64,${BlankImageData}`;
 
-  const handleSelectSprite = async ({ tags, ...sprite }) => {
-    const spriteId = uid();
-    createAlert('importing', { id: spriteId });
+export function SpriteSelector() {
+  const { translator } = useLocalesContext();
 
-    const assetIdList = [];
+  const { files, assets, fileId, modified } = useProjectContext();
+
+  const ref = useRef();
+
+  const spritesLibraryVisiable = useSignal(false);
+
+  const getSpriteIcon = useCallback((id) => {
+    const asset = assets.value.find((asset) => asset.id === id);
+    if (asset) {
+      return `data:${asset.type};base64,${asset.data}`;
+    }
+  }, []);
+
+  const spriteIcons = useMemo(
+    () => files.value.map((sprite) => getSpriteIcon(sprite.assets[sprite.frame])),
+    [modified.value],
+  );
+
+  const handleShowLibrary = useCallback(() => {
+    setAppState({ running: false });
+    spritesLibraryVisiable.value = true;
+  }, []);
+
+  const handleSelectSprite = useCallback(async (sprite) => {
+    const spriteId = nanoid();
+    setAlert('importing', { id: spriteId });
+
+    // 添加角色的每一个造型
+    const costumes = [];
     for (const costume of sprite.costumes) {
-      const costumeId = uid();
-      const image = await loadImageFromURL(`./assets/${costume.id}.png`);
-      addAsset({
+      const image = await loadImageFromURL(
+        getAssetUrl(costume, {
+          copyright: sprite.copyright,
+          extname: 'png',
+        }),
+      );
+      costumes.push({
         ...costume,
-        id: costumeId,
-        type: 'image/png',
+        id: image.id,
         data: image.dataset.data,
         width: image.width,
         height: image.height,
       });
-      assetIdList.push(costumeId);
     }
 
-    addFile({
-      id: spriteId,
-      type: 'text/x-python',
-      name: sprite.name,
-      assets: assetIdList,
-      frame: 0,
-      x: 0,
-      y: 0,
-      size: 100,
-      direction: 90,
-      rotationStyle: RotationStyle.ALL_AROUND,
-    });
-    removeAlert(spriteId);
-  };
+    delAlert(spriteId);
 
-  const handleUploadFile = () => {
-    onStop();
+    batch(() => {
+      const assetIds = [];
+      for (const costume of costumes) {
+        addAsset({
+          ...costume,
+          type: 'image/png',
+        });
+        assetIds.push(costume.id);
+      }
+
+      addFile({
+        id: spriteId,
+        type: 'text/x-python',
+        name: sprite.name,
+        assets: assetIds,
+        frame: 0,
+        x: MathUtils.random(-100, 100),
+        y: MathUtils.random(-60, 60),
+        size: 100,
+        direction: 90,
+        rotationStyle: RotationStyle.ALL_AROUND,
+      });
+    });
+  }, []);
+
+  const handleUploadFile = useCallback(() => {
+    setAppState({ running: false });
 
     const fileInput = document.createElement('input');
     fileInput.type = 'file';
@@ -70,215 +117,288 @@ export default function SpriteSelector({ playing, stageSize, onStop }) {
     fileInput.multiple = true;
     fileInput.click();
     fileInput.addEventListener('change', async (e) => {
-      const alertId = uid();
-      createAlert('importing', { id: alertId });
+      const alertId = nanoid();
+      setAlert('importing', { id: alertId });
 
+      const images = [];
+
+      // 将每一张上传的图片都添加为一个角色
       for (const file of e.target.files) {
-        const spriteId = uid();
-        const imageId = uid();
-        const imageName = file.name.slice(0, file.name.lastIndexOf('.'));
-        let image = await uploadImage(file);
+        let image = await loadImageFromFile(file, {
+          width: StageConfig.Width,
+          height: StageConfig.Height,
+        });
         if (!image) {
-          createAlert(
+          setAlert(
             {
-              message: getText('arcade.actionButton.uploadError', 'Upload "{file}" failed.', { file: file.name }),
+              message: (
+                <Text
+                  id="arcade.actionButton.uploadError"
+                  defaultMessage='Upload "{file}" failed.'
+                  file={file.name}
+                />
+              ),
             },
             2000,
           );
+          // 如果上传的图片解析失败，则用空白图片代替
           image = {
             dataset: {
-              data: 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAAtJREFUGFdjYAACAAAFAAGq1chRAAAAAElFTkSuQmCC',
+              data: BlankImageData,
             },
             width: 1,
             height: 1,
           };
         }
-        addAsset({
-          id: imageId,
-          type: 'image/png',
-          name: imageName,
-          data: image.dataset.data,
-          width: image.width,
-          height: image.height,
-          centerX: Math.floor(image.width / 2),
-          centerY: Math.floor(image.height / 2),
-        });
-        addFile({
-          id: spriteId,
-          type: 'text/x-python',
-          name: imageName,
-          assets: [imageId],
-          frame: 0,
-          x: 0,
-          y: 0,
-          size: 100,
-          direction: 90,
-          rotationStyle: RotationStyle.ALL_AROUND,
-        });
+        image.name = file.name.slice(0, file.name.lastIndexOf('.'));
+        images.push(image);
       }
-      removeAlert(alertId);
-    });
-  };
+      delAlert(alertId);
 
-  const handlePaintImage = () => {
-    onStop();
-
-    const spriteId = uid();
-    const imageId = uid();
-    addAsset({
-      id: imageId,
-      type: 'image/png',
-      name: getText(`arcade.defaultProject.costumeName`, 'costume'),
-      data: 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAAtJREFUGFdjYAACAAAFAAGq1chRAAAAAElFTkSuQmCC',
-      width: 1,
-      height: 1,
-      centerX: 1,
-      centerY: 1,
+      batch(() => {
+        for (const image of images) {
+          addAsset({
+            id: image.id,
+            type: 'image/png',
+            name: image.name,
+            data: image.dataset.data,
+            width: image.width,
+            height: image.height,
+            centerX: Math.floor(image.width / 2),
+            centerY: Math.floor(image.height / 2),
+          });
+          addFile({
+            id: nanoid(),
+            type: 'text/x-python',
+            name: image.name,
+            assets: [image.id],
+            frame: 0,
+            x: MathUtils.random(-100, 100),
+            y: MathUtils.random(-60, 60),
+            size: 100,
+            direction: 90,
+            rotationStyle: RotationStyle.ALL_AROUND,
+          });
+        }
+      });
     });
-    addFile({
-      id: spriteId,
-      type: 'text/x-python',
-      name: getText(`arcade.defaultProject.spriteName`, 'Sprite'),
-      assets: [imageId],
-      frame: 0,
-      x: 0,
-      y: 0,
-      size: 100,
-      direction: 90,
-      rotationStyle: RotationStyle.ALL_AROUND,
-    });
-    selectTab(1);
-  };
+  }, []);
 
-  const handleSurprise = () => {
-    onStop();
+  const handlePaintImage = useCallback(() => {
+    batch(() => {
+      setAppState({ running: false });
+
+      const spriteId = nanoid();
+      const costumeId = nanoid();
+      addAsset({
+        id: costumeId,
+        type: 'image/png',
+        name: translate('arcade.defaultProject.costumeName', 'costume', translator),
+        data: BlankImageData,
+        width: 1,
+        height: 1,
+        centerX: 1,
+        centerY: 1,
+      });
+      addFile({
+        id: spriteId,
+        type: 'text/x-python',
+        name: translate('arcade.defaultProject.spriteName', 'Sprite', translator),
+        assets: [costumeId],
+        frame: 0,
+        x: 0,
+        y: 0,
+        size: 100,
+        direction: 90,
+        rotationStyle: RotationStyle.ALL_AROUND,
+      });
+      openTab(1);
+    });
+  }, []);
+
+  const handleSurprise = useCallback(() => {
+    setAppState({ running: false });
     handleSelectSprite(SpritesLibrary.surprise());
-  };
+  }, []);
 
-  const handleDuplicate = (index) => {
-    onStop();
+  const handleDuplicate = useCallback((index) => {
+    batch(() => {
+      setAppState({ running: false });
 
-    const spriteId = uid();
-    const sprite = fileList[index];
-    addFile({
-      ...sprite,
-      id: spriteId,
-      assets: sprite.assets.map((assetId) => {
-        const image = assetList.find((asset) => asset.id === assetId);
-        const imageId = uid();
-        addAsset({
-          ...image,
-          id: imageId,
-        });
-        return imageId;
-      }),
-      x: Math.floor(Math.random() * (240 + 1)) - 120,
-      y: Math.floor(Math.random() * (160 + 1)) - 80,
-      content: '',
+      const sprite = files.value[index];
+      addFile({
+        ...sprite,
+        id: nanoid(),
+        assets: sprite.assets.map((assetId) => {
+          const image = assets.value.find((asset) => asset.id === assetId);
+          const costumeId = nanoid();
+          addAsset({
+            ...image,
+            id: costumeId,
+          });
+          return costumeId;
+        }),
+        x: MathUtils.random(-100, 100),
+        y: MathUtils.random(-60, 60),
+        content: '',
+        script: '',
+      });
     });
-  };
+  }, []);
 
-  const handleDelete = (index) => {
-    const { id, name, assets } = fileList[index];
-    createPrompt({
-      title: getText('arcade.deletePrompt.title', 'Delete {name}', { name }),
-      label: getText('arcade.deletePrompt.label', 'Do you want to delete the sprite?'),
-      onSubmit: () => {
-        onStop();
-        deleteAsset(assets);
-        deleteFile(id);
-      },
+  const deleteSprite = useCallback((index) => {
+    const sprite = files.value[index];
+    batch(() => {
+      setAppState({ running: false });
+      for (const assetId of sprite.assets) {
+        delAsset(assetId);
+      }
+      delFile(sprite.id);
     });
-  };
+  }, []);
 
-  const getFileIcon = (id) => {
-    const asset = assetList.find((asset) => asset.id === id);
-    if (asset) {
-      return `data:${asset.type};base64,${asset.data}`;
-    }
-  };
+  const handleDelete = useCallback((index) => {
+    const sprite = files.value[index];
+    openPromptModal({
+      title: (
+        <Text
+          id="arcade.deletePrompt.title"
+          defaultMessage="Delete {name}"
+          name={sprite.name}
+        />
+      ),
+      label: (
+        <Text
+          id="arcade.deletePrompt.label"
+          defaultMessage="Do you want to delete the sprite?"
+        />
+      ),
+      onSubmit: () => deleteSprite(index),
+    });
+  }, []);
+
+  if (ref.current) {
+    const rect = ref.current.base.getBoundingClientRect();
+    ref.current.base.style.height = `${window.innerHeight - rect.top}px`;
+  }
 
   return (
     <>
       <div className={styles.spriteSelector}>
-        <SpriteInfo
-          playing={playing}
-          stageSize={stageSize}
-        />
+        <SpriteInfo />
 
         <IconSelector
           id="sprite-selector"
-          className={classNames(styles.selectorItemsWrapper, {
-            [styles.small]: stageSize === 'small',
-          })}
-          items={fileList.map((sprite, index) =>
-            index === 0
+          ref={ref}
+          className={styles.selectorItemsWrapper}
+          items={files.value.map((sprite, i) =>
+            i === 0 // 第一个为舞台，隐藏不显示
               ? { __hidden__: true }
               : {
                   ...sprite,
-                  icon: getFileIcon(sprite.assets[sprite.frame]),
-                  order: sprite.order || index,
+                  icon: spriteIcons[i] ?? DefaultSpriteIcon,
+                  order: sprite.order || i,
                   contextMenu: [
                     [
                       {
-                        label: getText('arcade.contextMenu.duplicate', 'duplicate'),
-                        onClick: () => handleDuplicate(index),
+                        label: (
+                          <Text
+                            id="arcade.contextMenu.duplicate"
+                            defaultMessage="duplicate"
+                          />
+                        ),
+                        onClick: () => handleDuplicate(i),
                       },
                       {
-                        label: getText('arcade.contextMenu.export', 'export'),
+                        label: (
+                          <Text
+                            id="arcade.contextMenu.export"
+                            defaultMessage="export"
+                          />
+                        ),
                         disabled: true,
                         onClick: () => {},
                       },
                     ],
                     [
                       {
-                        label: getText('arcade.contextMenu.delete', 'delete'),
-                        disabled: fileList.length <= 2,
+                        label: (
+                          <Text
+                            id="arcade.contextMenu.delete"
+                            defaultMessage="delete"
+                          />
+                        ),
+                        disabled: files.value.length <= 2,
                         className: styles.deleteMenuItem,
-                        onClick: () => handleDelete(index),
+                        onClick: () => handleDelete(i),
                       },
                     ],
                   ],
                 },
           )}
-          selectedIndex={fileList.findIndex((file) => file.id === selectedFileId)}
-          onSelect={(index) => openFile(fileList[index].id)}
-          onDelete={fileList.length > 2 ? handleDelete : null}
+          selectedId={fileId.value}
+          onSelect={useCallback((i) => openFile(files.value[i].id), [])}
+          onDelete={files.value.length > 2 ? handleDelete : null}
         />
 
         <ActionButton
           className={styles.addButton}
           icon={spriteIcon}
-          tooltip={getText('arcade.actionButton.sprite', 'Choose a Sprite')}
+          tooltip={
+            <Text
+              id="arcade.actionButton.sprite"
+              defaultMessage="Choose a Sprite"
+            />
+          }
           onClick={handleShowLibrary}
           moreButtons={[
             {
               icon: fileUploadIcon,
-              tooltip: getText('arcade.actionButton.uploadSprite', 'Upload Sprite'),
+              tooltip: (
+                <Text
+                  id="arcade.actionButton.uploadSprite"
+                  defaultMessage="Upload Sprite"
+                />
+              ),
               onClick: handleUploadFile,
             },
             {
               icon: surpriseIcon,
-              tooltip: getText('arcade.actionButton.surprise', 'Surprise'),
+              tooltip: (
+                <Text
+                  id="arcade.actionButton.surprise"
+                  defaultMessage="Surprise"
+                />
+              ),
               onClick: handleSurprise,
             },
             {
               icon: paintIcon,
-              tooltip: getText('arcade.actionButton.paint', 'Paint'),
+              tooltip: (
+                <Text
+                  id="arcade.actionButton.paint"
+                  defaultMessage="Paint"
+                />
+              ),
               onClick: handlePaintImage,
             },
             {
               icon: searchIcon,
-              tooltip: getText('arcade.actionButton.sprite', 'Choose a Sprite'),
+              tooltip: (
+                <Text
+                  id="arcade.actionButton.sprite"
+                  defaultMessage="Choose a Sprite"
+                />
+              ),
               onClick: handleShowLibrary,
             },
           ]}
         />
       </div>
 
-      {spritesLibrary && (
+      {spritesLibraryVisiable.value && (
         <SpritesLibrary
-          onClose={handleCloseLibrary}
+          onClose={useCallback(() => (spritesLibraryVisiable.value = false), [])}
           onSelect={handleSelectSprite}
         />
       )}

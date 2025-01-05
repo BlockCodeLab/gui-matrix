@@ -1,63 +1,71 @@
-import { useLocale, useEditor } from '@blockcode/core';
-import { classNames, ToggleButtons, Button, Label, BufferedInput } from '@blockcode/ui';
-import { ScratchBlocks } from '@blockcode/blocks-editor';
-import { pythonGenerator } from '../../generators/python';
-import RotationStyle from '../../lib/rotation-style';
+import { useSignal } from '@preact/signals';
+import { classNames } from '@blockcode/utils';
+import {
+  useLocalesContext,
+  useAppContext,
+  useProjectContext,
+  translate,
+  maybeTranslate,
+  setFile,
+} from '@blockcode/core';
+import { StageConfig, RotationStyle } from '../emulator/emulator-config';
 
-import DirectionPicker from '../direction-picker/direction-picker';
-
+import { Text, ToggleButtons, Button, Label, BufferedInput } from '@blockcode/core';
+import { DirectionPicker } from '../direction-picker/direction-picker';
 import styles from './sprite-info.module.css';
-import hideIcon from './icon-hide.svg';
-import showIcon from './icon-show.svg';
-import xIcon from './icon-x.svg';
-import yIcon from './icon-y.svg';
 
-export default function SpriteInfo({ playing, stageSize }) {
-  const { getText, maybeLocaleText } = useLocale();
-  const { fileList, selectedFileId, modifyFile } = useEditor();
+import hideIcon from './icons/icon-hide.svg';
+import showIcon from './icons/icon-show.svg';
+import xIcon from './icons/icon-x.svg';
+import yIcon from './icons/icon-y.svg';
+import { useCallback, useEffect } from 'preact/hooks';
 
-  const isStage = selectedFileId === fileList[0].id;
-  const disabled = playing || isStage;
+const BLANK_INFO = {
+  name: '',
+  x: '',
+  y: '',
+  size: '',
+  direction: '',
+  hidden: false,
+  rotationStyle: RotationStyle.ALL_AROUND,
+};
 
-  const sprite = isStage
-    ? {
-      name: '',
-      x: '',
-      y: '',
-      size: '',
-      direction: '',
-      rotationStyle: RotationStyle.ALL_AROUND,
-    }
-    : fileList.find((file) => file.id === selectedFileId);
+export function SpriteInfo() {
+  const { translator } = useLocalesContext();
 
-  const handleChangeInfo = (key, value) => {
+  const { appState } = useAppContext();
+
+  const { fileIndex, file, modified } = useProjectContext();
+
+  const sprite = useSignal(BLANK_INFO);
+
+  const isStage = fileIndex.value === 0;
+  const disabled = appState.value?.running || isStage;
+
+  useEffect(() => {
+    sprite.value = isStage ? BLANK_INFO : file.value;
+  }, [fileIndex.value, modified.value]);
+
+  const handleChangeInfo = useCallback((key, value) => {
     if (key === 'name') {
       value = value.trim();
       if (value.length === 0) {
-        value = getText('arcade.spriteInfo.sprite', 'Sprite');
+        value = translate('arcade.spriteInfo.sprite', 'Sprite', translator);
       }
     }
     if (key === 'size' && value < 5) {
       value = 5;
     }
-
-    setTimeout(() => {
-      const workspace = ScratchBlocks.getMainWorkspace();
-      if (workspace) {
-        const content = pythonGenerator.workspaceToCode(workspace);
-        modifyFile({ content });
-      }
-    });
-    modifyFile({ [key]: value });
-  };
+    setFile({ [key]: value });
+  }, []);
 
   const nameInput = (
     <BufferedInput
       disabled={disabled}
-      className={stageSize === 'small' ? styles.fullInput : styles.nameInput}
-      placeholder={getText('arcade.spriteInfo.name', 'Name')}
-      onSubmit={(value) => handleChangeInfo('name', value)}
-      value={maybeLocaleText(sprite.name)}
+      className={appState.value?.stageSize !== StageConfig.Large ? styles.fullInput : styles.nameInput}
+      placeholder={translate('arcade.spriteInfo.name', 'Name')}
+      onSubmit={(val) => handleChangeInfo('name', val)}
+      value={maybeTranslate(sprite.value.name)}
     />
   );
 
@@ -69,7 +77,12 @@ export default function SpriteInfo({ playing, stageSize }) {
             className={styles.labelImage}
             src={xIcon}
           />
-          {getText('arcade.spriteInfo.x', 'x')}
+          {
+            <Text
+              id="arcade.spriteInfo.x"
+              defaultMessage="x"
+            />
+          }
         </>
       }
     >
@@ -77,9 +90,9 @@ export default function SpriteInfo({ playing, stageSize }) {
         small
         type="number"
         disabled={disabled}
-        placeholder={getText('arcade.spriteInfo.x', 'x')}
-        onSubmit={(value) => handleChangeInfo('x', value)}
-        value={Math.round(sprite.x)}
+        placeholder={translate('arcade.spriteInfo.x', 'x')}
+        onSubmit={(val) => handleChangeInfo('x', val)}
+        value={Math.round(sprite.value.x)}
       />
     </Label>
   );
@@ -92,7 +105,12 @@ export default function SpriteInfo({ playing, stageSize }) {
             className={styles.labelImage}
             src={yIcon}
           />
-          {getText('arcade.spriteInfo.y', 'y')}
+          {
+            <Text
+              id="arcade.spriteInfo.y"
+              defaultMessage="y"
+            />
+          }
         </>
       }
     >
@@ -100,104 +118,140 @@ export default function SpriteInfo({ playing, stageSize }) {
         small
         type="number"
         disabled={disabled}
-        placeholder={getText('arcade.spriteInfo.y', 'y')}
-        onSubmit={(value) => handleChangeInfo('y', value)}
-        value={Math.round(sprite.y)}
+        placeholder={translate('arcade.spriteInfo.y', 'y')}
+        onSubmit={(val) => handleChangeInfo('y', val)}
+        value={Math.round(sprite.value.y)}
       />
     </Label>
   );
 
-  if (stageSize === 'small') {
-    return (
-      <div className={styles.spriteInfoWrapper}>
-        <div className={classNames(styles.row, styles.rowPrimary)}>{nameInput}</div>
-        <div className={styles.row}>
-          <Button
-            disabled={disabled}
-            className={classNames(styles.button, {
-              [styles.groupButtonToggledOff]: disabled || sprite.hidden,
-            })}
-            onClick={() => handleChangeInfo('hidden', !sprite.hidden)}
-          >
-            <img
-              src={sprite.hidden ? hideIcon : showIcon}
-              className={styles.buttonIcon}
-              title={
-                sprite.hidden ? getText('arcade.spriteInfo.hide', 'Hide') : getText('arcade.spriteInfo.show', 'Show')
-              }
-            />
-          </Button>
-          {xInput}
-          {yInput}
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className={styles.spriteInfoWrapper}>
-      <div className={classNames(styles.row, styles.rowPrimary)}>
-        <Label text={getText('arcade.spriteInfo.sprite', 'Sprite')}>{nameInput}</Label>
-        {xInput}
-        {yInput}
-      </div>
-      <div className={styles.row}>
-        <Label
-          secondary
-          text={getText('arcade.spriteInfo.display', 'Show')}
-        >
-          <ToggleButtons
-            items={[
-              {
-                icon: showIcon,
-                title: getText('arcade.spriteInfo.show', 'Show sprite'),
-                value: false,
-              },
-              {
-                icon: hideIcon,
-                title: getText('arcade.spriteInfo.hide', 'Hide sprite'),
-                value: true,
-              },
-            ]}
-            disabled={disabled}
-            value={!!sprite.hidden}
-            onChange={(value) => handleChangeInfo('hidden', value)}
-          />
-        </Label>
-        <Label
-          secondary
-          text={getText('arcade.spriteInfo.size', 'Size')}
-        >
-          <BufferedInput
-            small
-            type="number"
-            disabled={disabled}
-            className={styles.largeInput}
-            onSubmit={(value) => handleChangeInfo('size', value)}
-            value={Math.round(sprite.size)}
-          />
-        </Label>
-        <Label
-          secondary
-          text={getText('arcade.spriteInfo.direction', 'Direction')}
-        >
-          <DirectionPicker
-            direction={sprite.direction}
-            rotationStyle={sprite.rotationStyle}
-            onChange={(value) => handleChangeInfo('direction', value)}
-            onChangeRotationStyle={(value) => handleChangeInfo('rotationStyle', value)}
-          >
-            <BufferedInput
-              small
-              type="number"
+      {appState.value?.stageSize !== StageConfig.Large ? (
+        <>
+          <div className={classNames(styles.row, styles.rowPrimary)}>{nameInput}</div>
+          <div className={styles.row}>
+            <Button
               disabled={disabled}
-              className={styles.largeInput}
-              onSubmit={(value) => handleChangeInfo('direction', value)}
-              value={Math.round(sprite.direction)}
-            />
-          </DirectionPicker>
-        </Label>
-      </div>
+              className={classNames(styles.button, {
+                [styles.groupButtonToggledOff]: disabled || sprite.value.hidden,
+              })}
+              onClick={() => handleChangeInfo('hidden', !sprite.value.hidden)}
+            >
+              <img
+                src={sprite.value.hidden ? hideIcon : showIcon}
+                className={styles.buttonIcon}
+                title={
+                  sprite.value.hidden
+                    ? translate('arcade.spriteInfo.hide', 'Hide')
+                    : translate('arcade.spriteInfo.show', 'Show')
+                }
+              />
+            </Button>
+            {xInput}
+            {yInput}
+          </div>
+        </>
+      ) : (
+        <>
+          <div className={classNames(styles.row, styles.rowPrimary)}>
+            <Label
+              text={
+                <Text
+                  id="arcade.spriteInfo.sprite"
+                  defaultMessage="Sprite"
+                />
+              }
+            >
+              {nameInput}
+            </Label>
+            {xInput}
+            {yInput}
+          </div>
+          <div className={styles.row}>
+            <Label
+              secondary
+              text={
+                <Text
+                  id="arcade.spriteInfo.display"
+                  defaultMessage="Show"
+                />
+              }
+            >
+              <ToggleButtons
+                items={[
+                  {
+                    icon: showIcon,
+                    title: (
+                      <Text
+                        id="arcade.spriteInfo.show"
+                        defaultMessage="Show sprite"
+                      />
+                    ),
+                    value: false,
+                  },
+                  {
+                    icon: hideIcon,
+                    title: (
+                      <Text
+                        id="arcade.spriteInfo.hide"
+                        defaultMessage="Hide sprite"
+                      />
+                    ),
+                    value: true,
+                  },
+                ]}
+                disabled={disabled}
+                value={!!sprite.value.hidden}
+                onChange={(val) => handleChangeInfo('hidden', val)}
+              />
+            </Label>
+            <Label
+              secondary
+              text={
+                <Text
+                  id="arcade.spriteInfo.size"
+                  defaultMessage="Size"
+                />
+              }
+            >
+              <BufferedInput
+                small
+                type="number"
+                disabled={disabled}
+                className={styles.largeInput}
+                onSubmit={(val) => handleChangeInfo('size', val)}
+                value={Math.round(sprite.value.size)}
+              />
+            </Label>
+            <Label
+              secondary
+              text={
+                <Text
+                  id="arcade.spriteInfo.direction"
+                  defaultMessage="Direction"
+                />
+              }
+            >
+              <DirectionPicker
+                direction={sprite.value.direction}
+                rotationStyle={sprite.value.rotationStyle}
+                onChange={(val) => handleChangeInfo('direction', val)}
+                onChangeRotationStyle={(val) => handleChangeInfo('rotationStyle', val)}
+              >
+                <BufferedInput
+                  small
+                  type="number"
+                  disabled={disabled}
+                  className={styles.largeInput}
+                  onSubmit={(val) => handleChangeInfo('direction', val)}
+                  value={Math.round(sprite.value.direction)}
+                />
+              </DirectionPicker>
+            </Label>
+          </div>
+        </>
+      )}
     </div>
   );
 }

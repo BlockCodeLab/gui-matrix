@@ -1,47 +1,50 @@
-import { useEffect, useState } from 'preact/hooks';
-import { useLocale } from '@blockcode/core';
-import { Library } from '@blockcode/ui';
-import allCostumes from './costumes.yaml';
-import costumeTags from './sprite-tags';
+import { Text, Library } from '@blockcode/core';
+import { getAssetUrl } from '../../lib/get-asset-url';
+import costumeTags from '../../lib/libraries/sprite-tags';
+import costumes from '../../lib/libraries/costumes.yaml';
 
-if (IDEAL) {
-  const { default: idealCostumes } = require('./costumes-ideal.yaml');
-  allCostumes.unshift(...idealCostumes);
-}
+const getCostumesItmes = (onSelect, onClose) => {
+  return costumes.map((costume) => ({
+    name: costume.name,
+    copyright: costume.copyright,
+    tags: costume.tags,
+    image: getAssetUrl(costume, 'png'),
+    onSelect() {
+      onSelect(costume);
+      onClose();
+    },
+  }));
+};
 
-export default function CostumesLibrary({ onSelect, onClose }) {
-  const [data, setData] = useState([]);
-  const { getText } = useLocale();
-
-  const setSelectHandler = (costume) => () => {
-    onSelect(costume);
-    onClose();
-  };
-
-  useEffect(() => {
-    setData(
-      allCostumes.map((costume) => ({
-        name: costume.name,
-        author: costume.author,
-        copyright: costume.copyright,
-        tags: costume.tags,
-        image: `./assets/${costume.id}.png`,
-        onSelect: setSelectHandler(costume),
-      })),
-    );
-  }, []);
+export function CostumesLibrary({ onSelect, onClose }) {
+  const costumeItems = getCostumesItmes(onSelect, onClose);
 
   return (
     <Library
       filterable
       tags={costumeTags}
-      items={data}
-      filterPlaceholder={getText('gui.library.search', 'Search')}
-      title={getText('arcade.libraries.costume', 'Choose a Costume')}
-      emptyText={getText('arcade.libraries.empty', 'No more!')}
+      items={costumeItems}
+      filterPlaceholder={
+        <Text
+          id="gui.library.search"
+          defaultMessage="Search"
+        />
+      }
+      title={
+        <Text
+          id="arcade.libraries.costume"
+          defaultMessage="Choose a Costume"
+        />
+      }
+      emptyMessage={
+        <Text
+          id="arcade.libraries.empty"
+          defaultMessage="No more!"
+        />
+      }
       onClose={onClose}
     />
   );
 }
 
-CostumesLibrary.surprise = () => allCostumes[Math.floor(Math.random() * allCostumes.length)];
+CostumesLibrary.surprise = () => costumes[Math.floor(Math.random() * costumes.length)];

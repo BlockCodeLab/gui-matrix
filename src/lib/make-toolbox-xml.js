@@ -1,26 +1,18 @@
-import { ScratchBlocks, makeToolboxXML, blockSeparator, categorySeparator } from '@blockcode/blocks-editor';
+import { xmlEscape } from '@blockcode/utils';
+import {
+  ScratchBlocks,
+  blockSeparator,
+  categorySeparator,
+  motionTheme,
+  looksTheme,
+  soundTheme,
+  eventsTheme,
+  controlTheme,
+  sensingTheme,
+} from '@blockcode/blocks';
 
-import '../generators/python';
-
-const xmlEscape = (unsafe) => {
-  return unsafe.replace(/[<>&'"]/g, (c) => {
-    switch (c) {
-      case '<':
-        return '&lt;';
-      case '>':
-        return '&gt;';
-      case '&':
-        return '&amp;';
-      case "'":
-        return '&apos;';
-      case '"':
-        return '&quot;';
-    }
-  });
-};
-
-const motion = (isStage) => `
-  <category name="%{BKY_CATEGORY_MOTION}" id="motion" colour="#4C97FF" secondaryColour="#3373CC">
+const motion = (isStage, x, y) => `
+  <category name="%{BKY_CATEGORY_MOTION}" id="motion" ${motionTheme}>
     ${
       isStage
         ? `<label text="${ScratchBlocks.Msg.MOTION_STAGE_SELECTED}"/>`
@@ -55,12 +47,12 @@ const motion = (isStage) => `
           <block type="motion_gotoxy">
             <value name="X">
               <shadow id="movex" type="math_number">
-                <field name="NUM">0</field>
+                <field name="NUM">${x ?? 0}</field>
               </shadow>
             </value>
             <value name="Y">
               <shadow id="movey" type="math_number">
-                <field name="NUM">0</field>
+                <field name="NUM">${y ?? 0}</field>
               </shadow>
             </value>
           </block>
@@ -82,12 +74,12 @@ const motion = (isStage) => `
             </value>
             <value name="X">
               <shadow id="glidex" type="math_number">
-                <field name="NUM">0</field>
+                <field name="NUM">${x ?? 0}</field>
               </shadow>
             </value>
             <value name="Y">
               <shadow id="glidey" type="math_number">
-                <field name="NUM">0</field>
+                <field name="NUM">${y ?? 0}</field>
               </shadow>
             </value>
           </block>
@@ -115,7 +107,7 @@ const motion = (isStage) => `
           <block type="motion_setx">
             <value name="X">
               <shadow id="setx" type="math_number">
-                <field name="NUM">0</field>
+                <field name="NUM">${x ?? 0}</field>
               </shadow>
             </value>
           </block>
@@ -129,7 +121,7 @@ const motion = (isStage) => `
           <block type="motion_sety">
             <value name="Y">
               <shadow id="sety" type="math_number">
-                <field name="NUM">0</field>
+                <field name="NUM">${y ?? 0}</field>
               </shadow>
             </value>
           </block>
@@ -148,7 +140,7 @@ const motion = (isStage) => `
 `;
 
 const looks = (isStage, costumeValue, backdropValue) => `
-  <category name="%{BKY_CATEGORY_LOOKS}" id="looks" colour="#9966FF" secondaryColour="#774DCB">
+  <category name="%{BKY_CATEGORY_LOOKS}" id="looks" ${looksTheme}>
     ${
       isStage
         ? `
@@ -296,53 +288,46 @@ const looks = (isStage, costumeValue, backdropValue) => `
   </category>
 `;
 
-const sound = (isStage, soundValue) => `
-  <category name="%{BKY_CATEGORY_SOUND}" id="sound" colour="#D65CD6" secondaryColour="#BD42BD">
-  ${
-    isStage
-      ? `
-          <block type="sound_playuntildone">
-            <value name="SOUND_MENU">
-              <shadow type="sound_sounds_menu">
-                <field name="SOUND_MENU">${soundValue}</field>
-              </shadow>
-            </value>
-          </block>
-          <block type="sound_play">
-            <value name="SOUND_MENU">
-              <shadow type="sound_sounds_menu">
-                <field name="SOUND_MENU">${soundValue}</field>
-              </shadow>
-            </value>
-          </block>
-        `
-      : `
-        `
-  }
-  <block type="sound_stopallsounds"/>
-  ${categorySeparator}
-  <!--
-  <block type="sound_changevolumeby" id="sound_changevolumeby">
-    <value name="VOLUME">
-      <shadow type="math_number">
-        <field name="NUM">-10</field>
-      </shadow>
-    </value>
-  </block>
-  <block type="sound_setvolumeto" id="sound_setvolumeto">
-    <value name="VOLUME">
-      <shadow type="math_number">
-        <field name="NUM">100</field>
-      </shadow>
-    </value>
-  </block>
-  <block type="sound_volume" id="sound_volume"></block>
-  -->
+const sound = (sound) => `
+  <category name="%{BKY_CATEGORY_SOUND}" id="sound" ${soundTheme}>
+    <block type="sound_playuntildone">
+      <value name="SOUND_MENU">
+        <shadow type="sound_sounds_menu">
+          <field name="SOUND_MENU">${sound}</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="sound_play">
+      <value name="SOUND_MENU">
+        <shadow type="sound_sounds_menu">
+          <field name="SOUND_MENU">${sound}</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="sound_stopallsounds"/>
+    ${categorySeparator}
+    <!--
+    <block type="sound_changevolumeby" id="sound_changevolumeby">
+      <value name="VOLUME">
+        <shadow type="math_number">
+          <field name="NUM">-10</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="sound_setvolumeto" id="sound_setvolumeto">
+      <value name="VOLUME">
+        <shadow type="math_number">
+          <field name="NUM">100</field>
+        </shadow>
+      </value>
+    </block>
+    <block type="sound_volume" id="sound_volume"></block>
+    -->
   </category>
 `;
 
 const events = () => `
-  <category name="%{BKY_CATEGORY_EVENTS}" id="events" colour="#FFD500" secondaryColour="#CC9900">
+  <category name="%{BKY_CATEGORY_EVENTS}" id="events" ${eventsTheme}>
     <block type="event_whenflagclicked"/>
     <block type="event_whenkeypressed"/>
     <block type="event_whenbackdropswitchesto"/>
@@ -371,7 +356,7 @@ const events = () => `
 `;
 
 const control = (isStage, spritesCount) => `
-  <category name="%{BKY_CATEGORY_CONTROL}" id="control" colour="#FFAB19" secondaryColour="#CF8B17">
+  <category name="%{BKY_CATEGORY_CONTROL}" id="control" ${controlTheme}>
     <block type="control_wait">
       <value name="DURATION">
         <shadow type="math_positive_number">
@@ -424,20 +409,7 @@ const control = (isStage, spritesCount) => `
 `;
 
 const sensing = (isStage, spritesCount) => `
-  <category name="%{BKY_CATEGORY_SENSING}" id="sensing" colour="#4CBFE6" secondaryColour="#2E8EB8">
-    ${
-      DEVELOPMENT
-        ? `
-          <block type="sensing_debug">
-            <value name="VALUE">
-              <shadow type="text">
-                <field name="TEXT">debug</field>
-              </shadow>
-            </value>
-          </block>
-          ${blockSeparator}`
-        : ''
-    }
+  <category name="%{BKY_CATEGORY_SENSING}" id="sensing" ${sensingTheme}>
     ${
       isStage
         ? ''
@@ -494,14 +466,14 @@ const sensing = (isStage, spritesCount) => `
   </category >
   `;
 
-export default function (isStage, spritesCount, backdropValue, costumeValue, soundValue) {
+export function makeToolboxXML(isStage, backdropValue, spritesCount, costumeValue, x, y, soundValue) {
   backdropValue = xmlEscape(backdropValue);
   costumeValue = xmlEscape(costumeValue);
   soundValue = xmlEscape(soundValue);
-  return makeToolboxXML([
+  return [
     {
       id: 'motion',
-      xml: motion(isStage),
+      xml: motion(isStage, x, y),
     },
     {
       id: 'looks',
@@ -509,7 +481,7 @@ export default function (isStage, spritesCount, backdropValue, costumeValue, sou
     },
     {
       id: 'sound',
-      xml: sound(isStage, soundValue),
+      xml: sound(soundValue),
     },
     {
       id: 'events',
@@ -523,5 +495,5 @@ export default function (isStage, spritesCount, backdropValue, costumeValue, sou
       id: 'sensing',
       xml: sensing(isStage, spritesCount),
     },
-  ]);
+  ];
 }

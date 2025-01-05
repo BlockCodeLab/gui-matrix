@@ -1,52 +1,67 @@
-import { useLocale } from '@blockcode/core';
-import { classNames, ToggleButtons } from '@blockcode/ui';
+import { useCallback } from 'preact/hooks';
+import { classNames } from '@blockcode/utils';
+import { useAppContext, translate, setAppState } from '@blockcode/core';
+import { StageConfig } from '../emulator/emulator-config';
 
+import { ToggleButtons } from '@blockcode/core';
 import styles from './toolbar.module.css';
-import iconGreenFlag from './icon-green-flag.svg';
-import iconStopAll from './icon-stop-all.svg';
-import iconSmallStage from './icon-small-stage.svg';
-import iconLargeStage from './icon-large-stage.svg';
 
-export default function Toolbar({ stageSize, playing, onPlay, onStop, onSizeToggle }) {
-  const { getText } = useLocale();
+import greenFlagIcon from './icons/icon-green-flag.svg';
+import stopIcon from './icons/icon-stop-all.svg';
+import smallStageIcon from './icons/icon-small-stage.svg';
+import largeStageIcon from './icons/icon-large-stage.svg';
+
+export function Toolbar() {
+  const { appState } = useAppContext();
+
+  const handlePlay = useCallback(() => {
+    setAppState({ running: true });
+  }, []);
+
+  const handleStop = useCallback(() => {
+    setAppState({ running: false });
+  }, []);
+
+  const handleChangeStageSize = useCallback((stageSize) => {
+    setAppState({ stageSize });
+  }, []);
 
   return (
     <div className={styles.toolbarWrapper}>
       <div className={styles.toolbarButtonsGroup}>
         <img
           className={classNames(styles.greenFlag, {
-            [styles.actived]: playing,
+            [styles.actived]: appState.value?.running,
           })}
-          src={iconGreenFlag}
-          title={getText('arcade.greenFlag', 'Go')}
-          onClick={onPlay}
+          src={greenFlagIcon}
+          title={translate('arcade.emu.greenFlag', 'Go')}
+          onClick={handlePlay}
         />
         <img
-          className={classNames(styles.stopAll, {
-            [styles.actived]: playing,
+          className={classNames(styles.stop, {
+            [styles.actived]: appState.value?.running,
           })}
-          src={iconStopAll}
-          title={getText('arcade.stopAll', 'Stop')}
-          onClick={onStop}
+          src={stopIcon}
+          title={translate('arcade.emu.stop', 'Stop')}
+          onClick={handleStop}
         />
       </div>
       <div className={styles.toolbarButtonsGroup}>
         <ToggleButtons
-          // disabled={playing}
           items={[
             {
-              icon: iconSmallStage,
-              title: getText('arcade.smallStage', 'Switch to small stage'),
-              value: 'small',
+              icon: smallStageIcon,
+              title: translate('arcade.emu.smallStage', 'Switch to small stage'),
+              value: StageConfig.Small,
             },
             {
-              icon: iconLargeStage,
-              title: getText('arcade.largeStage', 'Switch to large stage'),
-              value: 'large',
+              icon: largeStageIcon,
+              title: translate('arcade.emu.largeStage', 'Switch to large stage'),
+              value: StageConfig.Large,
             },
           ]}
-          value={stageSize}
-          onChange={onSizeToggle}
+          value={appState.value?.stageSize ?? StageConfig.Small}
+          onChange={handleChangeStageSize}
         />
       </div>
     </div>

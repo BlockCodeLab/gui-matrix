@@ -1,4 +1,4 @@
-import { ScratchBlocks } from '@blockcode/blocks-editor';
+import { ScratchBlocks } from '@blockcode/blocks';
 
 ScratchBlocks.Blocks['sensing_touchingobject_exact'] = {
   init() {
@@ -38,6 +38,7 @@ ScratchBlocks.Blocks['sensing_keyoptions'] = {
           ],
         },
       ],
+      category: ScratchBlocks.Categories.sensing,
       extensions: ['colours_sensing', 'output_string'],
     });
   },

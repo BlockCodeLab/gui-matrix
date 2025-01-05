@@ -1,48 +1,47 @@
-import { useLocale } from '@blockcode/core';
-import { ToggleButtons, Tooltip } from '@blockcode/ui';
-import RotationStyle from '../../lib/rotation-style';
+import { useCallback } from 'preact/hooks';
+import { RotationStyle } from '../emulator/emulator-config';
 
+import { ToggleButtons, Tooltip } from '@blockcode/core';
 import styles from './direction-picker.module.css';
-import dialIcon from './icon-dial.svg';
-import handleIcon from './icon-handle.svg';
-import allAroundIcon from './icon-all-around.svg';
-import dontRotateIcon from './icon-dont-rotate.svg';
-import leftRightIcon from './icon-left-right.svg';
+
+import dialIcon from './icons/icon-dial.svg';
+import handleIcon from './icons/icon-handle.svg';
+import allAroundIcon from './icons/icon-all-around.svg';
+import dontRotateIcon from './icons/icon-dont-rotate.svg';
+import leftRightIcon from './icons/icon-left-right.svg';
 
 const RADIUS = 56;
 
-export default function DirectionPicker({ direction, rotationStyle, children, onChange, onChangeRotationStyle }) {
-  const { getText } = useLocale();
+const createGaugePath = (direction) => {
+  const rads = direction * (Math.PI / 180);
+  const path = [];
+  path.push(`M ${RADIUS} 0`);
+  path.push(`L ${RADIUS} ${RADIUS}`);
+  path.push(`L ${RADIUS + RADIUS * Math.sin(rads)} ${RADIUS - RADIUS * Math.cos(rads)}`);
+  path.push(`A ${RADIUS} ${RADIUS} 0 0 ${direction < 0 ? 1 : 0} ${RADIUS} 0`);
+  path.push(`Z`);
+  return path.join(' ');
+};
 
-  const createGaugePath = () => {
-    const rads = direction * (Math.PI / 180);
-    const path = [];
-    path.push(`M ${RADIUS} 0`);
-    path.push(`L ${RADIUS} ${RADIUS}`);
-    path.push(`L ${RADIUS + RADIUS * Math.sin(rads)} ${RADIUS - RADIUS * Math.cos(rads)}`);
-    path.push(`A ${RADIUS} ${RADIUS} 0 0 ${direction < 0 ? 1 : 0} ${RADIUS} 0`);
-    path.push(`Z`);
-    return path.join(' ');
-  };
-
-  const directionToMouse = (target, cx, cy) => {
+export function DirectionPicker({ direction, rotationStyle, children, onChange, onChangeRotationStyle }) {
+  const directionToMouse = useCallback((target, cx, cy) => {
     const bbox = target.parentElement.getBoundingClientRect();
     const dy = bbox.top + bbox.height / 2;
     const dx = bbox.left + bbox.width / 2;
     const angle = Math.atan2(cy - dy, cx - dx);
     const degrees = angle * (180 / Math.PI);
     return degrees + 90; // To correspond with scratch coordinate system
-  };
+  }, []);
 
-  const handleDirectionMouseDown = (e) => {
+  const handleDirectionMouseDown = useCallback((e) => {
     e.stopPropagation();
     const target = e.target;
     const mouseMove = (e) => {
       e.preventDefault();
-      let direction = directionToMouse(target, e.clientX, e.clientY);
-      if (direction > 180) direction += -360;
-      if (direction < -180) direction += 360;
-      onChange(direction);
+      let newDirection = directionToMouse(target, e.clientX, e.clientY);
+      if (newDirection > 180) newDirection += -360;
+      if (newDirection < -180) newDirection += 360;
+      onChange(newDirection);
     };
     const mouseUp = () => {
       document.removeEventListener('mousemove', mouseMove);
@@ -50,7 +49,7 @@ export default function DirectionPicker({ direction, rotationStyle, children, on
     };
     document.addEventListener('mousemove', mouseMove);
     document.addEventListener('mouseup', mouseUp);
-  };
+  }, []);
 
   return (
     <Tooltip
@@ -71,7 +70,7 @@ export default function DirectionPicker({ direction, rotationStyle, children, on
             >
               <path
                 className={styles.dialGaugePath}
-                d={createGaugePath()}
+                d={createGaugePath(direction)}
               />
             </svg>
             <img
@@ -91,17 +90,32 @@ export default function DirectionPicker({ direction, rotationStyle, children, on
               items={[
                 {
                   icon: allAroundIcon,
-                  title: getText('arcade.directionPicker.allAround', 'All Around'),
+                  title: (
+                    <Text
+                      id="arcade.directionPicker.allAround"
+                      defaultMessage="All Around"
+                    />
+                  ),
                   value: RotationStyle.ALL_AROUND,
                 },
                 {
                   icon: leftRightIcon,
-                  title: getText('arcade.directionPicker.leftRight', 'Left/Right'),
+                  title: (
+                    <Text
+                      id="arcade.directionPicker.leftRight"
+                      defaultMessage="Left/Right"
+                    />
+                  ),
                   value: RotationStyle.HORIZONTAL_FLIP,
                 },
                 {
                   icon: dontRotateIcon,
-                  title: getText('arcade.directionPicker.dontRotate', 'Do not rotate'),
+                  title: (
+                    <Text
+                      id="arcade.directionPicker.dontRotate"
+                      defaultMessage="Do not rotate"
+                    />
+                  ),
                   value: RotationStyle.DONOT_ROTATE,
                 },
               ]}

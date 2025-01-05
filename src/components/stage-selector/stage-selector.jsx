@@ -1,152 +1,188 @@
-import { useState } from 'preact/hooks';
-import { useLocale, useLayout, useEditor } from '@blockcode/core';
-import { classNames, Text, ActionButton } from '@blockcode/ui';
-import BackdropsLibrary from '../libraries/backdrops-library';
+import { useEffect } from 'preact/hooks';
+import { batch, useSignal } from '@preact/signals';
+import { classNames, nanoid } from '@blockcode/utils';
+import {
+  useLocalesContext,
+  useProjectContext,
+  translate,
+  setAppState,
+  openTab,
+  setAlert,
+  delAlert,
+  openFile,
+  setFile,
+  addAsset,
+} from '@blockcode/core';
+import { loadImageFromFile, loadImageFromURL, BlankImageData } from '@blockcode/paint';
+import { getAssetUrl } from '../../lib/get-asset-url';
+import { StageConfig } from '../emulator/emulator-config';
 
-import uid from '../../lib/uid';
-import { uploadImage, loadImageFromURL } from '../../lib/load-image';
-
+import { Text, ActionButton } from '@blockcode/core';
+import { BackdropsLibrary } from '../libraries/backdrops-library';
 import styles from './stage-selector.module.css';
+
 import backdropIcon from './icon-backdrop.svg';
-import surpriseIcon from '../sprite-selector/icon-surprise.svg';
-import searchIcon from '../sprite-selector/icon-search.svg';
-import paintIcon from '../sprite-selector/icon-paint.svg';
-import fileUploadIcon from '../sprite-selector/icon-file-upload.svg';
+import surpriseIcon from '../sprite-selector/icons/icon-surprise.svg';
+import searchIcon from '../sprite-selector/icons/icon-search.svg';
+import paintIcon from '../sprite-selector/icons/icon-paint.svg';
+import fileUploadIcon from '../sprite-selector/icons/icon-file-upload.svg';
 
-const DEFAULT_BACKDROP_THUMB =
-  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAAtJREFUGFdjYAACAAAFAAGq1chRAAAAAElFTkSuQmCC';
+const DefaultBackdropThumb = `data:image/png;base64,${BlankImageData}`;
 
-export default function StageSelector({ onStop }) {
-  const [backdropsLibrary, setBackdropsLibrary] = useState(false);
-  const { getText } = useLocale();
-  const { selectTab, createAlert, removeAlert } = useLayout();
-  const { fileList, assetList, selectedFileId, openFile, addAsset, modifyFile } = useEditor();
+export function StageSelector() {
+  const { translator } = useLocalesContext();
 
-  let backdropIdList, thumb, count;
-  const stage = fileList[0];
+  const { files, fileId, assets, modified } = useProjectContext();
 
-  if (stage) {
-    backdropIdList = stage.assets;
-    const image = assetList.find((asset) => asset.id === backdropIdList[stage.frame]);
-    if (image) {
-      thumb = `data:${image.type};base64,${image.data}`;
-      count = backdropIdList.length;
+  const backdropsLibraryVisible = useSignal(false);
+
+  const backdropThumb = useSignal(DefaultBackdropThumb);
+
+  const stage = files.value[0];
+
+  useEffect(() => {
+    const backdrop = assets.value.find((res) => res.id === stage.assets[stage.frame]);
+    if (backdrop) {
+      backdropThumb.value = `data:${backdrop.type};base64,${backdrop.data}`;
     }
-  }
+  }, [modified.value]);
 
   const handleShowLibrary = () => {
-    onStop();
-    setBackdropsLibrary(true);
+    setAppState({ running: false });
+    backdropsLibraryVisible.value = true;
   };
-  const handleCloseLibrary = () => setBackdropsLibrary(false);
 
   const handleSelectBackdrop = async ({ tags, ...backdrop }) => {
-    const backdropId = uid();
-    createAlert('importing', { id: backdropId });
+    setAlert('importing', { id: stage.id });
+    const image = await loadImageFromURL(getAssetUrl(backdrop, 'png'));
+    delAlert(stage.id);
 
-    const image = await loadImageFromURL(`./assets/${backdrop.id}.png`);
-    addAsset({
-      ...backdrop,
-      id: backdropId,
-      type: 'image/png',
-      data: image.dataset.data,
-      width: image.width,
-      height: image.height,
-    });
-    backdropIdList.push(backdropId);
-    removeAlert(backdropId);
+    batch(() => {
+      addAsset({
+        ...backdrop,
+        id: image.id,
+        type: 'image/png',
+        data: image.dataset.data,
+        width: image.width,
+        height: image.height,
+      });
+      stage.assets.push(image.id);
 
-    modifyFile({
-      id: stage.id,
-      assets: backdropIdList,
-      frame: backdropIdList.length - 1,
+      setFile({
+        id: stage.id,
+        assets: stage.assets,
+        frame: stage.assets.length - 1,
+      });
+      openFile(stage.id);
     });
-    openFile(stage.id);
   };
 
   const handleUploadFile = () => {
-    onStop();
+    setAppState({ running: false });
 
     const fileInput = document.createElement('input');
     fileInput.type = 'file';
     fileInput.accept = 'image/*';
     fileInput.multiple = true;
     fileInput.click();
-    fileInput.addEventListener('change', async ({ target }) => {
-      const alertId = uid();
-      createAlert('importing', { id: alertId });
+    fileInput.addEventListener('change', async (e) => {
+      const alertId = nanoid();
+      setAlert('importing', { id: alertId });
 
-      const totalCount = target.files.length;
-      let failedCount = target.files.length;
-      for (const file of target.files) {
-        const imageId = uid();
-        const imageName = file.name.slice(0, file.name.lastIndexOf('.'));
-        let image = await uploadImage(file);
+      const totalCount = e.target.files.length;
+      let failedCount = e.target.files.length;
+
+      const images = [];
+
+      // 依次解析上传的文件并加入项目
+      let image, imageName;
+      for (const file of e.target.files) {
+        image = await loadImageFromFile(file, {
+          width: StageConfig.Width,
+          height: StageConfig.Height,
+        });
         if (!image) {
-          createAlert(
+          setAlert(
             {
-              message: getText('arcade.actionButton.uploadError', 'Upload "{file}" failed.', { file: file.name }),
+              message: (
+                <Text
+                  id="arcade.actionButton.uploadError"
+                  defaultMessage='Upload "{file}" failed.'
+                  file={file.name}
+                />
+              ),
             },
             2000,
           );
+          // 上传的文件解析有问题用空白图片代替
           image = {
             dataset: {
-              data: 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAAtJREFUGFdjYAACAAAFAAGq1chRAAAAAElFTkSuQmCC',
+              data: BlankImageData,
             },
             width: 1,
             height: 1,
           };
         }
-        addAsset({
-          id: imageId,
-          type: 'image/png',
-          name: imageName,
-          data: image.dataset.data,
-          width: image.width,
-          height: image.height,
-          centerX: Math.floor(image.width / 2),
-          centerY: Math.floor(image.height / 2),
-        });
-        backdropIdList.push(imageId);
+        image.name = file.name.slice(0, file.name.lastIndexOf('.'));
+        images.push(image);
         failedCount--;
       }
-      removeAlert(alertId);
+      delAlert(alertId);
 
-      if (failedCount < totalCount) {
-        modifyFile({
-          id: stage.id,
-          assets: backdropIdList,
-          frame: backdropIdList.length - 1,
-        });
-        openFile(stage.id);
-      }
+      batch(() => {
+        for (const image of images) {
+          addAsset({
+            id: image.id,
+            type: 'image/png',
+            name: image.name,
+            data: image.dataset.data,
+            width: image.width,
+            height: image.height,
+            centerX: Math.floor(image.width / 2),
+            centerY: Math.floor(image.height / 2),
+          });
+          stage.assets.push(image.id);
+        }
+
+        if (failedCount < totalCount) {
+          setFile({
+            id: stage.id,
+            assets: stage.assets,
+            frame: stage.assets.length - 1,
+          });
+          openFile(stage.id);
+        }
+      });
     });
   };
 
   const handlePaintImage = () => {
-    onStop();
-    openFile(stage.id);
+    setAppState({ running: false });
 
-    const imageId = uid();
-    addAsset({
-      id: imageId,
-      type: 'image/png',
-      name: getText(`arcade.defaultProject.backdropName`, 'backdrop'),
-      data: 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAAtJREFUGFdjYAACAAAFAAGq1chRAAAAAElFTkSuQmCC',
-      width: 1,
-      height: 1,
-      centerX: 1,
-      centerY: 1,
+    const imageId = nanoid();
+    batch(() => {
+      openFile(stage.id);
+      addAsset({
+        id: imageId,
+        type: 'image/png',
+        name: translate('arcade.defaultProject.backdropName', 'backdrop', translator),
+        data: BlankImageData,
+        width: 1,
+        height: 1,
+        centerX: 1,
+        centerY: 1,
+      });
+      stage.assets.push(imageId);
+      setFile({
+        assets: stage.assets,
+        frame: stage.assets.length - 1,
+      });
+      openTab(1);
     });
-    modifyFile({
-      assets: backdropIdList.concat(imageId),
-      frame: count,
-    });
-    selectTab(1);
   };
 
   const handleSurprise = () => {
-    onStop();
+    setAppState({ running: false });
     handleSelectBackdrop(BackdropsLibrary.surprise());
   };
 
@@ -154,7 +190,7 @@ export default function StageSelector({ onStop }) {
     <>
       <div
         className={classNames(styles.stageSelector, {
-          [styles.isSelected]: selectedFileId === stage.id,
+          [styles.isSelected]: fileId.value === stage.id,
         })}
         onClick={() => openFile(stage.id)}
       >
@@ -168,7 +204,7 @@ export default function StageSelector({ onStop }) {
         </div>
         <img
           className={styles.backdropImage}
-          src={thumb || DEFAULT_BACKDROP_THUMB}
+          src={backdropThumb.value}
         />
         <div className={styles.label}>
           <Text
@@ -176,42 +212,67 @@ export default function StageSelector({ onStop }) {
             defaultMessage="Backdrops"
           />
         </div>
-        <div className={styles.count}>{count || 0}</div>
+        <div className={styles.count}>{stage.assets.length}</div>
 
         <ActionButton
           className={styles.addButton}
           icon={backdropIcon}
-          tooltip={getText('arcade.actionButton.backdrop', 'Choose a Backdrop')}
+          tooltip={
+            <Text
+              id="arcade.actionButton.backdrop"
+              defaultMessage="Choose a Backdrop"
+            />
+          }
           onClick={handleShowLibrary}
           moreButtons={[
             {
               icon: fileUploadIcon,
-              tooltip: getText('arcade.actionButton.uploadBackdrop', 'Upload Backdrop'),
+              tooltip: (
+                <Text
+                  id="arcade.actionButton.uploadBackdrop"
+                  defaultMessage="Upload Backdrop"
+                />
+              ),
               onClick: handleUploadFile,
             },
             {
               icon: surpriseIcon,
-              tooltip: getText('arcade.actionButton.surprise', 'Surprise'),
+              tooltip: (
+                <Text
+                  id="arcade.actionButton.surprise"
+                  defaultMessage="Surprise"
+                />
+              ),
               onClick: handleSurprise,
             },
             {
               icon: paintIcon,
-              tooltip: getText('arcade.actionButton.paint', 'Paint'),
+              tooltip: (
+                <Text
+                  id="arcade.actionButton.paint"
+                  defaultMessage="Paint"
+                />
+              ),
               onClick: handlePaintImage,
             },
             {
               icon: searchIcon,
-              tooltip: getText('arcade.actionButton.backdrop', 'Choose a Backdrop'),
+              tooltip: (
+                <Text
+                  id="arcade.actionButton.backdrop"
+                  defaultMessage="Choose a Backdrop"
+                />
+              ),
               onClick: handleShowLibrary,
             },
           ]}
         />
       </div>
 
-      {backdropsLibrary && (
+      {backdropsLibraryVisible.value && (
         <BackdropsLibrary
           onSelect={handleSelectBackdrop}
-          onClose={handleCloseLibrary}
+          onClose={() => (backdropsLibraryVisible.value = false)}
         />
       )}
     </>

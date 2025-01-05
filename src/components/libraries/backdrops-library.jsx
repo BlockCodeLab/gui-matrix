@@ -1,42 +1,50 @@
-import { useEffect, useState } from 'preact/hooks';
-import { useLocale } from '@blockcode/core';
-import { Library } from '@blockcode/ui';
-import allBackdrops from './backdrops.yaml';
-import backdropTags from './backdrop-tags';
+import { Text, Library } from '@blockcode/core';
+import { getAssetUrl } from '../../lib/get-asset-url';
+import backdropTags from '../../lib/libraries/backdrop-tags';
+import backdrops from '../../lib/libraries/backdrops.yaml';
 
-export default function BackdropsLibrary({ onSelect, onClose }) {
-  const [data, setData] = useState([]);
-  const { getText } = useLocale();
+const getBackdropItmes = (onSelect, onClose) => {
+  return backdrops.map((backdrop) => ({
+    name: backdrop.name,
+    copyright: backdrop.copyright,
+    tags: backdrop.tags,
+    image: getAssetUrl(backdrop, 'png'),
+    onSelect() {
+      onSelect(backdrop);
+      onClose();
+    },
+  }));
+};
 
-  const setSelectHandler = (backdrop) => () => {
-    onSelect(backdrop);
-    onClose();
-  };
-
-  useEffect(() => {
-    setData(
-      allBackdrops.map((backdrop) => ({
-        name: backdrop.name,
-        author: backdrop.author,
-        copyright: backdrop.copyright,
-        tags: backdrop.tags,
-        image: `./assets/${backdrop.id}.png`,
-        onSelect: setSelectHandler(backdrop),
-      })),
-    );
-  }, []);
+export function BackdropsLibrary({ onSelect, onClose }) {
+  const backdropItems = getBackdropItmes(onSelect, onClose);
 
   return (
     <Library
       filterable
       tags={backdropTags}
-      items={data}
-      filterPlaceholder={getText('gui.library.search', 'Search')}
-      title={getText('arcade.libraries.backdrop', 'Choose a Backdrop')}
-      emptyText={getText('arcade.libraries.empty', 'No more!')}
+      items={backdropItems}
+      filterPlaceholder={
+        <Text
+          id="gui.library.search"
+          defaultMessage="Search"
+        />
+      }
+      title={
+        <Text
+          id="arcade.libraries.backdrop"
+          defaultMessage="Choose a Backdrop"
+        />
+      }
+      emptyMessage={
+        <Text
+          id="arcade.libraries.empty"
+          defaultMessage="No more!"
+        />
+      }
       onClose={onClose}
     />
   );
 }
 
-BackdropsLibrary.surprise = () => allBackdrops[Math.floor(Math.random() * allBackdrops.length)];
+BackdropsLibrary.surprise = () => backdrops[Math.floor(Math.random() * backdrops.length)];

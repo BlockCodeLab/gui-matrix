@@ -3,11 +3,12 @@ blocks.dataPrompt.forThisTarget: 仅适用于当前角色
 blocks.dataPrompt.availableToAllTargets: 所有角色都可使用该变量。
 blocks.dataPrompt.listAvailableToAllTargets: 所有角色都可使用该列表。
 
-arcade.pixelPaint.default: 绘画板
-arcade.pixelPaint.costumes: 造型
-arcade.pixelPaint.backdrops: 背景
+blocks.myBlockPrompt.warpLabel: 运行时不刷新屏幕
 
-arcade.waveSurfer.sounds: 声音
+arcade.paintEditor.costumes: 造型
+arcade.paintEditor.backdrops: 背景
+
+arcade.soundEditor.sounds: 声音
 
 arcade.menu.file.importSB3: 导入 Scratch 3（.sb3）文件…
 arcade.menu.device: 学习机
@@ -40,14 +41,15 @@ arcade.menu.device.config: 系统配置
 arcade.deletePrompt.title: 删除“{name}”
 arcade.deletePrompt.label: 确认要删除这个角色吗？
 
-arcade.greenFlag: 运行
-arcade.stopAll: 停止
-arcade.smallStage: 缩小舞台
-arcade.largeStage: 放大舞台
+arcade.emu.greenFlag: 运行
+arcade.emu.stop: 停止
+arcade.emu.smallStage: 缩小舞台
+arcade.emu.largeStage: 放大舞台
 
 arcade.contextMenu.duplicate: 复制
 arcade.contextMenu.export: 导出
 arcade.contextMenu.delete: 删除
+
 arcade.actionButton.uploadSprite: 上传角色
 arcade.actionButton.uploadBackdrop: 上传背景
 arcade.actionButton.uploadError: 上传“{file}”失败。
@@ -104,12 +106,19 @@ arcade.defaultProject.stageName: 舞台
 arcade.defaultProject.spriteName: 角色
 arcade.defaultProject.backdropName: 背景
 arcade.defaultProject.costumeName: 造型
+arcade.defaultProject.soundName: 声音
 
+arcade.blocks.textBubble: '%1 %2'
+arcade.blocks.textBubbleAndWait: '%1 %2 %3 秒'
+arcade.blocks.say: 说
+arcade.blocks.shout: 大喊
+arcade.blocks.think: 思考
+arcade.blocks.spark: 灵感
 arcade.blocks.isConnected: Wi-Fi 已经连接？
 arcade.blocks.whenConnected: 当 Wi-Fi 连接成功
 arcade.blocks.connectTo: '连接 Wi-Fi: %1 密码: %2'
 arcade.blocks.disconnect: 断开 Wi-Fi 连接
-arcade.blocks.fnButton: 功能键
+arcade.blocks.fnButton: fn
 arcade.blocks.stopOther: 该角色的其他脚本
 arcade.blocks.touchingExact: 碰到 %1（精准）？
 arcade.blocks.joystick.x: 摇杆 x 轴

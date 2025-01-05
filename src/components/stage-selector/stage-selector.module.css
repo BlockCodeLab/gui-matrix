@@ -18,12 +18,12 @@
 .stage-selector.is-selected {
   border-top-left-radius: calc(var(--space) + 0.125rem);
   border-top-right-radius: calc(var(--space) + 0.125rem);
-  border-color: var(--motion-primary);
-  box-shadow: 0px 0px 0px 4px var(--motion-transparent);
+  border-color: var(--theme-primary);
+  box-shadow: 0px 0px 0px 4px var(--theme-transparent);
 }
 
 .stage-selector:hover {
-  border-color: var(--motion-primary);
+  border-color: var(--theme-primary);
 }
 
 .header {
@@ -51,7 +51,7 @@
 }
 
 .stage-selector.is-selected .header {
-  background-color: var(--motion-primary);
+  background-color: var(--theme-primary);
 }
 
 .stage-selector.is-selected .header-title {
@@ -92,7 +92,7 @@
 
 .raised,
 .raised .header {
-  background-color: var(--drop-highlight);
+  background-color: var(--theme-highlight);
   transition: all 0.25s ease;
 }
 
