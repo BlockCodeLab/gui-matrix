@@ -1,0 +1,92 @@
+blocks.dataPrompt.forAllTargets: For all sprites
+blocks.dataPrompt.forThisTarget: For this sprite only
+blocks.dataPrompt.availableToAllTargets: This variable will be available to all sprites.
+blocks.dataPrompt.listAvailableToAllTargets: This list will be available to all sprites.
+
+blocks.myBlockPrompt.warpLabel: Run without screen refresh
+
+matrix.paintEditor.costumes: Costumes
+matrix.paintEditor.backdrops: Backdrops
+
+matrix.soundEditor.sounds: Sounds
+
+matrix.deletePrompt.title: Delete "{name}"
+matrix.deletePrompt.label: Do you want to delete the sprite?
+
+matrix.emu.greenFlag: Go
+matrix.emu.stop: Stop
+matrix.emu.smallStage: Switch to small stage
+matrix.emu.largeStage: Switch to large stage
+matrix.emu.fullscreen: Full Screen Control
+
+matrix.contextMenu.duplicate: duplicate
+matrix.contextMenu.export: export
+matrix.contextMenu.delete: delete
+
+matrix.actionButton.uploadSprite: Upload Sprite
+matrix.actionButton.uploadBackdrop: Upload Backdrop
+matrix.actionButton.uploadError: Upload "{file}" failed.
+matrix.actionButton.surprise: Surprise
+matrix.actionButton.paint: Paint
+matrix.actionButton.sprite: Choose a Sprite
+matrix.actionButton.backdrop: Choose a Backdrop
+
+matrix.stageSelector.title: Stage
+matrix.stageSelector.backdrops: Backdrops
+
+matrix.spriteInfo.sprite: Sprite
+matrix.spriteInfo.name: name
+matrix.spriteInfo.x: X
+matrix.spriteInfo.y: Y
+matrix.spriteInfo.display: Show
+matrix.spriteInfo.show: Show sprite
+matrix.spriteInfo.hide: Hide sprite
+matrix.spriteInfo.size: Size
+matrix.spriteInfo.direction: Direction
+
+matrix.directionPicker.allAround: All Around
+matrix.directionPicker.leftRight: Left/Right
+matrix.directionPicker.dontRotate: Do not rotate
+
+matrix.libraries.empty: No more!
+matrix.libraries.sprite: Choose a Sprite
+matrix.libraries.costume: Choose a Costume
+matrix.libraries.backdrop: Choose a Backdrop
+matrix.libraries.sound: Choose a Sound
+
+matrix.libraries.tags.fantasy: Fantasy
+matrix.libraries.tags.music: Music
+matrix.libraries.tags.sports: Sports
+matrix.libraries.tags.outdoors: Outdoors
+matrix.libraries.tags.indoors: Indoors
+matrix.libraries.tags.space: Space
+matrix.libraries.tags.underwater: Underwater
+matrix.libraries.tags.patterns: Patterns
+matrix.libraries.tags.animals: Animals
+matrix.libraries.tags.people: People
+matrix.libraries.tags.dance: Dance
+matrix.libraries.tags.food: Food
+matrix.libraries.tags.fashion: Fashion
+matrix.libraries.tags.letters: Letters
+matrix.libraries.tags.effects: Effects
+matrix.libraries.tags.loops: Loops
+matrix.libraries.tags.notes: Notes
+matrix.libraries.tags.percussion: Percussion
+matrix.libraries.tags.voice: Voice
+matrix.libraries.tags.wacky: Wacky
+
+matrix.defaultProject.stageName: Stage
+matrix.defaultProject.spriteName: Sprite
+matrix.defaultProject.backdropName: backdrop
+matrix.defaultProject.costumeName: costume
+matrix.defaultProject.soundName: sound
+
+matrix.blocks.textBubble: '%1 %2'
+matrix.blocks.textBubbleAndWait: '%1 %2 for %3 seconds'
+matrix.blocks.say: say
+matrix.blocks.shout: shout
+matrix.blocks.think: think
+matrix.blocks.spark: spark
+matrix.blocks.unsupported: unsupported block
+
+matrix.tutorials.gettingStarted: Getting Started

@@ -1,0 +1,3001 @@
+- id: 3f7d6bd481fa4d2658b521cd98915c48
+  name: A Bass
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 56320
+  rate: 44100
+- id: f2783869aeb2e50d24cff87847a1dbf9
+  name: A Elec Bass
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 11840
+  rate: 44100
+- id: 7940e8ef2bb91be823a70ab09e925233
+  name: A Elec Guitar
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 88200
+  rate: 44100
+- id: 24c1803e911ed8ca10549789b763860c
+  name: A Elec Piano
+  copyright: Scratch
+  tags:
+    - music
+    - note
+    - piano
+    - keyboard
+  sampleCount: 88200
+  rate: 44100
+- id: 5893ad57ae7f5a240f88e773762812cb
+  name: A Guitar
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 63744
+  rate: 44100
+- id: b9e7882545e334fe59b3074d9e6936b4
+  name: A Minor Ukulele
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+    - chords
+  sampleCount: 36534
+  rate: 44100
+- id: 1233b4888889c5b13226a5b115bdabc7
+  name: A Piano
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 88200
+  rate: 44100
+- id: 6de9c915b0d6b5b39738f90b89f7af18
+  name: A Sax
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 12944
+  rate: 44100
+- id: 1739fa4108ea3459bd7ff316a93b0ccd
+  name: A Trombone
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 17273
+  rate: 22050
+- id: 6b9b11e7079f598c73a572d3e49c91c7
+  name: A Trumpet
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 27822
+  rate: 44100
+- id: b04639c14f0ec0c2c121be4516ee6735
+  name: Afro String
+  copyright: Scratch
+  tags: []
+  sampleCount: 39228
+  rate: 44100
+- id: fb7c0cc94149f87c6e1ce2c6144f0183
+  name: Alert
+  copyright: Scratch
+  tags:
+    - effects
+    - electronic
+    - games
+    - space
+  sampleCount: 22353
+  rate: 22050
+- id: b8544ba3f051daebe450cb9fe732bcc0
+  name: Alien Creak1
+  copyright: Scratch
+  tags:
+    - effects
+    - space
+  sampleCount: 32180
+  rate: 44100
+- id: 5480101ad8698288043007b29d3d92c1
+  name: Alien Creak2
+  copyright: Scratch
+  tags:
+    - effects
+    - space
+  sampleCount: 33200
+  rate: 44100
+- id: 269da399e8eebba11747d23299811056
+  name: B Bass
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 51584
+  rate: 44100
+- id: 5a4a58137401850413795085fa8fb12f
+  name: B Elec Bass
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 12416
+  rate: 44100
+- id: 02b610d818fc1512e87b7d3fbe0a0929
+  name: B Elec Guitar
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 88200
+  rate: 44100
+- id: 949958ff68474188f9f57293e304cea4
+  name: B Elec Piano
+  copyright: Scratch
+  tags:
+    - music
+    - note
+    - piano
+    - keyboard
+  sampleCount: 88200
+  rate: 44100
+- id: 65362e384c024341cbda2eb20cd6e323
+  name: B Guitar
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 59008
+  rate: 44100
+- id: f6fd00658711d4bc1243573422d6fa9c
+  name: B Piano
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 88200
+  rate: 44100
+- id: 6c311b15e7439b90847884eeb5fc1ff1
+  name: B Sax
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 19110
+  rate: 44100
+- id: 258bdecf93d59ec48d565636e7d447b6
+  name: B Trombone
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 31044
+  rate: 44100
+- id: e62effdb769cbe5e18ac8cce75424f5d
+  name: B Trumpet
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 29408
+  rate: 44100
+- id: 836897fa1de8dc6f5f83ff07fb3eaf54
+  name: Baa
+  copyright: Scratch
+  tags:
+    - animals
+    - sheep
+  sampleCount: 42673
+  rate: 22050
+- id: 2c56ff46af006f872850e073841f1e86
+  name: Bark
+  copyright: Scratch
+  tags: []
+  sampleCount: 6336
+  rate: 44100
+- id: 54d224166c329cbfdeef97ce732d7274
+  name: Basketball Bounce
+  copyright: Scratch
+  tags:
+    - sports
+    - effects
+  sampleCount: 8129
+  rate: 22050
+- id: 726e206038ba0de5ed9f58371695ab1f
+  name: Bass Beatbox
+  copyright: Scratch
+  tags: []
+  sampleCount: 13440
+  rate: 44100
+- id: 72cfe744ba33f22f06d0c6a20ea1707a
+  name: Beat Box1
+  copyright: Scratch
+  tags:
+    - music
+    - human
+    - voice
+    - hiphop
+  sampleCount: 22916
+  rate: 44100
+- id: aa295909c6a1392089fd75872d0ca852
+  name: Beat Box2
+  copyright: Scratch
+  tags:
+    - music
+    - human
+    - voice
+    - hiphop
+  sampleCount: 22916
+  rate: 44100
+- id: 06566aaa0b7aa394d10f89b749a25560
+  name: Bell Cymbal
+  copyright: Scratch
+  tags: []
+  sampleCount: 38656
+  rate: 44100
+- id: ff743d9e10516fa2a3576cadaac05a7d
+  name: Bell Toll
+  copyright: Scratch
+  tags:
+    - effects
+    - dramatic
+  sampleCount: 180672
+  rate: 44100
+- id: 20137719696903c931822fb45ae9fd54
+  name: Big Boing
+  copyright: Scratch
+  tags:
+    - wacky
+    - effects
+    - cartoon
+  sampleCount: 18289
+  rate: 22050
+- id: b12e60537dadba3af350ae0f7e918f5e
+  name: Bird
+  copyright: Scratch
+  tags: []
+  sampleCount: 15360
+  rate: 44100
+- id: b901f56c71da31dc7ed576c016af1976
+  name: Birthday
+  copyright: Scratch
+  tags: []
+  sampleCount: 322816
+  rate: 44100
+- id: efa20bb6e92dd74b27082305da7c61a9
+  name: Bite
+  copyright: Scratch
+  tags:
+    - wacky
+    - effects
+    - human
+  sampleCount: 8129
+  rate: 22050
+- id: 3775b40eedefde44ad3456d26128d798
+  name: Boing
+  copyright: Scratch
+  tags:
+    - effects
+  sampleCount: 7113
+  rate: 22050
+- id: 4963a972e704f2bc4fcbba7f2c39d4cf
+  name: Bonk
+  copyright: Scratch
+  tags:
+    - wacky
+    - effects
+    - cartoon
+  sampleCount: 14225
+  rate: 22050
+- id: 10b27d0537a3a8812ba2d246ff7c4710
+  name: Boom Cloud
+  copyright: Scratch
+  tags:
+    - effects
+    - games
+    - space
+    - dramatic
+  sampleCount: 88393
+  rate: 22050
+- id: 62ec7edb6bb39310c6ba763eb0fc51f7
+  name: Boop Bing Bop
+  copyright: Scratch
+  tags:
+    - wacky
+    - effects
+    - cartoon
+  sampleCount: 55881
+  rate: 22050
+- id: cf4d985caddc3b34b08a53e68d37340b
+  name: Bossa Nova
+  copyright: Scratch
+  tags:
+    - loops
+    - music
+    - latin
+  sampleCount: 137161
+  rate: 22050
+- id: 75576d4b58f2210a18d7c5713d1f911e
+  name: Bowling Strike
+  copyright: Scratch
+  tags:
+    - sports
+    - effects
+  sampleCount: 27433
+  rate: 22050
+- id: 2bc4d1cd500887094ec53bd389f8b455
+  name: Bubbles
+  copyright: Scratch
+  tags: []
+  sampleCount: 180224
+  rate: 44100
+- id: 32938088c8bfa382d732de88011fb2cb
+  name: Buzz Whir
+  copyright: Scratch
+  tags: []
+  sampleCount: 36148
+  rate: 44100
+- id: 6041ad9eb180a94bdbe12ff1c3c30357
+  name: C Bass
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 89216
+  rate: 44100
+- id: f8e7eea6ac1b17662cf374320603a16d
+  name: C Elec Bass
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 10432
+  rate: 44100
+- id: df3d8972b5a41d0f9511f865d87bdae9
+  name: C Elec Guitar
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 88200
+  rate: 44100
+- id: ee232274735dabc0063e24576b3846c3
+  name: C Elec Piano
+  copyright: Scratch
+  tags:
+    - music
+    - note
+    - piano
+    - keyboard
+  sampleCount: 88200
+  rate: 44100
+- id: 2ee82753436d36a1c4595854ec332dd2
+  name: C Guitar
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 89728
+  rate: 44100
+- id: 72f48669b68166376189408a11daacac
+  name: C Major Ukulele
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+    - chords
+  sampleCount: 36406
+  rate: 44100
+- id: 0716304bd2350d2d1cc21aa28883219b
+  name: C Piano
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 88200
+  rate: 44100
+- id: ffe78f15422a3c0f5c9f9db75cf351cb
+  name: C Sax
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 18982
+  rate: 44100
+- id: 74ae23b8ff63271e12a8f69298d50dbc
+  name: C Trombone
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 38106
+  rate: 44100
+- id: 266071084086ca417ebc684e031cb41d
+  name: C Trumpet
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 26236
+  rate: 44100
+- id: eae216ad12caf47c735eefb00db959ff
+  name: C2 Bass
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 48256
+  rate: 44100
+- id: 1bc09b82074e73db627dcf3456899ccd
+  name: C2 Elec Bass
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 11584
+  rate: 44100
+- id: e6fd5eb7befcfa021889c6bbd7ba84b3
+  name: C2 Elec Guitar
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 88200
+  rate: 44100
+- id: 4b8d71ba495ddb16fec8bb30f8b8eab7
+  name: C2 Elec Piano
+  copyright: Scratch
+  tags:
+    - music
+    - note
+    - piano
+    - keyboard
+  sampleCount: 88200
+  rate: 44100
+- id: 7a27ccb2c8541d00c1227a065c6a0f24
+  name: C2 Guitar
+  copyright: Scratch
+  tags: []
+  sampleCount: 55424
+  rate: 44100
+- id: 18dc7c4c50dcc64f72c75d6b3310de76
+  name: C2 Piano
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 88200
+  rate: 44100
+- id: e57e9d6585ad27f788be4c34882f2c19
+  name: C2 Sax
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 8129
+  rate: 22050
+- id: 3b940c6725e71b187d4e028c2c645e45
+  name: C2 Trombone
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 27808
+  rate: 44100
+- id: 07ece403a909eb90026f621c4e8fe139
+  name: C2 Trumpet
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 31698
+  rate: 44100
+- id: 7aadad95789ce4f1eb0e906f38262898
+  name: Car Horn
+  copyright: Scratch
+  tags:
+    - effects
+    - transportation
+  sampleCount: 42673
+  rate: 22050
+- id: fd8ac734a03aecdec1baf97fd8dd78e4
+  name: Car Passing
+  copyright: Scratch
+  tags:
+    - transportation
+    - ambience
+    - background
+  sampleCount: 339968
+  rate: 44100
+- id: 9956363e1262b276a9838a7cc9dc1528
+  name: Car Vroom
+  copyright: Scratch
+  tags:
+    - sports
+    - transportation
+  sampleCount: 43689
+  rate: 22050
+- id: b1f955ce67bbad28301f1f67f953a189
+  name: Cave
+  copyright: Scratch
+  tags:
+    - music
+    - loops
+  sampleCount: 163577
+  rate: 22050
+- id: b004e9b6bb0300530656914f4852e9c1
+  name: Chatter
+  copyright: Scratch
+  tags:
+    - animals
+    - squirrel
+    - chipmunk
+  sampleCount: 26417
+  rate: 22050
+- id: 08ea1e3f3c48445a053387feae19b3d6
+  name: Chee Chee
+  copyright: Scratch
+  tags:
+    - animals
+    - monkey
+  sampleCount: 69120
+  rate: 44100
+- id: 5c1853716593eeb1b9b3e47f8f914c4d
+  name: Cheer
+  copyright: Scratch
+  tags:
+    - sports
+    - human
+    - voice
+  sampleCount: 109729
+  rate: 22050
+- id: cb5582e015a4ef9d62524d0c04e8d5da
+  name: Chill
+  copyright: Scratch
+  tags:
+    - loops
+    - music
+    - electronic
+    - chill
+  sampleCount: 352800
+  rate: 44100
+- id: c7277ed9c6fc7e7588ca05f6d2ba1832
+  name: Chirp
+  copyright: Scratch
+  tags:
+    - animals
+    - bird
+  sampleCount: 6097
+  rate: 22050
+- id: cd22ce8125c4a5da8d7e87c4ec695eba
+  name: Chomp
+  copyright: Scratch
+  tags:
+    - effects
+    - human
+  sampleCount: 11648
+  rate: 44100
+- id: 791c1dae93aeadbc5ff658303f104ffb
+  name: Chord
+  copyright: Scratch
+  tags:
+    - music
+    - electronic
+  sampleCount: 82432
+  rate: 44100
+- id: 4955d1e961b036ab592ee2875320b512
+  name: Clang
+  copyright: Scratch
+  tags:
+    - effects
+    - games
+  sampleCount: 27433
+  rate: 22050
+- id: 40324ef77f48bcb0ee6ced806119ae33
+  name: Clap Beatbox
+  copyright: Scratch
+  tags: []
+  sampleCount: 8448
+  rate: 44100
+- id: e03c21c65f62ea9f2b0fabaded5b9a00
+  name: Clapping
+  copyright: Scratch
+  tags:
+    - human
+  sampleCount: 168320
+  rate: 44100
+- id: 8a2d4970b1bb26894243f7023454e0f6
+  name: Classical Piano
+  copyright: Scratch
+  tags:
+    - loops
+    - music
+    - classical
+    - bach
+  sampleCount: 305748
+  rate: 44100
+- id: 6528d28f5d2a6937232e5ca13d45964d
+  name: Clock Ticking
+  copyright: Scratch
+  tags:
+    - effects
+    - home
+  sampleCount: 109729
+  rate: 22050
+- id: 6fe3f1425f1b7174a828133618d23599
+  name: Clown Honk
+  copyright: Scratch
+  tags:
+    - wacky
+    - horn
+  sampleCount: 9145
+  rate: 22050
+- id: 8898cc181250afda708266107524b163
+  name: Coin
+  copyright: Scratch
+  tags:
+    - effects
+    - electronic
+    - games
+  sampleCount: 4065
+  rate: 22050
+- id: 65bc14f457fa33815d0f374253f9549c
+  name: Collect
+  copyright: Scratch
+  tags:
+    - effects
+    - electronic
+    - games
+  sampleCount: 14225
+  rate: 22050
+- id: 04c4af20971963f140b6d734951f5e04
+  name: Computer Beep
+  copyright: Scratch
+  tags: []
+  sampleCount: 38144
+  rate: 44100
+- id: c7863e11bbd5ec71fd1635109c096f0e
+  name: Computer Beep2
+  copyright: Scratch
+  tags:
+    - effects
+    - electronic
+  sampleCount: 76800
+  rate: 44100
+- id: 43f1953c1f2f82112e2f3c608eff9013
+  name: Connect
+  copyright: Scratch
+  tags:
+    - effects
+    - electronic
+    - games
+  sampleCount: 23369
+  rate: 22050
+- id: cd998064472c0b5c0f7431eadc701d44
+  name: Cough1
+  copyright: Scratch
+  tags:
+    - human
+  sampleCount: 30064
+  rate: 44100
+- id: f069d400ac737065afa5a9d0ab61da35
+  name: Cough2
+  copyright: Scratch
+  tags:
+    - human
+  sampleCount: 33224
+  rate: 44100
+- id: 535796d9e3de71fe3322295e7fcf8af6
+  name: Crank
+  copyright: Scratch
+  tags:
+    - effects
+  sampleCount: 100585
+  rate: 22050
+- id: d871ff6f1a54efc8ab4ce324f3bad95c
+  name: Crash Beatbox
+  copyright: Scratch
+  tags: []
+  sampleCount: 53766
+  rate: 44100
+- id: ac3f3c92d12e30dcea05b084f9df2a03
+  name: Crash Cymbal
+  copyright: Scratch
+  tags: []
+  sampleCount: 50440
+  rate: 44100
+- id: eec45ab6821df427b55534599d9d3733
+  name: Crazy Laugh
+  copyright: Scratch
+  tags:
+    - human
+    - cartoon
+    - voice
+  sampleCount: 37593
+  rate: 22050
+- id: 156e99db199dfe7593c73021e7eeaa1f
+  name: Cricket
+  copyright: Scratch
+  tags:
+    - animals
+    - insects
+    - bugs
+  sampleCount: 7346
+  rate: 44100
+- id: 0b8bb08dcb17931d9c779111e0182df5
+  name: Crickets
+  copyright: Scratch
+  tags:
+    - animals
+    - insects
+    - bugs
+    - ambience
+    - background
+  sampleCount: 184320
+  rate: 44100
+- id: b9d025f4a10b550e083a737d05a11474
+  name: Croak
+  copyright: Scratch
+  tags:
+    - animals
+    - frog
+    - toad
+  sampleCount: 7113
+  rate: 22050
+- id: dcf40b30057124cf4d041c19c2268164
+  name: Crowd Gasp
+  copyright: Scratch
+  tags:
+    - voice
+    - human
+  sampleCount: 27433
+  rate: 22050
+- id: 5c7a10e8b60abc234b416ba86e89fc4c
+  name: Crowd Laugh
+  copyright: Scratch
+  tags:
+    - voice
+    - human
+  sampleCount: 92457
+  rate: 22050
+- id: c755b86ae85a0a0f41328ac5fb4c249c
+  name: Crunch
+  copyright: Scratch
+  tags:
+    - effects
+    - electronic
+    - games
+  sampleCount: 5081
+  rate: 22050
+- id: 4d040add9d437a9d0100de8443af17f7
+  name: Cymbal
+  copyright: Scratch
+  tags:
+    - music
+    - percussion
+    - electronic
+  sampleCount: 24385
+  rate: 22050
+- id: 26e24be1c9da175cc755068b9350795b
+  name: Cymbal Crash
+  copyright: Scratch
+  tags:
+    - music
+    - percussion
+  sampleCount: 50438
+  rate: 44100
+- id: 004767091bf24c7104c454d1c9381b59
+  name: Cymbal Echo
+  copyright: Scratch
+  tags:
+    - music
+    - loops
+    - hiphop
+  sampleCount: 88652
+  rate: 44100
+- id: 20399610e2a201f6c52ca477e618f7f2
+  name: D Bass
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 80384
+  rate: 44100
+- id: 183b2192616de4180a5edd4a42fa8326
+  name: D Elec Bass
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 11136
+  rate: 44100
+- id: 3d439363a3dd09f8ad7fd1b07f96e7a7
+  name: D Elec Guitar
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 88200
+  rate: 44100
+- id: e1caed326c8405b2a418afa05497cd0f
+  name: D Elec Piano
+  copyright: Scratch
+  tags:
+    - music
+    - note
+    - piano
+    - keyboard
+  sampleCount: 88200
+  rate: 44100
+- id: 0548123068813b90639395010ecff83b
+  name: D Guitar
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 82240
+  rate: 44100
+- id: 613b7eec1430640b03ef89e7d7ab7108
+  name: D Piano
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 88200
+  rate: 44100
+- id: b5696ce5b8046564939025d30ed61d7b
+  name: D Sax
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 19110
+  rate: 44100
+- id: 729a53d7f857bdd66791b382b295a835
+  name: D Trombone
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 34678
+  rate: 44100
+- id: f7462f59d24bce6fcb12ceaffb1d777c
+  name: D Trumpet
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 25404
+  rate: 44100
+- id: f70fbd0615cb00ae894e6242008e709c
+  name: Dance Around
+  copyright: Scratch
+  tags:
+    - music
+    - electronic
+    - loops
+  sampleCount: 343409
+  rate: 22050
+- id: ef4906da3aa607c4e782bf5161f87580
+  name: Dance Celebrate
+  copyright: Scratch
+  tags:
+    - music
+    - loops
+    - electronic
+  sampleCount: 176785
+  rate: 22050
+- id: 9f323bddf2f7e4993556f6aac1486323
+  name: Dance Chill Out
+  copyright: Scratch
+  tags:
+    - music
+    - electronic
+    - loops
+  sampleCount: 223521
+  rate: 22050
+- id: 1780fee34e515c417d08a00ba503ab22
+  name: Dance Energetic
+  copyright: Scratch
+  tags:
+    - loops
+    - music
+    - electronic
+    - EDM
+  sampleCount: 352800
+  rate: 44100
+- id: bdfb9ef0a1e158a5ade8284da5313c03
+  name: Dance Funky
+  copyright: Scratch
+  tags:
+    - music
+    - electronic
+    - loops
+  sampleCount: 111761
+  rate: 22050
+- id: 5eb28c627ad6141ca0093fd1b73b21d4
+  name: Dance Head Nod
+  copyright: Scratch
+  tags:
+    - music
+    - electronic
+    - loops
+  sampleCount: 124969
+  rate: 22050
+- id: c2496a76c5231f026feb6991d824e94e
+  name: Dance Magic
+  copyright: Scratch
+  tags:
+    - music
+    - electronic
+    - loops
+  sampleCount: 187961
+  rate: 22050
+- id: c023a4b42ddab1cdadd48c44515ec69e
+  name: Dance Sitar
+  copyright: Scratch
+  tags:
+    - loops
+    - music
+    - india
+    - tabla
+  sampleCount: 110745
+  rate: 22050
+- id: da6efcc76362feaac9af9839c9e5167a
+  name: Dance Slow Mo
+  copyright: Scratch
+  tags:
+    - music
+    - electronic
+    - loops
+  sampleCount: 446025
+  rate: 22050
+- id: 7495af6c38c7a53846ac30fa76ef8267
+  name: Dance Snare Beat
+  copyright: Scratch
+  tags:
+    - music
+    - electronic
+    - loops
+  sampleCount: 176785
+  rate: 22050
+- id: b414f222b5da9b70ec8d38295c221013
+  name: Dance Space
+  copyright: Scratch
+  tags:
+    - music
+    - electronic
+    - loops
+  sampleCount: 88393
+  rate: 22050
+- id: 384d7ed6c4a9854b1370997c6aef032a
+  name: Disconnect
+  copyright: Scratch
+  tags:
+    - effects
+    - electronic
+    - games
+  sampleCount: 28449
+  rate: 22050
+- id: 48ab1f52def07fc6b7a25b7da81f7fff
+  name: Dog1
+  copyright: Scratch
+  tags:
+    - animals
+  sampleCount: 7344
+  rate: 44100
+- id: 2c56ff46af006f872850e073841f1e86
+  name: Dog2
+  copyright: Scratch
+  tags:
+    - animals
+  sampleCount: 6336
+  rate: 44100
+- id: 6dc1aaddb71ea8f3591756a41d729b03
+  name: Door Closing
+  copyright: Scratch
+  tags:
+    - effects
+    - home
+  sampleCount: 8129
+  rate: 22050
+- id: c260e5a13fed6b5832ee90c13a63e848
+  name: Door Creak
+  copyright: Scratch
+  tags:
+    - effects
+    - home
+  sampleCount: 217088
+  rate: 44100
+- id: fd55646b924a1c1858966a5a6080e8e8
+  name: Doorbell
+  copyright: Scratch
+  tags:
+    - effects
+    - home
+  sampleCount: 109729
+  rate: 22050
+- id: 3e44ff3ef67d098569068ab5b6a05986
+  name: Drip Drop
+  copyright: Scratch
+  tags:
+    - music
+    - electronic
+    - loops
+  sampleCount: 62993
+  rate: 22050
+- id: 51e947dd36f91c2e950db1661c5bfbd1
+  name: Drive Around
+  copyright: Scratch
+  tags:
+    - music
+    - loops
+    - electronic
+  sampleCount: 88192
+  rate: 44100
+- id: 21070d54dabd4caedb0f4ad91faa24c9
+  name: Drum
+  copyright: Scratch
+  tags:
+    - music
+    - percussion
+    - loops
+    - hiphop
+    - jazz
+  sampleCount: 107697
+  rate: 22050
+- id: 2b0b0971225fc32e838836367904c0a6
+  name: Drum Bass1
+  copyright: Scratch
+  tags: []
+  sampleCount: 13056
+  rate: 44100
+- id: 6f824595f4421f7b7582f9cf6decf833
+  name: Drum Bass2
+  copyright: Scratch
+  tags: []
+  sampleCount: 4065
+  rate: 22050
+- id: 5bea3e412513ceef53285e0dc73ca2ea
+  name: Drum Bass3
+  copyright: Scratch
+  tags: []
+  sampleCount: 17152
+  rate: 44100
+- id: 920702e5ff4a604d6839b924365c9874
+  name: Drum Boing
+  copyright: Scratch
+  tags:
+    - effects
+    - wacky
+    - cartoon
+    - percussion
+  sampleCount: 19305
+  rate: 22050
+- id: 980d887448a7cda7eec1521e5da245ec
+  name: Drum Buzz
+  copyright: Scratch
+  tags:
+    - music
+    - electronic
+    - percussion
+  sampleCount: 22968
+  rate: 44100
+- id: ae549b029fc2e3767d2745cdb39f781c
+  name: Drum Funky
+  copyright: Scratch
+  tags:
+    - music
+    - loops
+    - hiphop
+  sampleCount: 44705
+  rate: 22050
+- id: 7bed016451f0c99d5a69e4b717c1fe14
+  name: Drum Jam
+  copyright: Scratch
+  tags:
+    - music
+    - loops
+    - percussion
+  sampleCount: 88576
+  rate: 44100
+- id: 8d071c2d0e126a9cc40f00e506f2bc73
+  name: Drum Machine
+  copyright: Scratch
+  tags:
+    - music
+    - electronic
+    - loops
+  sampleCount: 106681
+  rate: 22050
+- id: 1c432d60cdf90534ee4bd99b63bc34f3
+  name: Drum Roll
+  copyright: Scratch
+  tags:
+    - wacky
+    - percussion
+  sampleCount: 38609
+  rate: 22050
+- id: 93f027302e4b3536e7574babf835b2fb
+  name: Drum Satellite
+  copyright: Scratch
+  tags:
+    - music
+    - loops
+    - percussion
+  sampleCount: 88192
+  rate: 44100
+- id: 1a7c5e0fab0c91389e5038d95770c97a
+  name: Drum Set1
+  copyright: Scratch
+  tags:
+    - music
+    - percussion
+    - jazz
+    - loops
+  sampleCount: 46737
+  rate: 22050
+- id: 7e137484a3fdedde140eca7eac3a4205
+  name: Drum Set2
+  copyright: Scratch
+  tags:
+    - music
+    - percussion
+    - jazz
+    - loops
+  sampleCount: 37593
+  rate: 22050
+- id: 32a54eb51c74852b378e00ff81a8311e
+  name: Dubstep
+  copyright: Scratch
+  tags:
+    - loops
+    - music
+    - electronic
+    - EDM
+  sampleCount: 151385
+  rate: 22050
+- id: 1e3ba50e6b944da85fda56307ba34970
+  name: Duck
+  copyright: Scratch
+  tags:
+    - animals
+  sampleCount: 11584
+  rate: 44100
+- id: 429720ea0ebc8a33bc3c3631d6ee340b
+  name: Dun Dun Dunnn
+  copyright: Scratch
+  tags:
+    - effects
+    - surprise
+    - wacky
+    - dramatic
+  sampleCount: 64009
+  rate: 22050
+- id: ca516a92ff9c2e3fc08e327f19d78755
+  name: E Bass
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 72320
+  rate: 44100
+- id: 346b99b800f5c2aa904cd3caa2cd445b
+  name: E Elec Bass
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 11382
+  rate: 44100
+- id: 1ef97257d98be9750105a8eb8895115c
+  name: E Elec Guitar
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 88200
+  rate: 44100
+- id: aa19a8c23179b8d39c28970cdc8066d9
+  name: E Elec Piano
+  copyright: Scratch
+  tags:
+    - music
+    - note
+    - piano
+    - keyboard
+  sampleCount: 88200
+  rate: 44100
+- id: c0f725ef8c44546ffbf162e106965ddd
+  name: E Guitar
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 76800
+  rate: 44100
+- id: a73f093224a1f79c2b7f00d5e80a2473
+  name: E Piano
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 88200
+  rate: 44100
+- id: 63626c67039c51b09b6b3ca2d762bf9c
+  name: E Sax
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 14978
+  rate: 44100
+- id: 9e3c809a345001b70d082765d8672a92
+  name: E Trombone
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 33398
+  rate: 44100
+- id: 2192fa056222e51860bb95c0263ca1ed
+  name: E Trumpet
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 9145
+  rate: 22050
+- id: a421fd101c16e858d4dce8dbb618938d
+  name: Eggs
+  copyright: Scratch
+  tags:
+    - music
+    - loops
+  sampleCount: 336297
+  rate: 22050
+- id: e830a80fe7d42a4a30da091044cb1ff1
+  name: Elec Piano A Minor
+  copyright: Scratch
+  tags:
+    - music
+    - notes
+    - instruments
+  sampleCount: 88200
+  rate: 44100
+- id: a214bd2813633a5fde0a1f307dc1276f
+  name: Elec Piano C Major
+  copyright: Scratch
+  tags:
+    - music
+    - notes
+    - instruments
+  sampleCount: 88200
+  rate: 44100
+- id: 071cf854489b97cde0d653f43b000eaa
+  name: Elec Piano F Major
+  copyright: Scratch
+  tags:
+    - music
+    - notes
+    - instruments
+  sampleCount: 88200
+  rate: 44100
+- id: f6683dce32178323a24323c5e1f93384
+  name: Elec Piano G Major
+  copyright: Scratch
+  tags:
+    - music
+    - notes
+    - instruments
+  sampleCount: 87816
+  rate: 44100
+- id: 4f839a78d133c7752fadf7513f023970
+  name: Elec Piano Loop
+  copyright: Scratch
+  tags:
+    - music
+    - notes
+    - instruments
+    - loops
+  sampleCount: 87688
+  rate: 44100
+- id: cbccc02645e596e954abd098ea3bdfc9
+  name: Emotional Piano
+  copyright: Scratch
+  tags:
+    - loops
+    - music
+    - chill
+    - calm
+  sampleCount: 330180
+  rate: 44100
+- id: e519da29a3c4b6f5d18ca7c8b14f7b60
+  name: Engine
+  copyright: Scratch
+  tags:
+    - effects
+    - transportation
+  sampleCount: 172721
+  rate: 22050
+- id: 6fe8d20143cb2e7365739a71a7d3c2e3
+  name: F Bass
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 68736
+  rate: 44100
+- id: b663f0245d189841aa81aa38121e9de7
+  name: F Elec Bass
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 10624
+  rate: 44100
+- id: 61d0fd1de8df86bbfe63b1248226624a
+  name: F Elec Guitar
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 88200
+  rate: 44100
+- id: 4f609ee9b2abc151ff4f761d1d52e6a2
+  name: F Elec Piano
+  copyright: Scratch
+  tags:
+    - music
+    - note
+    - piano
+    - keyboard
+  sampleCount: 88200
+  rate: 44100
+- id: 4f9d3d15f17fce9cec5952efae848353
+  name: F Guitar
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 72832
+  rate: 44100
+- id: a60e8d5200036a0a9634862673df5e94
+  name: F Major Ukulele
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+    - chords
+  sampleCount: 36470
+  rate: 44100
+- id: 8f38d2a9c1d91f87d9853ed3c299a2de
+  name: F Piano
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 88200
+  rate: 44100
+- id: f3dceb8ccc881f8d65fb9b7d524e7e94
+  name: F Sax
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 8129
+  rate: 22050
+- id: b13541b10bd9d49148a76101bc1f666f
+  name: F Trombone
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 38746
+  rate: 44100
+- id: c0be73c2d249407cf60cdc19fc8bf70e
+  name: F Trumpet
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 25532
+  rate: 44100
+- id: f909954f33f99a1b171b9d5f9c40a9b5
+  name: Fairydust
+  copyright: Scratch
+  tags: []
+  sampleCount: 22494
+  rate: 44100
+- id: 6f6ab55b8b8ccd2953b133cae095a049
+  name: Finger Snap
+  copyright: Scratch
+  tags:
+    - effects
+    - percussion
+    - human
+  sampleCount: 7940
+  rate: 44100
+- id: da5fd921102bea45936d604b1938feac
+  name: Flam Snare
+  copyright: Scratch
+  tags: []
+  sampleCount: 8832
+  rate: 44100
+- id: ad7e02c7063c73465aad54c58a56a79f
+  name: Footsteps
+  copyright: Scratch
+  tags:
+    - effects
+    - human
+  sampleCount: 235520
+  rate: 44100
+- id: 7c870e188e07a71805c729cb881e3643
+  name: G Bass
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 61952
+  rate: 44100
+- id: 97651dfa953dfe6e994158611bb1e4c4
+  name: G Elec Bass
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 11136
+  rate: 44100
+- id: 4c6e36af2d777c8e96c96938df6f11b0
+  name: G Elec Guitar
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 88200
+  rate: 44100
+- id: 398c0db7fbbc0cf004495e55b6a0e212
+  name: G Elec Piano
+  copyright: Scratch
+  tags:
+    - music
+    - note
+    - piano
+    - keyboard
+  sampleCount: 88200
+  rate: 44100
+- id: 0c33e2fdb67158e0495dc1d37dab926d
+  name: G Guitar
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 67200
+  rate: 44100
+- id: c56789116a2236df7066986b1c67d8d8
+  name: G Piano
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 88200
+  rate: 44100
+- id: 2478fdf8546b32214874619a4cc316d0
+  name: G Sax
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 8129
+  rate: 22050
+- id: 7341496c933a1dd8ca5a1c68d6d03061
+  name: G Trombone
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 34358
+  rate: 44100
+- id: 1f8b2b70fc8390c48fcdf5d4fe181eff
+  name: G Trumpet
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+  sampleCount: 29280
+  rate: 44100
+- id: 0c08f0a2447469e37dabd419541e8760
+  name: G Ukulele
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - notes
+    - chords
+  sampleCount: 36470
+  rate: 44100
+- id: d2c0f61fe49ce65e9c6edf11e7bc9e1d
+  name: Gallop
+  copyright: Scratch
+  tags:
+    - animals
+    - horse
+  sampleCount: 36577
+  rate: 22050
+- id: c2dbe064da94ec8947f66c6e7abd1223
+  name: Garden
+  copyright: Scratch
+  tags:
+    - music
+    - loops
+  sampleCount: 371857
+  rate: 22050
+- id: 24d8ce7e99920832751287b4c012e72e
+  name: Glass Breaking
+  copyright: Scratch
+  tags:
+    - effects
+  sampleCount: 52833
+  rate: 22050
+- id: 14b211c0cdc49b2fce2d4e62e22c2997
+  name: Glug
+  copyright: Scratch
+  tags:
+    - effects
+    - potion
+    - drink
+    - water
+  sampleCount: 12193
+  rate: 22050
+- id: 2c00e9fb7cf97afd2bb5344130cf865c
+  name: Goal Cheer
+  copyright: Scratch
+  tags:
+    - sports
+    - human
+    - voice
+  sampleCount: 84329
+  rate: 22050
+- id: 5b26412f98ed091c943289f953f68c02
+  name: Gong
+  copyright: Scratch
+  tags:
+    - music
+    - percussion
+  sampleCount: 457728
+  rate: 44100
+- id: 5aec15fe2ef2c62f899697ec0af6ca58
+  name: Goose
+  copyright: Scratch
+  tags:
+    - animals
+    - birds
+  sampleCount: 16416
+  rate: 44100
+- id: 995e564a929375bee860d5b0935c5cd8
+  name: Growl
+  copyright: Scratch
+  tags:
+    - animals
+    - dog
+  sampleCount: 19305
+  rate: 22050
+- id: 3bbeb78182d0aabba42bbd55020a5809
+  name: Grunt
+  copyright: Scratch
+  tags:
+    - animals
+    - buffalo
+  sampleCount: 21337
+  rate: 22050
+- id: 458c54ed3c8da4af0a3e09e017856340
+  name: Guitar Chords1
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - loops
+  sampleCount: 123953
+  rate: 22050
+- id: 6875876b8d03cd758788e5220ef995bc
+  name: Guitar Chords2
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - loops
+  sampleCount: 159513
+  rate: 22050
+- id: b64ca51ea03cfb272e234696da5ded11
+  name: Guitar Strum
+  copyright: Scratch
+  tags:
+    - music
+    - instruments
+    - chords
+  sampleCount: 100864
+  rate: 44100
+- id: 10c33f3039494843b18ec91a478bb333
+  name: Hand Clap
+  copyright: Scratch
+  tags:
+    - human
+    - percussion
+  sampleCount: 4928
+  rate: 44100
+- id: 12fed4c01441fd972ff97dd7c7eef2e7
+  name: Head Shake
+  copyright: Scratch
+  tags:
+    - effects
+    - wacky
+    - cartoon
+  sampleCount: 20321
+  rate: 22050
+- id: 40657c6b83964d158588eab0462b347c
+  name: Hey
+  copyright: Scratch
+  tags:
+    - human
+    - voice
+  sampleCount: 6097
+  rate: 22050
+- id: bfd9acbd236ff16193c9f3057aeedf4f
+  name: Hi Beatbox
+  copyright: Scratch
+  tags: []
+  sampleCount: 11712
+  rate: 44100
+- id: b82aef5e3689a718438d43ff4cd43827
+  name: Hi Na Tabla
+  copyright: Scratch
+  tags:
+    - drums
+    - instrument
+    - percussion
+  sampleCount: 8192
+  rate: 44100
+- id: 9da904f4ef897519393ccb86aa1797d2
+  name: Hi Tun Tabla
+  copyright: Scratch
+  tags:
+    - drums
+    - instrument
+    - percussion
+  sampleCount: 37312
+  rate: 44100
+- id: b89d4916f225e38262ad2cf1ea5ba3cc
+  name: High Conga
+  copyright: Scratch
+  tags:
+    - drums
+    - instrument
+    - percussion
+  sampleCount: 16384
+  rate: 44100
+- id: 0fc4fcc59eda9d53f0ee5f93f0889507
+  name: High Hat
+  copyright: Scratch
+  tags:
+    - music
+    - percussion
+    - drums
+  sampleCount: 3049
+  rate: 22050
+- id: 11b35cd4be1bc07c7719103fdac280b1
+  name: High Tom
+  copyright: Scratch
+  tags: []
+  sampleCount: 24640
+  rate: 44100
+- id: 5255f6d2ec43b6761f353d7d06e0377b
+  name: High Whoosh
+  copyright: Scratch
+  tags:
+    - effects
+    - games
+  sampleCount: 7113
+  rate: 22050
+- id: bfd9acbd236ff16193c9f3057aeedf4f
+  name: Hihat Beatbox
+  copyright: Scratch
+  tags:
+    - human
+    - percussion
+    - music
+    - hiphop
+  sampleCount: 11712
+  rate: 44100
+- id: e9916c7fd1fe74abb9c6890da49d73f7
+  name: Hihat Cymbal
+  copyright: Scratch
+  tags: []
+  sampleCount: 5504
+  rate: 44100
+- id: 25a258f442e2cfe098c0bf77d5d9333c
+  name: Hip Hop
+  copyright: Scratch
+  tags:
+    - music
+    - loops
+    - hiphop
+  sampleCount: 109729
+  rate: 22050
+- id: f8303ea3771af6224a67b397e788c9dd
+  name: Horse
+  copyright: Scratch
+  tags:
+    - animals
+    - effects
+  sampleCount: 57856
+  rate: 44100
+- id: f2926d0a312cc78cc24d20b2a3d5eccc
+  name: Horse Gallop
+  copyright: Scratch
+  tags: []
+  sampleCount: 153344
+  rate: 44100
+- id: 970f8700b40abd12ce0788bc72e72a28
+  name: Human Beatbox1
+  copyright: Scratch
+  tags:
+    - human
+    - percussion
+    - music
+    - hiphop
+    - loops
+  sampleCount: 103633
+  rate: 22050
+- id: 54711a7a5529d02f08c3514d3304cca1
+  name: Human Beatbox2
+  copyright: Scratch
+  tags:
+    - human
+    - percussion
+    - music
+    - hiphop
+    - loops
+  sampleCount: 62993
+  rate: 22050
+- id: b7b76a22311975122ee4e93cc2935d7f
+  name: Jump
+  copyright: Scratch
+  tags:
+    - effects
+    - electronic
+    - games
+  sampleCount: 7113
+  rate: 22050
+- id: 5a979ff6556f00d94d380120e7191ba5
+  name: Jungle
+  copyright: Scratch
+  tags:
+    - music
+    - electronic
+    - loops
+  sampleCount: 76201
+  rate: 22050
+- id: d6bf9b9a2847b288588c9a83270f15de
+  name: Jungle Frogs
+  copyright: Scratch
+  tags:
+    - animals
+    - background
+    - crickets
+    - ambience
+  sampleCount: 291593
+  rate: 22050
+- id: d3777ef1be1013c285090a2f268ed5f3
+  name: Kick Back
+  copyright: Scratch
+  tags:
+    - music
+    - loops
+    - hiphop
+  sampleCount: 44705
+  rate: 22050
+- id: 6f824595f4421f7b7582f9cf6decf833
+  name: Kick Drum
+  copyright: Scratch
+  tags:
+    - music
+    - percussion
+    - hiphop
+  sampleCount: 4065
+  rate: 22050
+- id: 51660c3e5e4fcb562028c4285b9520ba
+  name: Large Cowbell
+  copyright: Scratch
+  tags:
+    - music
+    - percussion
+    - drums
+  sampleCount: 21337
+  rate: 22050
+- id: 2f316097df2e30cfebfab5abc560c450
+  name: Laser1
+  copyright: Scratch
+  tags: []
+  sampleCount: 2064
+  rate: 44100
+- id: 6be285c13e8ebdf96c1c740e05de6c2e
+  name: Laser2
+  copyright: Scratch
+  tags: []
+  sampleCount: 3020
+  rate: 44100
+- id: 381bf72ec20a4cd87917ebac25ce3072
+  name: Laugh1
+  copyright: Scratch
+  tags:
+    - human
+    - voice
+  sampleCount: 54188
+  rate: 44100
+- id: 039eacf83b5e85be7e05edfc71789d4b
+  name: Laugh2
+  copyright: Scratch
+  tags:
+    - human
+    - voice
+  sampleCount: 58648
+  rate: 44100
+- id: 6e6550f8ce7f344154ffdb25da2e27bf
+  name: Laugh3
+  copyright: Scratch
+  tags:
+    - human
+    - voice
+  sampleCount: 128260
+  rate: 44100
+- id: 6e4972a622df417229d2d40c40f7ccc0
+  name: Lo Geh Tabla
+  copyright: Scratch
+  tags:
+    - drums
+    - instrument
+    - percussion
+  sampleCount: 61568
+  rate: 44100
+- id: 8e43ccbf94fc010433cbca9b50480e88
+  name: Lo Gliss Tabla
+  copyright: Scratch
+  tags:
+    - drums
+    - instrument
+    - percussion
+  sampleCount: 14016
+  rate: 44100
+- id: 7d9781ef58304fe67d96240a3148c55b
+  name: Lose
+  copyright: Scratch
+  tags:
+    - effects
+    - electronic
+    - games
+  sampleCount: 82297
+  rate: 22050
+- id: 8f003b5218f54df04e61eca8def16dbd
+  name: Low Boing
+  copyright: Scratch
+  tags:
+    - effects
+  sampleCount: 17273
+  rate: 22050
+- id: 1377c5eb6052b1d2311b16829db845c1
+  name: Low Conga
+  copyright: Scratch
+  tags:
+    - drums
+    - instrument
+    - percussion
+  sampleCount: 16768
+  rate: 44100
+- id: 5bac57fbeb938b3ba96f843da9c04a83
+  name: Low Squeak
+  copyright: Scratch
+  tags:
+    - effects
+  sampleCount: 17273
+  rate: 22050
+- id: 9f12cf795217e289ceb04f463d6c32e6
+  name: Low Tom
+  copyright: Scratch
+  tags: []
+  sampleCount: 40000
+  rate: 44100
+- id: f7ce992e5dbdfca7ecca814301c3421c
+  name: Low Whoosh
+  copyright: Scratch
+  tags:
+    - effects
+    - games
+  sampleCount: 12193
+  rate: 22050
+- id: 464743d50507ce593aaae1987bfafdbc
+  name: Machine
+  copyright: Scratch
+  tags:
+    - effects
+  sampleCount: 11177
+  rate: 22050
+- id: 23314d1f341324104ac9929414ec70d4
+  name: Magic Spell
+  copyright: Scratch
+  tags:
+    - effects
+    - fantasy
+  sampleCount: 43689
+  rate: 22050
+- id: 552b09b420b7b8600c62eebdadfa863a
+  name: Medieval1
+  copyright: Scratch
+  tags:
+    - music
+    - loops
+    - fantasy
+  sampleCount: 213361
+  rate: 22050
+- id: 426fde5f923cf968fab1a88887fbc721
+  name: Medieval2
+  copyright: Scratch
+  tags:
+    - music
+    - loops
+    - fantasy
+  sampleCount: 324105
+  rate: 22050
+- id: 2b7ee0d74d1c2843de2f25e52922927d
+  name: Meow
+  copyright: Scratch
+  tags:
+    - animals
+    - cat
+  sampleCount: 37376
+  rate: 44100
+- id: 6b81c0ecf63cb52ffa00b1f2f677c9a7
+  name: Meow2
+  copyright: Scratch
+  tags:
+    - animals
+    - cat
+  sampleCount: 26048
+  rate: 44100
+- id: e245f8422b5f3b35f14ffa3504e552ca
+  name: Moo
+  copyright: Scratch
+  tags:
+    - animals
+    - cow
+  sampleCount: 27433
+  rate: 22050
+- id: e318bf0e9a9d24c9da2241faf981a0aa
+  name: Motorcycle Passing
+  copyright: Scratch
+  tags:
+    - transportation
+    - ambience
+    - background
+  sampleCount: 344064
+  rate: 44100
+- id: e10f7b08e85d9ac6133fa8b0f07283bf
+  name: Movie 1
+  copyright: Scratch
+  tags:
+    - loops
+    - music
+    - cinematic
+  sampleCount: 441000
+  rate: 44100
+- id: b9f2086616bf04cf4990af6b7e0d87e1
+  name: Movie 2
+  copyright: Scratch
+  tags:
+    - loops
+    - music
+    - cinematic
+  sampleCount: 151385
+  rate: 22050
+- id: e3c0de3c0c995623775503974bd70fe6
+  name: Muted Conga
+  copyright: Scratch
+  tags:
+    - drums
+    - instrument
+    - percussion
+  sampleCount: 9088
+  rate: 44100
+- id: e414a4fb4532e319a22e0057ea1479c1
+  name: Mystery
+  copyright: Scratch
+  tags:
+    - loops
+    - music
+    - cinematic
+  sampleCount: 94489
+  rate: 22050
+- id: 2a524cb0de7db7f467b631126ee2ebd3
+  name: Ocean Wave
+  copyright: Scratch
+  tags:
+    - effects
+    - water
+    - underwater
+  sampleCount: 99569
+  rate: 22050
+- id: e90e64bb5e239695a199b447472eea2b
+  name: Odesong
+  copyright: Scratch
+  tags:
+    - music
+    - loops
+    - electronic
+  sampleCount: 212345
+  rate: 22050
+- id: 7a68e6558143c8cf5882ded720eb4c3c
+  name: Oops
+  copyright: Scratch
+  tags:
+    - effects
+    - electronic
+    - games
+  sampleCount: 31497
+  rate: 22050
+- id: b505e2d4f288922afdb5df8328167b44
+  name: Orchestra Tuning
+  copyright: Scratch
+  tags:
+    - effects
+    - ambience
+    - background
+    - music
+  sampleCount: 222505
+  rate: 22050
+- id: 3841ce31ccdc08ecf64d87b441df2ced
+  name: Owl
+  copyright: Scratch
+  tags: []
+  sampleCount: 32444
+  rate: 44100
+- id: 5de7211363238612c6b86792784b2b8a
+  name: Party Noise
+  copyright: Scratch
+  tags:
+    - human
+    - voice
+    - ambience
+    - background
+  sampleCount: 178688
+  rate: 44100
+- id: 4dd26945d76262a1377e31b7a3cf6304
+  name: Pew
+  copyright: Scratch
+  tags:
+    - effects
+    - electronic
+    - games
+  sampleCount: 6097
+  rate: 22050
+- id: 46f7d02f5ffcfa14bc79c4a2ddc03b9b
+  name: Ping Pong Hit
+  copyright: Scratch
+  tags:
+    - sports
+  sampleCount: 11177
+  rate: 22050
+- id: e30e36adfc5374644413ec5b25dc614d
+  name: Pluck
+  copyright: Scratch
+  tags:
+    - effects
+    - wacky
+    - cartoon
+  sampleCount: 7113
+  rate: 22050
+- id: 018fb12edbef0e775061e8cd003de672
+  name: Plunge
+  copyright: Scratch
+  tags:
+    - effects
+    - water
+    - splash
+  sampleCount: 89600
+  rate: 44100
+- id: dbcca4a7e918aecc91c0461d684e946d
+  name: Police Siren
+  copyright: Scratch
+  tags:
+    - effects
+  sampleCount: 9145
+  rate: 22050
+- id: 9040751e873c9c8599d788eeb79f57a3
+  name: Pop
+  copyright: Scratch
+  tags: []
+  sampleCount: 1032
+  rate: 44100
+- id: 8ce985e79153199a6d93d46c18dcbcc2
+  name: Rain
+  copyright: Scratch
+  tags:
+    - ambience
+    - background
+    - weather
+    - water
+  sampleCount: 220473
+  rate: 22050
+- id: b92df87717e19014d337c1680179c5a2
+  name: Rattle
+  copyright: Scratch
+  tags: []
+  sampleCount: 26368
+  rate: 44100
+- id: f3cf77210c12bf86020214791fed2616
+  name: Referee Whistle
+  copyright: Scratch
+  tags:
+    - sports
+  sampleCount: 14225
+  rate: 22050
+- id: b515e43f942d3a185a57303e8fd28144
+  name: Reggae
+  copyright: Scratch
+  tags:
+    - loops
+    - music
+  sampleCount: 346046
+  rate: 44100
+- id: 3e41df5fe6168b25ade4ee10f60f3990
+  name: Ricochet
+  copyright: Scratch
+  tags:
+    - effects
+    - wacky
+  sampleCount: 24385
+  rate: 22050
+- id: c2669710c76227626268ee176d895757
+  name: Ride Cymbal
+  copyright: Scratch
+  tags:
+    - music
+    - percussion
+    - drums
+  sampleCount: 32576
+  rate: 44100
+- id: d2af43c38ca7f699588ceea78dd2601e
+  name: Ring Tone
+  copyright: Scratch
+  tags:
+    - effects
+    - home
+  sampleCount: 71121
+  rate: 22050
+- id: 69edf5545f2f33b4b0d811ac156cafe4
+  name: Rip
+  copyright: Scratch
+  tags:
+    - effects
+    - games
+  sampleCount: 12193
+  rate: 22050
+- id: b4cc692d3b25bbecfd881fe760898467
+  name: Ripples
+  copyright: Scratch
+  tags:
+    - effects
+    - water
+  sampleCount: 86016
+  rate: 44100
+- id: 760fa1360e442b72dfd5e75fa287623e
+  name: Roll Cymbal
+  copyright: Scratch
+  tags: []
+  sampleCount: 52864
+  rate: 44100
+- id: a524b98872fc528409548744b0eb2e86
+  name: Rooster
+  copyright: Scratch
+  tags: []
+  sampleCount: 68440
+  rate: 44100
+- id: 233f574a9aa787e19140610b2afb27e6
+  name: Scrambling Feet
+  copyright: Scratch
+  tags:
+    - wacky
+    - effects
+    - cartoon
+  sampleCount: 36577
+  rate: 22050
+- id: e275bf803610ee9632e744e4b87f3017
+  name: Scratch Beatbox
+  copyright: Scratch
+  tags: []
+  sampleCount: 23104
+  rate: 44100
+- id: e9e29e2023e4f2feea1f6c6d65d1fdfd
+  name: Scratchy Beat
+  copyright: Scratch
+  tags:
+    - music
+    - loops
+    - hiphop
+  sampleCount: 88192
+  rate: 44100
+- id: 4c752c8a48b34311f3365f5bcacd7adb
+  name: Scream1
+  copyright: Scratch
+  tags:
+    - human
+    - voice
+  sampleCount: 26512
+  rate: 44100
+- id: 01c49d738175d97657faba8fa05d6876
+  name: Scream2
+  copyright: Scratch
+  tags:
+    - human
+    - voice
+  sampleCount: 34020
+  rate: 44100
+- id: 09743cb73ba9d17a84a80fcee92394bb
+  name: Screech
+  copyright: Scratch
+  tags:
+    - animals
+    - monkey
+  sampleCount: 13209
+  rate: 22050
+- id: 57dcdd9140050116197f5c57ace9dca0
+  name: Seagulls
+  copyright: Scratch
+  tags:
+    - animals
+    - bird
+  sampleCount: 65025
+  rate: 22050
+- id: 5c28c3213f946183ebd428da590214bb
+  name: Sewing Machine
+  copyright: Scratch
+  tags:
+    - effects
+    - home
+  sampleCount: 108713
+  rate: 22050
+- id: 374b6013f735ffb771e2d527263a869d
+  name: Shaker
+  copyright: Scratch
+  tags:
+    - music
+    - percussion
+  sampleCount: 74240
+  rate: 44100
+- id: 7ed9a4b0f4014a3fc4c2bd9811878054
+  name: Ship Bell
+  copyright: Scratch
+  tags:
+    - effects
+    - transportation
+  sampleCount: 79249
+  rate: 22050
+- id: 8e24e6da99528ef75a2944e5b03c8f43
+  name: Sidestick Snare
+  copyright: Scratch
+  tags: []
+  sampleCount: 4672
+  rate: 44100
+- id: ae8d3302378ff81f4c0e4dbf2202fddf
+  name: Singer1
+  copyright: Scratch
+  tags:
+    - human
+    - voice
+    - vocals
+    - music
+  sampleCount: 94612
+  rate: 44100
+- id: dfa405d3dae22ce265ac8f4511cef996
+  name: Singer2
+  copyright: Scratch
+  tags:
+    - human
+    - voice
+    - vocals
+    - music
+  sampleCount: 114544
+  rate: 44100
+- id: 3a964671d61798502847b0ecc34b6c75
+  name: Siren Whistle
+  copyright: Scratch
+  tags:
+    - wacky
+    - effects
+  sampleCount: 21337
+  rate: 22050
+- id: b8959d769633fe6fd64ba7046ec5d5e2
+  name: Skid
+  copyright: Scratch
+  tags:
+    - wacky
+    - cartoon
+    - effects
+    - transportation
+  sampleCount: 24385
+  rate: 22050
+- id: 277efd85eb1f6cd8260ac3aa8fcf1fdf
+  name: Slide Whistle
+  copyright: Scratch
+  tags:
+    - wacky
+    - effects
+    - cartoon
+  sampleCount: 13209
+  rate: 22050
+- id: d792d492895258876b9531d0c43683f8
+  name: Small Cowbell
+  copyright: Scratch
+  tags:
+    - music
+    - percussion
+    - drums
+  sampleCount: 10161
+  rate: 22050
+- id: e12041b25c6e6a0c27fed24abea9a4b6
+  name: Snap
+  copyright: Scratch
+  tags:
+    - music
+    - percussion
+    - drums
+  sampleCount: 30720
+  rate: 44100
+- id: ab84e36e551e99d38d424cc90b6c1db0
+  name: Snare Beatbox
+  copyright: Scratch
+  tags: []
+  sampleCount: 6097
+  rate: 22050
+- id: 2a6c6e0424b8f7edb46c1b1ef021986e
+  name: Snare Beatbox2
+  copyright: Scratch
+  tags: []
+  sampleCount: 9920
+  rate: 44100
+- id: 1e0a65fe59973276c1a34e21063be742
+  name: Snare Drum
+  copyright: Scratch
+  tags:
+    - music
+    - percussion
+    - drums
+  sampleCount: 3049
+  rate: 22050
+- id: 7c2fce8e626bee33ea438e6001b1b6d9
+  name: Sneaker Squeak
+  copyright: Scratch
+  tags:
+    - sports
+    - effects
+  sampleCount: 9145
+  rate: 22050
+- id: 6b02f26794360b7833107a3a7d356b95
+  name: Sneeze1
+  copyright: Scratch
+  tags:
+    - human
+    - voice
+  sampleCount: 47272
+  rate: 44100
+- id: ce16695ed4b291694e342be171e482d5
+  name: Sneeze2
+  copyright: Scratch
+  tags:
+    - voice
+    - human
+  sampleCount: 30436
+  rate: 44100
+- id: 4816747e8cd370d50375f32e552ab592
+  name: Snoring
+  copyright: Scratch
+  tags:
+    - human
+    - wacky
+    - voice
+    - cartoon
+  sampleCount: 104649
+  rate: 22050
+- id: d11d08abfd4bdc6089ab7890facf2431
+  name: Snort
+  copyright: Scratch
+  tags:
+    - animals
+    - horse
+  sampleCount: 17273
+  rate: 22050
+- id: ca37d691a6f9ef91622dc1e477418267
+  name: Space Ambience
+  copyright: Scratch
+  tags:
+    - effects
+    - games
+    - background
+    - space
+  sampleCount: 220473
+  rate: 22050
+- id: ffa6ddbe3d3413255f00d551ac6e5c3d
+  name: Space Flyby
+  copyright: Scratch
+  tags:
+    - effects
+    - games
+    - space
+    - transportation
+  sampleCount: 52833
+  rate: 22050
+- id: e807b2ef220f441f5f7fda7cfc95341b
+  name: Space Noise
+  copyright: Scratch
+  tags:
+    - effects
+    - electronic
+    - games
+    - space
+  sampleCount: 58929
+  rate: 22050
+- id: 1154364d96ec0c74813d22804c3016e8
+  name: Space Ripple
+  copyright: Scratch
+  tags: []
+  sampleCount: 164596
+  rate: 44100
+- id: 35e4b01e2646deb68428a955942dca79
+  name: Spiral
+  copyright: Scratch
+  tags:
+    - space
+    - effects
+    - electronic
+  sampleCount: 114688
+  rate: 44100
+- id: 3b7260b742ba659e1a2233f9cb64245f
+  name: Splash
+  copyright: Scratch
+  tags:
+    - sports
+    - water
+  sampleCount: 46737
+  rate: 22050
+- id: e9d0eb83e071cd5c3d7c5030c9204f33
+  name: Splash Cymbal
+  copyright: Scratch
+  tags: []
+  sampleCount: 19200
+  rate: 44100
+- id: 4200399947e19dd1737c83ee25fb0d7c
+  name: Spooky String
+  copyright: Scratch
+  tags:
+    - effects
+    - dramatic
+  sampleCount: 205504
+  rate: 44100
+- id: 0fb02978e71b303114a1a1019b8d69d0
+  name: Squawk
+  copyright: Scratch
+  tags:
+    - animals
+    - birds
+  sampleCount: 16416
+  rate: 44100
+- id: f2d34aef850b091bbe95f701aa791dad
+  name: Squeaks
+  copyright: Scratch
+  tags:
+    - animals
+    - guinea pig
+  sampleCount: 53849
+  rate: 22050
+- id: 27790ce115347917cb66e14d3616f8b2
+  name: Squeaky Toy
+  copyright: Scratch
+  tags:
+    - wacky
+    - effects
+    - cartoon
+    - horn
+  sampleCount: 10161
+  rate: 22050
+- id: 2f19fe134caa6650a8088465068490cf
+  name: Squish Pop
+  copyright: Scratch
+  tags:
+    - wacky
+    - effects
+    - cartoon
+  sampleCount: 10161
+  rate: 22050
+- id: 7878ec4a31da524591c5a4bc47b9881e
+  name: String Accent
+  copyright: Scratch
+  tags:
+    - effects
+    - music
+  sampleCount: 67584
+  rate: 44100
+- id: 8b5ea19158e800bc082deb6bb27cb7b9
+  name: String Pluck
+  copyright: Scratch
+  tags:
+    - effects
+    - music
+    - instruments
+  sampleCount: 19904
+  rate: 44100
+- id: e096b1f83761953bb4a27029b4e03930
+  name: Suction Cup
+  copyright: Scratch
+  tags:
+    - effects
+  sampleCount: 5081
+  rate: 22050
+- id: 5070fb8f9a2b409799c6a2ecdd2636f0
+  name: Suspense
+  copyright: Scratch
+  tags:
+    - effects
+    - music
+    - dramatic
+  sampleCount: 66636
+  rate: 44100
+- id: f77e2329095526f2376cd0c5d35c2146
+  name: Tada
+  copyright: Scratch
+  tags:
+    - effects
+    - surprise
+    - wacky
+    - dramatic
+  sampleCount: 55881
+  rate: 22050
+- id: ce4db40872f928cec91f0c7bd5461c73
+  name: Tambura
+  copyright: Scratch
+  tags:
+    - effects
+    - music
+    - instruments
+  sampleCount: 89044
+  rate: 44100
+- id: f10e753c939586ed57d613973a582dfb
+  name: Tap Conga
+  copyright: Scratch
+  tags:
+    - drums
+    - instrument
+    - percussion
+  sampleCount: 13760
+  rate: 44100
+- id: d51ac84ab9b89e2b3f4851deb542fc21
+  name: Tap Snare
+  copyright: Scratch
+  tags: []
+  sampleCount: 6592
+  rate: 44100
+- id: 6b027cd37ea22af6e4bea230e491ddd0
+  name: Techno
+  copyright: Scratch
+  tags:
+    - loops
+    - music
+    - electronic
+  sampleCount: 175769
+  rate: 22050
+- id: 5f96dc03461cf85746ab940161e09fa8
+  name: Techno2
+  copyright: Scratch
+  tags:
+    - loops
+    - music
+    - electronic
+  sampleCount: 327153
+  rate: 22050
+- id: 7f97fad015b4367ce1c7ba1f9f7dd0f9
+  name: Telephone Ring
+  copyright: Scratch
+  tags:
+    - effects
+    - home
+  sampleCount: 75185
+  rate: 22050
+- id: 1a068f4b5852ac79aa74ecc1b4a82fc3
+  name: Telephone Ring2
+  copyright: Scratch
+  tags:
+    - effects
+    - home
+  sampleCount: 25401
+  rate: 22050
+- id: 1379107446a3ad74c2da748f739442ab
+  name: Teleport
+  copyright: Scratch
+  tags:
+    - effects
+    - electronic
+    - games
+    - space
+  sampleCount: 110745
+  rate: 22050
+- id: 6ed87eec5711329c3fd1e513331f163d
+  name: Teleport2
+  copyright: Scratch
+  tags:
+    - effects
+    - electronic
+    - games
+    - space
+  sampleCount: 16257
+  rate: 22050
+- id: 22d042b99a329ed1b26b7c6e5ba73227
+  name: Teleport3
+  copyright: Scratch
+  tags:
+    - effects
+    - electronic
+    - games
+    - space
+  sampleCount: 95505
+  rate: 22050
+- id: f6938438de654ea91297b1f4a0255261
+  name: Tennis Hit
+  copyright: Scratch
+  tags:
+    - sports
+    - effects
+  sampleCount: 18289
+  rate: 22050
+- id: 6aaae1838eff68141e0032d25b298a50
+  name: Thunder Storm
+  copyright: Scratch
+  tags:
+    - weather
+    - rain
+    - ambience
+    - background
+    - dramatic
+  sampleCount: 307849
+  rate: 22050
+- id: e5824e02c9f5ac5935b5605eac6e6da3
+  name: Tom Drum
+  copyright: Scratch
+  tags:
+    - percussion
+    - drums
+    - music
+  sampleCount: 36577
+  rate: 22050
+- id: d82af2c0c35527318737ddbe61363d1f
+  name: Toy Honk
+  copyright: Scratch
+  tags:
+    - wacky
+    - effects
+    - transportation
+  sampleCount: 11177
+  rate: 22050
+- id: 0644b617144cdd3288291b2e69bb5fda
+  name: Toy Zing
+  copyright: Scratch
+  tags:
+    - effects
+  sampleCount: 14225
+  rate: 22050
+- id: b5aa6e2638f0fe3a558819fcd2b4f113
+  name: Traffic
+  copyright: Scratch
+  tags:
+    - effects
+    - transportation
+    - ambience
+    - background
+  sampleCount: 142241
+  rate: 22050
+- id: 0c22d96ddba2fca6c9fcd32f48d632f8
+  name: Train Whistle
+  copyright: Scratch
+  tags:
+    - effects
+    - transportation
+  sampleCount: 47753
+  rate: 22050
+- id: c98d872cbea764a37a31f83de67dcdc4
+  name: Trap Beat
+  copyright: Scratch
+  tags:
+    - loops
+    - music
+    - electronic
+    - EDM
+  sampleCount: 294652
+  rate: 44100
+- id: 6561057051d1f81f44890d3bb0a005d9
+  name: Triumph
+  copyright: Scratch
+  tags:
+    - loops
+    - music
+    - dramatic
+    - win
+  sampleCount: 89409
+  rate: 22050
+- id: a6ea111748695afebf0c0ffe41fc7492
+  name: Tropical Birds
+  copyright: Scratch
+  tags:
+    - animals
+    - background
+    - ambience
+  sampleCount: 546609
+  rate: 22050
+- id: 9ebc3dc1dc8792c37167e88968a42494
+  name: Trumpet1
+  copyright: Scratch
+  tags:
+    - notes
+    - music
+    - instruments
+  sampleCount: 103200
+  rate: 44100
+- id: ed04e17b6bf7f061356a26aa59986daa
+  name: Trumpet2
+  copyright: Scratch
+  tags:
+    - notes
+    - music
+    - instruments
+  sampleCount: 93696
+  rate: 44100
+- id: f27437597d842e62697de4b63efd6e40
+  name: Video Game 1
+  copyright: Scratch
+  tags:
+    - loops
+    - music
+    - 8bit
+    - 8-bit
+    - electronic
+  sampleCount: 171705
+  rate: 22050
+- id: 96d5a8b2cd1ea7aca4107b4315df75a1
+  name: Video Game 2
+  copyright: Scratch
+  tags:
+    - loops
+    - music
+    - games
+    - electronic
+  sampleCount: 150369
+  rate: 22050
+- id: 4a8461788c22cf74389da8537bcb824b
+  name: Wah Beatbox
+  copyright: Scratch
+  tags: []
+  sampleCount: 13248
+  rate: 44100
+- id: 5552e269d23de6868d87e1fc0662a995
+  name: Wand
+  copyright: Scratch
+  tags:
+    - effects
+    - fantasy
+  sampleCount: 47753
+  rate: 22050
+- id: 45a12760d54198910e8fad6d27b36bbf
+  name: Water Drop
+  copyright: Scratch
+  tags:
+    - effects
+  sampleCount: 15241
+  rate: 22050
+- id: 6a3f46655fa32bd8135ebfadeedc3e57
+  name: Whinny
+  copyright: Scratch
+  tags:
+    - animals
+    - horse
+  sampleCount: 46737
+  rate: 22050
+- id: 6bb1428b7e74d5b5df16c13bfe4213c1
+  name: Whistle Thump
+  copyright: Scratch
+  tags:
+    - wacky
+    - effects
+    - cartoon
+  sampleCount: 15241
+  rate: 22050
+- id: 050f65684eb842dbff0c9712596b65a4
+  name: Whiz
+  copyright: Scratch
+  tags:
+    - wacky
+    - effects
+    - cartoon
+  sampleCount: 19305
+  rate: 22050
+- id: 7cd3446e181f56e63788e9943684c1e8
+  name: Whoop
+  copyright: Scratch
+  tags:
+    - effects
+    - electronic
+    - space
+  sampleCount: 217600
+  rate: 44100
+- id: 63315a5403400f5dcf8e39d6e7c07dce
+  name: Win
+  copyright: Scratch
+  tags:
+    - effects
+    - electronic
+    - games
+  sampleCount: 45721
+  rate: 22050
+- id: 6137422b3ba233ce8db6e77a7815c627
+  name: Wobble
+  copyright: Scratch
+  tags:
+    - wacky
+    - effects
+    - cartoon
+  sampleCount: 40641
+  rate: 22050
+- id: 1dae7b48f1b368e7a48091f4c10a9232
+  name: Wolf Howl
+  copyright: Scratch
+  tags: []
+  sampleCount: 172032
+  rate: 44100
+- id: 3c2c4883f4d36073c4dfff3da8317fd6
+  name: Wood Tap
+  copyright: Scratch
+  tags:
+    - effects
+  sampleCount: 3049
+  rate: 22050
+- id: f84296e7db9b0e4607bcee27cc4d111d
+  name: Wub Beatbox
+  copyright: Scratch
+  tags: []
+  sampleCount: 14784
+  rate: 44100
+- id: 0dc8b57e7527a4809fd9def30a155370
+  name: Xylo1
+  copyright: Scratch
+  tags:
+    - music
+    - loops
+  sampleCount: 238761
+  rate: 22050
+- id: 4b2ae25a2ae944a8b59475235a5c468f
+  name: Xylo2
+  copyright: Scratch
+  tags:
+    - music
+    - loops
+  sampleCount: 246889
+  rate: 22050
+- id: 3997b37b7fd7166a16ad91e215a4afa3
+  name: Xylo3
+  copyright: Scratch
+  tags:
+    - music
+    - loops
+  sampleCount: 209297
+  rate: 22050
+- id: 40e67e355efeee534912ca982fcc1fa2
+  name: Xylo4
+  copyright: Scratch
+  tags:
+    - music
+    - loops
+  sampleCount: 77217
+  rate: 22050
+- id: 2a2c757ba98eccd3ca363283e16d72d0
+  name: Ya
+  copyright: Scratch
+  tags:
+    - voice
+    - hiphop
+  sampleCount: 22764
+  rate: 44100
+- id: aa6640f017dbb3f717722a315fa98911
+  name: Zip
+  copyright: Scratch
+  tags:
+    - wacky
+    - human
+  sampleCount: 11177
+  rate: 22050
+- id: b3a42262b8cfa326f7311f481fc82401
+  name: Zoop
+  copyright: Scratch
+  tags:
+    - effects
+    - electronic
+    - space
+  sampleCount: 11056
+  rate: 44100

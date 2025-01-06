@@ -1,0 +1,93 @@
+blocks.dataPrompt.forAllTargets: 適用於所有角色
+blocks.dataPrompt.forThisTarget: 僅適用於當前角色
+blocks.dataPrompt.availableToAllTargets: 所有角色都可使用該變量。
+blocks.dataPrompt.listAvailableToAllTargets: 所有角色都可使用該列表。
+
+blocks.myBlockPrompt.warpLabel: 運行時不刷新屏幕
+
+matrix.paintEditor.costumes: 造型
+matrix.paintEditor.backdrops: 背景
+
+matrix.soundEditor.sounds: 聲音
+
+matrix.deletePrompt.title: 刪除「{name}」
+matrix.deletePrompt.label: 確認要刪除這個角色嗎？
+
+matrix.emu.greenFlag: 運行
+matrix.emu.stop: 停止
+matrix.emu.smallStage: 縮小舞臺
+matrix.emu.largeStage: 放大舞臺
+matrix.emu.fullscreen: 全屏模式
+
+matrix.contextMenu.duplicate: 復製
+matrix.contextMenu.export: 導出
+matrix.contextMenu.delete: 刪除
+
+matrix.actionButton.uploadSprite: 上傳角色
+matrix.actionButton.uploadBackdrop: 上傳背景
+matrix.actionButton.uploadError: 上傳「{file}」失敗。
+matrix.actionButton.surprise: 隨機
+matrix.actionButton.paint: 繪製
+matrix.actionButton.sprite: 選擇一個角色
+matrix.actionButton.backdrop: 選擇一個背景
+
+matrix.stageSelector.title: 舞臺
+matrix.stageSelector.backdrops: 背景
+
+matrix.spriteInfo.sprite: 角色
+matrix.spriteInfo.name: 名字
+matrix.spriteInfo.x: x
+matrix.spriteInfo.y: y
+matrix.spriteInfo.display: 顯示
+matrix.spriteInfo.show: 顯示角色
+matrix.spriteInfo.hide: 隱藏角色
+matrix.spriteInfo.size: 大小
+matrix.spriteInfo.direction: 方向
+
+matrix.directionPicker.allAround: 任意旋轉
+matrix.directionPicker.leftRight: 左右翻轉
+matrix.directionPicker.dontRotate: 不旋轉
+
+matrix.libraries.empty: 空空如也！
+matrix.libraries.sprite: 選擇一個角色
+matrix.libraries.costume: 選擇一個造型
+matrix.libraries.backdrop: 選擇一個背景
+matrix.libraries.sound: 選擇一個聲音
+
+matrix.libraries.tags.fantasy: 奇幻
+matrix.libraries.tags.music: 音樂
+matrix.libraries.tags.sports: 運動
+matrix.libraries.tags.outdoors: 室外
+matrix.libraries.tags.indoors: 室內
+matrix.libraries.tags.space: 太空
+matrix.libraries.tags.underwater: 水下
+matrix.libraries.tags.patterns: 圖案
+matrix.libraries.tags.animals: 動物
+matrix.libraries.tags.people: 人物
+matrix.libraries.tags.dance: 舞蹈
+matrix.libraries.tags.food: 食物
+matrix.libraries.tags.fashion: 時尚
+matrix.libraries.tags.letters: 字母
+matrix.libraries.tags.effects: 效果
+matrix.libraries.tags.loops: 可循環
+matrix.libraries.tags.notes: 音符
+matrix.libraries.tags.percussion: 打擊樂器
+matrix.libraries.tags.voice: 人聲
+matrix.libraries.tags.wacky: 古怪
+
+matrix.defaultProject.stageName: 舞臺
+matrix.defaultProject.spriteName: 角色
+matrix.defaultProject.backdropName: 背景
+matrix.defaultProject.costumeName: 造型
+matrix.defaultProject.soundName: 聲音
+
+matrix.blocks.textBubble: '%1 %2'
+matrix.blocks.textBubbleAndWait: '%1 %2 %3 秒'
+matrix.blocks.say: 說出
+matrix.blocks.shout: 喊出
+matrix.blocks.think: 想著
+matrix.blocks.spark: 靈感
+matrix.blocks.stopOther: 該角色的其他腳本
+matrix.blocks.unsupported: 不支持的積木
+
+matrix.tutorials.gettingStarted: 入門
