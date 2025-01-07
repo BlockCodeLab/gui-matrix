@@ -19,5 +19,5 @@ export function getAssetUrl(asset, options) {
     mediaPath = `${copyright.toLowerCase()}-media/`;
   }
 
-  return `./assets/${mediaPath ?? ''}${id ?? asset.id}.${extname}`;
+  return `./${mediaPath ?? ''}${id ?? asset.id}.${extname}`;
 }
