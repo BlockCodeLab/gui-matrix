@@ -5,6 +5,10 @@ blocks.dataPrompt.listAvailableToAllTargets: 所有角色都可使用该列表�
 
 blocks.myBlockPrompt.warpLabel: 运行时不刷新屏幕
 
+arcade.downloadPrompt.flashOutSpace: 设备空间不足。
+
+arcade.alert.downloading: 正在下载…{progress}%
+
 arcade.paintEditor.costumes: 造型
 arcade.paintEditor.backdrops: 背景
 
@@ -125,27 +129,6 @@ arcade.blocks.joystick.x: 摇杆 x 轴
 arcade.blocks.joystick.y: 摇杆 y 轴
 arcade.blocks.sensingOfDistanceto.center: 中心
 arcade.blocks.soundEffects.tempo: 速度
-arcade.blocks.musicMenu.dadadadum: 开场
-arcade.blocks.musicMenu.entertainer: 娱乐
-arcade.blocks.musicMenu.prelude: 前奏
-arcade.blocks.musicMenu.ode: 颂歌
-arcade.blocks.musicMenu.nyan: 初音
-arcade.blocks.musicMenu.ringtone: 铃声
-arcade.blocks.musicMenu.funk: 恐慌
-arcade.blocks.musicMenu.blues: 蓝调
-arcade.blocks.musicMenu.birthday: 生日
-arcade.blocks.musicMenu.wedding: 婚礼
-arcade.blocks.musicMenu.funeral: 葬礼
-arcade.blocks.musicMenu.punchline: 笑点
-arcade.blocks.musicMenu.python: 贪吃蛇
-arcade.blocks.musicMenu.baddy: 坏人
-arcade.blocks.musicMenu.chase: 追逐
-arcade.blocks.musicMenu.baDing: 奖励
-arcade.blocks.musicMenu.wawawawaa: 退场
-arcade.blocks.musicMenu.jumpUp: 跳起来
-arcade.blocks.musicMenu.jumpDown: 跳下去
-arcade.blocks.musicMenu.powerUp: 打开电源
-arcade.blocks.musicMenu.powerDown: 关闭电源
 arcade.blocks.unsupported: 不支持的积木
 
 arcade.tutorials.gettingStarted: 入门

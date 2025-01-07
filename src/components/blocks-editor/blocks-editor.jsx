@@ -48,27 +48,6 @@ export function ArcadeBlocksEditor() {
     SENSING_JOYSTICK_X: translate('arcade.blocks.joystick.x', 'joystick x axis'),
     SENSING_JOYSTICK_Y: translate('arcade.blocks.joystick.y', 'joystick y axis'),
     SOUND_EFFECTS_TEMPO: translate('arcade.blocks.soundEffects.tempo', 'tempo'),
-    SOUND_MENU_DADADADUM: translate('arcade.blocks.musicMenu.dadadadum', 'dadadadum'),
-    SOUND_MENU_ENTERTAINER: translate('arcade.blocks.musicMenu.entertainer', 'entertainer'),
-    SOUND_MENU_PRELUDE: translate('arcade.blocks.musicMenu.prelude', 'prelude'),
-    SOUND_MENU_ODE: translate('arcade.blocks.musicMenu.ode', 'ode'),
-    SOUND_MENU_NYAN: translate('arcade.blocks.musicMenu.nyan', 'nyan'),
-    SOUND_MENU_RINGTONE: translate('arcade.blocks.musicMenu.ringtone', 'ringtone'),
-    SOUND_MENU_FUNK: translate('arcade.blocks.musicMenu.funk', 'funk'),
-    SOUND_MENU_BLUES: translate('arcade.blocks.musicMenu.blues', 'blues'),
-    SOUND_MENU_BIRTHDAY: translate('arcade.blocks.musicMenu.birthday', 'birthday'),
-    SOUND_MENU_WEDDING: translate('arcade.blocks.musicMenu.wedding', 'wedding'),
-    SOUND_MENU_FUNERAL: translate('arcade.blocks.musicMenu.funeral', 'funeral'),
-    SOUND_MENU_PUNCHLINE: translate('arcade.blocks.musicMenu.punchline', 'punchline'),
-    SOUND_MENU_PYTHON: translate('arcade.blocks.musicMenu.python', 'python'),
-    SOUND_MENU_BADDY: translate('arcade.blocks.musicMenu.baddy', 'baddy'),
-    SOUND_MENU_CHASE: translate('arcade.blocks.musicMenu.chase', 'chase'),
-    SOUND_MENU_BA_DING: translate('arcade.blocks.musicMenu.baDing', 'ba ding'),
-    SOUND_MENU_WAWAWAWAA: translate('arcade.blocks.musicMenu.wawawawaa', 'wawawawaa'),
-    SOUND_MENU_JUMP_UP: translate('arcade.blocks.musicMenu.jumpUp', 'jump up'),
-    SOUND_MENU_JUMP_DOWN: translate('arcade.blocks.musicMenu.jumpDown', 'jump down'),
-    SOUND_MENU_POWER_UP: translate('arcade.blocks.musicMenu.powerUp', 'power up'),
-    SOUND_MENU_POWER_DOWN: translate('arcade.blocks.musicMenu.powerDown', 'power down'),
     UNSUPPORTED: translate('arcade.blocks.unsupported', 'unsupported block'),
   };
 
@@ -123,12 +102,12 @@ export function ArcadeBlocksEditor() {
 
   // 为舞台和角色分别预处理编译程序
   const handleDefinitions = useCallback(
-    (emuName, defer, useExtensions, index) => {
+    (genName, defer, usedExtensions, index) => {
       const res = files.value?.[index];
       if (!res) return;
 
       // 模拟器代码
-      if (emuName === emulator.name_) {
+      if (genName === emulator.name_) {
         defer('target_utils', 'const targetUtils = runtime.targetUtils;');
         defer('define_stage', `const stage = runtime.querySelector('#_stage_');`);
         defer('defing_target', `const target = ${index === 0 ? 'stage;' : `runtime.querySelector('#${res.id}');`}`);
@@ -136,7 +115,7 @@ export function ArcadeBlocksEditor() {
       }
 
       // 设备代码
-      if (emuName === generator.name_) {
+      if (genName === generator.name_) {
         defer('import_blocks', 'from scratch import *');
 
         // 根据编辑目标的资源表收集资源导入文件
@@ -178,8 +157,8 @@ export function ArcadeBlocksEditor() {
         defer(`import_images`, imageModules.map((imageName) => `import ${imageName}`).join('\n'));
 
         // 导入使用的扩展
-        for (const id in useExtensions) {
-          for (const extModule of useExtensions[id]) {
+        for (const id in usedExtensions) {
+          for (const extModule of usedExtensions[id]) {
             defer(`import_${id}_${extModule.name}`, `from ${id} import ${extModule.name}`);
           }
         }

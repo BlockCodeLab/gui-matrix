@@ -5,6 +5,10 @@ blocks.dataPrompt.listAvailableToAllTargets: This list will be available to all 
 
 blocks.myBlockPrompt.warpLabel: Run without screen refresh
 
+arcade.downloadPrompt.flashOutSpace: The flash is running out of space.
+
+arcade.alert.downloading: Downloading...{progress}%
+
 arcade.paintEditor.costumes: Costumes
 arcade.paintEditor.backdrops: Backdrops
 
@@ -125,27 +129,6 @@ arcade.blocks.sensingOfDistanceto.center: center
 arcade.blocks.joystick.x: joystick x axis
 arcade.blocks.joystick.y: joystick y axis
 arcade.blocks.soundEffects.tempo: tempo
-arcade.blocks.musicMenu.dadadadum: dadadadum
-arcade.blocks.musicMenu.entertainer: entertainer
-arcade.blocks.musicMenu.prelude: prelude
-arcade.blocks.musicMenu.ode: ode
-arcade.blocks.musicMenu.nyan: nyan
-arcade.blocks.musicMenu.ringtone: ringtone
-arcade.blocks.musicMenu.funk: funk
-arcade.blocks.musicMenu.blues: blues
-arcade.blocks.musicMenu.birthday: birthday
-arcade.blocks.musicMenu.wedding: wedding
-arcade.blocks.musicMenu.funeral: funeral
-arcade.blocks.musicMenu.punchline: punchline
-arcade.blocks.musicMenu.python: python
-arcade.blocks.musicMenu.baddy: baddy
-arcade.blocks.musicMenu.chase: chase
-arcade.blocks.musicMenu.baDing: ba ding
-arcade.blocks.musicMenu.wawawawaa: wawawawaa
-arcade.blocks.musicMenu.jumpUp: jump up
-arcade.blocks.musicMenu.jumpDown: jump down
-arcade.blocks.musicMenu.powerUp: power up
-arcade.blocks.musicMenu.powerDown: power down
 arcade.blocks.unsupported: unsupported block
 
 arcade.tutorials.gettingStarted: Getting Started
