@@ -5,7 +5,6 @@ import { defaultSound } from '../lib/default-sound';
 import './events';
 import './looks';
 import './sensing';
-import './sound';
 import './unsupported';
 import './wifi';
 
@@ -55,6 +54,25 @@ export function buildBlocks(assets, files, fileId, translator) {
   const soundsMenu = assets
     .filter((asset) => asset.type.startsWith('audio/'))
     .map((sound) => [maybeTranslate(sound.name, translator), sound.id]);
+
+  ScratchBlocks.Blocks['event_whenflagclicked'] = {
+    init() {
+      this.jsonInit({
+        message0: ScratchBlocks.Msg.EVENT_WHENFLAGCLICKED,
+        args0: [
+          {
+            type: 'field_image',
+            src: ScratchBlocks.mainWorkspace.options.pathToMedia + 'green-flag.svg',
+            width: 24,
+            height: 24,
+            alt: 'flag',
+          },
+        ],
+        category: ScratchBlocks.Categories.event,
+        extensions: ['colours_event', 'shape_hat'],
+      });
+    },
+  };
 
   ScratchBlocks.Blocks['motion_pointtowards_menu'] = {
     init() {
