@@ -113,7 +113,7 @@ export function MatrixBlocksEditor() {
         dataMonitorClassName={styles.dataMonitor}
         onMakeToolboxXML={handleMakeToolboxXML}
         onDefinitions={handleDefinitions}
-        onExtensionsFilter={() => ['matrix', 'communication', 'data']}
+        onExtensionsFilter={() => ['matrix', ['communication', '!device'], ['data', '!device']]}
       />
 
       {thumbUrl && (
