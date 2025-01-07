@@ -14,7 +14,7 @@ export class ArcadepyGenerator extends MPYGenerator {
       let varName = this.getVariableName(variables[i].getId());
       let varValue = '0';
       if (variables[i].type === ScratchBlocks.LIST_VARIABLE_TYPE) {
-        varName = `${varName}_${ScratchBlocks.LIST_VARIABLE_TYPE}`;
+        varName = `${varName}_ls`;
         varValue = '[]';
       }
       defvars.push(`${varTarget}['${varName}'] = ${varValue}`);
@@ -26,11 +26,15 @@ export class ArcadepyGenerator extends MPYGenerator {
       let varName = this.getVariableName(devVarList[i], ScratchBlocks.Names.DEVELOPER_VARIABLE_TYPE);
       let varValue = '0';
       if (variables[i].type === ScratchBlocks.LIST_VARIABLE_TYPE) {
-        varName = `${varName}_${ScratchBlocks.LIST_VARIABLE_TYPE}`;
+        varName = `${varName}_ls`;
         varValue = '[]';
       }
       defvars.push(`stage.data['${varName}'] = ${varValue}`);
     }
-    return defvars;
+
+    // Declare all of the variables.
+    if (defvars.length) {
+      this.definitions_['variables'] = defvars.join('\n');
+    }
   }
 }
