@@ -1,107 +1,107 @@
-import { useState } from 'preact/hooks';
-import { useLayout, useLocale, useEditor } from '@blockcode/core';
-import { classNames, Text, Spinner, MenuSection, MenuItem } from '@blockcode/ui';
-import {
-  connectESP32Device,
-  disconnectESP32Device,
-  checkESP32Device,
-  writeESP32Flash,
-  connectDevice,
-  checkDevice,
-  eraseAll,
-} from '@blockcode/device-pyboard';
+import { nanoid, classNames } from '@blockcode/utils';
+import { setAlert, delAlert, openPromptModal } from '@blockcode/core';
+import { ESPTool, MPYUtils } from '@blockcode/board';
 import { firmware } from '../../../package.json';
 import deviceFilters from '../../lib/device-filters.yaml';
 
+import { Text, Spinner, MenuSection, MenuItem } from '@blockcode/core';
 import styles from './firmware-section.module.css';
-import firmwareImage1 from './firmware1.jpg';
-import firmwareImage2 from './firmware2.jpg';
-import firmwareImage3 from './firmware3.jpg';
+
+import firmwareImage1 from './images/firmware1.jpg';
+import firmwareImage2 from './images/firmware2.jpg';
+import firmwareImage3 from './images/firmware3.jpg';
 
 let alertId = null;
 
-export default function FirmwareSection({ itemClassName }) {
-  const { createAlert, removeAlert, createPrompt } = useLayout();
-  const { getText } = useLocale();
+const uploadAlert = (progress, isRestore = false) => {
+  if (!alertId) {
+    alertId = nanoid();
+  }
+  if (progress < 100) {
+    setAlert({
+      id: alertId,
+      icon: <Spinner level="success" />,
+      message: isRestore ? (
+        <Text
+          id="arcade.menu.device.firmwareRestoring"
+          defaultMessage="Firmware restoring...{progress}%"
+          progress={progress}
+        />
+      ) : (
+        <Text
+          id="arcade.menu.device.firmwareUpdating"
+          defaultMessage="Firmware updating...{progress}%"
+          progress={progress}
+        />
+      ),
+    });
+  } else {
+    setAlert({
+      id: alertId,
+      icon: <Spinner level="success" />,
+      message: (
+        <Text
+          id="arcade.menu.device.firmwareRecovering"
+          defaultMessage="Recovering the Arcade..."
+        />
+      ),
+    });
+  }
+};
 
-  const uploadAlert = (progress, isRestore = false) => {
-    if (!alertId) {
-      alertId = `upload_${Date.now()}`;
-    }
-    if (progress < 100) {
-      createAlert({
-        id: alertId,
-        icon: <Spinner level="success" />,
-        message: isRestore ? (
+const closeAlert = () => {
+  delAlert(alertId);
+  alertId = null;
+};
+
+const errorAlert = (err) => {
+  if (err === 'NotFoundError') return;
+  setAlert(
+    {
+      message:
+        err === 'NotFoundError' ? (
           <Text
-            id="arcade.menu.device.firmwareRestoring"
-            defaultMessage="Firmware restoring...{progress}%"
-            progress={progress}
+            id="blocks.alert.connectionCancel"
+            defaultMessage="Connection cancel."
           />
         ) : (
           <Text
-            id="arcade.menu.device.firmwareUpdating"
-            defaultMessage="Firmware updating...{progress}%"
-            progress={progress}
+            id="blocks.alert.connectionError"
+            defaultMessage="Connection error."
           />
         ),
-      });
-    } else {
-      createAlert({
-        id: alertId,
-        icon: <Spinner level="success" />,
-        message: (
-          <Text
-            id="arcade.menu.device.firmwareRecovering"
-            defaultMessage="Recovering the Arcade..."
-          />
-        ),
-      });
-    }
-  };
+    },
+    1000,
+  );
+};
 
-  const closeAlert = () => {
-    removeAlert(alertId);
-    alertId = null;
-  };
-
-  const errorAlert = (err) => {
-    if (err === 'NotFoundError') return;
-    createAlert(
-      {
-        message:
-          err === 'NotFoundError' ? (
-            <Text
-              id="blocks.alert.connectionCancel"
-              defaultMessage="Connection cancel."
-            />
-          ) : (
-            <Text
-              id="blocks.alert.connectionError"
-              defaultMessage="Connection error."
-            />
-          ),
-      },
-      1000,
-    );
-  };
-
+export function FirmwareSection({ itemClassName }) {
   const handleUploadFirmware = (isRestore = false) => {
     if (alertId) return;
 
-    createPrompt({
-      title: isRestore
-        ? getText('arcade.menu.device.restore', 'Restore firmware')
-        : getText('arcade.menu.device.update', 'Upload firmware'),
-      label: isRestore
-        ? getText(
-            'arcade.menu.device.firmwareRestoreLabal',
-            'Ready to resotre your firmware? After restoration, all projects in the Arcade will be erased. Follow the steps below to prepare your Arcade.',
-          )
-        : getText(
-            'arcade.menu.device.firmwareUpdateLabal',
-            'Ready to update your firmware? Follow the steps below to prepare your Arcade.',
-          ),
+    openPromptModal({
+      title: isRestore ? (
+        <Text
+          id="arcade.menu.device.restore"
+          defaultMessage="Restore firmware"
+        />
+      ) : (
+        <Text
+          id="arcade.menu.device.update"
+          defaultMessage="Upload firmware"
+        />
+      ),
+      label: isRestore ? (
+        <Text
+          id="arcade.menu.device.firmwareRestoreLabal"
+          defaultMessage="Ready to resotre your firmware? After restoration, all projects in the Arcade will be erased. Follow the steps below to prepare your Arcade."
+        />
+      ) : (
+        <Text
+          id="arcade.menu.device.firmwareUpdateLabal"
+          defaultMessage="Ready to update your firmware? Follow the steps below to prepare your Arcade."
+        />
+      ),
       body: (
         <div className={classNames(styles.tipsRom, styles.tipsCol3)}>
           <div className={styles.tipItem}>
@@ -145,13 +145,13 @@ export default function FirmwareSection({ itemClassName }) {
       onSubmit: async () => {
         let esploader;
         try {
-          esploader = await connectESP32Device(deviceFilters);
+          esploader = await ESPTool.connect(deviceFilters);
         } catch (err) {
           errorAlert(err.name);
         }
         if (!esploader) return;
 
-        const checker = checkESP32Device(esploader).catch(() => {
+        const checker = ESPTool.check(esploader).catch(() => {
           errorAlert();
           closeAlert();
         });
@@ -168,16 +168,21 @@ export default function FirmwareSection({ itemClassName }) {
           reader.addEventListener('load', async (e) => {
             const data = [{ data: e.target.result, address: 0 }];
             if (isRestore) {
-              createAlert({
+              setAlert({
                 id: alertId,
                 icon: <Spinner level="success" />,
-                message: getText('arcade.menu.device.erasing', 'Erasing...'),
+                message: (
+                  <Text
+                    id="arcade.menu.device.erasing"
+                    defaultMessage="Erasing..."
+                  />
+                ),
               });
             }
             try {
               await esploader.main();
-              await writeESP32Flash(esploader, data, isRestore, (val) => uploadAlert(val, isRestore));
-              createAlert({
+              await ESPTool.writeFlash(esploader, data, isRestore, (val) => uploadAlert(val, isRestore));
+              setAlert({
                 id: alertId,
                 icon: null,
                 message: isRestore ? (
@@ -209,7 +214,7 @@ export default function FirmwareSection({ itemClassName }) {
             } finally {
               checker.cancel();
             }
-            await disconnectESP32Device(esploader);
+            await ESPTool.disconnect(esploader);
           });
         });
       },
@@ -219,36 +224,56 @@ export default function FirmwareSection({ itemClassName }) {
   const handleEraseFlash = () => {
     if (alertId) return;
 
-    createPrompt({
-      title: getText('arcade.menu.device.erase', 'Erase Arcade'),
-      label: getText('arcade.menu.device.eraseLabel', 'Do you want to erase all projects in the Arcade?'),
+    openPromptModal({
+      title: (
+        <Text
+          id="arcade.menu.device.erase"
+          defaultMessage="Erase Arcade"
+        />
+      ),
+      label: (
+        <Text
+          id="arcade.menu.device.eraseLabel"
+          defaultMessage="Do you want to erase all projects in the Arcade?"
+        />
+      ),
       onSubmit: async () => {
         let currentDevice;
         try {
-          currentDevice = await connectDevice(deviceFilters);
+          currentDevice = await MPYUtils.connect(deviceFilters);
         } catch (err) {
           errorAlert(err.name);
         }
         if (!currentDevice) return;
 
-        const checker = checkDevice(currentDevice).catch(() => {
+        const checker = MPYUtils.check(currentDevice).catch(() => {
           errorAlert();
           closeAlert();
         });
 
         try {
-          alertId = `erase_${Date.now()}`;
-          createAlert({
+          alertId = nanoid();
+          setAlert({
             id: alertId,
             icon: <Spinner level="success" />,
-            message: getText('arcade.menu.device.erasing', 'Erasing...'),
+            message: (
+              <Text
+                id="arcade.menu.device.erasing"
+                defaultMessage="Erasing..."
+              />
+            ),
           });
-          await eraseAll(currentDevice, ['boot.py', 'lib', 'res', 'io_config.py']);
+          await MPYUtils.eraseAll(currentDevice, ['boot.py', 'lib', 'res', 'io_config.py']);
           currentDevice.hardReset();
-          createAlert({
+          setAlert({
             id: alertId,
             icon: null,
-            message: getText('arcade.menu.device.erased', 'Erase completed.'),
+            message: (
+              <Text
+                id="arcade.menu.device.erased"
+                defaultMessage="Erase completed."
+              />
+            ),
             button: {
               label: (
                 <Text

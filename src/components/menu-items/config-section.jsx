@@ -1,60 +1,72 @@
-import { useLayout, useLocale, useEditor } from '@blockcode/core';
-import { Text, MenuItem } from '@blockcode/ui';
-import { checkDevice, connectDevice, configDevice } from '@blockcode/device-pyboard';
+import { useCallback } from 'preact/hooks';
+import { putEditorConfig, getEditorConfig } from '@blockcode/utils';
+import { useProjectContext, setAlert, openPromptModal } from '@blockcode/core';
+import { MPYUtils } from '@blockcode/board';
 import deviceFilters from '../../lib/device-filters.yaml';
 
-const STORAGE_WIFI_SSID = 'device.wifi.ssid';
-const STORAGE_WIFI_PASSWORD = 'device.wifi.password';
+import { Text, MenuSection, MenuItem } from '@blockcode/core';
 
-export default function WifiItem({ className }) {
-  const { createAlert, createPrompt } = useLayout();
-  const { getText } = useLocale();
+const STORAGE_WIFI_SSID = 'wifi.ssid';
+const STORAGE_WIFI_PASSWORD = 'wifi.password';
 
-  const ssid = localStorage.getItem(STORAGE_WIFI_SSID);
-  const password = localStorage.getItem(STORAGE_WIFI_PASSWORD);
+const errorAlert = (err) => {
+  if (err === 'NotFoundError') return;
+  setAlert('connectionError', 1000);
+};
 
-  const errorAlert = (err) => {
-    if (err === 'NotFoundError') return;
-    createAlert(
-      {
-        message:
-          err === 'NotFoundError' ? (
-            <Text
-              id="blocks.alert.connectionCancel"
-              defaultMessage="Connection cancel."
-            />
-          ) : (
-            <Text
-              id="blocks.alert.connectionError"
-              defaultMessage="Connection error."
-            />
-          ),
-      },
-      1000,
-    );
-  };
+export function ConfigSection({ itemClassName }) {
+  const { meta } = useProjectContext();
 
-  const handleConfigWifi = () => {
-    createPrompt({
-      title: getText('arcade.menu.device.wifi', 'Arcade Wi-Fi config'),
-      label: getText('arcade.menu.device.wifiNamePassword', 'Wi-Fi name and password'),
-      inputMode: [
+  const handleConfigWifi = useCallback(() => {
+    const ssid = getEditorConfig(meta.value.editor, STORAGE_WIFI_SSID) ?? '';
+    const password = getEditorConfig(meta.value.editor, STORAGE_WIFI_PASSWORD) ?? '';
+
+    openPromptModal({
+      title: (
+        <Text
+          id="arcade.menu.device.wifi"
+          defaultMessage="Arcade Wi-Fi config"
+        />
+      ),
+      inputItems: [
         {
           name: 'ssid',
-          placeholder: getText('arcade.menu.device.wifiName', 'Wi-Fi name'),
-          defaultValue: ssid || '',
+          label: (
+            <Text
+              id="arcade.menu.device.wifiName"
+              defaultMessage="Wi-Fi name"
+            />
+          ),
+          placeholder: (
+            <Text
+              id="arcade.menu.device.wifiName"
+              defaultMessage="Wi-Fi name"
+            />
+          ),
+          defaultValue: ssid,
         },
         {
           name: 'password',
-          placeholder: getText('arcade.menu.device.wifiPassword', 'Wi-Fi password'),
-          defaultValue: password || '',
+          label: (
+            <Text
+              id="arcade.menu.device.wifiPassword"
+              defaultMessage="Wi-Fi password"
+            />
+          ),
+          placeholder: (
+            <Text
+              id="arcade.menu.device.wifiPassword"
+              defaultMessage="Wi-Fi password"
+            />
+          ),
+          defaultValue: password,
         },
       ],
       // onClose: () => {
-      //   createAlert(
+      //   setAlert(
       //     {
       //       mode: 'warn',
-      //       message: getText('arcade.menu.device.wifiCancel', 'Deconfigure Wi-Fi.'),
+      //       message: <Text id='arcade.menu.device.wifiCancel', 'Deconfigure Wi-Fi.' />,
       //     },
       //     1500,
       //   );
@@ -63,29 +75,32 @@ export default function WifiItem({ className }) {
         if (wifi) {
           let currentDevice;
           try {
-            currentDevice = await connectDevice(deviceFilters);
+            currentDevice = await MPYUtils.connect(deviceFilters);
           } catch (err) {
             errorAlert(err.name);
           }
           if (!currentDevice) return;
 
-          const checker = checkDevice(currentDevice).catch(() => {
-            errorAlert();
-          });
+          const checker = MPYUtils.check(currentDevice).catch(errorAlert);
 
-          localStorage.setItem(STORAGE_WIFI_SSID, wifi.ssid);
-          localStorage.setItem(STORAGE_WIFI_PASSWORD, wifi.password);
+          putEditorConfig(meta.value.editor, STORAGE_WIFI_SSID, wifi.ssid);
+          putEditorConfig(meta.value.editor, STORAGE_WIFI_PASSWORD, wifi.password);
 
           try {
-            await configDevice(currentDevice, {
+            await MPYUtils.config(currentDevice, {
               'setting-wifi': true,
               'wifi-ssid': wifi.ssid,
               'wifi-password': wifi.password,
             });
             currentDevice.hardReset();
-            createAlert(
+            setAlert(
               {
-                message: getText('arcade.menu.device.wifiOk', 'The Wi-Fi configuration is saved.'),
+                message: (
+                  <Text
+                    id="arcade.menu.device.wifiOk"
+                    defaultMessage="The Wi-Fi configuration is saved."
+                  />
+                ),
               },
               2000,
             );
@@ -97,18 +112,31 @@ export default function WifiItem({ className }) {
         }
       },
     });
-  };
+  }, []);
 
   return (
-    <MenuItem
-      className={className}
-      label={
-        <Text
-          id="arcade.menu.device.wifi"
-          defaultMessage="Arcade Wi-Fi config"
-        />
-      }
-      onClick={handleConfigWifi}
-    />
+    <MenuSection>
+      <MenuItem
+        className={itemClassName}
+        label={
+          <Text
+            id="arcade.menu.device.wifi"
+            defaultMessage="Arcade Wi-Fi config"
+          />
+        }
+        onClick={handleConfigWifi}
+      />
+
+      <MenuItem
+        disabled
+        className={itemClassName}
+        label={
+          <Text
+            id="arcade.menu.device.config"
+            defaultMessage="System config"
+          />
+        }
+      />
+    </MenuSection>
   );
 }

@@ -5,14 +5,18 @@ import { ScratchBlocks, blocksTab, codeReviewTab } from '@blockcode/blocks';
 import { paintTab } from '@blockcode/paint';
 import { soundTab } from '@blockcode/sound';
 
+import { Text } from '@blockcode/core';
 import { CodeReview } from '@blockcode/blocks';
 import { ArcadeBlocksEditor } from './components/blocks-editor/blocks-editor';
+import { DeviceMenu } from './components/menu-items/device-menu';
 import { Sidedock } from './components/sidedock/sidedock';
 import { PaintTabLabel } from './components/tabs/paint-tab-label';
 import { PaintTabContent } from './components/tabs/paint-tab-content';
 import { SoundTabContent } from './components/tabs/sound-tab-content';
 
 import { defaultProject } from './lib/default-project';
+
+import deviceIcon from './components/menu-items/icon-device.svg';
 
 export default {
   onNew() {
@@ -95,6 +99,16 @@ export default {
   menuItems: [
     {
       id: 'file',
+    },
+    {
+      icon: deviceIcon,
+      label: (
+        <Text
+          id="arcade.menu.device"
+          defaultMessage="Arcade"
+        />
+      ),
+      Menu: DeviceMenu,
     },
   ],
 

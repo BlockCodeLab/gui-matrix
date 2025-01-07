@@ -1,8 +1,7 @@
-import { useLayout, useEditor } from '@blockcode/core';
-import { Text, MenuItem } from '@blockcode/ui';
+import { useLayout, useEditor, Text, MenuSection, MenuItem } from '@blockcode/core';
 import sb3Converter from '../../lib/sb3-converter';
 
-export default function ImportSB3Item({ className, openProject }) {
+export default function ImportSB3Item({ itemClassName, openProject }) {
   const { createPrompt } = useLayout();
   const { modified } = useEditor();
 
@@ -42,15 +41,17 @@ export default function ImportSB3Item({ className, openProject }) {
   };
 
   return (
-    <MenuItem
-      className={className}
-      label={
-        <Text
-          id="arcade.menu.file.importSB3"
-          defaultMessage="Import .sb3 file..."
-        />
-      }
-      onClick={handleImport}
-    />
+    <MenuSection>
+      <MenuItem
+        className={itemClassName}
+        label={
+          <Text
+            id="arcade.menu.file.importSB3"
+            defaultMessage="Import .sb3 file..."
+          />
+        }
+        onClick={handleImport}
+      />
+    </MenuSection>
   );
 }

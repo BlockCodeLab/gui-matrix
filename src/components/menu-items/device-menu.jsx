@@ -1,134 +1,139 @@
-import { useLayout, useEditor } from '@blockcode/core';
-import { Text, Spinner, MenuSection, MenuItem } from '@blockcode/ui';
-import { connectDevice, checkDevice, checkFlashFree, writeFiles, configDevice } from '@blockcode/device-pyboard';
+import { nanoid } from '@blockcode/utils';
+import { useProjectContext, setAlert, delAlert, openPromptModal } from '@blockcode/core';
+import { MPYUtils } from '@blockcode/board';
+import { generateMain } from '../../lib/generate-main';
+import { generateAssets } from '../../lib/generate-assets';
+import deviceFilters from '../../lib/device-filters.yaml';
+
+import { Spinner, Text, MenuSection, MenuItem } from '@blockcode/core';
+import { ConfigSection } from './config-section';
+import { FirmwareSection } from './firmware-section';
 
 let downloadAlertId = null;
 
+const removeDownloading = () => {
+  delAlert(downloadAlertId);
+  downloadAlertId = null;
+};
+
+const downloadingAlert = (progress) => {
+  if (!downloadAlertId) {
+    downloadAlertId = nanoid();
+  }
+  if (progress < 100) {
+    setAlert({
+      id: downloadAlertId,
+      icon: <Spinner level="success" />,
+      message: (
+        <Text
+          id="arcade.alert.downloading"
+          defaultMessage="Downloading...{progress}%"
+          progress={progress}
+        />
+      ),
+    });
+  } else {
+    setAlert('downloadCompleted', { id: downloadAlertId });
+    setTimeout(removeDownloading, 2000);
+  }
+};
+
+const errorAlert = (err) => {
+  if (err === 'NotFoundError') return;
+  setAlert('connectionError', 1000);
+};
+
 export function DeviceMenu({ itemClassName }) {
-  const { createAlert, removeAlert, createPrompt } = useLayout();
-  const { key, name, fileList, assetList } = useEditor();
-
-  const downloadingAlert = (progress) => {
-    if (!downloadAlertId) {
-      downloadAlertId = `download.${Date.now()}`;
-    }
-    if (progress < 100) {
-      createAlert({
-        id: downloadAlertId,
-        icon: <Spinner level="success" />,
-        message: (
-          <Text
-            id="blocks.alert.downloading"
-            defaultMessage="Downloading...{progress}%"
-            progress={progress}
-          />
-        ),
-      });
-    } else {
-      createAlert({
-        id: downloadAlertId,
-        icon: null,
-        message: (
-          <Text
-            id="blocks.alert.downloadCompleted"
-            defaultMessage="Download completed."
-          />
-        ),
-      });
-      setTimeout(removeDownloading, 2000);
-    }
-  };
-
-  const removeDownloading = () => {
-    removeAlert(downloadAlertId);
-    downloadAlertId = null;
-  };
-
-  const errorAlert = (err) => {
-    if (err === 'NotFoundError') return;
-    createAlert(
-      {
-        message:
-          err === 'NotFoundError' ? (
-            <Text
-              id="blocks.alert.connectionCancel"
-              defaultMessage="Connection cancel."
-            />
-          ) : (
-            <Text
-              id="blocks.alert.connectionError"
-              defaultMessage="Connection error."
-            />
-          ),
-      },
-      1000,
-    );
-  };
+  const { key, files, assets } = useProjectContext();
 
   return (
-    <MenuSection>
-      <MenuItem
-        disabled={downloadAlertId}
-        className={itemClassName}
-        label={
-          <Text
-            id="blocks.menu.device.download"
-            defaultMessage="Download program"
-          />
-        }
-        onClick={async () => {
-          if (downloadAlertId) return;
-
-          let currentDevice;
-          try {
-            currentDevice = await connectDevice(deviceFilters || []);
-          } catch (err) {
-            errorAlert(err.name);
+    <>
+      <MenuSection>
+        <MenuItem
+          disabled={downloadAlertId}
+          className={itemClassName}
+          label={
+            <Text
+              id="blocks.menu.device.download"
+              defaultMessage="Download program"
+            />
           }
-          if (!currentDevice) return;
+          onClick={async () => {
+            if (downloadAlertId) return;
 
-          const checker = checkDevice(currentDevice).catch(() => {
-            errorAlert();
-            removeDownloading();
-          });
-
-          const files = onBeforeDownload
-            ? onBeforeDownload({ key, name }, fileList, assetList)
-            : [].concat(fileList, assetList);
-          downloadingAlert(0);
-
-          try {
-            if (await checkFlashFree(currentDevice, files)) {
-              await writeFiles(currentDevice, files, downloadingAlert);
-              await configDevice(currentDevice, {
-                'latest-project': key,
-              });
-              currentDevice.hardReset();
-            } else {
-              createPrompt({
-                title: deviceName || (
-                  <Text
-                    id="blocks.menu.device.name"
-                    defaultMessage="device"
-                  />
-                ),
-                label: (
-                  <Text
-                    id="blocks.alert.flashOutSpace"
-                    defaultMessage="The flash is running out of space."
-                  />
-                ),
-              });
-              removeDownloading();
+            let currentDevice;
+            try {
+              currentDevice = await MPYUtils.connect(deviceFilters || []);
+            } catch (err) {
+              errorAlert(err.name);
             }
-          } catch (err) {
-            errorAlert(err.name);
-            removeDownloading();
-          } finally {
-            checker.cancel();
+            if (!currentDevice) return;
+
+            const checker = MPYUtils.check(currentDevice).catch(() => {
+              errorAlert();
+              removeDownloading();
+            });
+
+            const projectFiles = []
+              .concat(generateMain(files.value[0], files.value.slice(1)), ...generateAssets(assets.value))
+              .map((file) => ({
+                ...file,
+                id: file.id.startsWith('lib/')
+                  ? file.id // 扩展的文件不放入项目文件夹
+                  : `proj${key.value}/${file.id}`,
+              }));
+
+            downloadingAlert(0);
+            try {
+              if (await MPYUtils.flashFree(currentDevice, projectFiles)) {
+                await MPYUtils.write(currentDevice, projectFiles, downloadingAlert);
+                await MPYUtils.config(currentDevice, {
+                  'latest-project': key,
+                });
+                currentDevice.hardReset();
+              } else {
+                openPromptModal({
+                  title: (
+                    <Text
+                      id="blocks.menu.device.name"
+                      defaultMessage="device"
+                    />
+                  ),
+                  label: (
+                    <Text
+                      id="blocks.alert.flashOutSpace"
+                      defaultMessage="The flash is running out of space."
+                    />
+                  ),
+                });
+                removeDownloading();
+              }
+            } catch (err) {
+              errorAlert(err.name);
+              removeDownloading();
+            } finally {
+              checker.cancel();
+            }
+          }}
+        />
+      </MenuSection>
+
+      <ConfigSection itemClassName={itemClassName} />
+
+      <FirmwareSection itemClassName={itemClassName} />
+
+      <MenuSection>
+        <MenuItem
+          className={itemClassName}
+          label={
+            <Text
+              id="arcade.menu.device.manual"
+              defaultMessage="Arcade manual"
+            />
           }
-        }}
-      />
-    </MenuSection>
+          onClick={() => window.open('https://arcade.blockcode.fun/')}
+        />
+      </MenuSection>
+    </>
   );
 }
