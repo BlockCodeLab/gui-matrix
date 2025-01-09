@@ -303,10 +303,37 @@ export class TargetUtils extends EventEmitter {
   // 移动到xy
   moveTo(target, x, y) {
     if (!this.running) return;
-    const pos = {
-      x: MathUtils.toNumber(x),
-      y: MathUtils.toNumber(y),
-    };
+
+    const pos = target.position();
+    const xValue = MathUtils.toNumber(x);
+    const yValue = MathUtils.toNumber(y);
+    let dx = xValue - pos.x;
+    let dy = (yValue - pos.y) * this.stage.scaleY();
+
+    // 避免角色移动到舞台外面
+    const clientRect = target.getClientRect();
+    const left = -clientRect.width * 0.8;
+    const right = this.stage.width() - clientRect.width * 0.2;
+    const top = -clientRect.height * 0.8;
+    const bottom = this.stage.height() - clientRect.height * 0.2;
+    const px = clientRect.x + dx;
+    const py = clientRect.y + dy;
+
+    if (px < left) {
+      dx = left - clientRect.x;
+    }
+    if (px > right) {
+      dx = right - clientRect.x;
+    }
+    if (py < top) {
+      dy = top - clientRect.y;
+    }
+    if (py > bottom) {
+      dy = bottom - clientRect.y;
+    }
+    pos.x += Math.round(dx);
+    pos.y += -Math.round(dy);
+
     target.position(pos);
     this._updateDialog(target);
     this.runtime.update(target);
@@ -736,6 +763,8 @@ export class TargetUtils extends EventEmitter {
     }
     if (bubble.scaleX() < 0) {
       text.offsetX(bubble.width());
+    } else {
+      text.offsetX(0);
     }
 
     // 移动对话框
