@@ -8,7 +8,7 @@ import { ArcadeRuntime } from '../../lib/runtime/runtime';
 import { StageConfig, RotationStyle, SpriteDefaultConfig } from './emulator-config';
 
 export function ArcadeEmulator({ runtime, onRuntime }) {
-  const { appState } = useAppContext();
+  const { splashVisible, appState } = useAppContext();
 
   const { files, assets, fileId, modified } = useProjectContext();
 
@@ -48,6 +48,16 @@ export function ArcadeEmulator({ runtime, onRuntime }) {
   // 模拟器编辑模式下更新
   useEffect(async () => {
     if (!runtime) return;
+
+    if (splashVisible.value === true) {
+      runtime.stop();
+      runtime.backdropLayer.destroyChildren();
+      runtime.paintLayer.destroyChildren();
+      runtime.spritesLayer.destroyChildren();
+      runtime.boardLayer.destroyChildren();
+      return;
+    }
+
     if (appState.value?.running) return;
 
     const targetUtils = runtime.targetUtils;
@@ -144,7 +154,7 @@ export function ArcadeEmulator({ runtime, onRuntime }) {
       }
       targetUtils.redraw(target);
     }
-  }, [runtime, modified.value]);
+  }, [runtime, splashVisible.value, modified.value]);
 
   // 模拟器运行时不可编辑
   useEffect(() => {
@@ -161,11 +171,14 @@ export function ArcadeEmulator({ runtime, onRuntime }) {
   const handleRuntime = useCallback((stage) => {
     // 更新数据
     const updateTarget = (target, runtime) => {
+      if (splashVisible.value) return;
+
       // 强制关闭作品后，立即停止
       if (!files.value) {
         runtime.stop();
         return;
       }
+
       if (target) {
         const isStage = target.getLayer() === runtime.backdropLayer;
         batch(() => {
