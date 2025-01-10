@@ -94,9 +94,6 @@ export function ArcadeEmulator({ runtime, onRuntime }) {
         } else {
           runtime.spritesLayer.add(target);
         }
-        if (typeof data.zIndex === 'number') {
-          target.zIndex(data.zIndex);
-        }
 
         // 角色拖拽事件
         if (i !== 0) {
@@ -153,6 +150,15 @@ export function ArcadeEmulator({ runtime, onRuntime }) {
         });
       }
       targetUtils.redraw(target);
+    }
+
+    // 调整 zIndex，zIndex必须在所有角色加载完成之后进行
+    for (i = 0; i < files.value.length; i++) {
+      const data = files.value[i];
+      const target = runtime.querySelector(`#${data.id}`);
+      if (target && typeof data.zIndex === 'number') {
+        target.zIndex(MathUtils.clamp(data.zIndex, 0, runtime.spritesLayer.children.length - 1));
+      }
     }
   }, [runtime, splashVisible.value, modified.value]);
 
