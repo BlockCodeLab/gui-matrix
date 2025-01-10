@@ -44,21 +44,20 @@ export function SpriteInfo() {
     [splashVisible.value === false, fileIndex.value, modified.value],
   );
 
-  const wrapChangeInfo = useCallback(
-    (key) => (value) => {
-      if (key === 'name') {
-        value = value.trim();
-        if (value.length === 0) {
-          value = translate('arcade.spriteInfo.sprite', 'Sprite', translator);
-        }
+  const changeInfo = useCallback((key, value) => {
+    if (key === 'name') {
+      value = value.trim();
+      if (value.length === 0) {
+        value = translate('arcade.spriteInfo.sprite', 'Sprite', translator);
       }
-      if (key === 'size' && value < 5) {
-        value = 5;
-      }
-      setFile({ [key]: value });
-    },
-    [],
-  );
+    }
+    if (key === 'size' && value < 5) {
+      value = 5;
+    }
+    setFile({ [key]: value });
+  }, []);
+
+  const wrapChangeInfo = useCallback((key) => (value) => changeInfo(key, value), []);
 
   const nameInput = (
     <BufferedInput
@@ -137,7 +136,7 @@ export function SpriteInfo() {
               className={classNames(styles.button, {
                 [styles.groupButtonToggledOff]: disabled || sprite.hidden,
               })}
-              onClick={() => handleChangeInfo('hidden', !sprite.hidden)}
+              onClick={useCallback(() => changeInfo('hidden', !sprite.hidden), [sprite])}
             >
               <img
                 src={sprite.hidden ? hideIcon : showIcon}
