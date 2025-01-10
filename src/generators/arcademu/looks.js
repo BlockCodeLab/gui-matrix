@@ -11,7 +11,7 @@ proto['looks_sayforsecs'] = function (block) {
   const optionValue = block.getFieldValue('OPTION') || 'say';
   const msgCode = this.valueToCode(block, 'MESSAGE', this.ORDER_NONE) || '""';
 
-  let secCode = '0';
+  let secCode = 'false';
   if (block.getInput('SECS')) {
     secCode = this.valueToCode(block, 'SECS', this.ORDER_NONE) || '2';
   }
@@ -31,7 +31,7 @@ proto['looks_thinkforsecs'] = function (block) {
   const optionValue = block.getFieldValue('OPTION') || 'think';
   const msgCode = this.valueToCode(block, 'MESSAGE', this.ORDER_NONE) || '""';
 
-  let secCode = '0';
+  let secCode = 'false';
   if (block.getInput('SECS')) {
     secCode = this.valueToCode(block, 'SECS', this.ORDER_NONE) || '2';
   }

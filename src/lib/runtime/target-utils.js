@@ -285,8 +285,8 @@ export class TargetUtils extends EventEmitter {
   moveToTarget(target, target2) {
     if (!this.running) return;
 
-    let pos = target2?.position?.();
     target2 = this.runtime.querySelector(`#${target2}`);
+    let pos = target2?.position?.();
 
     // 随机位置
     if (!pos) {
@@ -337,6 +337,7 @@ export class TargetUtils extends EventEmitter {
     target.position(pos);
     this._updateDialog(target);
     this.runtime.update(target);
+    this.emit('update', target);
   }
 
   // 滑行到位置
@@ -431,6 +432,7 @@ export class TargetUtils extends EventEmitter {
       rotationStyle,
     });
     this.runtime.update(target);
+    this.emit('update', target);
   }
 
   // 面向n方向
@@ -782,8 +784,9 @@ export class TargetUtils extends EventEmitter {
     this._updateDialog(target, message, thinkingStyle, strikingStyle);
     dialog.visible(true);
 
+    if (sec === false) return;
+
     const secValue = MathUtils.toNumber(sec);
-    if (!secValue) return;
 
     return new Promise(async (resolve) => {
       const handleAbort = () => {
@@ -801,30 +804,30 @@ export class TargetUtils extends EventEmitter {
   }
 
   // 说
-  say(target, signal, message, sec = 0, isShout = false) {
+  say(target, signal, message, sec = false, isShout = false) {
     if (!this.running) return;
     return this._textBubble(target, signal, message, sec, FontBubbleStyle.Talking, isShout);
   }
 
   // 思考
-  think(target, signal, message, sec = 0, isSpark = false) {
+  think(target, signal, message, sec = false, isSpark = false) {
     if (!this.running) return;
     return this._textBubble(target, signal, message, sec, FontBubbleStyle.Thinking, isSpark);
   }
 
   // 切换造型/背景
-  switchFrameTo(target, signal, idOrSerial) {
+  switchFrameTo(target, signal, idOrSerialOrName) {
     if (!this.running) return;
 
     const frames = target.getAttr('frames');
-    let frameId = idOrSerial;
+    let frameIdOrName = idOrSerialOrName;
 
-    // 通过 Serial 查 ID
-    if (!isNaN(idOrSerial)) {
-      const index = MathUtils.serialToIndex(MathUtils.toNumber(idOrSerial), frames.length);
-      frameId = frames[index];
+    // 是数字则通过 Serial 查 ID
+    if (!isNaN(idOrSerialOrName)) {
+      const index = MathUtils.serialToIndex(MathUtils.toNumber(idOrSerialOrName), frames.length);
+      frameIdOrName = frames[index];
     }
-    const asset = this.assets.find((res) => res.id === frameId);
+    const asset = this.assets.find((res) => [res.id, res.name].includes(frameIdOrName));
     if (!asset) return;
 
     return new Promise(async (resolve) => {
@@ -840,10 +843,11 @@ export class TargetUtils extends EventEmitter {
         image,
         offsetX: asset.centerX,
         offsetY: asset.centerY,
-        frameIndex: frames.indexOf(frameId),
+        frameIndex: frames.indexOf(asset.id),
       });
       target.cache();
       this.runtime.update(target);
+      this.emit('update', target);
 
       signal.off('abort', handleAbort);
       resolve();
@@ -891,6 +895,7 @@ export class TargetUtils extends EventEmitter {
       scaleY: this.stage.scaleY() * Math.abs(scale),
     });
     this.runtime.update(target);
+    this.emit('update', target);
   }
 
   // 往前移层
@@ -899,6 +904,7 @@ export class TargetUtils extends EventEmitter {
     zindexValue = target.zIndex() + zindexValue;
     target.zIndex(MathUtils.clamp(zindexValue, 0, this.spritesLayer.children.length - 1));
     this.runtime.update(target);
+    this.emit('update', target);
   }
 
   // 往后移层
