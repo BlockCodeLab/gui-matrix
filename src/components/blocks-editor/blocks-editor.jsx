@@ -98,7 +98,18 @@ export function ArcadeBlocksEditor() {
       // 声音信息
       soundRes ? soundRes.id : '',
     );
-  }, [translator, target, backdropId, costumeId, soundRes]);
+  }, [isStage, translator, target, backdropId, costumeId, soundRes]);
+
+  // 根据选中的舞台或角色过滤积木
+  const handleExtensionBlockFilter = useCallback(
+    (block) => {
+      if (isStage) {
+        return block.forStage !== false;
+      }
+      return block.forSprite !== false;
+    },
+    [isStage],
+  );
 
   // 为舞台和角色分别预处理编译程序
   const handleDefinitions = useCallback(
@@ -177,6 +188,7 @@ export function ArcadeBlocksEditor() {
         generator={generator}
         enableLocalVariable={!isStage}
         dataMonitorClassName={styles.dataMonitor}
+        onExtensionBlockFilter={handleExtensionBlockFilter}
         onMakeToolboxXML={handleMakeToolboxXML}
         onDefinitions={handleDefinitions}
         onExtensionsFilter={() => ['arcade', 'communication', 'data', ['sensor', '!multipin']]}
