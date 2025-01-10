@@ -89,6 +89,9 @@ export class ArcadeRuntime extends Runtime {
       }
     });
 
+    // 清除所有事件
+    this.targetUtils.removeAllListeners();
+
     super.stop();
   }
 
