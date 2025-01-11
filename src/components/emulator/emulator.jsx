@@ -96,9 +96,6 @@ export function MatrixEmulator() {
         } else {
           runtime.value.spritesLayer.add(target);
         }
-        if (typeof data.zIndex === 'number') {
-          target.zIndex(data.zIndex);
-        }
 
         // 角色拖拽事件
         if (i !== 0) {
@@ -155,6 +152,15 @@ export function MatrixEmulator() {
         });
       }
       targetUtils.redraw(target);
+    }
+
+    // 调整 zIndex，zIndex必须在所有角色加载完成之后进行
+    for (i = 0; i < files.value.length; i++) {
+      const data = files.value[i];
+      const target = runtime.value.querySelector(`#${data.id}`);
+      if (target && typeof data.zIndex === 'number') {
+        target.zIndex(MathUtils.clamp(data.zIndex, 0, runtime.value.spritesLayer.children.length - 1));
+      }
     }
   }, [splashVisible.value, modified.value]);
 
