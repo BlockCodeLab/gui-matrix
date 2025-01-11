@@ -249,17 +249,6 @@ export function SpriteSelector() {
     });
   }, []);
 
-  const deleteSprite = useCallback((index) => {
-    const sprite = files.value[index];
-    batch(() => {
-      setAppState({ running: false });
-      for (const assetId of sprite.assets) {
-        delAsset(assetId);
-      }
-      delFile(sprite.id);
-    });
-  }, []);
-
   const handleDelete = useCallback((index) => {
     const sprite = files.value[index];
     openPromptModal({
@@ -276,7 +265,15 @@ export function SpriteSelector() {
           defaultMessage="Do you want to delete the sprite?"
         />
       ),
-      onSubmit: () => deleteSprite(index),
+      onSubmit: () => {
+        batch(() => {
+          setAppState({ running: false });
+          for (const assetId of sprite.assets) {
+            delAsset(assetId);
+          }
+          delFile(sprite.id);
+        });
+      },
     });
   }, []);
 
@@ -320,7 +317,7 @@ export function SpriteSelector() {
                           />
                         ),
                         disabled: true,
-                        onClick: () => {},
+                        onClick: console.log(modified.value),
                       },
                     ],
                     [
@@ -331,7 +328,6 @@ export function SpriteSelector() {
                             defaultMessage="delete"
                           />
                         ),
-                        disabled: files.value.length <= 2,
                         className: styles.deleteMenuItem,
                         onClick: () => handleDelete(i),
                       },
@@ -341,7 +337,7 @@ export function SpriteSelector() {
           )}
           selectedId={fileId.value}
           onSelect={useCallback((i) => openFile(files.value[i].id), [])}
-          onDelete={files.value.length > 2 ? handleDelete : null}
+          onDelete={handleDelete}
         />
 
         <ActionButton
