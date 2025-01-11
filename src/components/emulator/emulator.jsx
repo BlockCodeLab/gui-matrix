@@ -1,7 +1,7 @@
 import { useCallback, useEffect } from 'preact/hooks';
 import { batch } from '@preact/signals';
 import { MathUtils } from '@blockcode/utils';
-import { useAppContext, useProjectContext, setAppState, setFile, isModifyType, ModifyType } from '@blockcode/core';
+import { useAppContext, useProjectContext, setFile, isModifyType, ModifyTypes } from '@blockcode/core';
 import { loadImageFromAsset } from '@blockcode/paint';
 import { Emulator } from '@blockcode/blocks';
 import { ArcadeRuntime } from '../../lib/runtime/runtime';
@@ -36,7 +36,7 @@ export function ArcadeEmulator({ runtime, onRuntime }) {
     if (appState.value?.running) return;
 
     // 添加新文件不高亮
-    if (isModifyType(ModifyType.AddFile)) return;
+    if (isModifyType(ModifyTypes.AddFile)) return;
 
     // 只有不在拖拽的角色高亮，背景不高亮
     const target = runtime.querySelector(`#${fileId}`);
