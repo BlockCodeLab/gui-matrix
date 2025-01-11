@@ -249,17 +249,6 @@ export function SpriteSelector() {
     });
   }, []);
 
-  const deleteSprite = useCallback((index) => {
-    const sprite = files.value[index];
-    batch(() => {
-      setAppState({ running: false });
-      for (const assetId of sprite.assets) {
-        delAsset(assetId);
-      }
-      delFile(sprite.id);
-    });
-  }, []);
-
   const handleDelete = useCallback((index) => {
     const sprite = files.value[index];
     openPromptModal({
@@ -276,7 +265,15 @@ export function SpriteSelector() {
           defaultMessage="Do you want to delete the sprite?"
         />
       ),
-      onSubmit: () => deleteSprite(index),
+      onSubmit: () => {
+        batch(() => {
+          setAppState({ running: false });
+          for (const assetId of sprite.assets) {
+            delAsset(assetId);
+          }
+          delFile(sprite.id);
+        });
+      },
     });
   }, []);
 
