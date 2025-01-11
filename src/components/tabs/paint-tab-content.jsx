@@ -20,7 +20,7 @@ export function PaintTabContent() {
   // 打开当前角色选中的
   useEffect(() => {
     openAsset(target.assets[target.frame]);
-  }, [fileIndex.value]);
+  }, [fileIndex.value, assetId.value === null]);
 
   const handleChange = useCallback(
     (changedId) => {
@@ -42,11 +42,20 @@ export function PaintTabContent() {
   const handleDelete = useCallback(
     (changedId) => {
       const index = target.assets.indexOf(changedId);
+      if (index === target.frame) {
+        if (index + 1 < target.assets.length) {
+          target.frame = index;
+        } else if (index - 1 > -1) {
+          target.frame = index - 1;
+        } else {
+          target.frame = 0;
+        }
+      }
       batch(() => {
         target.assets.splice(index, 1);
         setFile({
           assets: target.assets,
-          frame: target.assets.indexOf(assetId.value),
+          frame: target.frame,
         });
       });
     },
