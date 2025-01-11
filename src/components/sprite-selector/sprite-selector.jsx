@@ -3,6 +3,7 @@ import { batch, useSignal } from '@preact/signals';
 import { nanoid, MathUtils } from '@blockcode/utils';
 import {
   useLocalesContext,
+  useAppContext,
   useProjectContext,
   translate,
   setAppState,
@@ -36,6 +37,8 @@ const DefaultSpriteIcon = `data:image/png;base64,${BlankImageData}`;
 export function SpriteSelector() {
   const { translator } = useLocalesContext();
 
+  const { splashVisible } = useAppContext();
+
   const { files, assets, fileId, modified } = useProjectContext();
 
   const ref = useRef();
@@ -51,7 +54,7 @@ export function SpriteSelector() {
 
   const spriteIcons = useMemo(
     () => files.value.map((sprite) => getSpriteIcon(sprite.assets[sprite.frame])),
-    [modified.value],
+    [splashVisible.value === false, modified.value],
   );
 
   const handleShowLibrary = useCallback(() => {

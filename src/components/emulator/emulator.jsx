@@ -1,14 +1,14 @@
 import { useCallback, useEffect } from 'preact/hooks';
 import { useSignal } from '@preact/signals';
 import { MathUtils } from '@blockcode/utils';
-import { useAppContext, useProjectContext, setFile, isModifyType, ModifyType } from '@blockcode/core';
+import { useAppContext, useProjectContext, setFile, isModifyType, ModifyTypes } from '@blockcode/core';
 import { loadImageFromAsset } from '@blockcode/paint';
 import { Emulator } from '@blockcode/blocks';
 import { MatrixRuntime } from '../../lib/runtime/runtime';
 import { StageConfig, RotationStyle, SpriteDefaultConfig } from './emulator-config';
 
 export function MatrixEmulator() {
-  const { appState } = useAppContext();
+  const { splashVisible, appState } = useAppContext();
 
   const { files, assets, fileId, modified } = useProjectContext();
 
@@ -38,7 +38,7 @@ export function MatrixEmulator() {
     if (appState.value?.running) return;
 
     // 添加新文件不高亮
-    if (isModifyType(ModifyType.AddFile)) return;
+    if (isModifyType(ModifyTypes.AddFile)) return;
 
     // 只有不在拖拽的角色高亮，背景不高亮
     const target = runtime.value.querySelector(`#${fileId}`);
@@ -50,6 +50,16 @@ export function MatrixEmulator() {
   // 模拟器编辑模式下更新
   useEffect(async () => {
     if (!runtime.value) return;
+
+    if (splashVisible.value === true) {
+      runtime.value.stop();
+      runtime.value.backdropLayer.destroyChildren();
+      runtime.value.paintLayer.destroyChildren();
+      runtime.value.spritesLayer.destroyChildren();
+      runtime.value.boardLayer.destroyChildren();
+      return;
+    }
+
     if (appState.value?.running) return;
 
     const targetUtils = runtime.value.targetUtils;
@@ -146,28 +156,31 @@ export function MatrixEmulator() {
       }
       targetUtils.redraw(target);
     }
-  }, [runtime.value, modified.value]);
+  }, [splashVisible.value, modified.value]);
 
   // 模拟器运行时不可编辑
   useEffect(() => {
     if (!runtime.value) return;
     runtime.value.stage.listening(!appState.value?.running);
-  }, [runtime.value, appState.value?.running]);
+  }, [appState.value?.running]);
 
   // 绑定项目库
   useEffect(() => {
     if (!runtime.value) return;
     runtime.value.binding(files.value, assets.value);
-  }, [runtime.value, files.value, assets.value]);
+  }, [files.value, assets.value]);
 
   const handleRuntime = useCallback((stage) => {
     // 更新数据
     const updateTarget = (target, runtime) => {
+      if (splashVisible.value) return;
+
       // 强制关闭作品后，立即停止
       if (!files.value) {
         runtime.stop();
         return;
       }
+
       if (target) {
         const isStage = target.getLayer() === runtime.backdropLayer;
         const res = {

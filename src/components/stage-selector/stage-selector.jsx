@@ -1,8 +1,9 @@
-import { useEffect } from 'preact/hooks';
+import { useMemo } from 'preact/hooks';
 import { batch, useSignal } from '@preact/signals';
 import { classNames, nanoid } from '@blockcode/utils';
 import {
   useLocalesContext,
+  useAppContext,
   useProjectContext,
   translate,
   setAppState,
@@ -32,20 +33,20 @@ const DefaultBackdropThumb = `data:image/png;base64,${BlankImageData}`;
 export function StageSelector() {
   const { translator } = useLocalesContext();
 
+  const { splashVisible } = useAppContext();
+
   const { files, fileId, assets, modified } = useProjectContext();
 
   const backdropsLibraryVisible = useSignal(false);
 
-  const backdropThumb = useSignal(DefaultBackdropThumb);
-
   const stage = files.value[0];
 
-  useEffect(() => {
+  const backdropThumb = useMemo(() => {
     const backdrop = assets.value.find((res) => res.id === stage.assets[stage.frame]);
     if (backdrop) {
-      backdropThumb.value = `data:${backdrop.type};base64,${backdrop.data}`;
+      return `data:${backdrop.type};base64,${backdrop.data}`;
     }
-  }, [modified.value]);
+  }, [splashVisible.value === false, modified.value]);
 
   const handleShowLibrary = () => {
     setAppState({ running: false });
@@ -95,7 +96,7 @@ export function StageSelector() {
       const images = [];
 
       // 依次解析上传的文件并加入项目
-      let image, imageName;
+      let image;
       for (const file of e.target.files) {
         image = await loadImageFromFile(file, {
           width: StageConfig.Width,
@@ -204,7 +205,7 @@ export function StageSelector() {
         </div>
         <img
           className={styles.backdropImage}
-          src={backdropThumb.value}
+          src={backdropThumb}
         />
         <div className={styles.label}>
           <Text
