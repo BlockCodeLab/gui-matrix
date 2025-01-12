@@ -101,8 +101,8 @@ export function Gamepad({ runtime }) {
       };
 
       const mouseUp = () => {
-        document.removeEventListener('mousemove', mouseMove);
-        document.removeEventListener('mouseup', mouseUp);
+        document.removeEventListener('pointermove', mouseMove);
+        document.removeEventListener('pointerup', mouseUp);
         updateJoystick(0, 0);
         target.style.left = `${left}px`;
         target.style.top = `${top}px`;
@@ -125,8 +125,8 @@ export function Gamepad({ runtime }) {
         target.parentElement.focus();
       };
 
-      document.addEventListener('mousemove', mouseMove);
-      document.addEventListener('mouseup', mouseUp);
+      document.addEventListener('pointermove', mouseMove);
+      document.addEventListener('pointerup', mouseUp);
     },
     [pressKey, releaseKey],
   );

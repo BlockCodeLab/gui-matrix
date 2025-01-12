@@ -44,11 +44,11 @@ export function DirectionPicker({ direction, rotationStyle, children, onChange, 
       onChange(newDirection);
     };
     const mouseUp = () => {
-      document.removeEventListener('mousemove', mouseMove);
-      document.removeEventListener('mouseup', mouseUp);
+      document.removeEventListener('pointermove', mouseMove);
+      document.removeEventListener('pointerup', mouseUp);
     };
-    document.addEventListener('mousemove', mouseMove);
-    document.addEventListener('mouseup', mouseUp);
+    document.addEventListener('pointermove', mouseMove);
+    document.addEventListener('pointerup', mouseUp);
   }, []);
 
   return (
@@ -82,7 +82,7 @@ export function DirectionPicker({ direction, rotationStyle, children, onChange, 
                 left: `${RADIUS + RADIUS * Math.sin(direction * (Math.PI / 180))}px`,
                 transform: `rotate(${direction}deg)`,
               }}
-              onMouseDown={handleDirectionMouseDown}
+              onPointerDown={handleDirectionMouseDown}
             />
           </div>
           <div className={styles.buttonGroup}>
