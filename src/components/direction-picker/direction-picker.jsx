@@ -82,7 +82,7 @@ export function DirectionPicker({ direction, rotationStyle, children, onChange, 
                 left: `${RADIUS + RADIUS * Math.sin(direction * (Math.PI / 180))}px`,
                 transform: `rotate(${direction}deg)`,
               }}
-              onMouseDown={handleDirectionMouseDown}
+              onPointerDown={handleDirectionMouseDown}
             />
           </div>
           <div className={styles.buttonGroup}>
