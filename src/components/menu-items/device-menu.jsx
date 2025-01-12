@@ -11,14 +11,18 @@ import { FirmwareSection } from './firmware-section';
 
 let downloadAlertId = null;
 
+let downloadStart = Infinity;
+
 const removeDownloading = () => {
   delAlert(downloadAlertId);
   downloadAlertId = null;
+  downloadStart = Infinity;
 };
 
 const downloadingAlert = (progress) => {
   if (!downloadAlertId) {
     downloadAlertId = nanoid();
+    downloadStart = Date.now();
   }
   if (progress < 100) {
     setAlert({
@@ -35,6 +39,11 @@ const downloadingAlert = (progress) => {
   } else {
     setAlert('downloadCompleted', { id: downloadAlertId });
     setTimeout(removeDownloading, 2000);
+
+    // 调试下载速度
+    if (BETA) {
+      console.log(`${Date.now() - downloadStart}ms`);
+    }
   }
 };
 
