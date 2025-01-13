@@ -13,6 +13,7 @@ import {
   openPromptModal,
   openFile,
   addFile,
+  setFile,
   delFile,
   addAsset,
   delAsset,
@@ -37,9 +38,9 @@ const DefaultSpriteIcon = `data:image/png;base64,${BlankImageData}`;
 export function SpriteSelector() {
   const { translator } = useLocalesContext();
 
-  const { splashVisible } = useAppContext();
+  const { splashVisible, appState } = useAppContext();
 
-  const { files, assets, fileId, modified } = useProjectContext();
+  const { files, assets, fileId, fileIndex, modified } = useProjectContext();
 
   const ref = useRef();
 
@@ -249,6 +250,33 @@ export function SpriteSelector() {
     });
   }, []);
 
+  const handleSelect = useCallback((index) => {
+    if (appState.value?.copiedBlock) return; // 复制积木时不允许切换文件
+    openFile(files.value[index].id);
+  }, []);
+
+  const handleMouseUp = useCallback((index) => {
+    if (!appState.value?.copiedBlock) return; // 没有复制积木时无效果
+    if (fileIndex.value === index) return; // 同一文件跳过
+
+    const copiedBlock = appState.value.copiedBlock;
+    const id = files.value[index].id;
+    const xmlDom = files.value[index].xmlDom;
+
+    // 将积木添加到角色
+    xmlDom.appendChild(copiedBlock.xmlDom);
+    copiedBlock.toFileId = id;
+    copiedBlock.toFileIndex = index;
+
+    batch(() => {
+      setAppState(copiedBlock);
+      setFile({
+        id,
+        xmlDom,
+      });
+    });
+  });
+
   const handleDelete = useCallback((index) => {
     const sprite = files.value[index];
     openPromptModal({
@@ -336,7 +364,8 @@ export function SpriteSelector() {
                 },
           )}
           selectedId={fileId.value}
-          onSelect={useCallback((i) => openFile(files.value[i].id), [])}
+          onSelect={handleSelect}
+          onMouseUp={handleMouseUp}
           onDelete={handleDelete}
         />
 
