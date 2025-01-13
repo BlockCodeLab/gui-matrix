@@ -56,23 +56,7 @@ const closeAlert = () => {
 
 const errorAlert = (err) => {
   if (err === 'NotFoundError') return;
-  setAlert(
-    {
-      message:
-        err === 'NotFoundError' ? (
-          <Text
-            id="blocks.alert.connectionCancel"
-            defaultMessage="Connection cancel."
-          />
-        ) : (
-          <Text
-            id="blocks.alert.connectionError"
-            defaultMessage="Connection error."
-          />
-        ),
-    },
-    1000,
-  );
+  setAlert('connectionError', 1000);
 };
 
 export function FirmwareSection({ itemClassName }) {
