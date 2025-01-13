@@ -13,6 +13,9 @@ import styles from './blocks-editor.module.css';
 // 需要动态更新的XY坐标积木IDs
 const XYBlocks = ['glide', 'move', 'set'];
 
+// 扩展过滤
+const handleExtensionsFilter = () => ['arcade', 'communication', 'data', ['sensor', '!multipin']];
+
 // 动态更新XY坐标积木
 const updateToolboxBlockValue = (workspace, id, value) => {
   const block = workspace.getBlockById(id);
@@ -191,7 +194,7 @@ export function ArcadeBlocksEditor() {
         onExtensionBlockFilter={handleExtensionBlockFilter}
         onMakeToolboxXML={handleMakeToolboxXML}
         onDefinitions={handleDefinitions}
-        onExtensionsFilter={() => ['arcade', 'communication', 'data', ['sensor', '!multipin']]}
+        onExtensionsFilter={handleExtensionsFilter}
       />
 
       {thumbUrl && (
