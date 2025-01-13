@@ -345,7 +345,7 @@ export function SpriteSelector() {
                           />
                         ),
                         disabled: true,
-                        onClick: console.log(modified.value),
+                        onClick: () => {},
                       },
                     ],
                     [
