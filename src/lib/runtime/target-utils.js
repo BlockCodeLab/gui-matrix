@@ -331,8 +331,8 @@ export class TargetUtils extends EventEmitter {
     if (py > bottom) {
       dy = bottom - clientRect.y;
     }
-    pos.x += Math.round(dx);
-    pos.y += -Math.round(dy);
+    pos.x += dx;
+    pos.y += -dy;
 
     target.position(pos);
     this._updateDialog(target);
