@@ -26,6 +26,10 @@ export class ArcadeRuntime extends Runtime {
     };
   }
 
+  get fps() {
+    return 30; // 同步硬件帧率
+  }
+
   get targetUtils() {
     return this._targetUtils;
   }
@@ -328,11 +332,12 @@ export class ArcadeRuntime extends Runtime {
     const targets = [].concat(target2, this.querySelectorAll(`.${target2.id()}`));
 
     // 角色和克隆体碰撞
-    if (targets.length > 0) {
-      for (target2 of targets) {
-        // 隐藏的角色跳过
-        if (!target2?.visible?.()) continue;
-        return Konva.Util.haveIntersection(target.getClientRect(), target2.getClientRect());
+    for (target2 of targets) {
+      // 隐藏的角色跳过
+      if (target2?.visible?.()) {
+        if (Konva.Util.haveIntersection(target.getClientRect(), target2.getClientRect())) {
+          return true;
+        }
       }
     }
     return false;
