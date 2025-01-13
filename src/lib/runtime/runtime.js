@@ -312,22 +312,30 @@ export class MatrixRuntime extends Runtime {
     if (!this.running) return;
 
     // 自己隐藏则跳过
-    if (target.visible() === false) return false;
+    if (target.visible() === false) {
+      return false;
+    }
 
     target2 = this.querySelector(`#${target2}`);
 
-    // 角色碰撞
-    if (target2) {
-      // 隐藏的角色跳过
-      if (target2.visible() === false) {
-        return false;
-      }
-      return Konva.Util.haveIntersection(target.getClientRect(), target2.getClientRect());
+    // 舞台边缘碰撞
+    if (!target2) {
+      const nearestEdge = this.targetUtils._findNearestEdge(target);
+      return !!nearestEdge;
     }
 
-    // 舞台边缘碰撞
-    const nearestEdge = this.targetUtils._findNearestEdge(target);
-    return !!nearestEdge;
+    // 查找角色和克隆体
+    const targets = [].concat(target2, this.querySelectorAll(`.${target2.id()}`));
+
+    // 角色和克隆体碰撞
+    if (targets.length > 0) {
+      for (target2 of targets) {
+        // 隐藏的角色跳过
+        if (!target2?.visible?.()) continue;
+        return Konva.Util.haveIntersection(target.getClientRect(), target2.getClientRect());
+      }
+    }
+    return false;
   }
 
   // 距离
