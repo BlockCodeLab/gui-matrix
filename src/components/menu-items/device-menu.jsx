@@ -16,13 +16,11 @@ let downloadStart = Infinity;
 const removeDownloading = () => {
   delAlert(downloadAlertId);
   downloadAlertId = null;
-  downloadStart = Infinity;
 };
 
 const downloadingAlert = (progress) => {
   if (!downloadAlertId) {
     downloadAlertId = nanoid();
-    downloadStart = Date.now();
   }
   if (progress < 100) {
     setAlert({
@@ -39,11 +37,6 @@ const downloadingAlert = (progress) => {
   } else {
     setAlert('downloadCompleted', { id: downloadAlertId });
     setTimeout(removeDownloading, 2000);
-
-    // 调试下载速度
-    if (BETA) {
-      console.log(`${Date.now() - downloadStart}ms`);
-    }
   }
 };
 
@@ -95,11 +88,22 @@ export function DeviceMenu({ itemClassName }) {
             downloadingAlert(0);
             try {
               if (await MPYUtils.flashFree(currentDevice, projectFiles)) {
+                // 下载计时
+                if (DEBUG || BETA) {
+                  downloadStart = Date.now();
+                  console.log('Download start...');
+                }
+
                 await MPYUtils.write(currentDevice, projectFiles, downloadingAlert);
                 await MPYUtils.config(currentDevice, {
                   'latest-project': key,
                 });
                 currentDevice.hardReset();
+
+                // 下载计时
+                if (DEBUG || BETA) {
+                  console.log(`Download completed: ${Date.now() - downloadStart}ms`);
+                }
               } else {
                 openPromptModal({
                   title: (
