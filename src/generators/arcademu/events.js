@@ -14,5 +14,5 @@ proto['event_whenbackdropswitchesto'] = function (block) {
 
 proto['event_whenbroadcastreceived'] = function (block) {
   const messageName = this.getVariableName(block.getFieldValue('BROADCAST_OPTION'));
-  return `runtime.when('message:${messageName}', ${this.TARGET_HAT_CALLBACK}}, target);\n`;
+  return `runtime.when('message:${messageName}', ${this.TARGET_HAT_CALLBACK}, target);\n`;
 };
