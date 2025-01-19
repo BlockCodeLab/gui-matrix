@@ -1,7 +1,7 @@
 import { useCallback, useEffect } from 'preact/hooks';
 import { useSignal } from '@preact/signals';
 import { MathUtils } from '@blockcode/utils';
-import { useAppContext, useProjectContext, setFile, isModifyType, ModifyTypes } from '@blockcode/core';
+import { useAppContext, useProjectContext, setAppState, setFile, isModifyType, ModifyTypes } from '@blockcode/core';
 import { loadImageFromAsset } from '@blockcode/paint';
 import { Emulator } from '@blockcode/blocks';
 import { MatrixRuntime } from '../../lib/runtime/runtime';
@@ -13,6 +13,22 @@ export function MatrixEmulator() {
   const { files, assets, fileId, modified } = useProjectContext();
 
   const runtime = useSignal(null);
+
+  // 设备连接状态
+  useEffect(() => {
+    if (!runtime.value) return;
+
+    // 连接
+    if (appState.value?.device) {
+      runtime.value.emit('connecting', appState.value.device);
+    }
+
+    // 断开
+    if (appState.value?.device === false) {
+      runtime.value.emit('disconnect');
+      setAppState('device', null);
+    }
+  }, [appState.value?.device]);
 
   // 运行模拟器
   useEffect(async () => {
