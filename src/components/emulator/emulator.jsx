@@ -106,16 +106,18 @@ export function ArcadeEmulator({ runtime, onRuntime }) {
 
       // 更新帧
       asset = assets.value.find((res) => res.id === data.assets[data.frame]);
-      image = await loadImageFromAsset(asset);
-      target.setAttrs({
-        image,
-        name: data.name,
-        offsetX: asset.centerX,
-        offsetY: asset.centerY,
-        // 数据记录
-        frames: data.assets,
-        frameIndex: data.frame,
-      });
+      if (asset) {
+        image = await loadImageFromAsset(asset);
+        target.setAttrs({
+          image,
+          name: data.name,
+          offsetX: asset.centerX,
+          offsetY: asset.centerY,
+          // 数据记录
+          frames: data.assets,
+          frameIndex: data.frame,
+        });
+      }
 
       // 角色更新
       if (i !== 0) {
