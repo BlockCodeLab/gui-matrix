@@ -12,7 +12,7 @@ proto['procedures_definition'] = function (block) {
   let funcCode = this.HAT_CALLBACK;
   funcCode = funcCode.replace('(done) => {\n', `(target, ${args.join(', ')}) => {\n`);
   funcCode = funcCode.replace('= runtime.warpMode;\n', `= ${myBlock.warp_};\n`);
-  return `runtime.on('procedure:${funcName}', ${funcCode});\n`;
+  return `runtime.define('procedure:${funcName}', ${funcCode});\n`;
 };
 
 proto['procedures_call'] = function (block) {
@@ -25,6 +25,6 @@ proto['procedures_call'] = function (block) {
   const args = block.argumentIds_.map((arg) => this.valueToCode(block, arg, this.ORDER_NONE));
   args.unshift('target');
 
-  code += `await runtime.emit('procedure:${funcName}', ${args.join(', ')})\n`;
+  code += `await runtime.call('procedure:${funcName}', ${args.join(', ')})\n`;
   return code;
 };
