@@ -1,19 +1,8 @@
-import { UPNG } from '@blockcode/utils';
+import { UPNG, base64ToUint8Array } from '@blockcode/utils';
 // import imageContour from './image-contour';
 
-const base64ToArrayBuffer = (base64String) => {
-  const padding = '='.repeat((4 - (base64String.length % 4)) % 4);
-  const base64 = (base64String + padding).replace(/\-/g, '+').replace(/_/g, '/');
-  const rawData = window.atob(base64);
-  const outputArray = new Uint8Array(rawData.length);
-  for (let i = 0; i < rawData.length; ++i) {
-    outputArray[i] = rawData.charCodeAt(i);
-  }
-  return outputArray.buffer;
-};
-
 export function generateImage({ id, name, type, data, width, height, centerX, centerY }) {
-  const image = UPNG.decode(base64ToArrayBuffer(data));
+  const image = UPNG.decode(base64ToUint8Array(data).buffer);
   const rgba = new Uint8Array(UPNG.toRGBA8(image)[0]);
 
   // const contour = imageContour({
