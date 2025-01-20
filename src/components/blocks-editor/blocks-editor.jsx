@@ -1,5 +1,4 @@
 import { useEffect, useCallback, useMemo } from 'preact/hooks';
-import { useComputed } from '@preact/signals';
 import { useLocalesContext, useProjectContext, translate } from '@blockcode/core';
 import { ScratchBlocks } from '@blockcode/blocks';
 import { ArcademuGenerator } from '../../generators/arcademu';
@@ -27,6 +26,8 @@ const updateToolboxBlockValue = (workspace, id, value) => {
 // 代码转换
 const emulator = new ArcademuGenerator();
 const generator = new ArcadepyGenerator();
+
+const escape = (name) => name.replaceAll(/[^a-z0-9]/gi, '_');
 
 export function ArcadeBlocksEditor() {
   const { translator } = useLocalesContext();
@@ -116,7 +117,7 @@ export function ArcadeBlocksEditor() {
 
   // 为舞台和角色分别预处理编译程序
   const handleDefinitions = useCallback(
-    (genName, defer, usedExtensions, index) => {
+    (genName, defer, resources, index) => {
       const res = files.value?.[index];
       if (!res) return;
 
@@ -171,9 +172,9 @@ export function ArcadeBlocksEditor() {
         defer(`import_images`, imageModules.map((imageName) => `import ${imageName}`).join('\n'));
 
         // 导入使用的扩展
-        for (const id in usedExtensions) {
-          for (const extModule of usedExtensions[id]) {
-            defer(`import_${id}_${extModule.name}`, `from ${id} import ${extModule.name}`);
+        for (const id in resources) {
+          for (const extModule of resources[id]) {
+            defer(`import_${id}_${extModule.name}`, `from ext.${escape(id)} import ${extModule.name}`);
           }
         }
       }
