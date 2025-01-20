@@ -1,5 +1,5 @@
 import { useCallback } from 'preact/hooks';
-import { putEditorConfig, getEditorConfig } from '@blockcode/utils';
+import { setEditorConfig, getEditorConfig } from '@blockcode/utils';
 import { useProjectContext, setAlert, openPromptModal } from '@blockcode/core';
 import { MPYUtils } from '@blockcode/board';
 import deviceFilters from '../../lib/device-filters.yaml';
@@ -83,8 +83,8 @@ export function ConfigSection({ itemClassName }) {
 
           const checker = MPYUtils.check(currentDevice).catch(errorAlert);
 
-          putEditorConfig(meta.value.editor, STORAGE_WIFI_SSID, wifi.ssid);
-          putEditorConfig(meta.value.editor, STORAGE_WIFI_PASSWORD, wifi.password);
+          setEditorConfig(meta.value.editor, STORAGE_WIFI_SSID, wifi.ssid);
+          setEditorConfig(meta.value.editor, STORAGE_WIFI_PASSWORD, wifi.password);
 
           try {
             await MPYUtils.config(currentDevice, {
