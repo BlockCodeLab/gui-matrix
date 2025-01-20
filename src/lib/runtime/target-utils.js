@@ -372,12 +372,12 @@ export class TargetUtils extends EventEmitter {
       return;
     }
 
-    return new Promise(async (resolve) => {
+    return new Promise(async (resolve, reject) => {
       // 中止滑行
       const handleAbort = () => {
         signal.off('abort', handleAbort);
         handleAbort.stopped = true;
-        resolve();
+        reject();
       };
       signal.once('abort', handleAbort);
 
@@ -783,15 +783,16 @@ export class TargetUtils extends EventEmitter {
     }
     this._updateDialog(target, message, thinkingStyle, strikingStyle);
     dialog.visible(true);
+    dialog.moveToTop();
 
     if (sec === false) return;
 
     const secValue = MathUtils.toNumber(sec);
 
-    return new Promise(async (resolve) => {
+    return new Promise(async (resolve, reject) => {
       const handleAbort = () => {
         signal.off('abort', handleAbort);
-        resolve();
+        reject();
       };
       signal.once('abort', handleAbort);
 
@@ -830,10 +831,10 @@ export class TargetUtils extends EventEmitter {
     const asset = this.assets.find((res) => [res.id, res.name].includes(frameIdOrName));
     if (!asset) return;
 
-    return new Promise(async (resolve) => {
+    return new Promise(async (resolve, reject) => {
       const handleAbort = () => {
         signal.off('abort', handleAbort);
-        resolve();
+        reject();
       };
       signal.once('abort', handleAbort);
 
