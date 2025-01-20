@@ -783,6 +783,7 @@ export class TargetUtils extends EventEmitter {
     }
     this._updateDialog(target, message, thinkingStyle, strikingStyle);
     dialog.visible(true);
+    dialog.moveToTop();
 
     if (sec === false) return;
 

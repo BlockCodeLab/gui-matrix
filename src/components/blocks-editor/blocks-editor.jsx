@@ -1,5 +1,4 @@
 import { useEffect, useCallback, useMemo } from 'preact/hooks';
-import { useComputed } from '@preact/signals';
 import { useLocalesContext, useProjectContext, translate } from '@blockcode/core';
 import { ScratchBlocks } from '@blockcode/blocks';
 import { MatrixemuGenerator } from '../../generators/matrixemu';
@@ -103,7 +102,7 @@ export function MatrixBlocksEditor() {
   );
 
   // 为舞台和角色分别预处理编译程序
-  const handleDefinitions = useCallback((emuName, defer, usedExtensions, index) => {
+  const handleDefinitions = useCallback((emuName, defer, resources, index) => {
     const res = files.value?.[index];
     if (!res) return;
 
