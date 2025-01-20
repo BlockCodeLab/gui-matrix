@@ -124,7 +124,7 @@ export class MatrixRuntime extends Runtime {
   }
 
   whenCloneStart(target, scripter) {
-    this.on(`clonestart:${target.id()}`, scripter);
+    this.define(`clonestart:${target.id()}`, scripter);
   }
 
   playWave(soundId, isWaiting = false) {
