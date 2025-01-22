@@ -1,11 +1,11 @@
-import { useLayout, useEditor, Text, MenuSection, MenuItem } from '@blockcode/core';
-import sb3Converter from '../../lib/sb3-converter';
+import { useCallback } from 'preact/hooks';
+import { useProjectContext, openPromptModal, Text, MenuSection, MenuItem } from '@blockcode/core';
+import { sb3Converter } from '../../lib/sb3/sb3-converter';
 
-export default function ImportSB3Item({ itemClassName, openProject }) {
-  const { createPrompt } = useLayout();
-  const { modified } = useEditor();
+export function ImportSection({ itemClassName, onOpen }) {
+  const { modified } = useProjectContext();
 
-  const importSb3 = () => {
+  const importSb3 = useCallback(() => {
     const fileInput = document.createElement('input');
     fileInput.type = 'file';
     fileInput.accept = '.sb3';
@@ -14,13 +14,13 @@ export default function ImportSB3Item({ itemClassName, openProject }) {
     fileInput.addEventListener('change', async (e) => {
       const file = e.target.files[0];
       const project = await sb3Converter(file);
-      openProject(project);
+      onOpen(project);
     });
-  };
+  }, []);
 
-  const handleImport = () => {
-    if (modified) {
-      createPrompt({
+  const handleImportSB3 = useCallback(() => {
+    if (modified.value) {
+      openPromptModal({
         title: (
           <Text
             id="gui.projects.notSaved"
@@ -38,7 +38,7 @@ export default function ImportSB3Item({ itemClassName, openProject }) {
     } else {
       importSb3();
     }
-  };
+  }, []);
 
   return (
     <MenuSection>
@@ -50,7 +50,7 @@ export default function ImportSB3Item({ itemClassName, openProject }) {
             defaultMessage="Import .sb3 file..."
           />
         }
-        onClick={handleImport}
+        onClick={handleImportSB3}
       />
     </MenuSection>
   );
