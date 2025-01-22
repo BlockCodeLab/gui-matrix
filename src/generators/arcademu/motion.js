@@ -10,6 +10,7 @@ proto['motion_movesteps'] = function (block) {
   }
   const stepsCode = this.valueToCode(block, 'STEPS', this.ORDER_NONE) || '10';
   code += `targetUtils.moveSteps(target, ${stepsCode});\n`;
+  code += 'renderMode = true;\n';
   return code;
 };
 
@@ -20,6 +21,7 @@ proto['motion_turnright'] = function (block) {
   }
   const degreesCode = this.valueToCode(block, 'DEGREES', this.ORDER_NONE) || '15';
   code += `targetUtils.turnRight(target, ${degreesCode});\n`;
+  code += 'renderMode = true;\n';
   return code;
 };
 
@@ -30,6 +32,7 @@ proto['motion_turnleft'] = function (block) {
   }
   const degreesCode = this.valueToCode(block, 'DEGREES', this.ORDER_NONE) || '15';
   code += `targetUtils.turnLeft(target, ${degreesCode});\n`;
+  code += 'renderMode = true;\n';
   return code;
 };
 
@@ -40,6 +43,7 @@ proto['motion_pointindirection'] = function (block) {
   }
   const directionCode = this.valueToCode(block, 'DIRECTION', this.ORDER_NONE) || '90';
   code += `targetUtils.towardsTo(target, ${directionCode});\n`;
+  code += 'renderMode = true;\n';
   return code;
 };
 
@@ -54,6 +58,7 @@ proto['motion_pointtowards'] = function (block) {
   }
   const towardsCode = this.valueToCode(block, 'TOWARDS', this.ORDER_NONE) || `'_random_'`;
   code += `targetUtils.towardsToTarget(target, ${towardsCode});\n`;
+  code += 'renderMode = true;\n';
   return code;
 };
 
@@ -65,6 +70,7 @@ proto['motion_gotoxy'] = function (block) {
   const xCode = this.valueToCode(block, 'X', this.ORDER_NONE) || '0';
   const yCode = this.valueToCode(block, 'Y', this.ORDER_NONE) || '0';
   code += `targetUtils.moveTo(target, ${xCode}, ${yCode});\n`;
+  code += 'renderMode = true;\n';
   return code;
 };
 
@@ -79,6 +85,7 @@ proto['motion_goto'] = function (block) {
   }
   const toCode = this.valueToCode(block, 'TO', this.ORDER_NONE) || `'_random_'`;
   code += `targetUtils.moveToTarget(target, ${toCode});\n`;
+  code += 'renderMode = true;\n';
   return code;
 };
 
@@ -118,6 +125,7 @@ proto['motion_changexby'] = function (block) {
   }
   const dxCode = this.valueToCode(block, 'DX', this.ORDER_NONE) || '10';
   code += `targetUtils.addX(target, ${dxCode});\n`;
+  code += 'renderMode = true;\n';
   return code;
 };
 
@@ -128,6 +136,7 @@ proto['motion_setx'] = function (block) {
   }
   const xCode = this.valueToCode(block, 'X', this.ORDER_NONE) || '0';
   code += `targetUtils.setX(target, ${xCode});\n`;
+  code += 'renderMode = true;\n';
   return code;
 };
 
@@ -138,6 +147,7 @@ proto['motion_changeyby'] = function (block) {
   }
   const dyCode = this.valueToCode(block, 'DY', this.ORDER_NONE) || '10';
   code += `targetUtils.addY(target, ${dyCode});\n`;
+  code += 'renderMode = true;\n';
   return code;
 };
 
@@ -148,6 +158,7 @@ proto['motion_sety'] = function (block) {
   }
   const yCode = this.valueToCode(block, 'Y', this.ORDER_NONE) || '0';
   code += `targetUtils.setY(target, ${yCode});\n`;
+  code += 'renderMode = true;\n';
   return code;
 };
 
@@ -167,6 +178,7 @@ proto['motion_setrotationstyle'] = function (block) {
   }
   const styleCode = RotationStyle[block.getFieldValue('STYLE')];
   code += `targetUtils.setRotationStyle(target, ${styleCode});\n`;
+  code += 'renderMode = true;\n';
   return code;
 };
 
