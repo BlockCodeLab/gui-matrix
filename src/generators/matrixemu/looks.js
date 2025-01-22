@@ -17,6 +17,7 @@ proto['looks_sayforsecs'] = function (block) {
   }
 
   code += `await targetUtils.say(target, signal, ${msgCode}, ${secCode}, ${optionValue === 'shout'});\n`;
+  code += 'renderMode = true;\n';
   return code;
 };
 
@@ -37,6 +38,7 @@ proto['looks_thinkforsecs'] = function (block) {
   }
 
   code += `await targetUtils.think(target, signal, ${msgCode}, ${secCode}, ${optionValue === 'spark'});\n`;
+  code += 'renderMode = true;\n';
   return code;
 };
 
@@ -48,6 +50,7 @@ proto['looks_show'] = function (block) {
     code += this.injectId(this.STATEMENT_PREFIX, block);
   }
   code += `target.visible(true);\n`;
+  code += 'renderMode = true;\n';
   return code;
 };
 
@@ -57,6 +60,7 @@ proto['looks_hide'] = function (block) {
     code += this.injectId(this.STATEMENT_PREFIX, block);
   }
   code += `target.visible(false);\n`;
+  code += 'renderMode = true;\n';
   return code;
 };
 
@@ -67,6 +71,7 @@ proto['looks_changesizeby'] = function (block) {
   }
   const changeCode = this.valueToCode(block, 'CHANGE', this.ORDER_NONE) || '10';
   code += `targetUtils.addSize(target, ${changeCode});\n`;
+  code += 'renderMode = true;\n';
   return code;
 };
 
@@ -77,6 +82,7 @@ proto['looks_setsizeto'] = function (block) {
   }
   const sizeCode = this.valueToCode(block, 'SIZE', this.ORDER_NONE) || '100';
   code += `targetUtils.setSize(target, ${sizeCode});\n`;
+  code += 'renderMode = true;\n';
   return code;
 };
 
@@ -96,6 +102,7 @@ proto['looks_switchcostumeto'] = function (block) {
   }
   const costumeCode = this.valueToCode(block, 'COSTUME', this.ORDER_NONE) || '1';
   code += `await targetUtils.switchFrameTo(target, signal, ${costumeCode});\n`;
+  code += 'renderMode = true;\n';
   return code;
 };
 
@@ -105,6 +112,7 @@ proto['looks_nextcostume'] = function (block) {
     code += this.injectId(this.STATEMENT_PREFIX, block);
   }
   code += `await targetUtils.nextFrame(target, signal);\n`;
+  code += 'renderMode = true;\n';
   return code;
 };
 
@@ -121,6 +129,7 @@ proto['looks_switchbackdropto'] = function (block) {
   const backdropCode = this.valueToCode(block, 'BACKDROP', this.ORDER_NONE) || '1';
   code += `await targetUtils.switchFrameTo(stage, signal, ${backdropCode});\n`;
   code += `runtime.run('backdropswitchesto:' + ${backdropCode});\n`;
+  code += 'renderMode = true;\n';
   return code;
 };
 
@@ -130,6 +139,7 @@ proto['looks_nextbackdrop'] = function (block) {
     code += this.injectId(this.STATEMENT_PREFIX, block);
   }
   code += `await targetUtils.nextFrame(stage, signal);\n`;
+  code += 'renderMode = true;\n';
   return code;
 };
 
@@ -143,6 +153,7 @@ proto['looks_gotofrontback'] = function (block) {
   } else {
     code += 'target.moveToTop();\n';
   }
+  code += 'renderMode = true;\n';
   return code;
 };
 
@@ -158,6 +169,7 @@ proto['looks_goforwardbackwardlayers'] = function (block) {
   } else {
     code += `targetUtils.forward(target, ${changeCode});\n`;
   }
+  code += 'renderMode = true;\n';
   return code;
 };
 
@@ -181,5 +193,6 @@ proto['looks_switchbackdroptoandwait'] = function (block) {
   const backdropCode = this.valueToCode(block, 'BACKDROP', this.ORDER_NONE) || '1';
   code += `await targetUtils.switchFrameTo(stage, signal, ${backdropCode});\n`;
   code += `await runtime.run('backdropswitchesto:' + ${backdropCode});\n`;
+  code += 'renderMode = true;\n';
   return code;
 };

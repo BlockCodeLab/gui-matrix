@@ -846,7 +846,7 @@ export class TargetUtils extends EventEmitter {
         offsetY: asset.centerY,
         frameIndex: frames.indexOf(asset.id),
       });
-      target.cache();
+      // target.cache();
       this.runtime.update(target);
       this.emit('update', target);
 
@@ -941,8 +941,9 @@ export class TargetUtils extends EventEmitter {
     if (clones.length >= MAX_CLONES_LIMIT) return;
 
     if (typeof target === 'string') {
-      target = this.runtime.querySelector(`#${target}`);
+      target = this.runtime.querySelector(`#${target}`) || this.runtime.querySelector(`.${target}`);
     }
+    if (!target) return;
 
     const clone = target.clone({
       id: null,
@@ -953,5 +954,12 @@ export class TargetUtils extends EventEmitter {
 
     // 重新设置zindex
     clone.zIndex(Math.max(target.zIndex() - 1, 0));
+  }
+
+  removeClone(target) {
+    if (!this.running) return;
+    if (target.hasName('clone')) {
+      target.destroy();
+    }
   }
 }

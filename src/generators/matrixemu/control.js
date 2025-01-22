@@ -30,6 +30,6 @@ proto['control_delete_this_clone'] = function () {
   if (this.STATEMENT_PREFIX) {
     code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  code += `if (target.hasName('clone')) target.destroy();\n`;
+  code += `targetUtils.removeClone(target);\n`;
   return code;
 };
