@@ -8,6 +8,7 @@ import { soundTab } from '@blockcode/sound';
 import { Text } from '@blockcode/core';
 import { CodeReview } from '@blockcode/blocks';
 import { ArcadeBlocksEditor } from './components/blocks-editor/blocks-editor';
+import { ImportSection } from './components/menu-items/import-section';
 import { DeviceMenu } from './components/menu-items/device-menu';
 import { Sidedock } from './components/sidedock/sidedock';
 import { PaintTabLabel } from './components/tabs/paint-tab-label';
@@ -99,6 +100,7 @@ export default {
   menuItems: [
     {
       id: 'file',
+      Menu: ImportSection,
     },
     {
       icon: deviceIcon,

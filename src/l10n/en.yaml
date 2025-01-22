@@ -23,15 +23,16 @@ arcade.menu.device.wifiPassword: Wi-Fi password
 arcade.menu.device.wifiOk: The Wi-Fi configuration is saved.
 arcade.menu.device.wifiCancel: Deconfigure Wi-Fi.
 arcade.menu.device.manual: Arcade manual
-arcade.menu.device.update: Update firmware
+arcade.menu.device.update: Upgrade to the latest firmware
+arcade.menu.device.caching: Caching latest firmware...
 arcade.menu.device.restore: Resotre firmware
-arcade.menu.device.firmwareUpdateLabal: Ready to update your firmware? Follow the steps below to prepare your Arcade.
-arcade.menu.device.firmwareRestoreLabal: Ready to resotre your firmware? After restoration, all projects in the Arcade will be erased. Follow the steps below to prepare your Arcade.
+arcade.menu.device.firmwareUpdateLabal: Follow the steps below to prepare your Arcade.
+arcade.menu.device.firmwareRestoreLabal: After restoration, all projects in the Arcade will be erased. Follow the steps below to prepare your Arcade.
 arcade.menu.device.firmwareTip1-1: Download
-arcade.menu.device.firmwareTip1-2: ' latest firmware.'
+arcade.menu.device.firmwareTip1-2: ' firmware.'
 arcade.menu.device.firmwareTip2: Connect to USB.
 arcade.menu.device.firmwareTip3: Hold the FN key and press RESET key.
-arcade.menu.device.firmwareUpdating: Firmware updating...{progress}%
+arcade.menu.device.firmwareUpdating: Upgrading to the latest firmware...{progress}%
 arcade.menu.device.firmwareRestoring: Firmware restoring...{progress}%
 arcade.menu.device.firmwareRecovering: Recovering the Arcade...
 arcade.menu.device.firmwareUpdateDone: Firmware update completed! Now press RESET key.

@@ -3,16 +3,23 @@
   justify-content: space-between;
 }
 
-.tips-col2 .tip-item {
-  width: 250px;
+.tips-col2 {
+  width: 340px;
 }
 
-.tips-col3 .tip-item {
-  width: 165px;
+.tips-col3 {
+  width: 515px;
+}
+
+.tips-label {
+  font-size: 0.875rem;
+  margin: 0 0 0.75rem;
+  font-weight: 500;
 }
 
 .tip-item {
   text-align: center;
+  width: 165px;
 }
 
 .tip-item img {
@@ -21,5 +28,4 @@
   margin-bottom: var(--space);
   border-radius: var(--space);
   border: 1px solid var(--ui-black-transparent);
-
 }

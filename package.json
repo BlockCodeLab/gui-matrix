@@ -13,8 +13,15 @@
     }
   },
   "firmware": {
-    "url": "https://gitee.com/blockcodelab/arcade-firmware/releases/",
-    "version": "0.9.5"
+    "version": "0.9.7.BETA",
+    "release": "https://github.com/ScratchArcade/arcade-firmware/releases/",
+    "download": "https://arcade.blockcode.fun/releases/{version}/arcade.{version}.bin",
+    "hash": "907dc108adc1e69cbe58e323919a38a1dd645ca6ae336490dc5dd43e2c274b38",
+    "mirrors": {
+      "zh-Hans": {
+        "release": "https://gitee.com/blockcodelab/arcade-firmware/releases/"
+      }
+    }
   },
   "scripts": {
     "build": "playground-build ."
