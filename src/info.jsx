@@ -5,15 +5,15 @@ import featureImage from './feature.png';
 addLocalesMessages({
   en: {
     'matrix.name': 'Matrix',
-    'matrix.description': 'Welcome to matrix world.',
+    'matrix.description': 'The border between fantasy and reality.',
   },
   'zh-Hans': {
     'matrix.name': 'Matrix',
-    'matrix.description': '欢迎来到虚拟与现实的世界。',
+    'matrix.description': '欢迎来到虚幻与真实的边境。',
   },
   'zh-Hant': {
     'matrix.name': 'Matrix',
-    'matrix.description': '欢迎来到虚拟与现实的世界。',
+    'matrix.description': '歡迎來到虛幻與真實的邊境。',
   },
 });
 
