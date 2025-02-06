@@ -7,6 +7,6 @@ import './arcadepy/procedures';
 import './arcadepy/sensing';
 import './arcadepy/sound';
 import './arcadepy/unsupported';
-// import './arcadepy/wifi';
+import './arcadepy/wifi';
 
 export { ArcadepyGenerator } from './arcadepy/generator';

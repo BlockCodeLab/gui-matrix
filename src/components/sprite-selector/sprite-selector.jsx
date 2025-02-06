@@ -223,7 +223,7 @@ export function SpriteSelector() {
   const handleSurprise = useCallback(() => {
     setAppState({ running: false });
     handleSelectSprite(SpritesLibrary.surprise());
-  }, []);
+  }, [handleSelectSprite]);
 
   const handleDuplicate = useCallback((index) => {
     batch(() => {

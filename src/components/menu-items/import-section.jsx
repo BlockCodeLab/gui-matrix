@@ -16,7 +16,7 @@ export function ImportSection({ itemClassName, onOpen }) {
       const project = await sb3Converter(file);
       onOpen(project);
     });
-  }, []);
+  }, [onOpen]);
 
   const handleImportSB3 = useCallback(() => {
     if (modified.value) {

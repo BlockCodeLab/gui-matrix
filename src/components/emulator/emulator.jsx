@@ -176,57 +176,61 @@ export function ArcadeEmulator({ runtime, onRuntime }) {
     runtime.binding(files.value, assets.value);
   }, [runtime, files.value, assets.value]);
 
-  const handleRuntime = useCallback((stage) => {
-    // 更新数据
-    const updateTarget = (target, runtime) => {
-      if (splashVisible.value) return;
+  const handleRuntime = useCallback(
+    (stage) => {
+      // 更新数据
+      const updateTarget = (target, runtime) => {
+        if (splashVisible.value) return;
 
-      // 强制关闭作品后，立即停止
-      if (!files.value) {
-        runtime.stop();
-        return;
-      }
+        // 强制关闭作品后，立即停止
+        if (!files.value) {
+          runtime.stop();
+          return;
+        }
 
-      if (target) {
-        const isStage = target.getLayer() === runtime.backdropLayer;
-        batch(() => {
-          setFile({
-            id: target.id(),
-            frame: target.getAttr('frameIndex'),
-          });
-          if (!isStage) {
+        if (target) {
+          const isStage = target.getLayer() === runtime.backdropLayer;
+          batch(() => {
             setFile({
               id: target.id(),
-              x: Math.round(target.x()),
-              y: Math.round(target.y()),
-              size: Math.floor(target.getAttr('scaleSize')),
-              direction: MathUtils.wrapClamp(Math.floor(target.getAttr('direction')), -179, 180),
-              rotationStyle: target.getAttr('rotationStyle'),
-              hidden: !target.visible(),
-              zIndex: target.zIndex(),
+              frame: target.getAttr('frameIndex'),
             });
-          }
-        });
-      }
-    };
+            if (!isStage) {
+              setFile({
+                id: target.id(),
+                x: Math.round(target.x()),
+                y: Math.round(target.y()),
+                size: Math.floor(target.getAttr('scaleSize')),
+                direction: MathUtils.wrapClamp(Math.floor(target.getAttr('direction')), -179, 180),
+                rotationStyle: target.getAttr('rotationStyle'),
+                hidden: !target.visible(),
+                zIndex: target.zIndex(),
+              });
+            }
+          });
+        }
+      };
 
-    // 绑定运行时
-    const runtime = new ArcadeRuntime(stage, updateTarget, false);
-    runtime.handleKeyDown = runtime.handleKeyDown.bind(runtime);
-    runtime.handleKeyUp = runtime.handleKeyUp.bind(runtime);
-    document.addEventListener('keydown', runtime.handleKeyDown);
-    document.addEventListener('keyup', runtime.handleKeyUp);
-    onRuntime(runtime);
+      // 绑定运行时
+      const runtime = new ArcadeRuntime(stage, updateTarget, false);
+      runtime.handleKeyDown = runtime.handleKeyDown.bind(runtime);
+      runtime.handleKeyUp = runtime.handleKeyUp.bind(runtime);
+      document.addEventListener('keydown', runtime.handleKeyDown);
+      document.addEventListener('keyup', runtime.handleKeyUp);
+      onRuntime(runtime);
 
-    return () => {
-      document.removeEventListener('keydown', runtime.handleKeyDown);
-      document.removeEventListener('keyup', runtime.handleKeyUp);
-      onRuntime(null);
-    };
-  }, []);
+      return () => {
+        document.removeEventListener('keydown', runtime.handleKeyDown);
+        document.removeEventListener('keyup', runtime.handleKeyUp);
+        onRuntime(null);
+      };
+    },
+    [onRuntime],
+  );
 
   return (
     <Emulator
+      id="arcade-emulator"
       zoom={appState.value?.stageSize !== StageConfig.Large ? 1 : 1.5}
       width={StageConfig.Width}
       height={StageConfig.Height}

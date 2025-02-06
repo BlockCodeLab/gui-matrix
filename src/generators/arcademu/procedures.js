@@ -5,7 +5,7 @@ const proto = ArcademuGenerator.prototype;
 
 proto['procedures_definition'] = function (block) {
   const myBlock = block.childBlocks_[0];
-  const funcName = this.nameDB_.getName(myBlock.getProcCode(), ScratchBlocks.Procedures.NAME_TYPE);
+  const funcName = this.getVariableName(myBlock.getProcCode(), ScratchBlocks.Procedures.NAME_TYPE);
   const args = myBlock.childBlocks_.map((argBlock) => this.getVariableName(argBlock.getFieldValue('VALUE')));
   args.push('done');
 
@@ -21,7 +21,7 @@ proto['procedures_call'] = function (block) {
     code += this.injectId(this.STATEMENT_PREFIX, block);
   }
 
-  const funcName = this.nameDB_.getName(block.getProcCode(), ScratchBlocks.Procedures.NAME_TYPE);
+  const funcName = this.getVariableName(block.getProcCode(), ScratchBlocks.Procedures.NAME_TYPE);
   const args = block.argumentIds_.map((arg) => this.valueToCode(block, arg, this.ORDER_NONE));
   args.unshift('target');
 
