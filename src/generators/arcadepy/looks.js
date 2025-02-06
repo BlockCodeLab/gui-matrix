@@ -26,7 +26,7 @@ proto['looks_say'] = function (block) {
   const optionValue = block.getFieldValue('OPTION') || 'say';
   const msgCode = this.valueToCode(block, 'MESSAGE', this.ORDER_NONE) || '""';
 
-  code += `target.say(str(${msgCode}, ${optionValue === 'shout' ? 16 : 12}))\n`;
+  code += `target.say(str(${msgCode}), ${optionValue === 'shout' ? 16 : 12})\n`;
   code += 'render_mode = True\n';
   return code;
 };
