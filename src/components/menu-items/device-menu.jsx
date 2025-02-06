@@ -3,6 +3,7 @@ import { useProjectContext, setAlert, delAlert, openPromptModal } from '@blockco
 import { MPYUtils } from '@blockcode/board';
 import { generateMain } from '../../lib/generate-main';
 import { generateAssets } from '../../lib/generate-assets';
+import { firmware } from '../../../package.json';
 import deviceFilters from '../../lib/device-filters.yaml';
 
 import { Spinner, Text, MenuSection, MenuItem } from '@blockcode/core';
@@ -28,7 +29,7 @@ const downloadingAlert = (progress) => {
       icon: <Spinner level="success" />,
       message: (
         <Text
-          id="arcade.alert.downloading"
+          id="blocks.alert.downloading"
           defaultMessage="Downloading...{progress}%"
           progress={progress}
         />
@@ -81,14 +82,52 @@ export function DeviceMenu({ itemClassName }) {
               .map((file) => ({
                 ...file,
                 id: file.id.startsWith('lib/')
-                  ? file.id // 扩展的文件不放入项目文件夹
+                  ? file.id // 库文件不放入项目文件夹
                   : `proj${key.value}/${file.id}`,
               }));
 
             downloadingAlert(0);
+
             try {
-              if (await MPYUtils.flashFree(currentDevice, projectFiles)) {
-                // 下载计时
+              // 检查版本，强制更新
+              if (firmware.forcedUpdate && !(await MPYUtils.checkVersion(currentDevice, firmware.version))) {
+                openPromptModal({
+                  title: (
+                    <Text
+                      id="arcade.menu.device"
+                      defaultMessage="Arcade"
+                    />
+                  ),
+                  label: (
+                    <Text
+                      id="blocks.downloadPrompt.firmwareOutdated"
+                      defaultMessage="The firmware is outdated. Please update it."
+                    />
+                  ),
+                });
+              }
+
+              // 检查空间
+              else if (!(await MPYUtils.flashFree(currentDevice, projectFiles))) {
+                openPromptModal({
+                  title: (
+                    <Text
+                      id="arcade.menu.device"
+                      defaultMessage="Arcade"
+                    />
+                  ),
+                  label: (
+                    <Text
+                      id="blocks.downloadPrompt.flashOutSpace"
+                      defaultMessage="The flash is running out of space."
+                    />
+                  ),
+                });
+              }
+
+              // 开始下载
+              else {
+                // 下载计时开始
                 if (DEBUG || BETA) {
                   downloadStart = Date.now();
                   console.log('Download start...');
@@ -100,33 +139,17 @@ export function DeviceMenu({ itemClassName }) {
                 });
                 currentDevice.hardReset();
 
-                // 下载计时
+                // 下载计时结束
                 if (DEBUG || BETA) {
                   console.log(`Download completed: ${Date.now() - downloadStart}ms`);
                 }
-              } else {
-                openPromptModal({
-                  title: (
-                    <Text
-                      id="blocks.menu.device.name"
-                      defaultMessage="device"
-                    />
-                  ),
-                  label: (
-                    <Text
-                      id="blocks.alert.flashOutSpace"
-                      defaultMessage="The flash is running out of space."
-                    />
-                  ),
-                });
-                removeDownloading();
               }
             } catch (err) {
               errorAlert(err.name);
-              removeDownloading();
-            } finally {
-              checker.cancel();
             }
+
+            removeDownloading();
+            checker.cancel();
           }}
         />
       </MenuSection>

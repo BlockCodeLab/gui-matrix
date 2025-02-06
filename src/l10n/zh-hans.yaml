@@ -5,10 +5,6 @@ blocks.dataPrompt.listAvailableToAllTargets: 所有角色都可使用该列表�
 
 blocks.myBlockPrompt.warpLabel: 运行时不刷新屏幕
 
-arcade.downloadPrompt.flashOutSpace: 设备空间不足。
-
-arcade.alert.downloading: 正在下载…{progress}%
-
 arcade.paintEditor.costumes: 造型
 arcade.paintEditor.backdrops: 背景
 

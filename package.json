@@ -13,10 +13,11 @@
     }
   },
   "firmware": {
-    "version": "0.9.7.BETA",
+    "version": "0.9.7",
+    "forcedUpdate": true,
     "release": "https://github.com/ScratchArcade/arcade-firmware/releases/",
-    "download": "https://arcade.blockcode.fun/releases/{version}/arcade.{version}.bin",
-    "hash": "907dc108adc1e69cbe58e323919a38a1dd645ca6ae336490dc5dd43e2c274b38",
+    "download": "https://arcade.blockcode.fun/releases/{language}/arcade.{version}.bin",
+    "hash": "9fdc269345c53ac458dd5fee9bceefa2a673229ffa4be7068e301db970072a52",
     "mirrors": {
       "zh-Hans": {
         "release": "https://gitee.com/blockcodelab/arcade-firmware/releases/"

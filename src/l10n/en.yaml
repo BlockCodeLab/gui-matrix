@@ -5,10 +5,6 @@ blocks.dataPrompt.listAvailableToAllTargets: This list will be available to all 
 
 blocks.myBlockPrompt.warpLabel: Run without screen refresh
 
-arcade.downloadPrompt.flashOutSpace: The flash is running out of space.
-
-arcade.alert.downloading: Downloading...{progress}%
-
 arcade.paintEditor.costumes: Costumes
 arcade.paintEditor.backdrops: Backdrops
 
