@@ -9,6 +9,7 @@ proto['motion_movesteps'] = function (block) {
   }
   const stepsCode = this.valueToCode(block, 'STEPS', this.ORDER_NONE) || 10;
   code += `target.move(num(${stepsCode}))\n`;
+  code += 'render_mode = True\n';
   return code;
 };
 
@@ -19,6 +20,7 @@ proto['motion_turnright'] = function (block) {
   }
   const degreesCode = this.valueToCode(block, 'DEGREES', this.ORDER_NONE) || 15;
   code += `target.direction += num(${degreesCode})\n`;
+  code += 'render_mode = True\n';
   return code;
 };
 
@@ -29,6 +31,7 @@ proto['motion_turnleft'] = function (block) {
   }
   const degreesCode = this.valueToCode(block, 'DEGREES', this.ORDER_NONE) || 15;
   code += `target.direction -= num(${degreesCode})\n`;
+  code += 'render_mode = True\n';
   return code;
 };
 
@@ -39,6 +42,7 @@ proto['motion_pointindirection'] = function (block) {
   }
   const directionCode = this.valueToCode(block, 'DIRECTION', this.ORDER_NONE) || 90;
   code += `target.direction = num(${directionCode})\n`;
+  code += 'render_mode = True\n';
   return code;
 };
 
@@ -59,6 +63,7 @@ proto['motion_pointtowards'] = function (block) {
     towardsCode = `stage.get_child('${towardsCode}')`;
   }
   code += `target.towards(${towardsCode})\n`;
+  code += 'render_mode = True\n';
   return code;
 };
 
@@ -70,6 +75,7 @@ proto['motion_gotoxy'] = function (block) {
   const xCode = this.valueToCode(block, 'X', this.ORDER_NONE) || 0;
   const yCode = this.valueToCode(block, 'Y', this.ORDER_NONE) || 0;
   code += `target.goto(num(${xCode}), num(${yCode}))\n`;
+  code += 'render_mode = True\n';
   return code;
 };
 
@@ -90,6 +96,7 @@ proto['motion_goto'] = function (block) {
     toCode = `stage.get_child('${toCode}')`;
   }
   code += `target.goto(${toCode})\n`;
+  code += 'render_mode = True\n';
   return code;
 };
 
@@ -132,6 +139,7 @@ proto['motion_changexby'] = function (block) {
   }
   const dxCode = this.valueToCode(block, 'DX', this.ORDER_NONE) || 10;
   code += `target.x += num(${dxCode})\n`;
+  code += 'render_mode = True\n';
   return code;
 };
 
@@ -142,6 +150,7 @@ proto['motion_setx'] = function (block) {
   }
   const xCode = this.valueToCode(block, 'X', this.ORDER_NONE) || 0;
   code += `target.x = num(${xCode})\n`;
+  code += 'render_mode = True\n';
   return code;
 };
 
@@ -152,6 +161,7 @@ proto['motion_changeyby'] = function (block) {
   }
   const dyCode = this.valueToCode(block, 'DY', this.ORDER_NONE) || 10;
   code += `target.y += num(${dyCode})\n`;
+  code += 'render_mode = True\n';
   return code;
 };
 
@@ -162,6 +172,7 @@ proto['motion_sety'] = function (block) {
   }
   const yCode = this.valueToCode(block, 'Y', this.ORDER_NONE) || 0;
   code += `target.y = num(${yCode})\n`;
+  code += 'render_mode = True\n';
   return code;
 };
 
@@ -195,6 +206,7 @@ proto['motion_setrotationstyle'] = function (block) {
       break;
   }
   code += `target.rotation_style = ${styleCode}\n`;
+  code += 'render_mode = True\n';
   return code;
 };
 

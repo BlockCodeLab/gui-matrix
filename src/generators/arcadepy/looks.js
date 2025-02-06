@@ -13,6 +13,7 @@ proto['looks_sayforsecs'] = function (block) {
   const secCode = this.valueToCode(block, 'SECS', this.ORDER_NONE) || '2';
 
   code += `await target.say_wait(str(${msgCode}), num(${secCode}), ${optionValue === 'shout' ? 16 : 12})\n`;
+  code += 'render_mode = True\n';
   return code;
 };
 
@@ -26,6 +27,7 @@ proto['looks_say'] = function (block) {
   const msgCode = this.valueToCode(block, 'MESSAGE', this.ORDER_NONE) || '""';
 
   code += `target.say(str(${msgCode}, ${optionValue === 'shout' ? 16 : 12}))\n`;
+  code += 'render_mode = True\n';
   return code;
 };
 
@@ -40,6 +42,7 @@ proto['looks_thinkforsecs'] = function (block) {
   const secCode = this.valueToCode(block, 'SECS', this.ORDER_NONE) || '2';
 
   code += `await target.think_wait(str(${msgCode}), num(${secCode}), ${optionValue === 'spark' ? 16 : 12})\n`;
+  code += 'render_mode = True\n';
   return code;
 };
 
@@ -53,6 +56,7 @@ proto['looks_think'] = function (block) {
   const msgCode = this.valueToCode(block, 'MESSAGE', this.ORDER_NONE) || '""';
 
   code += `target.think(str(${msgCode}), ${optionValue === 'spark' ? 16 : 12})\n`;
+  code += 'render_mode = True\n';
   return code;
 };
 
@@ -62,6 +66,7 @@ proto['looks_show'] = function (block) {
     code += this.injectId(this.STATEMENT_PREFIX, block);
   }
   code += `target.hidden = False\n`;
+  code += 'render_mode = True\n';
   return code;
 };
 
@@ -71,6 +76,7 @@ proto['looks_hide'] = function (block) {
     code += this.injectId(this.STATEMENT_PREFIX, block);
   }
   code += `target.hidden = True\n`;
+  code += 'render_mode = True\n';
   return code;
 };
 
@@ -81,6 +87,7 @@ proto['looks_changesizeby'] = function (block) {
   }
   const changeCode = this.valueToCode(block, 'CHANGE', this.ORDER_NONE) || 10;
   code += `target.size += num(${changeCode})\n`;
+  code += 'render_mode = True\n';
   return code;
 };
 
@@ -91,6 +98,7 @@ proto['looks_setsizeto'] = function (block) {
   }
   const sizeCode = this.valueToCode(block, 'SIZE', this.ORDER_NONE) || 100;
   code += `target.size = num(${sizeCode})\n`;
+  code += 'render_mode = True\n';
   return code;
 };
 
@@ -110,6 +118,7 @@ proto['looks_switchcostumeto'] = function (block) {
   }
   const costumeCode = this.valueToCode(block, 'COSTUME', this.ORDER_NONE) || '""';
   code += `target.frame_name = ${costumeCode}\n`;
+  code += 'render_mode = True\n';
   return code;
 };
 
@@ -119,6 +128,7 @@ proto['looks_nextcostume'] = function (block) {
     code += this.injectId(this.STATEMENT_PREFIX, block);
   }
   code += `target.frame_number += 1\n`;
+  code += 'render_mode = True\n';
   return code;
 };
 
@@ -134,6 +144,7 @@ proto['looks_switchbackdropto'] = function (block) {
   }
   const backdropCode = this.valueToCode(block, 'BACKDROP', this.ORDER_NONE) || '""';
   code += `stage.frame_name = ${backdropCode}\n`;
+  code += 'render_mode = True\n';
   code += `runtime.backdropswitchesto(${backdropCode})\n`;
   return code;
 };
@@ -144,6 +155,7 @@ proto['looks_nextbackdrop'] = function (block) {
     code += this.injectId(this.STATEMENT_PREFIX, block);
   }
   code += `stage.frame_number += 1\n`;
+  code += 'render_mode = True\n';
   return code;
 };
 
@@ -154,6 +166,7 @@ proto['looks_gotofrontback'] = function (block) {
   }
   const frontOrBackValue = block.getFieldValue('FRONT_BACK');
   code += `target.go_${frontOrBackValue}()\n`;
+  code += 'render_mode = True\n';
   return code;
 };
 
@@ -165,6 +178,7 @@ proto['looks_goforwardbackwardlayers'] = function (block) {
   const forwardOrBackwardValue = block.getFieldValue('FORWARD_BACKWARD');
   const changeCode = this.valueToCode(block, 'NUM', this.ORDER_NONE);
   code += `target.z_index ${forwardOrBackwardValue === 'backward' ? '-' : '+'}= num(${changeCode})\n`;
+  code += 'render_mode = True\n';
   return code;
 };
 
@@ -187,6 +201,7 @@ proto['looks_switchbackdroptoandwait'] = function (block) {
   }
   const backdropCode = this.valueToCode(block, 'BACKDROP', this.ORDER_NONE) || '""';
   code += `stage.frame_name = ${backdropCode}\n`;
+  code += 'render_mode = True\n';
   code += `await runtime.backdropswitchesto(${backdropCode}, waiting=True)\n`;
   return code;
 };
