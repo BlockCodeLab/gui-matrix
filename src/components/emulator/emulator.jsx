@@ -241,6 +241,7 @@ export function MatrixEmulator() {
 
   return (
     <Emulator
+      id="matrix-emulator"
       zoom={appState.value?.stageSize !== StageConfig.Large ? 0.6 : 1}
       width={StageConfig.Width}
       height={StageConfig.Height}

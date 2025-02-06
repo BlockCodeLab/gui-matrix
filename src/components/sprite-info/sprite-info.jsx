@@ -57,7 +57,7 @@ export function SpriteInfo() {
       }
       setFile({ [key]: value });
     },
-    [],
+    [translator],
   );
 
   const nameInput = (

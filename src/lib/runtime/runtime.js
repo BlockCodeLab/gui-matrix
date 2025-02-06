@@ -47,6 +47,18 @@ export class MatrixRuntime extends Runtime {
     super.binding(files);
   }
 
+  setData(target, key, value) {
+    this._data.set(`${target.id()}.${key}`, value);
+  }
+
+  getData(target, key) {
+    return this._data.get(`${target.id()}.${key}`);
+  }
+
+  hasData(target, key) {
+    return this._data.has(`${target.id()}.${key}`);
+  }
+
   stop() {
     // 还原按键
     this._releaseKey('fn');
@@ -88,9 +100,6 @@ export class MatrixRuntime extends Runtime {
         this.targetUtils.redraw(target);
       }
     });
-
-    // 清除所有事件
-    this.targetUtils.removeAllListeners();
 
     super.stop();
   }

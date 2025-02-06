@@ -33,23 +33,26 @@ export function DirectionPicker({ direction, rotationStyle, children, onChange, 
     return degrees + 90; // To correspond with scratch coordinate system
   }, []);
 
-  const handleDirectionMouseDown = useCallback((e) => {
-    e.stopPropagation();
-    const target = e.target;
-    const mouseMove = (e) => {
-      e.preventDefault();
-      let newDirection = directionToMouse(target, e.clientX, e.clientY);
-      if (newDirection > 180) newDirection += -360;
-      if (newDirection < -180) newDirection += 360;
-      onChange(newDirection);
-    };
-    const mouseUp = () => {
-      document.removeEventListener('pointermove', mouseMove);
-      document.removeEventListener('pointerup', mouseUp);
-    };
-    document.addEventListener('pointermove', mouseMove);
-    document.addEventListener('pointerup', mouseUp);
-  }, []);
+  const handleDirectionMouseDown = useCallback(
+    (e) => {
+      e.stopPropagation();
+      const target = e.target;
+      const mouseMove = (e) => {
+        e.preventDefault();
+        let newDirection = directionToMouse(target, e.clientX, e.clientY);
+        if (newDirection > 180) newDirection += -360;
+        if (newDirection < -180) newDirection += 360;
+        onChange(newDirection);
+      };
+      const mouseUp = () => {
+        document.removeEventListener('pointermove', mouseMove);
+        document.removeEventListener('pointerup', mouseUp);
+      };
+      document.addEventListener('pointermove', mouseMove);
+      document.addEventListener('pointerup', mouseUp);
+    },
+    [onChange],
+  );
 
   return (
     <Tooltip

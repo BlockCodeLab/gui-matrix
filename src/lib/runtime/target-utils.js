@@ -331,8 +331,8 @@ export class TargetUtils extends EventEmitter {
     if (py > bottom) {
       dy = bottom - clientRect.y;
     }
-    pos.x += Math.round(dx);
-    pos.y += -Math.round(dy);
+    pos.x += dx;
+    pos.y += -dy;
 
     target.position(pos);
     this._updateDialog(target);
@@ -781,7 +781,8 @@ export class TargetUtils extends EventEmitter {
       dialog = this._dialog(target, thinkingStyle, strikingStyle);
       target.setAttr('dialog', dialog);
     }
-    this._updateDialog(target, message, thinkingStyle, strikingStyle);
+    const messageValue = `${message}`;
+    this._updateDialog(target, messageValue, thinkingStyle, strikingStyle);
     dialog.visible(true);
     dialog.moveToTop();
 

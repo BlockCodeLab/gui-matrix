@@ -63,7 +63,7 @@ export default {
   },
 
   async onThumb() {
-    const content = document.querySelector('.konvajs-content');
+    const content = document.querySelector('#matrix-emulator > .konvajs-content');
     const canvas = await html2canvas(content);
     return canvas?.toDataURL();
   },
