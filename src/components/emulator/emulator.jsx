@@ -1,5 +1,5 @@
 import { useCallback, useEffect } from 'preact/hooks';
-import { useSignal } from '@preact/signals';
+import { useSignal, useSignalEffect } from '@preact/signals';
 import { MathUtils } from '@blockcode/utils';
 import { useAppContext, useProjectContext, setAppState, setFile, isModifyType, ModifyTypes } from '@blockcode/core';
 import { loadImageFromAsset } from '@blockcode/paint';
@@ -15,20 +15,29 @@ export function MatrixEmulator() {
   const runtime = useSignal(null);
 
   // 设备连接状态
-  useEffect(() => {
-    if (!runtime.value) return;
+  useSignalEffect(() => {
+    if (!runtime.value || !appState.value) return;
 
-    // 连接
-    if (appState.value?.device) {
-      runtime.value.emit('connecting', appState.value.device);
-    }
+    let device, extId;
+    for (const propName in appState.value) {
+      if (propName.startsWith('device.')) {
+        device = appState.value[propName];
+        extId = propName.slice(7); // 去掉 'device.' 得到 extId
 
-    // 断开
-    if (appState.value?.device === false) {
-      runtime.value.emit('disconnect');
-      setAppState('device', null);
+        // 连接
+        if (device && device !== true) {
+          setAppState(propName, true);
+          runtime.value.emit(`${extId}.connecting`, device);
+        }
+
+        // 断开
+        if (device === false) {
+          setAppState(propName, null);
+          runtime.value.emit(`${extId}.disconnect`);
+        }
+      }
     }
-  }, [appState.value?.device]);
+  });
 
   // 运行模拟器
   useEffect(async () => {
