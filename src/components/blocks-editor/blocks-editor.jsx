@@ -28,7 +28,7 @@ const emulator = new MatrixemuGenerator();
 export function MatrixBlocksEditor() {
   const { translator } = useLocalesContext();
 
-  const { name, files, fileId, file, assets, modified } = useProjectContext();
+  const { files, fileId, file, assets, modified } = useProjectContext();
 
   const messages = {
     LOOKS_TEXTBUBLLE: translate('matrix.blocks.textBubble', '%1 %2'),
@@ -68,8 +68,7 @@ export function MatrixBlocksEditor() {
   }, [modified.value]);
 
   // 生成积木栏
-  const backdropId = stage.assets[stage.frame];
-  const costumeId = target.assets[target.frame];
+  const backdropId = stage.assets[0];
   const soundRes = assets.value.find?.((res) => res.type.startsWith('audio/')); // 第一个声音资源
 
   const handleMakeToolboxXML = useCallback(() => {
@@ -82,13 +81,13 @@ export function MatrixBlocksEditor() {
       backdropId,
       // 角色信息
       files.value.length - 1,
-      costumeId,
+      target.assets[0],
       target.x,
       target.y,
       // 声音信息
       soundRes ? soundRes.id : '',
     );
-  }, [isStage, translator, target, backdropId, costumeId, soundRes]);
+  }, [isStage, translator, target, backdropId, soundRes]);
 
   // 根据选中的舞台或角色过滤积木
   const handleExtensionBlockFilter = useCallback(
