@@ -1,4 +1,4 @@
-import { useMemo } from 'preact/hooks';
+import { useEffect, useMemo } from 'preact/hooks';
 import { useSignal } from '@preact/signals';
 import { nanoid, classNames, sleep, arrayBufferToBinaryString, getBinaryCache, setBinaryCache } from '@blockcode/utils';
 import { useLocalesContext, setAlert, delAlert, openPromptModal } from '@blockcode/core';
@@ -74,13 +74,13 @@ const getFirmware = async (downloadUrl) => {
 };
 
 // 查询是否有缓存固件
-const getFirmwareCache = async (downloadUrl, readyForUpdate) => {
+const getFirmwareCache = async (downloadUrl, firmwareHash, readyForUpdate) => {
   if (readyForUpdate.value) return;
 
   const data = await getBinaryCache('firmware');
 
   // 比对缓存固件版本
-  if (data?.hash === firmware.hash && data.binaryString) {
+  if (data?.hash === firmwareHash && data?.binaryString) {
     readyForUpdate.value = true;
     delete getFirmwareCache.downloading;
     return;
@@ -105,15 +105,15 @@ const getFirmwareCache = async (downloadUrl, readyForUpdate) => {
   const hash = Array.from(new Uint8Array(hashBuffer))
     .map((b) => b.toString(16).padStart(2, '0'))
     .join('');
-  if (hash !== firmware.hash) {
-    getFirmwareCache(downloadUrl, readyForUpdate);
+  if (hash !== firmwareHash) {
+    getFirmwareCache(downloadUrl, firmwareHash, readyForUpdate);
     return;
   }
 
   // 进行缓存
   await setBinaryCache('firmware', {
     version: firmware.version,
-    hash: firmware.hash,
+    hash: firmwareHash,
     binaryString: arrayBufferToBinaryString(buffer),
   });
   readyForUpdate.value = true;
@@ -376,12 +376,13 @@ export function FirmwareSection({ itemClassName }) {
     return firmware.mirrors?.[language.value]?.release ?? firmware.release;
   }, [language.value]);
 
-  const downloadUrl = useMemo(() => {
-    let url = firmware.mirrors?.[language.value]?.download ?? firmware.download;
-    return url.replaceAll('{language}', language.value).replaceAll('{version}', firmware.version);
+  useEffect(() => {
+    readyForUpdate.value = false;
+    const url = firmware.mirrors?.[language.value]?.download ?? firmware.download;
+    const downloadUrl = url.replaceAll('{language}', language.value).replaceAll('{version}', firmware.version);
+    const firmwareHash = firmware.hash[language.value] ?? firmware.en;
+    getFirmwareCache(downloadUrl, firmwareHash, readyForUpdate);
   }, [language.value]);
-
-  getFirmwareCache(downloadUrl, readyForUpdate);
 
   return (
     <MenuSection>
