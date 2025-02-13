@@ -1,4 +1,4 @@
-- id: dadb019677a3a1d58e1b73c77b82c22e
+- id: 67e0db3305b3c8bac3a363b1c428892e
   name: Arctic
   copyright: Scratch
   tags:
@@ -9,9 +9,11 @@
     - ice
     - antarctica
     - robert hunter
-  centerX: 160
-  centerY: 120
-- id: a65f7a97508b41acfc36c0124f18c311
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 825d9b54682c406215d9d1f98a819449
   name: Baseball 1
   copyright: Scratch
   tags:
@@ -19,9 +21,11 @@
     - sports
     - outdoors
     - alex eben meyer
-  centerX: 160
-  centerY: 120
-- id: cc5c8778ddf319958e09333afbaadcac
+  type: svg
+  bpr: 1
+  centerX: 240
+  centerY: 180
+- id: 7be1f5b3e682813dac1f297e52ff7dca
   name: Baseball 2
   copyright: Scratch
   tags:
@@ -29,9 +33,11 @@
     - sports
     - outdoors
     - alex eben meyer
-  centerX: 160
-  centerY: 120
-- id: aacfaf86604095c42bc66770f8d6c16f
+  type: svg
+  bpr: 1
+  centerX: 240
+  centerY: 180
+- id: ae21eac3d1814aee1d37ae82ea287816
   name: Basketball 1
   copyright: Scratch
   tags:
@@ -39,146 +45,165 @@
     - outdoors
     - basketball
     - alex eben meyer
-  centerX: 166
-  centerY: 124
-- id: 57152012b022b3f2e787be7f2a6a8e67
+  type: svg
+  bpr: 1
+  centerX: 249
+  centerY: 186
+- id: a5865738283613a2725b2c9dda6d8c78
   name: Basketball 2
   copyright: Scratch
   tags:
     - outdoors
     - sports
     - basketball
-  centerX: 160
-  centerY: 120
-- id: 07f29d1aa2d4abe554b116986866ea88
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 050615fe992a00d6af0e664e497ebf53
   name: Beach Malibu
   copyright: Scratch
   tags:
     - outdoors
-  centerX: 160
-  centerY: 120
-- id: 0711317a30fd1d52cb8e376d8a8e83c4
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 968f0ede6e70e1dbb763d6fd4c5003e0
   name: Beach Rio
   copyright: Scratch
   tags:
     - outdoors
-  centerX: 160
-  centerY: 120
-- id: b3cc3a554afb9f17ffe0655b39f10260
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 7aa6bbb2ddc4c10f901e1a50aeac1c7e
   name: Bedroom 1
   copyright: Scratch
   tags:
     - bedroom
     - indoors
-  centerX: 160
-  centerY: 120
-- id: 7846c3978f52ce105646c33e6b92958a
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: e2f8b0dbd0a65d2ad8bfc21616662a6a
   name: Bedroom 2
   copyright: Scratch
   tags:
     - indoors
-  centerX: 160
-  centerY: 120
-- id: 0a0115899c38458477794679cc163a2e
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 8cc0b88d53345b3e337e8f028a32a4e7
   name: Bedroom 3
   copyright: Scratch
   tags:
     - indoors
-  centerX: 160
-  centerY: 120
-- id: a4022625060c0a1ec231f301c2e31037
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 962201a2b712a302fb087f8f0dcb2076
   name: Bench With View
   copyright: Scratch
   tags:
     - outdoors
     - hill
     - view
-  centerX: 160
-  centerY: 120
-- id: ad16ac721c9e77ea5ebcdaca74c52df1
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: e7c147730f19d284bcd7b3f00af19bb6
   name: Blue Sky
   copyright: Scratch
   tags:
     - outdoors
     - flying
-  centerX: 160
-  centerY: 120
-- id: 08f23a7f678a9503c669bafc8e81b0dd
+  type: svg
+  bpr: 1
+  centerX: 240
+  centerY: 180
+- id: 8eb8790be5507fdccf73e7c1570bbbab
   name: "Blue Sky 2 "
   copyright: Scratch
   tags:
     - outdoors
     - flying
-  centerX: 160
-  centerY: 120
-- id: 436529e56df9b037a664f51b8d34dc5a
+  type: svg
+  bpr: 1
+  centerX: 240
+  centerY: 180
+- id: de0e54cd11551566f044e7e6bc588b2c
   name: Boardwalk
   copyright: Scratch
   tags:
     - outdoors
     - ocean
-  centerX: 160
-  centerY: 120
-- id: 0e2cdcb448cadaa34951529632d73ac1
-  name: Canyon
-  copyright: Scratch
-  tags:
-    - outdoors
-    - nature
-  centerX: 160
-  centerY: 120
-- id: 8e81ee775e832185182ad707ead3cfab
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: e1914ed7917267f1c2ef2b48004cade9
   name: Castle 1
   copyright: Scratch
   tags:
     - fantasy
-  centerX: 160
-  centerY: 120
-- id: 6c107e6dbb15bd13c3a1848ac04dd0de
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 951765ee7f7370f120c9df20b577c22f
   name: Castle 2
   copyright: Scratch
   tags:
     - fantasy
-  centerX: 160
-  centerY: 120
-- id: 7cb47ec37b154ab5432539b32e7cdbf1
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 76fa99f67569fcd39b4be74ed38c33f3
   name: Castle 3
   copyright: Scratch
   tags:
     - fantasy
-  centerX: 160
-  centerY: 120
-- id: a6ccb30984447c5d7478705ec79f329f
-  name: Castle 4
-  copyright: Scratch
-  tags:
-    - fantasy
-  centerX: 160
-  centerY: 120
-- id: 0c1dee38f5f9c43e868d6224308cde48
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: a8a24b5aa717bbef09dbe31368914427
   name: Chalkboard
   copyright: Scratch
   tags:
     - indoors
     - school
-  centerX: 160
-  centerY: 120
-- id: 2480f8c6f407af22635a3c6e37200c4e
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: c9847be305920807c5597d81576dd0c4
   name: Circles
   copyright: Scratch
   tags:
     - patterns
-  centerX: 160
-  centerY: 120
-- id: 94261d49f5eebcb8c140c26e215c34e3
+  type: svg
+  bpr: 1
+  centerX: 240
+  centerY: 180
+- id: 1ef98019fc94ea65a1b55d5521285c7a
   name: City With Water
   copyright: Scratch
   tags:
     - outdoors
     - boston
-  centerX: 160
-  centerY: 120
-- id: b99850422f6976271e48213adc242b7e
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 04d18ddd1b85f0ea30beb14b8da49f60
   name: Colorful City
   copyright: Scratch
   tags:
@@ -187,18 +212,22 @@
     - road
     - skyline
     - outdoors
-  centerX: 160
-  centerY: 120
-- id: 1361afd797ab9d21ec270bdce4582f03
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: c8d90320d2966c08af8cdd1c6a7a93b5
   name: Concert
   copyright: Scratch
   tags:
     - indoors
     - music
     - andrew rae
-  centerX: 160
-  centerY: 120
-- id: 79d5f23ea81a82d540c07565b34b9b94
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: d98a9526a34890cf4bad11b5409eae2a
   name: Desert
   copyright: Scratch
   tags:
@@ -206,9 +235,11 @@
     - " landscape"
     - " outdoors"
     - " cacti"
-  centerX: 160
-  centerY: 120
-- id: 8254bfb1acf5aab49bc31c7dc7736a81
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 1e8a70bd07f1dcba3383883f3b948266
   name: Farm
   copyright: Scratch
   tags:
@@ -217,132 +248,164 @@
     - barn
     - coup
     - owen davey
-  centerX: 160
-  centerY: 120
-- id: 76e1fe3561c4f29f9ddf0319e5efcefa
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 5b0a970202b464915915260c03f05455
   name: Field At Mit
   copyright: Scratch
   tags:
     - outdoors
     - architecture
-  centerX: 160
-  centerY: 120
-- id: 187f247b55614aa3d957f671c6c5d548
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 25a6ede51a96d4e55de2ffb81ae96f8c
   name: Flowers
   copyright: Scratch
   tags:
     - outdoors
     - nature
-  centerX: 160
-  centerY: 120
-- id: ff85b700633e3f3821533b1d00106b4a
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 92968ac16b2f0c3f7835a6dacd172c7b
   name: Forest
   copyright: Scratch
   tags:
     - outdoors
     - forest
-  centerX: 160
-  centerY: 120
-- id: 31a9f78adadef8a8c3af69563ae2a5a6
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 5fab1922f254ae9fd150162c3e392bef
   name: Galaxy
   copyright: Scratch
   tags:
     - space
     - stars
     - nasa
-  centerX: 160
-  centerY: 120
-- id: 1fcced48b9b783dc31a5e51b79f4bfe9
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 4f66053598bea0905e1559ab9d5a6e31
   name: Garden-rock
   copyright: Scratch
   tags:
     - outdoors
     - " garden"
     - " park"
-  centerX: 160
-  centerY: 120
-- id: 4217c73b4ffe0766bee6dbce22029b35
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 93d71e8b8a96cc007b8d68f36acd338a
   name: Greek Theater
   copyright: Scratch
   tags:
     - outdoors
     - theatre
-  centerX: 160
-  centerY: 120
-- id: f9f2caa58757b15d7203e267d0dca3a4
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: ea86ca30b346f27ca5faf1254f6a31e3
   name: Hall
   copyright: Scratch
   tags:
     - indoors
-  centerX: 160
-  centerY: 120
-- id: b39730eb3022adb855a565150ac777ba
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: da102a69d135973e0fc139131dec785a
   name: Hay Field
   copyright: Scratch
   tags:
     - outdoors
     - farm
-  centerX: 160
-  centerY: 120
-- id: 25ef4223e30330a286988f375ae1d98e
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: f98526ccb0eec3ac7d6c8f8ab502825e
   name: Hearts
   copyright: Scratch
   tags:
     - patterns
-  centerX: 160
-  centerY: 120
-- id: 600136b7c1a90368525cc89aca68b0c9
+  type: svg
+  bpr: 1
+  centerX: 240
+  centerY: 180
+- id: 2129c842f28d6881f622fdc3497ff2da
   name: Hill
   copyright: Scratch
   tags:
     - outdoors
     - nature
-  centerX: 160
-  centerY: 120
-- id: 5c87fde52c1b80431892c1f9d59ddde3
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: f4f908da19e2753f3ed679d7b37650ca
   name: Jungle
   copyright: Scratch
   tags:
     - outdoors
     - forest
     - robert hunter
-  centerX: 160
-  centerY: 120
-- id: b6e30fd696633dc8108229123c1cca97
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 64025bdca5db4938f65597e3682fddcf
   name: Jurassic
   copyright: Scratch
   tags:
     - outdoors
     - dinosaur
     - alex eben meyer
-  centerX: 160
-  centerY: 120
-- id: ba565e94d66a701256da408d4248c4dc
+  type: svg
+  bpr: 1
+  centerX: 240
+  centerY: 180
+- id: 4b98c07876ed8997c3762e75790507b4
   name: Light
   copyright: Scratch
   tags:
     - patterns
-  centerX: 160
-  centerY: 120
-- id: 788382b413d2162dbe8555e7c4330e43
+  type: svg
+  bpr: 1
+  centerX: 240
+  centerY: 180
+- id: 0b4a15ba028bf205ec051390d6ac4de7
   name: Metro
   copyright: Scratch
   tags:
     - outdoors
     - city
     - urban
-  centerX: 160
-  centerY: 120
-- id: f8260d72675c4870348c7a84726bdc51
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 0b1d2eaf22d62ef88de80ccde5578fba
   name: Moon
   copyright: Scratch
   tags:
     - space
     - nasa
     - apollo
-  centerX: 160
-  centerY: 120
-- id: 90f430a0055cdc804a3fe8038ccd8705
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: f84989feee2cf462a1c597169777ee3c
   name: Mountain
   copyright: Scratch
   tags:
@@ -350,9 +413,11 @@
     - snow
     - cave
     - robert hunter
-  centerX: 160
-  centerY: 120
-- id: 33e83ca9edbe99954143ee2c088adf82
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: efb625f7e0b199b15f69e116cd053cea
   name: Mural
   copyright: Scratch
   tags:
@@ -361,9 +426,11 @@
     - graffiti
     - street
     - art
-  centerX: 160
-  centerY: 120
-- id: f7b53a01d5c2ecb82d11bb39323aa1b5
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 9b5cdbd596da1b6149f56b794b6394f4
   name: Nebula
   copyright: Scratch
   tags:
@@ -371,18 +438,22 @@
     - nasa
     - bubble
     - hubble
-  centerX: 160
-  centerY: 120
-- id: 51678bee4824312cf321e949fcf464c4
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 57d2b13b2f73d3d878c72810c137b0d6
   name: Neon Tunnel
   copyright: Scratch
   tags:
     - games
     - game
     - space
-  centerX: 160
-  centerY: 120
-- id: 1e96e1682247086d9561e34b38edf50b
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 6fdc795ff487204f72740567be5f64f9
   name: Night City
   copyright: Scratch
   tags:
@@ -390,9 +461,11 @@
     - urban
     - city
     - metro
-  centerX: 160
-  centerY: 120
-- id: d973db56b86d1da6d7abde40d064ad4b
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 14443ad7907b6479d7562a12b8ae0efb
   name: Night City With Street
   copyright: Scratch
   tags:
@@ -400,41 +473,51 @@
     - city
     - metro
     - transportation
-  centerX: 160
-  centerY: 120
-- id: 98566cc60072116b22ec60473f889059
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 108160d0e44d1c340182e31c9dc0758a
   name: Party
   copyright: Scratch
   tags:
     - indoors
     - inflatable
-  centerX: 160
-  centerY: 120
-- id: 1ea2f2d9d947ee8c8472658ed690418c
+  type: svg
+  bpr: 1
+  centerX: 240
+  centerY: 180
+- id: 5d747ec036755a4b129f0d5b978bc61c
   name: Pathway
   copyright: Scratch
   tags:
     - outdoors
     - garden
-  centerX: 160
-  centerY: 120
-- id: 1c54521472e3a2c0cd89c37dd445261d
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: e5f794c8756ca0cead5cb7e7fe354c41
   name: Playground
   copyright: Scratch
   tags:
     - outdoors
     - play
-  centerX: 160
-  centerY: 120
-- id: f48677feebcd88e700d616005a97e9f9
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 2de108f3098e92f5c5976cf75d38e99d
   name: Playing Field
   copyright: Scratch
   tags:
     - outdoors
     - sports
-  centerX: 160
-  centerY: 120
-- id: dba7ab13ffab67c1d1a21dc9ca9363b6
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 6cab934df643d2fc508cfa90c0c4059b
   name: Pool
   copyright: Scratch
   tags:
@@ -442,42 +525,52 @@
     - sports
     - swim
     - swimming
-  centerX: 160
-  centerY: 120
-- id: bf5482c79f79cbeb0be87c06a6f1bd92
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 87e963282db9e020e8c4d075891ea12b
   name: Rays
   copyright: Scratch
   tags:
     - patterns
     - raimondious
-  centerX: 160
-  centerY: 120
-- id: 09867c2fa03e35b16c73cea5d7a3bcef
+  type: svg
+  bpr: 1
+  centerX: 240.1199951171875
+  centerY: 180
+- id: 98f053f9681e872f34fafd783ce72205
   name: Refrigerator
   copyright: Scratch
   tags:
     - food
     - indoors
     - alex eben meyer
-  centerX: 160
-  centerY: 120
-- id: 200f966fc3bd3a4b12f9e1789b696a4c
+  type: svg
+  bpr: 1
+  centerX: 240
+  centerY: 180
+- id: a81668321aa3dcc0fc185d3e36ae76f6
   name: Room 1
   copyright: Scratch
   tags:
     - indoors
     - books
     - library
-  centerX: 160
-  centerY: 120
-- id: 7fbeaac3a5c8421cadfc8b15e923857e
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 05ae3e3bbea890a6e3552ffe8456775e
   name: Room 2
   copyright: Scratch
   tags:
     - indoors
-  centerX: 160
-  centerY: 120
-- id: b0e6bf747f3b14609a8e0dd15e001fbe
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 9b020b8c7cb6a9592f7303add9441d8f
   name: Savanna
   copyright: Scratch
   tags:
@@ -486,9 +579,11 @@
     - savanah
     - outdoors
     - robert hunter
-  centerX: 160
-  centerY: 120
-- id: 4871962bf842a41fc30121690e8bcb23
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 1dea69ac0f62cf538d368a7bde1372ac
   name: School
   copyright: Scratch
   tags:
@@ -496,9 +591,11 @@
     - building
     - education
     - learning
-  centerX: 160
-  centerY: 120
-- id: c3b6916891e7d2b0e677aae69a37ebc5
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 63b6a69594a0a87888b56244bfa2ac1b
   name: Slopes
   copyright: Scratch
   tags:
@@ -508,9 +605,11 @@
     - snowboard
     - cold
     - snow
-  centerX: 160
-  centerY: 120
-- id: 5abaa25b7cd4d31ceecb81ece2ccf195
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 04a63154f04b09494354090f7cc2f1b9
   name: Soccer
   copyright: Scratch
   tags:
@@ -518,9 +617,11 @@
     - football
     - sports
     - alex eben meyer
-  centerX: 160
-  centerY: 120
-- id: d99b578cabe66fb478408fd1a7a64dc4
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: b0dc1268cb595aaeef405bce40d1639c
   name: Soccer 2
   copyright: Scratch
   tags:
@@ -528,9 +629,11 @@
     - football
     - sports
     - alex eben meyer
-  centerX: 160
-  centerY: 120
-- id: f1ba8a62ef0e65289fe2ef18a8508b00
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 84208d9a3718ec3c9fc5a32a792fa1d0
   name: Space
   copyright: Scratch
   tags:
@@ -539,9 +642,11 @@
     - science fiction
     - planet
     - wren mcdonald
-  centerX: 160
-  centerY: 120
-- id: 056369ebdd13be2645b3f4e4adf9f36e
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 20344b0edcc498281e4cb80242a72667
   name: Space City 1
   copyright: Scratch
   tags:
@@ -550,9 +655,11 @@
     - science fiction
     - planet
     - wren mcdonald
-  centerX: 160
-  centerY: 120
-- id: cbef86c45ffec25059771d154018de5f
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 32b2316fd375faa18088f6c57ebb1c8d
   name: Space City 2
   copyright: Scratch
   tags:
@@ -561,9 +668,11 @@
     - science fiction
     - planet
     - wren mcdonald
-  centerX: 160
-  centerY: 120
-- id: 96869faa9808bf0c043e29c945b773ea
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 0c450891306fa63ef02aa0fda7fd0ef9
   name: Spaceship
   copyright: Scratch
   tags:
@@ -572,56 +681,70 @@
     - science fiction
     - planet
     - wren mcdonald
-  centerX: 160
-  centerY: 120
-- id: 4d13eb40a9be424b40400889ba4bd030
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: d26bf4c3980163d9106625cc2ea6c50d
   name: Spotlight
   copyright: Scratch
   tags:
     - music
     - dance
-  centerX: 160
-  centerY: 120
-- id: 6ed5e4b1e907fa15b253a4843d8413e6
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 47282ff0f7047c6fab9c94b531abf721
   name: Stars
   copyright: Scratch
   tags:
     - space
     - nasa
-  centerX: 160
-  centerY: 120
-- id: 516547a70843c8364025337f61500074
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: a6a21f5c08d586e8daaebde37c97fb6f
   name: Stripes
   copyright: Scratch
   tags:
     - patterns
-  centerX: 160
-  centerY: 120
-- id: c3e130da519e549f7ffdfa4bf7ef3fca
+  type: svg
+  bpr: 1
+  centerX: 240
+  centerY: 180
+- id: c2b097bc5cdb6a14ef5485202bc5ee76
   name: Theater
   copyright: Scratch
   tags:
     - indoors
     - music
     - andrew rae
-  centerX: 160
-  centerY: 120
-- id: 54972c8ba34e2e7d035d25b8a88687c4
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 061a78ed83495dd0acd6d62e83e1b972
   name: Theater 2
   copyright: Scratch
   tags:
     - music
-  centerX: 160
-  centerY: 120
-- id: 4e2d2994992efdebb82cf5e7e9561c16
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: a23fbf972001c94637b568992f8fd7bd
   name: Tree
   copyright: Scratch
   tags:
     - outdoors
     - nature
-  centerX: 160
-  centerY: 120
-- id: 9f49a4b7307ff76fe4780178ac0ddfee
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: d3344650f594bcecdf46aa4a9441badd
   name: Underwater 1
   copyright: Scratch
   tags:
@@ -629,18 +752,22 @@
     - outdoors
     - underwater
     - ipzy
-  centerX: 160
-  centerY: 120
-- id: c316dc80b5fe8561f0c50cab176d75c1
+  type: svg
+  bpr: 1
+  centerX: 240
+  centerY: 180
+- id: 1517c21786d2d0edc2f3037408d850bd
   name: Underwater 2
   copyright: Scratch
   tags:
     - outdoors
     - nature
     - underwater
-  centerX: 160
-  centerY: 120
-- id: 40306bd9483c43d58c215830cec42acd
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 1679049718869e1f548e1e8823e29c1c
   name: Urban
   copyright: Scratch
   tags:
@@ -648,25 +775,31 @@
     - city
     - metro
     - transportation
-  centerX: 160
-  centerY: 120
-- id: 43beaf440917903d369293b02d044cd1
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 7e5327c68ff6ddabc48dbfe4717a04fe
   name: Wall 1
   copyright: Scratch
   tags:
     - outdoors
     - brick
-  centerX: 160
-  centerY: 120
-- id: 914228afa5e2482160b265c4d51a102f
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 82d867fcd9f1b5f49e29c2f853d55665
   name: Wall 2
   copyright: Scratch
   tags:
     - outdoors
     - brick
-  centerX: 160
-  centerY: 120
-- id: 4aeff902201c24e50014ffcb9bf0bcf7
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 0015433a406a53f00b792424b823268c
   name: Water And Rocks
   copyright: Scratch
   tags:
@@ -675,9 +808,11 @@
     - tree
     - river
     - stream
-  centerX: 160
-  centerY: 120
-- id: 03ced0f5deb1a4cfecf189ead4140faf
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: ef9973bcff6d4cbc558e946028ec7d23
   name: Wetland
   copyright: Scratch
   tags:
@@ -686,9 +821,11 @@
     - swamp
     - wetland
     - owen davey
-  centerX: 160
-  centerY: 120
-- id: 1bf14dca157a8ca5dc19cf55fc435502
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360
+- id: 5fa9385a60b904672d0e46e9d768bb32
   name: Winter
   copyright: Scratch
   tags:
@@ -696,18 +833,22 @@
     - trees
     - forest
     - winter
-  centerX: 160
-  centerY: 120
-- id: 2e31819f2c32539a921d5f44f6136962
+  type: svg
+  bpr: 1
+  centerX: 240
+  centerY: 180
+- id: 30085b2d27beb5acdbe895d8b3e64b04
   name: Witch House
   copyright: Scratch
   tags:
     - fantasy
     - indoors
     - ipzy
-  centerX: 160
-  centerY: 120
-- id: e9356cf5639e3d4cd6bc9040b21a993b
+  type: svg
+  bpr: 1
+  centerX: 240
+  centerY: 180
+- id: f3eb165d6f3fd23370f97079f2e631bf
   name: Woods
   copyright: Scratch
   tags:
@@ -718,22 +859,17 @@
     - haunted
     - forest
     - alex eben meyer
-  centerX: 160
-  centerY: 120
-- id: 44071593db317038b66c0703ea1e8936
+  type: svg
+  bpr: 1
+  centerX: 240
+  centerY: 180
+- id: 4fcf7ed0de6c6b6e9b52c511b0650e9c
   name: Woods And Bench
   copyright: Scratch
   tags:
     - outdoors
     - park
-  centerX: 160
-  centerY: 120
-- id: 1e7a51c6d41e53f22d5644183d60ef66
-  name: Xy-grid
-  copyright: Scratch
-  tags:
-    - grid
-    - xy
-    - coordinates
-  centerX: 160
-  centerY: 120
+  type: png
+  bpr: 2
+  centerX: 480
+  centerY: 360

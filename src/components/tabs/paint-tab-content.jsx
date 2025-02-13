@@ -10,6 +10,11 @@ import { PaintEditor } from '@blockcode/paint';
 import { BackdropsLibrary } from '../libraries/backdrops-library';
 import { CostumesLibrary } from '../libraries/costumes-library';
 
+const maxSize = {
+  width: StageConfig.Width,
+  height: StageConfig.Height,
+};
+
 export function PaintTabContent() {
   const { file, fileIndex, assetId } = useProjectContext();
 
@@ -57,7 +62,7 @@ export function PaintTabContent() {
     async (asset) => {
       const alertId = nanoid();
       setAlert('importing', { id: alertId });
-      const image = await loadImageFromURL(getAssetUrl(asset, 'png'));
+      const image = await loadImageFromURL(getAssetUrl(asset));
       delAlert(alertId);
 
       batch(() => {
@@ -83,10 +88,7 @@ export function PaintTabContent() {
     <>
       <PaintEditor
         mode={fileIndex.value === 0 ? EditorModes.Backdrop : EditorModes.Costume}
-        maxSize={{
-          width: StageConfig.Width,
-          height: StageConfig.Height,
-        }}
+        maxSize={maxSize}
         onImagesFilter={handleImagesFilter}
         onShowLibrary={() => (libraryVisible.value = true)}
         onSurprise={() =>

@@ -35,6 +35,11 @@ import fileUploadIcon from './icons/icon-file-upload.svg';
 
 const DefaultSpriteIcon = `data:image/png;base64,${BlankImageData}`;
 
+const maxSize = {
+  width: StageConfig.Width,
+  height: StageConfig.Height,
+};
+
 export function SpriteSelector() {
   const { translator } = useLocalesContext();
 
@@ -73,12 +78,12 @@ export function SpriteSelector() {
       const image = await loadImageFromURL(
         getAssetUrl(costume, {
           copyright: sprite.copyright,
-          extname: 'png',
         }),
       );
       costumes.push({
         ...costume,
         id: image.id,
+        type: 'image/png',
         data: image.dataset.data,
         width: image.width,
         height: image.height,
@@ -128,10 +133,7 @@ export function SpriteSelector() {
 
       // 将每一张上传的图片都添加为一个角色
       for (const file of e.target.files) {
-        let image = await loadImageFromFile(file, {
-          width: StageConfig.Width,
-          height: StageConfig.Height,
-        });
+        let image = await loadImageFromFile(file, maxSize);
         if (!image) {
           setAlert(
             {

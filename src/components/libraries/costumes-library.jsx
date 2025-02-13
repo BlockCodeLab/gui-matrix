@@ -8,7 +8,7 @@ const getCostumesItmes = (onSelect, onClose) => {
     name: costume.name,
     copyright: costume.copyright,
     tags: costume.tags,
-    image: getAssetUrl(costume, 'png'),
+    image: getAssetUrl(costume),
     onSelect() {
       onSelect(costume);
       onClose();

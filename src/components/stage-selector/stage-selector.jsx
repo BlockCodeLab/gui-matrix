@@ -28,7 +28,10 @@ import searchIcon from '../sprite-selector/icons/icon-search.svg';
 import paintIcon from '../sprite-selector/icons/icon-paint.svg';
 import fileUploadIcon from '../sprite-selector/icons/icon-file-upload.svg';
 
-const DefaultBackdropThumb = `data:image/png;base64,${BlankImageData}`;
+const maxSize = {
+  width: StageConfig.Width,
+  height: StageConfig.Height,
+};
 
 export function StageSelector() {
   const { translator } = useLocalesContext();
@@ -55,7 +58,7 @@ export function StageSelector() {
 
   const handleSelectBackdrop = async ({ tags, ...backdrop }) => {
     setAlert('importing', { id: stage.id });
-    const image = await loadImageFromURL(getAssetUrl(backdrop, 'png'));
+    const image = await loadImageFromURL(getAssetUrl(backdrop));
     delAlert(stage.id);
 
     batch(() => {
@@ -98,10 +101,7 @@ export function StageSelector() {
       // 依次解析上传的文件并加入项目
       let image;
       for (const file of e.target.files) {
-        image = await loadImageFromFile(file, {
-          width: StageConfig.Width,
-          height: StageConfig.Height,
-        });
+        image = await loadImageFromFile(file, maxSize);
         if (!image) {
           setAlert(
             {
