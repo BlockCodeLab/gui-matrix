@@ -8,7 +8,7 @@ const getBackdropItmes = (onSelect, onClose) => {
     name: backdrop.name,
     copyright: backdrop.copyright,
     tags: backdrop.tags,
-    image: getAssetUrl(backdrop, 'png'),
+    image: getAssetUrl(backdrop),
     onSelect() {
       onSelect(backdrop);
       onClose();

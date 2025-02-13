@@ -16,10 +16,7 @@ const mouseEnterHandler = (sprite) => (e) => {
   if (len > 1) {
     let i = 0;
     timer = setInterval(() => {
-      e.target.src = getAssetUrl(sprite, {
-        id: sprite.costumes[++i % len].id,
-        extname: 'png',
-      });
+      e.target.src = getAssetUrl(sprite, sprite.costumes[++i % len]);
     }, 300);
   }
 };
@@ -28,10 +25,7 @@ const mouseEnterHandler = (sprite) => (e) => {
 const mouseLeaveHandler = (sprite) => (e) => {
   clearInterval(timer);
   timer = null;
-  e.target.src = getAssetUrl(sprite, {
-    id: sprite.costumes[0].id,
-    extname: 'png',
-  });
+  e.target.src = getAssetUrl(sprite, sprite.costumes[0]);
 };
 
 const getSpritesItmes = (onSelect, onClose) => {
@@ -39,10 +33,7 @@ const getSpritesItmes = (onSelect, onClose) => {
     name: sprite.name,
     copyright: sprite.copyright,
     tags: sprite.tags,
-    image: getAssetUrl(sprite, {
-      id: sprite.costumes[0].id,
-      extname: 'png',
-    }),
+    image: getAssetUrl(sprite, sprite.costumes[0]),
     onMouseEnter: mouseEnterHandler(sprite),
     onMouseLeave: mouseLeaveHandler(sprite),
     onSelect() {

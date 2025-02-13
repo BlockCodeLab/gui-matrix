@@ -1,23 +1,21 @@
-import { mime } from '@blockcode/utils';
-
 export function getAssetUrl(asset, options) {
   if (typeof options === 'string') {
     options = {
-      extname: options,
+      type: options,
     };
   }
-  let { mediaPath, copyright, id, extname } = options;
+  let { mediaPath, copyright, id, type } = options ?? {};
 
   if (asset.type) {
-    extname = mime.getExtension(asset.type);
+    type = asset.type;
   }
 
   if (asset.copyright || copyright) {
     if (!copyright) {
       copyright = asset.copyright;
     }
-    mediaPath = `${copyright.toLowerCase()}-media/`;
+    mediaPath = `${copyright.toLowerCase()}-`;
   }
 
-  return `./${mediaPath ?? ''}${id ?? asset.id}.${extname}`;
+  return `./${mediaPath ?? ''}media/${id ?? asset.id}.${type}`;
 }

@@ -3,6 +3,7 @@ export const StageConfig = {
   Height: 240,
   Small: 'small',
   Large: 'large',
+  Scale: 320 / 480,
 };
 
 const DONOT_ROTATE = 0;

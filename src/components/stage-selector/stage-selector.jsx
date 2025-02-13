@@ -28,6 +28,11 @@ import searchIcon from '../sprite-selector/icons/icon-search.svg';
 import paintIcon from '../sprite-selector/icons/icon-paint.svg';
 import fileUploadIcon from '../sprite-selector/icons/icon-file-upload.svg';
 
+const maxSize = {
+  width: StageConfig.Width,
+  height: StageConfig.Height,
+};
+
 export function StageSelector() {
   const { translator } = useLocalesContext();
 
@@ -51,9 +56,12 @@ export function StageSelector() {
     backdropsLibraryVisible.value = true;
   };
 
-  const handleSelectBackdrop = async ({ tags, ...backdrop }) => {
+  const handleSelectBackdrop = async ({ tags, bpr, copyright, ...backdrop }) => {
     setAlert('importing', { id: stage.id });
-    const image = await loadImageFromURL(getAssetUrl(backdrop, 'png'));
+
+    const scale = StageConfig.Scale / (bpr || 1);
+    const image = await loadImageFromURL(getAssetUrl(backdrop, { copyright }), scale);
+
     delAlert(stage.id);
 
     batch(() => {
@@ -64,6 +72,8 @@ export function StageSelector() {
         data: image.dataset.data,
         width: image.width,
         height: image.height,
+        centerX: backdrop.centerX * scale,
+        centerY: backdrop.centerY * scale,
       });
       stage.assets.push(image.id);
 
@@ -96,10 +106,7 @@ export function StageSelector() {
       // 依次解析上传的文件并加入项目
       let image;
       for (const file of e.target.files) {
-        image = await loadImageFromFile(file, {
-          width: StageConfig.Width,
-          height: StageConfig.Height,
-        });
+        image = await loadImageFromFile(file, maxSize);
         if (!image) {
           setAlert(
             {

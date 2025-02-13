@@ -10,6 +10,11 @@ import { PaintEditor } from '@blockcode/paint';
 import { BackdropsLibrary } from '../libraries/backdrops-library';
 import { CostumesLibrary } from '../libraries/costumes-library';
 
+const maxSize = {
+  width: StageConfig.Width,
+  height: StageConfig.Height,
+};
+
 export function PaintTabContent() {
   const { file, fileIndex, assetId } = useProjectContext();
 
@@ -54,10 +59,13 @@ export function PaintTabContent() {
   const handleImagesFilter = useCallback((image) => target.assets.includes(image.id), [target]);
 
   const handleLibrarySelect = useCallback(
-    async (asset) => {
+    async ({ tags, bpr, copyright, ...asset }) => {
       const alertId = nanoid();
       setAlert('importing', { id: alertId });
-      const image = await loadImageFromURL(getAssetUrl(asset, 'png'));
+
+      const scale = StageConfig.Scale / (bpr || 1);
+      const image = await loadImageFromURL(getAssetUrl(asset, { copyright }), scale);
+
       delAlert(alertId);
 
       batch(() => {
@@ -68,6 +76,8 @@ export function PaintTabContent() {
           data: image.dataset.data,
           width: image.width,
           height: image.height,
+          centerX: asset.centerX * scale,
+          centerY: asset.centerY * scale,
         });
         target.assets.push(image.id);
         setFile({
@@ -83,10 +93,7 @@ export function PaintTabContent() {
     <>
       <PaintEditor
         mode={fileIndex.value === 0 ? EditorModes.Backdrop : EditorModes.Costume}
-        maxSize={{
-          width: StageConfig.Width,
-          height: StageConfig.Height,
-        }}
+        maxSize={maxSize}
         onImagesFilter={handleImagesFilter}
         onShowLibrary={() => (libraryVisible.value = true)}
         onSurprise={() =>
