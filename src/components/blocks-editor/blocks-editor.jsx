@@ -12,7 +12,7 @@ import styles from './blocks-editor.module.css';
 const XYBlocks = ['glide', 'move', 'set'];
 
 // 扩展过滤
-const handleExtensionsFilter = () => ['matrix', ['communication', '!device'], ['data', '!device']];
+const handleExtensionsFilter = () => ['matrix', 'ai', ['communication', '!device'], ['data', '!device']];
 
 // 动态更新XY坐标积木
 const updateToolboxBlockValue = (workspace, id, value) => {
