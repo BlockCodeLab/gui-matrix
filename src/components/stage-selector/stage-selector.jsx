@@ -56,9 +56,12 @@ export function StageSelector() {
     backdropsLibraryVisible.value = true;
   };
 
-  const handleSelectBackdrop = async ({ tags, ...backdrop }) => {
+  const handleSelectBackdrop = async ({ tags, bpr, copyright, ...backdrop }) => {
     setAlert('importing', { id: stage.id });
-    const image = await loadImageFromURL(getAssetUrl(backdrop));
+
+    const scale = 1 / (bpr || 1);
+    const image = await loadImageFromURL(getAssetUrl(backdrop, { copyright }), scale);
+
     delAlert(stage.id);
 
     batch(() => {
@@ -69,6 +72,8 @@ export function StageSelector() {
         data: image.dataset.data,
         width: image.width,
         height: image.height,
+        centerX: backdrop.centerX * scale,
+        centerY: backdrop.centerY * scale,
       });
       stage.assets.push(image.id);
 

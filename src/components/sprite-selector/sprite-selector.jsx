@@ -75,10 +75,12 @@ export function SpriteSelector() {
     // 添加角色的每一个造型
     const costumes = [];
     for (const costume of sprite.costumes) {
+      const scale = 1 / (costume.bpr || 1);
       const image = await loadImageFromURL(
         getAssetUrl(costume, {
           copyright: sprite.copyright,
         }),
+        scale,
       );
       costumes.push({
         ...costume,
@@ -87,6 +89,8 @@ export function SpriteSelector() {
         data: image.dataset.data,
         width: image.width,
         height: image.height,
+        centerX: costume.centerX * scale,
+        centerY: costume.centerY * scale,
       });
     }
 

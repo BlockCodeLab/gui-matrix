@@ -59,10 +59,13 @@ export function PaintTabContent() {
   const handleImagesFilter = useCallback((image) => target.assets.includes(image.id), [target]);
 
   const handleLibrarySelect = useCallback(
-    async (asset) => {
+    async ({ tags, bpr, copyright, ...asset }) => {
       const alertId = nanoid();
       setAlert('importing', { id: alertId });
-      const image = await loadImageFromURL(getAssetUrl(asset));
+
+      const scale = 1 / (bpr || 1);
+      const image = await loadImageFromURL(getAssetUrl(asset, { copyright }), scale);
+
       delAlert(alertId);
 
       batch(() => {
@@ -73,6 +76,9 @@ export function PaintTabContent() {
           data: image.dataset.data,
           width: image.width,
           height: image.height,
+          height: image.height,
+          centerX: asset.centerX * scale,
+          centerY: asset.centerY * scale,
         });
         target.assets.push(image.id);
         setFile({
