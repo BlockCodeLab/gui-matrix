@@ -1,9 +1,8 @@
 import { EventEmitter } from 'node:events';
 import { batch } from '@preact/signals';
-import { sleep, MathUtils } from '@blockcode/utils';
+import { sleep, MathUtils, Konva } from '@blockcode/utils';
 import { themeColors, openFile, setFile } from '@blockcode/core';
 import { loadImageFromAsset } from '@blockcode/paint';
-import { Konva } from '@blockcode/blocks';
 import { RotationStyle, SpriteDefaultConfig } from '../../components/emulator/emulator-config';
 
 const FontBubbleStyle = {
@@ -818,7 +817,7 @@ export class TargetUtils extends EventEmitter {
   }
 
   // 切换造型/背景
-  switchFrameTo(target, signal, idOrSerialOrName) {
+  switchFrameTo(target, signal, idOrSerialOrName, broadcast = false) {
     if (!this.running) return;
 
     const frames = target.getAttr('frames');
@@ -832,6 +831,8 @@ export class TargetUtils extends EventEmitter {
     const asset = this.assets.find((res) => [res.id, res.name].includes(frameIdOrName));
     if (!asset) return;
 
+    target.setAttr('_frameIndex', frames.indexOf(asset.id));
+
     return new Promise(async (resolve, reject) => {
       const handleAbort = () => {
         signal.off('abort', handleAbort);
@@ -840,16 +841,26 @@ export class TargetUtils extends EventEmitter {
       signal.once('abort', handleAbort);
 
       const image = await loadImageFromAsset(asset);
-      target.clearCache();
-      target.setAttrs({
-        image,
-        offsetX: asset.centerX,
-        offsetY: asset.centerY,
-        frameIndex: frames.indexOf(asset.id),
-      });
-      // target.cache();
-      this.runtime.update(target);
-      this.emit('update', target);
+      const frameIndex = target.getAttr('_frameIndex');
+
+      // 当帧已经被改变则跳过造型更新
+      if (frameIndex === frames.indexOf(asset.id)) {
+        target.clearCache();
+        target.setAttrs({
+          image,
+          offsetX: asset.centerX,
+          offsetY: asset.centerY,
+          frameIndex: frames.indexOf(asset.id),
+          _frameIndex: null,
+        });
+        // target.cache();
+        this.runtime.update(target);
+        this.emit('update', target);
+
+        if (broadcast) {
+          await this.runtime.run(`backdropswitchesto:${asset.id}`);
+        }
+      }
 
       signal.off('abort', handleAbort);
       resolve();
@@ -857,12 +868,12 @@ export class TargetUtils extends EventEmitter {
   }
 
   // 下一个造型/背景
-  nextFrame(target, signal) {
+  nextFrame(target, signal, broadcast = false) {
     if (!this.running) return;
     const frames = target.getAttr('frames');
     const frameIndex = target.getAttr('frameIndex');
     const serial = MathUtils.indexToSerial(frameIndex, frames.length);
-    return this.switchFrameTo(target, signal, serial + 1);
+    return this.switchFrameTo(target, signal, serial + 1, broadcast);
   }
 
   // 增加大小
@@ -935,7 +946,7 @@ export class TargetUtils extends EventEmitter {
   //
 
   // 克隆
-  clone(target) {
+  async clone(target) {
     if (!this.running) return;
 
     const clones = this.runtime.querySelectorAll('.clone');
@@ -945,6 +956,11 @@ export class TargetUtils extends EventEmitter {
       target = this.runtime.querySelector(`#${target}`) || this.runtime.querySelector(`.${target}`);
     }
     if (!target) return;
+
+    // 等待造型更新完成
+    while (target.getAttr('_frameIndex') != null) {
+      await runtime.nextTick();
+    }
 
     const clone = target.clone({
       id: null,

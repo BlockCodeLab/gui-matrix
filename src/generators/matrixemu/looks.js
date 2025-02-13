@@ -101,7 +101,7 @@ proto['looks_switchcostumeto'] = function (block) {
     code += this.injectId(this.STATEMENT_PREFIX, block);
   }
   const costumeCode = this.valueToCode(block, 'COSTUME', this.ORDER_NONE) || '1';
-  code += `await targetUtils.switchFrameTo(target, signal, ${costumeCode});\n`;
+  code += `targetUtils.switchFrameTo(target, signal, ${costumeCode});\n`;
   code += 'renderMode = true;\n';
   return code;
 };
@@ -111,7 +111,7 @@ proto['looks_nextcostume'] = function (block) {
   if (this.STATEMENT_PREFIX) {
     code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  code += `await targetUtils.nextFrame(target, signal);\n`;
+  code += `targetUtils.nextFrame(target, signal);\n`;
   code += 'renderMode = true;\n';
   return code;
 };
@@ -127,8 +127,7 @@ proto['looks_switchbackdropto'] = function (block) {
     code += this.injectId(this.STATEMENT_PREFIX, block);
   }
   const backdropCode = this.valueToCode(block, 'BACKDROP', this.ORDER_NONE) || '1';
-  code += `await targetUtils.switchFrameTo(stage, signal, ${backdropCode});\n`;
-  code += `runtime.run('backdropswitchesto:' + ${backdropCode});\n`;
+  code += `targetUtils.switchFrameTo(stage, signal, ${backdropCode}, true);\n`;
   code += 'renderMode = true;\n';
   return code;
 };
@@ -138,7 +137,7 @@ proto['looks_nextbackdrop'] = function (block) {
   if (this.STATEMENT_PREFIX) {
     code += this.injectId(this.STATEMENT_PREFIX, block);
   }
-  code += `await targetUtils.nextFrame(stage, signal);\n`;
+  code += `targetUtils.nextFrame(stage, signal, true);\n`;
   code += 'renderMode = true;\n';
   return code;
 };
@@ -191,8 +190,7 @@ proto['looks_switchbackdroptoandwait'] = function (block) {
     code += this.injectId(this.STATEMENT_PREFIX, block);
   }
   const backdropCode = this.valueToCode(block, 'BACKDROP', this.ORDER_NONE) || '1';
-  code += `await targetUtils.switchFrameTo(stage, signal, ${backdropCode});\n`;
-  code += `await runtime.run('backdropswitchesto:' + ${backdropCode});\n`;
+  code += `await targetUtils.switchFrameTo(stage, signal, ${backdropCode}, true);\n`;
   code += 'renderMode = true;\n';
   return code;
 };
