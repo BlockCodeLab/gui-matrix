@@ -13,7 +13,7 @@ import styles from './blocks-editor.module.css';
 const XYBlocks = ['glide', 'move', 'set'];
 
 // 扩展过滤
-const handleExtensionsFilter = () => ['arcade', 'communication', 'data', ['sensor', '!multipin']];
+const handleExtensionsFilter = () => ['arcade', 'ai', 'communication', 'data', ['sensor', '!multipin']];
 
 // 动态更新XY坐标积木
 const updateToolboxBlockValue = (workspace, id, value) => {
