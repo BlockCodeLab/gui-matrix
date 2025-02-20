@@ -13,7 +13,7 @@ import styles from './blocks-editor.module.css';
 const XYBlocks = ['glide', 'move', 'set'];
 
 // 扩展过滤
-const handleExtensionsFilter = () => ['arcade', 'ai', 'communication', 'data', ['sensor', '!multipin']];
+const handleExtensionsFilter = () => ['arcade', ['runtime', '!multipin'], ['device', '!multipin']];
 
 // 动态更新XY坐标积木
 const updateToolboxBlockValue = (workspace, id, value) => {
@@ -143,11 +143,7 @@ export function ArcadeBlocksEditor() {
 
         // 舞台
         if (index === 0) {
-          const stageName = name.value || translate('gui.project.shortname', 'Untitled', translator);
-          defer(
-            'define_stage',
-            `stage = Stage(runtime, "${stageName}", (${imageModules.join(',')},), ${res.frame})\ntarget = stage`,
-          );
+          defer('define_stage', `stage = Stage(runtime, (${imageModules.join(',')},), ${res.frame})\ntarget = stage`);
         } else {
           // 角色
           const spriteProps = [
