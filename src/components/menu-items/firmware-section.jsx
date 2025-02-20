@@ -224,17 +224,7 @@ const uploadFirmware = (isRestore = false, releaseUrl = firmware.release) => {
                 defaultMessage="Firmware update completed! Now press RESET key."
               />
             ),
-            button: {
-              label: (
-                <Text
-                  id="gui.prompt.ok"
-                  defaultMessage="OK"
-                />
-              ),
-              onClick() {
-                closeAlert();
-              },
-            },
+            onClose: closeAlert,
           });
         } catch (err) {
           errorAlert(err.name);
@@ -345,17 +335,7 @@ const handleEraseFlash = () => {
               defaultMessage="Erase completed."
             />
           ),
-          button: {
-            label: (
-              <Text
-                id="gui.prompt.ok"
-                defaultMessage="OK"
-              />
-            ),
-            onClick() {
-              closeAlert();
-            },
-          },
+          onClose: closeAlert,
         });
       } catch (err) {
         errorAlert(err.name);

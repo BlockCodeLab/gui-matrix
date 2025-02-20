@@ -1,10 +1,22 @@
-export function generateMain(stage, sprites) {
+export function generateMain(name, stage, sprites) {
   return [].concat(
     stage,
     sprites.map((sprite) => ({
       ...sprite,
       id: sprite.id.includes('sprite') ? sprite.id : `sprite${sprite.id}`,
     })),
+    {
+      id: 'cover',
+      type: 'text/x-python',
+      content: []
+        .concat(
+          `import image${stage.assets[0]} as image`,
+          `name = "${name}"`,
+          `def render(display):`,
+          `  display.blit(image.BITMAP, (display.width - image.WIDTH) // 2, (display.height - image.HEIGHT) // 2, image.WIDTH, image.HEIGHT)`,
+        )
+        .join('\n'),
+    },
     {
       id: 'main',
       type: 'text/x-python',

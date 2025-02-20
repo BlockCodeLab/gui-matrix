@@ -1,5 +1,6 @@
+import { useEffect } from 'preact/hooks';
 import { nanoid } from '@blockcode/utils';
-import { useProjectContext, setAlert, delAlert, openPromptModal } from '@blockcode/core';
+import { useLocalesContext, useProjectContext, translate, setAlert, delAlert, openPromptModal } from '@blockcode/core';
 import { MPYUtils } from '@blockcode/board';
 import { generateMain } from '../../lib/generate-main';
 import { generateAssets } from '../../lib/generate-assets';
@@ -47,7 +48,12 @@ const errorAlert = (err) => {
 };
 
 export function DeviceMenu({ itemClassName }) {
-  const { key, files, assets } = useProjectContext();
+  const { translator } = useLocalesContext();
+  const { key, name, files, assets } = useProjectContext();
+
+  useEffect(() => {
+    downloadAlertId = null;
+  }, []);
 
   return (
     <>
@@ -77,8 +83,9 @@ export function DeviceMenu({ itemClassName }) {
               removeDownloading();
             });
 
+            const projectName = name.value || translate('gui.project.shortname', 'Untitled', translator);
             const projectFiles = []
-              .concat(generateMain(files.value[0], files.value.slice(1)), ...generateAssets(assets.value))
+              .concat(generateMain(projectName, files.value[0], files.value.slice(1)), ...generateAssets(assets.value))
               .map((file) => ({
                 ...file,
                 id: file.id.startsWith('lib/')
@@ -86,7 +93,7 @@ export function DeviceMenu({ itemClassName }) {
                   : `proj${key.value}/${file.id}`,
               }));
 
-            downloadingAlert(0);
+            downloadingAlert('0.0');
 
             try {
               // 检查版本，强制更新
@@ -105,6 +112,7 @@ export function DeviceMenu({ itemClassName }) {
                     />
                   ),
                 });
+                removeDownloading();
               }
 
               // 检查空间
@@ -123,6 +131,7 @@ export function DeviceMenu({ itemClassName }) {
                     />
                   ),
                 });
+                removeDownloading();
               }
 
               // 开始下载
@@ -146,9 +155,9 @@ export function DeviceMenu({ itemClassName }) {
               }
             } catch (err) {
               errorAlert(err.name);
+              removeDownloading();
             }
 
-            removeDownloading();
             checker.cancel();
           }}
         />
