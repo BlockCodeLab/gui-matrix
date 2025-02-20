@@ -121,20 +121,18 @@ export function ArcadeEmulator({ runtime, onRuntime }) {
 
       // 角色更新
       if (i !== 0) {
-        // 整倍缩放,缩放最大不能超过屏幕且不能小于1，最小0.5
+        // 缩放最大不能超过屏幕且不能小于1，最小0.05
         maxScale = Math.min(runtime.stage.width() / image.width, runtime.stage.height() / image.height);
-        scale = MathUtils.clamp(Math.floor(data.size / 100), 0.5, Math.max(1, Math.floor(maxScale)));
+        scale = MathUtils.clamp(data.size / 100, 0.05, Math.max(1, maxScale));
 
         // 根据不同旋转方式产生不同旋转效果
-        direction = SpriteDefaultConfig.Direction;
-        if (data.rotationStyle === RotationStyle.AllAround) {
-          // 每30度转动
-          direction = Math.round(data.direction / 30) * 30;
-        } else if (data.rotationStyle === RotationStyle.HorizontalFlip) {
+        direction = MathUtils.wrapClamp(data.direction, -179, 180);
+        if (data.rotationStyle === RotationStyle.HorizontalFlip) {
           // 镜像
-          if (MathUtils.wrapClamp(data.direction, -179, 180) < 0) {
+          if (direction < 0) {
             scale = -scale;
           }
+          direction = 90;
         }
 
         // 更新属性

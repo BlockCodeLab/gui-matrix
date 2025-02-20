@@ -182,6 +182,7 @@ proto['motion_ifonedgebounce'] = function (block) {
     code += this.injectId(this.STATEMENT_PREFIX, block);
   }
   code += 'target.edge_bounce()\n';
+  code += 'render_mode = True\n';
   return code;
 };
 
