@@ -415,8 +415,7 @@ export class TargetUtils extends EventEmitter {
     let rotation = 0;
     let scale = Math.abs(target.scaleX());
     if (rotationStyle === RotationStyle.AllAround) {
-      // 每30度转动
-      rotation = SpriteDefaultConfig.Direction - Math.round(direction / 30) * 30;
+      rotation = SpriteDefaultConfig.Direction - direction;
     } else if (rotationStyle === RotationStyle.HorizontalFlip) {
       // 镜像
       if (direction < 0) {
@@ -430,6 +429,7 @@ export class TargetUtils extends EventEmitter {
       direction,
       rotationStyle,
     });
+    this._updateDialog(target);
     this.runtime.update(target);
     this.emit('update', target);
   }
@@ -735,10 +735,9 @@ export class TargetUtils extends EventEmitter {
     }
 
     // 修改位置
-    const offsetScale = Math.abs(target.scaleX());
-    const offsetX = (target.width() * offsetScale) / 2 - FontBubbleStyle.Radius;
-    let x = target.x() + offsetX;
-    let y = target.y() + (target.height() * offsetScale) / 2;
+    const clientRect = target.getClientRect({ relativeTo: this.stage });
+    let x = clientRect.x + clientRect.width;
+    let y = clientRect.y + clientRect.height + FontBubbleStyle.Padding;
 
     // 避免对话框超出舞台右边缘
     bubble.scaleX(1);
@@ -747,7 +746,7 @@ export class TargetUtils extends EventEmitter {
       this.stage.width() / 2
     ) {
       bubble.scaleX(-1);
-      x = target.x() - offsetX;
+      x = clientRect.x;
     }
 
     // 避免对话框超出舞台顶部
@@ -854,6 +853,7 @@ export class TargetUtils extends EventEmitter {
           _frameIndex: null,
         });
         // target.cache();
+        this._updateDialog(target);
         this.runtime.update(target);
         this.emit('update', target);
 
@@ -889,10 +889,11 @@ export class TargetUtils extends EventEmitter {
 
     let sizeValue = MathUtils.toNumber(size);
 
-    // 整倍缩放,缩放最大不能超过屏幕且不能小于1，最小0.5
+    // 缩放最大不能超过屏幕且不能小于1，最小0.05
     const image = target.image();
-    let maxScale = Math.min(this.stage.width() / image.width, this.stage.height() / image.height);
-    let scale = MathUtils.clamp(Math.floor(sizeValue / 100), 0.5, Math.max(1, Math.floor(maxScale)));
+    const maxScale = Math.min(this.stage.width() / image.width, this.stage.height() / image.height);
+    let scale = MathUtils.clamp(sizeValue / 100, 0.05, Math.max(1, maxScale));
+    sizeValue = Math.round(scale * 100);
 
     // 是否要镜像
     if (
@@ -907,6 +908,7 @@ export class TargetUtils extends EventEmitter {
       scaleX: scale,
       scaleY: this.stage.scaleY() * Math.abs(scale),
     });
+    this._updateDialog(target);
     this.runtime.update(target);
     this.emit('update', target);
   }
