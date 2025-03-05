@@ -140,31 +140,38 @@ export class ArcadeRuntime extends Runtime {
     this.define(`clonestart:${target.id()}`, scripter);
   }
 
-  playWave(soundId, isWaiting = false) {
-    return new Promise(async (resolve) => {
-      let audio = this._waves.get(soundId);
-      if (!audio) {
-        const data = this._assets.find((sound) => sound.id === soundId);
-        if (!data) return;
-        const dataUrl = `data:${data.type};base64,${data.data}`;
-        audio = new Audio(dataUrl);
-        this._waves.set(soundId, audio);
+  playWave(soundId) {
+    let audio = this._waves.get(soundId);
+    if (!audio) {
+      const data = this._assets.find((sound) => sound.id === soundId);
+      if (!data) {
+        return Promise.resolve();
+      }
+      const dataUrl = `data:${data.type};base64,${data.data}`;
+      audio = new Audio(dataUrl);
+      this._waves.set(soundId, audio);
+    }
+
+    return new Promise((resolve) => {
+      if (audio.currentTime > 0) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+
+      if (!this.running) {
+        resolve();
+        return;
       }
 
       const handleEnded = () => {
         audio.removeEventListener('ended', handleEnded);
         audio.removeEventListener('pause', handleEnded);
+        audio.currentTime = 0;
         resolve();
       };
       audio.addEventListener('ended', handleEnded);
       audio.addEventListener('pause', handleEnded);
       audio.play();
-
-      if (!isWaiting) {
-        await sleepMs(500);
-        audio.pause();
-        audio.currentTime = 0;
-      }
     });
   }
 
