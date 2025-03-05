@@ -20,6 +20,7 @@ const sb3BlocksToArcadeBlocks = {
   sound_changeeffectby: 'unsupported_statement',
   sound_seteffectto: 'unsupported_statement',
   sound_cleareffects: 'unsupported_statement',
+  sound_setvolumeto: 'unsupported_statement',
   event_whenthisspriteclicked: 'unsupported_hat',
   event_whenkeypressed: {
     KEY_OPTION: {
@@ -126,6 +127,7 @@ const sb3BlocksToArcadeBlocks = {
   sensing_mousex: 'unsupported_number',
   sensing_mousey: 'unsupported_number',
   sensing_setdragmode: 'unsupported_statement',
+  sensing_loudness: 'unsupported_number',
   sensing_of: {
     PROPERTY: {
       volume: '',

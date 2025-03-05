@@ -162,18 +162,16 @@ const sb3Parse = (file) =>
     });
   });
 
-const convertImage = (file) =>
+const convertImage = (file, scale) =>
   new Promise(async (resolve) => {
     const type = mime.getType(file.name);
     const base64 = await file.async('base64');
     const image = new Image();
     image.src = `data:${type};base64,${base64}`;
     image.addEventListener('load', () => {
-      const imageWidth = Math.round(image.width * IMAGE_SCALE);
-      const imageHeight = Math.round(image.height * IMAGE_SCALE);
+      const imageWidth = Math.round(image.width * scale);
+      const imageHeight = Math.round(image.height * scale);
 
-      // let width = Math.min(StageConfig.Width, imageWidth);
-      // let height = Math.min(StageConfig.Height, imageHeight);
       let width = imageWidth;
       let height = imageHeight;
 
@@ -182,9 +180,6 @@ const convertImage = (file) =>
       canvas.height = imageHeight;
 
       const ctx = canvas.getContext('2d');
-      // const sx = Math.round((imageWidth - width) / 2);
-      // const sy = Math.round((imageHeight - height) / 2);
-      // ctx.drawImage(image, -sx, -sy, imageWidth, imageHeight);
       ctx.drawImage(image, 0, 0, width, height);
 
       const type = 'image/png';
@@ -196,7 +191,6 @@ const convertImage = (file) =>
         width = 1;
         height = 1;
       }
-      // resolve({ width, height, sx, sy, data, type });
       resolve({ width, height, data, type });
     });
   });
@@ -259,14 +253,13 @@ export async function sb3Converter(file) {
     for (const costume of target.costumes) {
       file.assets.push(costume.assetId);
       const assetFile = sb3File[costume.md5ext];
-      // const { sx, sy, ...asset } = await convertImage(assetFile);
-      const asset = await convertImage(assetFile);
+      const bpr = costume.bitmapResolution ?? 1;
+      const scale = IMAGE_SCALE / 2;
+      const asset = await convertImage(assetFile, scale);
       asset.id = costume.assetId;
       asset.name = costume.name;
-      // asset.centerX = Math.round(costume.rotationCenterX * IMAGE_SCALE - sx);
-      // asset.centerY = Math.round(costume.rotationCenterY * IMAGE_SCALE - sy);
-      asset.centerX = Math.round(costume.rotationCenterX * IMAGE_SCALE);
-      asset.centerY = Math.round(costume.rotationCenterY * IMAGE_SCALE);
+      asset.centerX = Math.round(costume.rotationCenterX * scale);
+      asset.centerY = Math.round(costume.rotationCenterY * scale);
       assets.push(asset);
     }
 
