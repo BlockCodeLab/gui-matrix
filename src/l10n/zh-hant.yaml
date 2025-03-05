@@ -17,6 +17,7 @@ arcade.menu.device.wifiNamePassword: Wi-Fi 名稱和密碼
 arcade.menu.device.wifiName: Wi-Fi 名稱
 arcade.menu.device.wifiPassword: Wi-Fi 密碼
 arcade.menu.device.wifiOk: Wi-Fi 配置已儲存。
+arcade.menu.device.wifiInfo: 僅支持 <b>2.4G Wi-Fi</b> 網絡。
 arcade.menu.device.wifiCancel: 取消 Wi-Fi 配置。
 arcade.menu.device.manual: 查看使用手冊
 arcade.menu.device.update: 升級最新固件
@@ -25,9 +26,9 @@ arcade.menu.device.restore: 還原固件
 arcade.menu.device.firmwareUpdateLabal: 請按下列步驟準備好您的學習機。
 arcade.menu.device.firmwareRestoreLabal: 固件還原後學習機內所有作品將被清除，請按下列步驟準備好您的學習機。
 arcade.menu.device.firmwareTip1-1: 下載
-arcade.menu.device.firmwareTip1-2: 固件。
-arcade.menu.device.firmwareTip2: 接入 USB 直到屏幕點亮。
-arcade.menu.device.firmwareTip3: 按住 Fn 鍵然後按下 RESET 鍵。
+arcade.menu.device.firmwareTip1-2: 新版本固件。
+arcade.menu.device.firmwareTip2: 接入 USB 直到屏幕亮起。
+arcade.menu.device.firmwareTip3: 按住 Fn 鍵不松，再按一下 RESET 鍵，等待黑屏。
 arcade.menu.device.firmwareUpdating: 正在升級到最新固件…{progress}%
 arcade.menu.device.firmwareRestoring: 正在還原固件…{progress}%
 arcade.menu.device.firmwareRecovering: 正在恢復學習機…
@@ -109,23 +110,21 @@ arcade.defaultProject.backdropName: 背景
 arcade.defaultProject.costumeName: 造型
 arcade.defaultProject.soundName: 聲音
 
-arcade.blocks.textBubble: '%1 %2'
-arcade.blocks.textBubbleAndWait: '%1 %2 %3 秒'
+arcade.blocks.textBubble: "%1 %2"
+arcade.blocks.textBubbleAndWait: "%1 %2 %3 秒"
 arcade.blocks.say: 說出
 arcade.blocks.shout: 喊出
 arcade.blocks.think: 想著
 arcade.blocks.spark: 靈感
 arcade.blocks.isConnected: Wi-Fi 已經連接？
 arcade.blocks.whenConnected: 當 Wi-Fi 連接成功
-arcade.blocks.connectTo: '連接 Wi-Fi: %1 密碼: %2'
+arcade.blocks.connectTo: "連接 Wi-Fi: %1 密碼: %2"
 arcade.blocks.disconnect: 斷開 Wi-Fi 連接
 arcade.blocks.fnButton: fn
 arcade.blocks.stopOther: 該角色的其他腳本
-arcade.blocks.touchingExact: 碰到 %1（精準）？
 arcade.blocks.joystick.x: 搖桿 x 軸
 arcade.blocks.joystick.y: 搖桿 y 軸
-arcade.blocks.sensingOfDistanceto.center: 中心
+arcade.blocks.sensingDistanceToCenter: 中心
 arcade.blocks.soundEffects.tempo: 速度
-arcade.blocks.unsupported: 不支持的積木
 
 arcade.tutorials.gettingStarted: 入門

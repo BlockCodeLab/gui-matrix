@@ -15,7 +15,7 @@ import firmwareImage3 from './images/firmware3.jpg';
 
 let alertId = null;
 
-const uploadAlert = (progress, isRestore = false) => {
+const uploadingAlert = (progress, isRestore = false) => {
   if (!alertId) {
     alertId = nanoid();
   }
@@ -168,6 +168,7 @@ const uploadFirmware = (isRestore = false, releaseUrl = firmware.release) => {
                     defaultMessage="Download"
                   />
                 </a>
+                &nbsp;
                 <Text
                   id="arcade.menu.device.firmwareTip1-2"
                   defaultMessage="latest firmware."
@@ -209,7 +210,7 @@ const uploadFirmware = (isRestore = false, releaseUrl = firmware.release) => {
       const upload = async (data) => {
         try {
           await esploader.main();
-          await ESPTool.writeFlash(esploader, data, isRestore, (val) => uploadAlert(val, isRestore));
+          await ESPTool.writeFlash(esploader, data, isRestore, (val) => uploadingAlert(val, isRestore));
           setAlert({
             id: alertId,
             icon: null,
@@ -235,7 +236,7 @@ const uploadFirmware = (isRestore = false, releaseUrl = firmware.release) => {
         await ESPTool.disconnect(esploader);
       };
 
-      uploadAlert(0);
+      uploadingAlert('0.0');
 
       // 还原用户上传固件
       if (isRestore) {

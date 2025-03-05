@@ -18,6 +18,7 @@ arcade.menu.device.wifiName: Wi-Fi name
 arcade.menu.device.wifiPassword: Wi-Fi password
 arcade.menu.device.wifiOk: The Wi-Fi configuration is saved.
 arcade.menu.device.wifiCancel: Deconfigure Wi-Fi.
+arcade.menu.device.wifiInfo: Only supports <b>2.4G Wi-Fi</b> network.
 arcade.menu.device.manual: Arcade manual
 arcade.menu.device.update: Upgrade to the latest firmware
 arcade.menu.device.caching: Caching latest firmware...
@@ -25,7 +26,7 @@ arcade.menu.device.restore: Resotre firmware
 arcade.menu.device.firmwareUpdateLabal: Follow the steps below to prepare your Arcade.
 arcade.menu.device.firmwareRestoreLabal: After restoration, all projects in the Arcade will be erased. Follow the steps below to prepare your Arcade.
 arcade.menu.device.firmwareTip1-1: Download
-arcade.menu.device.firmwareTip1-2: ' firmware.'
+arcade.menu.device.firmwareTip1-2: latest firmware.
 arcade.menu.device.firmwareTip2: Connect to USB.
 arcade.menu.device.firmwareTip3: Hold the FN key and press RESET key.
 arcade.menu.device.firmwareUpdating: Upgrading to the latest firmware...{progress}%
@@ -121,11 +122,9 @@ arcade.blocks.connectTo: 'connect Wi-Fi: %1 password: %2'
 arcade.blocks.disconnect: disconnect Wi-Fi
 arcade.blocks.fnButton: fn
 arcade.blocks.stopOther: other scripts in sprite
-arcade.blocks.touchingExact: touching %1 (careful)?
-arcade.blocks.sensingOfDistanceto.center: center
 arcade.blocks.joystick.x: joystick x axis
 arcade.blocks.joystick.y: joystick y axis
+arcade.blocks.sensingDistanceToCenter: center
 arcade.blocks.soundEffects.tempo: tempo
-arcade.blocks.unsupported: unsupported block
 
 arcade.tutorials.gettingStarted: Getting Started

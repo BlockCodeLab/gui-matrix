@@ -1,13 +1,6 @@
 import { useCallback, useMemo } from 'preact/hooks';
 import { classNames } from '@blockcode/utils';
-import {
-  useLocalesContext,
-  useAppContext,
-  useProjectContext,
-  translate,
-  maybeTranslate,
-  setFile,
-} from '@blockcode/core';
+import { useAppContext, useProjectContext, translate, maybeTranslate, setFile } from '@blockcode/core';
 import { StageConfig, RotationStyle } from '../emulator/emulator-config';
 
 import { Text, ToggleButtons, Button, Label, BufferedInput } from '@blockcode/core';
@@ -30,8 +23,6 @@ const BLANK_INFO = {
 };
 
 export function SpriteInfo() {
-  const { translator } = useLocalesContext();
-
   const { splashVisible, appState } = useAppContext();
 
   const { fileIndex, file, modified } = useProjectContext();
@@ -44,21 +35,18 @@ export function SpriteInfo() {
     [splashVisible.value === false, fileIndex.value, modified.value],
   );
 
-  const changeInfo = useCallback(
-    (key, value) => {
-      if (key === 'name') {
-        value = value.trim();
-        if (value.length === 0) {
-          value = translate('arcade.spriteInfo.sprite', 'Sprite', translator);
-        }
+  const changeInfo = useCallback((key, value) => {
+    if (key === 'name') {
+      value = value.trim();
+      if (value.length === 0) {
+        value = translate('arcade.spriteInfo.sprite', 'Sprite');
       }
-      if (key === 'size' && value < 5) {
-        value = 5;
-      }
-      setFile({ [key]: value });
-    },
-    [translator],
-  );
+    }
+    if (key === 'size' && value < 5) {
+      value = 5;
+    }
+    setFile({ [key]: value });
+  }, []);
 
   const wrapChangeInfo = useCallback((key) => (value) => changeInfo(key, value), [changeInfo]);
 
@@ -146,8 +134,8 @@ export function SpriteInfo() {
                 className={styles.buttonIcon}
                 title={
                   sprite.hidden
-                    ? translate('arcade.spriteInfo.hide', 'Hide')
-                    : translate('arcade.spriteInfo.show', 'Show')
+                    ? translate('arcade.spriteInfo.hide', 'Hide sprite')
+                    : translate('arcade.spriteInfo.show', 'Show sprite')
                 }
               />
             </Button>

@@ -1,8 +1,7 @@
-import { useMemo } from 'preact/hooks';
+import { useCallback, useMemo } from 'preact/hooks';
 import { batch, useSignal } from '@preact/signals';
 import { classNames, nanoid } from '@blockcode/utils';
 import {
-  useLocalesContext,
   useAppContext,
   useProjectContext,
   translate,
@@ -34,8 +33,6 @@ const maxSize = {
 };
 
 export function StageSelector() {
-  const { translator } = useLocalesContext();
-
   const { splashVisible } = useAppContext();
 
   const { files, fileId, assets, modified } = useProjectContext();
@@ -51,12 +48,12 @@ export function StageSelector() {
     }
   }, [splashVisible.value === false, modified.value]);
 
-  const handleShowLibrary = () => {
+  const handleShowLibrary = useCallback(() => {
     setAppState({ running: false });
     backdropsLibraryVisible.value = true;
-  };
+  }, []);
 
-  const handleSelectBackdrop = async ({ tags, bpr, copyright, ...backdrop }) => {
+  const handleSelectBackdrop = useCallback(async ({ tags, bpr, copyright, ...backdrop }) => {
     setAlert('importing', { id: stage.id });
 
     const scale = StageConfig.Scale / (bpr || 1);
@@ -84,9 +81,9 @@ export function StageSelector() {
       });
       openFile(stage.id);
     });
-  };
+  }, []);
 
-  const handleUploadFile = () => {
+  const handleUploadFile = useCallback(() => {
     setAppState({ running: false });
 
     const fileInput = document.createElement('input');
@@ -160,9 +157,9 @@ export function StageSelector() {
         }
       });
     });
-  };
+  }, []);
 
-  const handlePaintImage = () => {
+  const handlePaintImage = useCallback(() => {
     setAppState({ running: false });
 
     const imageId = nanoid();
@@ -171,7 +168,7 @@ export function StageSelector() {
       addAsset({
         id: imageId,
         type: 'image/png',
-        name: translate('arcade.defaultProject.backdropName', 'backdrop', translator),
+        name: translate('arcade.defaultProject.backdropName', 'backdrop'),
         data: BlankImageData,
         width: 1,
         height: 1,
@@ -185,12 +182,12 @@ export function StageSelector() {
       });
       openTab(1);
     });
-  };
+  }, []);
 
-  const handleSurprise = () => {
+  const handleSurprise = useCallback(() => {
     setAppState({ running: false });
     handleSelectBackdrop(BackdropsLibrary.surprise());
-  };
+  }, [handleSelectBackdrop]);
 
   return (
     <>

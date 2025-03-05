@@ -1,6 +1,6 @@
 import { useEffect } from 'preact/hooks';
 import { nanoid } from '@blockcode/utils';
-import { useLocalesContext, useProjectContext, translate, setAlert, delAlert, openPromptModal } from '@blockcode/core';
+import { useProjectContext, translate, setAlert, delAlert, openPromptModal } from '@blockcode/core';
 import { MPYUtils } from '@blockcode/board';
 import { generateMain } from '../../lib/generate-main';
 import { generateAssets } from '../../lib/generate-assets';
@@ -48,7 +48,6 @@ const errorAlert = (err) => {
 };
 
 export function DeviceMenu({ itemClassName }) {
-  const { translator } = useLocalesContext();
   const { key, name, files, assets } = useProjectContext();
 
   useEffect(() => {
@@ -83,7 +82,7 @@ export function DeviceMenu({ itemClassName }) {
               removeDownloading();
             });
 
-            const projectName = name.value || translate('gui.project.shortname', 'Untitled', translator);
+            const projectName = name.value || translate('gui.project.shortname', 'Untitled');
             const projectFiles = []
               .concat(generateMain(projectName, files.value[0], files.value.slice(1)), ...generateAssets(assets.value))
               .map((file) => ({

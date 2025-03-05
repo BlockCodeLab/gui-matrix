@@ -28,6 +28,12 @@ export function ConfigSection({ itemClassName }) {
           defaultMessage="Arcade Wi-Fi config"
         />
       ),
+      content: (
+        <Text
+          id="arcade.menu.device.wifiInfo"
+          defaultMessage="Only supports <b>2.4G Wi-Fi</b> network."
+        />
+      ),
       inputItems: [
         {
           name: 'ssid',
