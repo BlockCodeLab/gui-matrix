@@ -496,7 +496,7 @@ export default () => ({
           code += this.injectId(this.STATEMENT_PREFIX, block);
         }
         code += 'targetUtils.edgeBounce(target);\n';
-        code += 'render_mode = True\n';
+        code += 'render_mode = true\n';
         return code;
       },
       mpy(block) {
