@@ -1,6 +1,7 @@
-import { ScratchBlocks, EMUGenerator } from '@blockcode/blocks';
+import { ScratchBlocks, EmulatorGenerator } from '@blockcode/blocks';
 
-export class MatrixemuGenerator extends EMUGenerator {
+// 模拟器
+export class MatrixEmulatorGenerator extends EmulatorGenerator {
   onVariableDefinitions(workspace) {
     var defvars = [];
     // Add user variables.
