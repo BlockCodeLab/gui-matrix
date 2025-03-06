@@ -1,5 +1,5 @@
 import { useEffect, useCallback, useMemo } from 'preact/hooks';
-import { useLocalesContext, useProjectContext, translate } from '@blockcode/core';
+import { useProjectContext, translate } from '@blockcode/core';
 import { ScratchBlocks } from '@blockcode/blocks';
 import { MatrixEmulatorGenerator, buildBlocks } from '../../blocks/blocks';
 
@@ -27,21 +27,11 @@ const emulator = new MatrixEmulatorGenerator();
 const monitorOffset = { top: 'calc(1.25rem + 48px + var(--space))' };
 
 export function MatrixBlocksEditor() {
-  const { language } = useLocalesContext();
-
   const { files, fileId, file, assets, modified } = useProjectContext();
 
   const stage = files.value[0];
   const target = file.value; // 统一舞台或角色
   const isStage = stage && fileId.value === stage.id;
-
-  // 修改默认积木文本
-  const messages = useMemo(
-    () => ({
-      CONTROL_STOP_OTHER: translate('arcade.blocks.stopOther', 'other scripts in sprite'),
-    }),
-    [language.value],
-  );
 
   // 右上角缩略图
   const thumbUrl = useMemo(() => {
