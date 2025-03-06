@@ -5,15 +5,15 @@ import featureImage from './feature.png';
 addLocalesMessages({
   en: {
     'matrix.name': 'Matrix',
-    'matrix.description': 'The border between fantasy and reality.',
+    'matrix.description': 'Connect your projects with the world.',
   },
   'zh-Hans': {
     'matrix.name': 'Matrix',
-    'matrix.description': '欢迎来到虚幻与真实的边境。',
+    'matrix.description': '把作品连接到真实世界。',
   },
   'zh-Hant': {
     'matrix.name': 'Matrix',
-    'matrix.description': '歡迎來到虛幻與真實的邊境。',
+    'matrix.description': '讓你的專案與真實世界連接。',
   },
 });
 
@@ -31,7 +31,7 @@ export default {
   description: (
     <Text
       id="matrix.description"
-      defaultMessage="Welcome to matrix."
+      defaultMessage="Connect your projects with the world."
     />
   ),
   blocksRequired: true,
