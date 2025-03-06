@@ -2,7 +2,6 @@ import { useCallback, useEffect, useMemo, useRef } from 'preact/hooks';
 import { batch, useSignal } from '@preact/signals';
 import { nanoid, MathUtils } from '@blockcode/utils';
 import {
-  useLocalesContext,
   useAppContext,
   useProjectContext,
   translate,
@@ -41,8 +40,6 @@ const maxSize = {
 };
 
 export function SpriteSelector() {
-  const { translator } = useLocalesContext();
-
   const { splashVisible, appState } = useAppContext();
 
   const { files, assets, fileId, fileIndex, modified } = useProjectContext();
@@ -203,7 +200,7 @@ export function SpriteSelector() {
       addAsset({
         id: costumeId,
         type: 'image/png',
-        name: translate('matrix.defaultProject.costumeName', 'costume', translator),
+        name: translate('matrix.defaultProject.costumeName', 'costume'),
         data: BlankImageData,
         width: 1,
         height: 1,
@@ -213,7 +210,7 @@ export function SpriteSelector() {
       addFile({
         id: spriteId,
         type: 'text/x-python',
-        name: translate('matrix.defaultProject.spriteName', 'Sprite', translator),
+        name: translate('matrix.defaultProject.spriteName', 'Sprite'),
         assets: [costumeId],
         frame: 0,
         x: 0,

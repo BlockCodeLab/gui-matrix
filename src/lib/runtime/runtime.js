@@ -26,6 +26,10 @@ export class MatrixRuntime extends Runtime {
     };
   }
 
+  get fps() {
+    return 60;
+  }
+
   get targetUtils() {
     return this._targetUtils;
   }
@@ -136,31 +140,38 @@ export class MatrixRuntime extends Runtime {
     this.define(`clonestart:${target.id()}`, scripter);
   }
 
-  playWave(soundId, isWaiting = false) {
-    return new Promise(async (resolve) => {
-      let audio = this._waves.get(soundId);
-      if (!audio) {
-        const data = this._assets.find((sound) => sound.id === soundId);
-        if (!data) return;
-        const dataUrl = `data:${data.type};base64,${data.data}`;
-        audio = new Audio(dataUrl);
-        this._waves.set(soundId, audio);
+  playWave(soundId) {
+    let audio = this._waves.get(soundId);
+    if (!audio) {
+      const data = this._assets.find((sound) => sound.id === soundId);
+      if (!data) {
+        return Promise.resolve();
+      }
+      const dataUrl = `data:${data.type};base64,${data.data}`;
+      audio = new Audio(dataUrl);
+      this._waves.set(soundId, audio);
+    }
+
+    return new Promise((resolve) => {
+      if (audio.currentTime > 0) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+
+      if (!this.running) {
+        resolve();
+        return;
       }
 
       const handleEnded = () => {
         audio.removeEventListener('ended', handleEnded);
         audio.removeEventListener('pause', handleEnded);
+        audio.currentTime = 0;
         resolve();
       };
       audio.addEventListener('ended', handleEnded);
       audio.addEventListener('pause', handleEnded);
       audio.play();
-
-      if (!isWaiting) {
-        await sleepMs(500);
-        audio.pause();
-        audio.currentTime = 0;
-      }
     });
   }
 
@@ -337,11 +348,12 @@ export class MatrixRuntime extends Runtime {
     const targets = [].concat(target2, this.querySelectorAll(`.${target2.id()}`));
 
     // 角色和克隆体碰撞
-    if (targets.length > 0) {
-      for (target2 of targets) {
-        // 隐藏的角色跳过
-        if (!target2?.visible?.()) continue;
-        return Konva.Util.haveIntersection(target.getClientRect(), target2.getClientRect());
+    for (target2 of targets) {
+      // 隐藏的角色跳过
+      if (target2?.visible?.()) {
+        if (Konva.Util.haveIntersection(target.getClientRect(), target2.getClientRect())) {
+          return true;
+        }
       }
     }
     return false;

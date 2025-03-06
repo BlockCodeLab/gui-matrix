@@ -56,7 +56,7 @@ export function PaintTabContent() {
     [target],
   );
 
-  const handleImagesFilter = useCallback((image) => target.assets.includes(image.id), [target]);
+  const handleImagesFilter = useCallback(() => target.assets, [target]);
 
   const handleLibrarySelect = useCallback(
     async ({ tags, bpr, copyright, ...asset }) => {

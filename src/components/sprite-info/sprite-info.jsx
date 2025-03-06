@@ -1,13 +1,6 @@
 import { useCallback, useMemo } from 'preact/hooks';
 import { classNames } from '@blockcode/utils';
-import {
-  useLocalesContext,
-  useAppContext,
-  useProjectContext,
-  translate,
-  maybeTranslate,
-  setFile,
-} from '@blockcode/core';
+import { useAppContext, useProjectContext, translate, maybeTranslate, setFile } from '@blockcode/core';
 import { StageConfig, RotationStyle } from '../emulator/emulator-config';
 
 import { Text, ToggleButtons, Label, BufferedInput } from '@blockcode/core';
@@ -30,8 +23,6 @@ const BLANK_INFO = {
 };
 
 export function SpriteInfo() {
-  const { translator } = useLocalesContext();
-
   const { splashVisible, appState } = useAppContext();
 
   const { fileIndex, file, modified } = useProjectContext();
@@ -49,7 +40,7 @@ export function SpriteInfo() {
       if (key === 'name') {
         value = value.trim();
         if (value.length === 0) {
-          value = translate('matrix.spriteInfo.sprite', 'Sprite', translator);
+          value = translate('matrix.spriteInfo.sprite', 'Sprite');
         }
       }
       if (key === 'size' && value < 5) {
@@ -57,7 +48,7 @@ export function SpriteInfo() {
       }
       setFile({ [key]: value });
     },
-    [translator],
+    [],
   );
 
   const nameInput = (

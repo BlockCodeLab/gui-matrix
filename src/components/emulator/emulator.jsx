@@ -149,7 +149,7 @@ export function MatrixEmulator() {
       // 角色更新
       if (i !== 0) {
         // 缩放最大不能超过屏幕且不能小于1，最小0.05
-        maxScale = Math.min(runtime.stage.width() / image.width, runtime.stage.height() / image.height);
+        maxScale = Math.min(runtime.value.stage.width() / image.width, runtime.value.stage.height() / image.height);
         scale = MathUtils.clamp(data.size / 100, 0.05, Math.max(1, maxScale));
 
         // 根据不同旋转方式产生不同旋转效果

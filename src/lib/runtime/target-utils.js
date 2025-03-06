@@ -827,7 +827,11 @@ export class TargetUtils extends EventEmitter {
       const index = MathUtils.serialToIndex(MathUtils.toNumber(idOrSerialOrName), frames.length);
       frameIdOrName = frames[index];
     }
-    const asset = this.assets.find((res) => [res.id, res.name].includes(frameIdOrName));
+
+    // 查找名或ID的资源
+    const asset = this.assets.find(
+      (res) => [res.id, res.name].includes(frameIdOrName) && frames.indexOf(res.id) !== -1,
+    );
     if (!asset) return;
 
     target.setAttr('_frameIndex', frames.indexOf(asset.id));
@@ -944,9 +948,6 @@ export class TargetUtils extends EventEmitter {
   // TODO: 舞台外观
   //
 
-  // 控制
-  //
-
   // 克隆
   async clone(target) {
     if (!this.running) return;
@@ -961,7 +962,7 @@ export class TargetUtils extends EventEmitter {
 
     // 等待造型更新完成
     while (target.getAttr('_frameIndex') != null) {
-      await runtime.nextTick();
+      await this.runtime.nextTick();
     }
 
     const clone = target.clone({
