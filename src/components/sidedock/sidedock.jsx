@@ -14,7 +14,7 @@ export function Sidedock() {
 
   useEffect(() => {
     setAppState({
-      stageSize: window.innerWidth < 1280 ? StageConfig.Small : StageConfig.Large,
+      stageSize: window.innerWidth < 1200 ? StageConfig.Small : StageConfig.Large,
     });
   }, []);
 

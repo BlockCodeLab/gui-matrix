@@ -259,7 +259,7 @@ export default () => ({
         if (this.STATEMENT_PREFIX) {
           code += this.injectId(this.STATEMENT_PREFIX, block);
         }
-        const changeCode = this.valueToCode(block, 'CHANGE', this.ORDER_NONE) || '10';
+        const changeCode = this.valueToCode(block, 'CHANGE', this.ORDER_NONE) || 10;
         code += `targetUtils.addSize(target, ${changeCode});\n`;
         code += 'renderMode = true;\n';
         return code;
@@ -280,7 +280,7 @@ export default () => ({
         if (this.STATEMENT_PREFIX) {
           code += this.injectId(this.STATEMENT_PREFIX, block);
         }
-        const sizeCode = this.valueToCode(block, 'SIZE', this.ORDER_NONE) || '100';
+        const sizeCode = this.valueToCode(block, 'SIZE', this.ORDER_NONE) || 100;
         code += `targetUtils.setSize(target, ${sizeCode});\n`;
         code += 'renderMode = true;\n';
         return code;
@@ -410,7 +410,7 @@ export default () => ({
         }
         const forwardOrBackwardValue = block.getFieldValue('FORWARD_BACKWARD');
         const changeCode = this.valueToCode(block, 'NUM', this.ORDER_NONE);
-        if (block.getFieldValue('FORWARD_BACKWARD') === 'backward') {
+        if (forwardOrBackwardValue === 'backward') {
           code += `targetUtils.backward(target, ${changeCode});\n`;
         } else {
           code += `targetUtils.forward(target, ${changeCode});\n`;

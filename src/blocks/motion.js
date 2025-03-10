@@ -2,7 +2,7 @@ import { themeColors } from '@blockcode/core';
 import { ScratchBlocks } from '@blockcode/blocks';
 import { RotationStyle } from '../components/emulator/emulator-config';
 
-export default () => ({
+export default (x, y) => ({
   id: 'motion',
   name: '%{BKY_CATEGORY_MOTION}',
   themeColor: themeColors.blocks.motion.primary,
@@ -118,12 +118,12 @@ export default () => ({
         X: {
           id: 'movex',
           type: 'number',
-          defaultValue: 0,
+          defaultValue: x || 0,
         },
         Y: {
           id: 'movey',
           type: 'number',
-          defaultValue: 0,
+          defaultValue: y || 0,
         },
       },
       emu(block) {
@@ -179,12 +179,12 @@ export default () => ({
         X: {
           id: 'glidex',
           type: 'number',
-          defaultValue: 0,
+          defaultValue: x || 0,
         },
         Y: {
           id: 'glidey',
           type: 'number',
-          defaultValue: 0,
+          defaultValue: y || 0,
         },
       },
       emu(block) {
@@ -278,7 +278,7 @@ export default () => ({
         X: {
           id: 'setx',
           type: 'number',
-          defaultValue: 0,
+          defaultValue: x || 0,
         },
       },
       emu(block) {
@@ -323,7 +323,7 @@ export default () => ({
         Y: {
           id: 'sety',
           type: 'number',
-          defaultValue: 0,
+          defaultValue: y || 0,
         },
       },
       emu(block) {
@@ -374,7 +374,7 @@ export default () => ({
         if (this.STATEMENT_PREFIX) {
           code += this.injectId(this.STATEMENT_PREFIX, block);
         }
-        const styleCode = RotationStyle[block.getFieldValue('STYLE')] || RotationStyle.AllAround;
+        const styleCode = RotationStyle[block.getFieldValue('STYLE')] ?? RotationStyle.AllAround;
         code += `targetUtils.setRotationStyle(target, ${styleCode});\n`;
         code += 'renderMode = true;\n';
         return code;

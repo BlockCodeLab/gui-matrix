@@ -71,7 +71,7 @@ export function buildBlocks(assets, files, sprite) {
     }
   });
 
-  const motionBlocks = getMotionBlocks();
+  const motionBlocks = getMotionBlocks(sprite.x, sprite.y);
 
   const looksBlocks = getLooksBlocks();
   looksBlocks.blocks.forEach((block) => {

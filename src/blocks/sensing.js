@@ -164,7 +164,8 @@ export default () => ({
       // 碰撞菜单
       id: 'touchingobjectmenu',
       emu(block) {
-        const code = this.quote_(block.getFieldValue('TOUCHINGOBJECTMENU') || '_edge_');
+        let code = block.getFieldValue('TOUCHINGOBJECTMENU');
+        code = code ? this.quote_(code) : '_edge_';
         return [code, this.ORDER_ATOMIC];
       },
     },
@@ -172,7 +173,8 @@ export default () => ({
       // 距离菜单
       id: 'distancetomenu',
       emu(block) {
-        const code = this.quote_(block.getFieldValue('DISTANCETOMENU') || '_center_');
+        let code = block.getFieldValue('DISTANCETOMENU');
+        code = code ? this.quote_(code) : '_mouse_';
         return [code, this.ORDER_ATOMIC];
       },
     },
@@ -188,7 +190,8 @@ export default () => ({
       // 属性对象菜单
       id: 'of_object_menu',
       emu(block) {
-        const code = this.quote_(block.getFieldValue('OBJECT') || '');
+        let code = block.getFieldValue('OBJECT');
+        code = code ? this.quote_(code) : '_stage_';
         return [code, this.ORDER_ATOMIC];
       },
     },

@@ -43,4 +43,12 @@ export class MatrixEmulatorGenerator extends EmulatorGenerator {
     const code = this.HAT_CALLBACK;
     return code.replace('(done) => {\n', '(target, done) => {\n');
   }
+
+  // 循环机制
+  loopToCode(block, name) {
+    let code = super.loopToCode(block, name);
+    // 如果目标不存在，退出
+    code += `${this.INDENT}if (!target.parent) return;\n`;
+    return code;
+  }
 }
