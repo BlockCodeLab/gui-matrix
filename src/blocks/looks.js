@@ -56,7 +56,7 @@ export default () => ({
         const msgCode = this.valueToCode(block, 'MESSAGE', this.ORDER_NONE) || '""';
         const secCode = this.valueToCode(block, 'SECS', this.ORDER_NONE) || '2';
 
-        code += `await target.say_wait(str(${msgCode}), num(${secCode}), ${optionValue === 'shout' ? 16 : 12})\n`;
+        code += `await target.say_wait(${msgCode}, ${secCode}, ${optionValue === 'shout' ? 16 : 12})\n`;
         code += 'render_mode = True\n';
         return code;
       },
@@ -102,7 +102,7 @@ export default () => ({
         const optionValue = block.getFieldValue('OPTION') || 'say';
         const msgCode = this.valueToCode(block, 'MESSAGE', this.ORDER_NONE) || '""';
 
-        code += `target.say(str(${msgCode}), ${optionValue === 'shout' ? 16 : 12})\n`;
+        code += `target.say(${msgCode}, ${optionValue === 'shout' ? 16 : 12})\n`;
         code += 'render_mode = True\n';
         return code;
       },
@@ -154,7 +154,7 @@ export default () => ({
         const msgCode = this.valueToCode(block, 'MESSAGE', this.ORDER_NONE) || '""';
         const secCode = this.valueToCode(block, 'SECS', this.ORDER_NONE) || '2';
 
-        code += `await target.think_wait(str(${msgCode}), num(${secCode}), ${optionValue === 'spark' ? 16 : 12})\n`;
+        code += `await target.think_wait(${msgCode}, ${secCode}, ${optionValue === 'spark' ? 16 : 12})\n`;
         code += 'render_mode = True\n';
         return code;
       },
@@ -200,7 +200,7 @@ export default () => ({
         const optionValue = block.getFieldValue('OPTION') || 'think';
         const msgCode = this.valueToCode(block, 'MESSAGE', this.ORDER_NONE) || '""';
 
-        code += `target.think(str(${msgCode}), ${optionValue === 'spark' ? 16 : 12})\n`;
+        code += `target.think(${msgCode}, ${optionValue === 'spark' ? 16 : 12})\n`;
         code += 'render_mode = True\n';
         return code;
       },
@@ -363,7 +363,7 @@ export default () => ({
         if (this.STATEMENT_PREFIX) {
           code += this.injectId(this.STATEMENT_PREFIX, block);
         }
-        const changeCode = this.valueToCode(block, 'CHANGE', this.ORDER_NONE) || '10';
+        const changeCode = this.valueToCode(block, 'CHANGE', this.ORDER_NONE) || 10;
         code += `targetUtils.addSize(target, ${changeCode});\n`;
         code += 'renderMode = true;\n';
         return code;
@@ -374,7 +374,7 @@ export default () => ({
           code += this.injectId(this.STATEMENT_PREFIX, block);
         }
         const changeCode = this.valueToCode(block, 'CHANGE', this.ORDER_NONE) || 10;
-        code += `target.size += num(${changeCode})\n`;
+        code += `target.size += ${changeCode}\n`;
         code += 'render_mode = True\n';
         return code;
       },
@@ -394,7 +394,7 @@ export default () => ({
         if (this.STATEMENT_PREFIX) {
           code += this.injectId(this.STATEMENT_PREFIX, block);
         }
-        const sizeCode = this.valueToCode(block, 'SIZE', this.ORDER_NONE) || '100';
+        const sizeCode = this.valueToCode(block, 'SIZE', this.ORDER_NONE) || 100;
         code += `targetUtils.setSize(target, ${sizeCode});\n`;
         code += 'renderMode = true;\n';
         return code;
@@ -405,7 +405,7 @@ export default () => ({
           code += this.injectId(this.STATEMENT_PREFIX, block);
         }
         const sizeCode = this.valueToCode(block, 'SIZE', this.ORDER_NONE) || 100;
-        code += `target.size = num(${sizeCode})\n`;
+        code += `target.size = ${sizeCode}\n`;
         code += 'render_mode = True\n';
         return code;
       },
@@ -564,8 +564,8 @@ export default () => ({
           code += this.injectId(this.STATEMENT_PREFIX, block);
         }
         const forwardOrBackwardValue = block.getFieldValue('FORWARD_BACKWARD');
-        const changeCode = this.valueToCode(block, 'NUM', this.ORDER_NONE);
-        if (block.getFieldValue('FORWARD_BACKWARD') === 'backward') {
+        const changeCode = this.valueToCode(block, 'NUM', this.ORDER_NONE) || 1;
+        if (forwardOrBackwardValue === 'backward') {
           code += `targetUtils.backward(target, ${changeCode});\n`;
         } else {
           code += `targetUtils.forward(target, ${changeCode});\n`;
@@ -579,8 +579,8 @@ export default () => ({
           code += this.injectId(this.STATEMENT_PREFIX, block);
         }
         const forwardOrBackwardValue = block.getFieldValue('FORWARD_BACKWARD');
-        const changeCode = this.valueToCode(block, 'NUM', this.ORDER_NONE);
-        code += `target.z_index ${forwardOrBackwardValue === 'backward' ? '-' : '+'}= num(${changeCode})\n`;
+        const changeCode = this.valueToCode(block, 'NUM', this.ORDER_NONE) || 1;
+        code += `target.z_index ${forwardOrBackwardValue === 'backward' ? '-' : '+'}= ${changeCode}\n`;
         code += 'render_mode = True\n';
         return code;
       },

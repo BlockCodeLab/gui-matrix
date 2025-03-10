@@ -2,7 +2,7 @@ import { themeColors } from '@blockcode/core';
 import { ScratchBlocks } from '@blockcode/blocks';
 import { RotationStyle } from '../components/emulator/emulator-config';
 
-export default () => ({
+export default (x, y) => ({
   id: 'motion',
   name: '%{BKY_CATEGORY_MOTION}',
   themeColor: themeColors.blocks.motion.primary,
@@ -146,8 +146,6 @@ export default () => ({
         let toCode = this.valueToCode(block, 'TO', this.ORDER_NONE);
         if (toCode === '_random_') {
           toCode = '';
-        } else {
-          toCode = `stage.get_child(${toCode})`;
         }
         code += `target.goto(${toCode})\n`;
         code += 'render_mode = True\n';
@@ -163,12 +161,12 @@ export default () => ({
         X: {
           id: 'movex',
           type: 'number',
-          defaultValue: 0,
+          defaultValue: x || 0,
         },
         Y: {
           id: 'movey',
           type: 'number',
-          defaultValue: 0,
+          defaultValue: y || 0,
         },
       },
       emu(block) {
@@ -230,8 +228,6 @@ export default () => ({
         let toCode = this.valueToCode(block, 'TO', this.ORDER_NONE);
         if (toCode === '_random_') {
           toCode = '';
-        } else {
-          toCode = `stage.get_child(${toCode})`;
         }
         code += `await target.glide(${secsCode}, ${toCode})\n`;
         return code;
@@ -250,12 +246,12 @@ export default () => ({
         X: {
           id: 'glidex',
           type: 'number',
-          defaultValue: 0,
+          defaultValue: x || 0,
         },
         Y: {
           id: 'glidey',
           type: 'number',
-          defaultValue: 0,
+          defaultValue: y || 0,
         },
       },
       emu(block) {
@@ -345,8 +341,6 @@ export default () => ({
         let towardsCode = this.valueToCode(block, 'TOWARDS', this.ORDER_NONE);
         if (towardsCode === '_random_') {
           towardsCode = '';
-        } else {
-          towardsCode = `stage.get_child(${towardsCode})`;
         }
         code += `target.towards(${towardsCode})\n`;
         code += 'render_mode = True\n';
@@ -395,7 +389,7 @@ export default () => ({
         X: {
           id: 'setx',
           type: 'number',
-          defaultValue: 0,
+          defaultValue: x || 0,
         },
       },
       emu(block) {
@@ -446,7 +440,7 @@ export default () => ({
           code += this.injectId(this.STATEMENT_PREFIX, block);
         }
         const dyCode = this.valueToCode(block, 'DY', this.ORDER_NONE) || 10;
-        code += `target.y += num(${dyCode})\n`;
+        code += `target.y += ${dyCode}\n`;
         code += 'render_mode = True\n';
         return code;
       },
@@ -460,7 +454,7 @@ export default () => ({
         Y: {
           id: 'sety',
           type: 'number',
-          defaultValue: 0,
+          defaultValue: y || 0,
         },
       },
       emu(block) {
@@ -530,7 +524,7 @@ export default () => ({
         if (this.STATEMENT_PREFIX) {
           code += this.injectId(this.STATEMENT_PREFIX, block);
         }
-        const styleCode = RotationStyle[block.getFieldValue('STYLE')] || RotationStyle.AllAround;
+        const styleCode = RotationStyle[block.getFieldValue('STYLE')] ?? RotationStyle.AllAround;
         code += `targetUtils.setRotationStyle(target, ${styleCode});\n`;
         code += 'renderMode = true;\n';
         return code;
@@ -540,7 +534,7 @@ export default () => ({
         if (this.STATEMENT_PREFIX) {
           code += this.injectId(this.STATEMENT_PREFIX, block);
         }
-        const styleCode = RotationStyle[block.getFieldValue('STYLE')] || RotationStyle.AllAround;
+        const styleCode = RotationStyle[block.getFieldValue('STYLE')] ?? RotationStyle.AllAround;
         code += `target.rotation_style = ${styleCode}\n`;
         code += 'render_mode = True\n';
         return code;

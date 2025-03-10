@@ -10,7 +10,7 @@ export default () => ({
           code += this.injectId(this.STATEMENT_PREFIX, block);
         }
         const durationCode = this.valueToCode(block, 'DURATION', this.ORDER_NONE) || 0;
-        code += `await runtime.wait_for(num(${durationCode}))\n`;
+        code += `await runtime.wait_for(${durationCode})\n`;
         return code;
       },
     },

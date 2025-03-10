@@ -46,42 +46,45 @@ export function StageSelector() {
     if (backdrop) {
       return `data:${backdrop.type};base64,${backdrop.data}`;
     }
-  }, [splashVisible.value === false, modified.value]);
+  }, [splashVisible.value === false, modified.value, stage]);
 
   const handleShowLibrary = useCallback(() => {
     setAppState({ running: false });
     backdropsLibraryVisible.value = true;
   }, []);
 
-  const handleSelectBackdrop = useCallback(async ({ tags, bpr, copyright, ...backdrop }) => {
-    setAlert('importing', { id: stage.id });
+  const handleSelectBackdrop = useCallback(
+    async ({ tags, bpr, copyright, ...backdrop }) => {
+      setAlert('importing', { id: stage.id });
 
-    const scale = StageConfig.Scale / (bpr || 1);
-    const image = await loadImageFromURL(getAssetUrl(backdrop, { copyright }), scale);
+      const scale = StageConfig.Scale / (bpr || 1);
+      const image = await loadImageFromURL(getAssetUrl(backdrop, { copyright }), scale);
 
-    delAlert(stage.id);
+      delAlert(stage.id);
 
-    batch(() => {
-      addAsset({
-        ...backdrop,
-        id: image.id,
-        type: 'image/png',
-        data: image.dataset.data,
-        width: image.width,
-        height: image.height,
-        centerX: backdrop.centerX * scale,
-        centerY: backdrop.centerY * scale,
+      batch(() => {
+        addAsset({
+          ...backdrop,
+          id: image.id,
+          type: 'image/png',
+          data: image.dataset.data,
+          width: image.width,
+          height: image.height,
+          centerX: backdrop.centerX * scale,
+          centerY: backdrop.centerY * scale,
+        });
+        stage.assets.push(image.id);
+
+        setFile({
+          id: stage.id,
+          assets: stage.assets,
+          frame: stage.assets.length - 1,
+        });
+        openFile(stage.id);
       });
-      stage.assets.push(image.id);
-
-      setFile({
-        id: stage.id,
-        assets: stage.assets,
-        frame: stage.assets.length - 1,
-      });
-      openFile(stage.id);
-    });
-  }, []);
+    },
+    [stage],
+  );
 
   const handleUploadFile = useCallback(() => {
     setAppState({ running: false });
@@ -157,7 +160,7 @@ export function StageSelector() {
         }
       });
     });
-  }, []);
+  }, [stage]);
 
   const handlePaintImage = useCallback(() => {
     setAppState({ running: false });
@@ -182,7 +185,7 @@ export function StageSelector() {
       });
       openTab(1);
     });
-  }, []);
+  }, [stage]);
 
   const handleSurprise = useCallback(() => {
     setAppState({ running: false });

@@ -43,6 +43,14 @@ export class ArcadeEmulatorGenerator extends EmulatorGenerator {
     const code = this.HAT_CALLBACK;
     return code.replace('(done) => {\n', '(target, done) => {\n');
   }
+
+  // 循环机制
+  loopToCode(block, name) {
+    let code = super.loopToCode(block, name);
+    // 如果目标不存在，退出
+    code += `${this.INDENT}if (!target.parent) return;\n`;
+    return code;
+  }
 }
 
 // 设备
@@ -100,6 +108,9 @@ export class ArcadePythonGenerator extends MicroPythonGenerator {
   // 将循环积木转为代码
   loopToCode(block, name) {
     let code = '';
+    // 如果目标（克隆体）不在舞台，退出
+    code += `${this.INDENT}if not target.stage:\n`;
+    code += `${this.INDENT}${this.INDENT}return\n`;
     // 等待帧渲染
     code += `${this.INDENT}if render_mode and not flash_mode:\n`;
     code += `${this.INDENT}${this.INDENT}await runtime.next_frame()\n`;
