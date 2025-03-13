@@ -85,6 +85,7 @@ export function MatrixBlocksEditor() {
   return (
     <>
       <BlocksEditor
+        enableMonitor
         enableMyBlockWarp
         enableMultiTargets
         enableStringBlocks
