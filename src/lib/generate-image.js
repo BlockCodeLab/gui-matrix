@@ -9,7 +9,7 @@ export function generateImage({ id, name, type, data, width, height, centerX, ce
   const len = width * height;
   for (let i = 0; i < len; i++) {
     const j = i << 2;
-    if (rgba[j] === 0 && rgba[j + 1] === 0 && rgba[j + 2] === 0 && rgba[j + 3] !== 0) {
+    if (rgba[j] === 0 && rgba[j + 1] === 0 && rgba[j + 2] === 0) {
       rgba[j + 1] = 4;
     }
   }
