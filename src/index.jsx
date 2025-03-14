@@ -15,13 +15,13 @@ import { PaintTabLabel } from './components/tabs/paint-tab-label';
 import { PaintTabContent } from './components/tabs/paint-tab-content';
 import { SoundTabContent } from './components/tabs/sound-tab-content';
 
-import { defaultProject } from './lib/default-project';
+import { createDefaultProject } from './lib/default-project';
 
 import deviceIcon from './components/menu-items/icon-device.svg';
 
 export default {
   onNew() {
-    return defaultProject;
+    return createDefaultProject();
   },
 
   onSave(files, assets) {

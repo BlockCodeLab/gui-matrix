@@ -1,7 +1,15 @@
-import { nanoid } from '@blockcode/utils';
+import { Text } from '@blockcode/core';
 
 export default {
-  id: nanoid(),
+  name: (
+    <>
+      <Text
+        id="arcade.defaultProject.costumeName"
+        defaultMessage="costume"
+      />
+      1
+    </>
+  ),
   type: 'image/png',
   width: 63,
   height: 67,

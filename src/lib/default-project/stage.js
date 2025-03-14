@@ -1,5 +1,4 @@
 import { Text } from '@blockcode/core';
-import backdrop from './backdrop';
 
 export default {
   id: '_stage_',
@@ -10,6 +9,5 @@ export default {
       defaultMessage="Stage"
     />
   ),
-  assets: [backdrop.id],
   frame: 0,
 };
