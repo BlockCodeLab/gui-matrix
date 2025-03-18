@@ -208,6 +208,7 @@ const uploadFirmware = (isRestore = false, releaseUrl = firmware.release) => {
       });
 
       const upload = async (data) => {
+        // uploadingAlert('0.0', isRestore);
         try {
           await esploader.main();
           await ESPTool.writeFlash(esploader, data, isRestore, (val) => uploadingAlert(val, isRestore));
@@ -236,8 +237,6 @@ const uploadFirmware = (isRestore = false, releaseUrl = firmware.release) => {
         await ESPTool.disconnect(esploader);
       };
 
-      uploadingAlert('0.0');
-
       // 还原用户上传固件
       if (isRestore) {
         const fileInput = document.createElement('input');
@@ -245,10 +244,12 @@ const uploadFirmware = (isRestore = false, releaseUrl = firmware.release) => {
         fileInput.accept = '.bin';
         fileInput.multiple = false;
         fileInput.click();
+        fileInput.addEventListener('cancel', () => ESPTool.disconnect(esploader));
         fileInput.addEventListener('change', async (e) => {
           const reader = new FileReader();
           reader.readAsArrayBuffer(e.target.files[0]);
           reader.addEventListener('load', async (e) => {
+            alertId = nanoid();
             setAlert({
               id: alertId,
               icon: <Spinner level="success" />,
@@ -353,15 +354,26 @@ export function FirmwareSection({ itemClassName }) {
 
   const readyForUpdate = useSignal(false);
 
+  const firmwareJson = useSignal(null);
+
   const releaseUrl = useMemo(() => {
     return firmware.mirrors?.[language.value]?.release ?? firmware.release;
   }, [language.value]);
 
   useEffect(() => {
+    alertId = null;
+  }, []);
+
+  useEffect(async () => {
     readyForUpdate.value = false;
-    const url = firmware.mirrors?.[language.value]?.download ?? firmware.download;
-    const downloadUrl = url.replaceAll('{language}', language.value).replaceAll('{version}', firmware.version);
-    const firmwareHash = firmware.hash[language.value] ?? firmware.en;
+    const baseUrl = firmware.mirrors?.[language.value]?.download ?? firmware.download;
+    if (!firmwareJson.value) {
+      firmwareJson.value = await fetch(`${baseUrl}version.json`).then((res) => res.json());
+    }
+    const downloadUrl = `${baseUrl}${firmwareJson.value.download}`
+      .replaceAll('{language}', language.value)
+      .replaceAll('{version}', firmwareJson.value.version);
+    const firmwareHash = firmwareJson.value.hash[language.value];
     getFirmwareCache(downloadUrl, firmwareHash, readyForUpdate);
   }, [language.value]);
 

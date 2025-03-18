@@ -1,6 +1,7 @@
 import { useEffect } from 'preact/hooks';
+import { useSignal } from '@preact/signals';
 import { nanoid } from '@blockcode/utils';
-import { useProjectContext, translate, setAlert, delAlert, openPromptModal } from '@blockcode/core';
+import { useLocalesContext, useProjectContext, translate, setAlert, delAlert, openPromptModal } from '@blockcode/core';
 import { MPYUtils } from '@blockcode/board';
 import { generateMain } from '../../lib/generate-main';
 import { generateAssets } from '../../lib/generate-assets';
@@ -48,11 +49,17 @@ const errorAlert = (err) => {
 };
 
 export function DeviceMenu({ itemClassName }) {
+  const { language } = useLocalesContext();
+
   const { key, name, files, assets } = useProjectContext();
 
-  useEffect(() => {
+  const firmwareJson = useSignal(null);
+
+  useEffect(async () => {
     downloadAlertId = null;
-  }, []);
+    const baseUrl = firmware.mirrors?.[language.value]?.download ?? firmware.download;
+    firmwareJson.value = await fetch(`${baseUrl}version.json`).then((res) => res.json());
+  }, [language.value]);
 
   return (
     <>
@@ -96,7 +103,10 @@ export function DeviceMenu({ itemClassName }) {
 
             try {
               // 检查版本，强制更新
-              if (firmware.forcedUpdate && !(await MPYUtils.checkVersion(currentDevice, firmware.version))) {
+              if (
+                firmwareJson.value?.forcedUpdate &&
+                !(await MPYUtils.checkVersion(currentDevice, firmwareJson.value.version))
+              ) {
                 openPromptModal({
                   title: (
                     <Text
@@ -112,6 +122,7 @@ export function DeviceMenu({ itemClassName }) {
                   ),
                 });
                 removeDownloading();
+                currentDevice.hardReset();
               }
 
               // 检查空间
@@ -131,6 +142,7 @@ export function DeviceMenu({ itemClassName }) {
                   ),
                 });
                 removeDownloading();
+                currentDevice.hardReset();
               }
 
               // 开始下载
@@ -142,9 +154,7 @@ export function DeviceMenu({ itemClassName }) {
                 }
 
                 await MPYUtils.write(currentDevice, projectFiles, downloadingAlert);
-                await MPYUtils.config(currentDevice, {
-                  'latest-project': key,
-                });
+                await MPYUtils.config(currentDevice, { 'latest-project': key });
                 currentDevice.hardReset();
 
                 // 下载计时结束
