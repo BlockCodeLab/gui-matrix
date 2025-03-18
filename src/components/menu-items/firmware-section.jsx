@@ -74,7 +74,7 @@ const getFirmware = async (downloadUrl) => {
 };
 
 // 查询是否有缓存固件
-const getFirmwareCache = async (downloadUrl, firmwareHash, readyForUpdate) => {
+const getFirmwareCache = async (downloadUrl, firmwareHash, firmwareVersion, readyForUpdate) => {
   if (readyForUpdate.value) return;
 
   const data = await getBinaryCache('firmware');
@@ -92,13 +92,11 @@ const getFirmwareCache = async (downloadUrl, firmwareHash, readyForUpdate) => {
 
   // 下载中
   getFirmwareCache.downloading = true;
-  console.log('Downloading firmware...');
 
   const res = await getFirmware(downloadUrl);
   const buffer = await res.arrayBuffer();
 
   delete getFirmwareCache.downloading;
-  console.log('Firmware downloaded.');
 
   // 检查hash值
   const hashBuffer = await crypto.subtle.digest('SHA-256', buffer);
@@ -106,13 +104,13 @@ const getFirmwareCache = async (downloadUrl, firmwareHash, readyForUpdate) => {
     .map((b) => b.toString(16).padStart(2, '0'))
     .join('');
   if (hash !== firmwareHash) {
-    getFirmwareCache(downloadUrl, firmwareHash, readyForUpdate);
+    getFirmwareCache(downloadUrl, firmwareHash, firmwareVersion, readyForUpdate);
     return;
   }
 
   // 进行缓存
   await setBinaryCache('firmware', {
-    version: firmware.version,
+    version: firmwareVersion,
     hash: firmwareHash,
     binaryString: arrayBufferToBinaryString(buffer),
   });
@@ -374,7 +372,7 @@ export function FirmwareSection({ itemClassName }) {
       .replaceAll('{language}', language.value)
       .replaceAll('{version}', firmwareJson.value.version);
     const firmwareHash = firmwareJson.value.hash[language.value];
-    getFirmwareCache(downloadUrl, firmwareHash, readyForUpdate);
+    getFirmwareCache(downloadUrl, firmwareHash, firmwareJson.value.version, readyForUpdate);
   }, [language.value]);
 
   return (
