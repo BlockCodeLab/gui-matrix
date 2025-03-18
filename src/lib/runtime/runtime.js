@@ -93,6 +93,8 @@ export class MatrixRuntime extends Runtime {
     // 更新背景
     this.backdropLayer.children.forEach((target) => {
       this.update(target);
+      this.targetUtils.clearEffect(target);
+      this.targetUtils.redraw(target);
     });
     // 更新角色
     this.spritesLayer.children.forEach((target) => {
@@ -101,6 +103,7 @@ export class MatrixRuntime extends Runtime {
       // 更新角色本体数据
       if (!target.hasName('clone')) {
         this.update(target);
+        this.targetUtils.clearEffect(target);
         this.targetUtils.redraw(target);
       }
     });

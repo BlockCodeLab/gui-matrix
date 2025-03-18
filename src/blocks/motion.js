@@ -11,6 +11,10 @@ export default (x, y) => ({
   order: 0,
   blocks: [
     {
+      label: ScratchBlocks.Msg.MOTION_STAGE_SELECTED,
+      forSprite: false,
+    },
+    {
       // 移动
       id: 'movesteps',
       text: ScratchBlocks.Msg.MOTION_MOVESTEPS,

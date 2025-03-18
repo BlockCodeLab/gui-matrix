@@ -945,8 +945,33 @@ export class TargetUtils extends EventEmitter {
     return asset.name;
   }
 
-  // TODO: 舞台外观
-  //
+  // 增加特效
+  addEffect(target, mode, value) {
+    const effectValue = MathUtils.toNumber(value);
+    if (mode === 'GHOST') {
+      let opacity = target.opacity();
+      opacity -= effectValue / 100;
+      if (opacity > 1) opacity = 1;
+      if (opacity < 0) opacity = 0;
+      target.opacity(opacity);
+    }
+  }
+
+  // 设置特效
+  setEffect(target, mode, value) {
+    const effectValue = MathUtils.toNumber(value);
+    if (mode === 'GHOST') {
+      let opacity = 1 - effectValue / 100;
+      if (opacity > 1) opacity = 1;
+      if (opacity < 0) opacity = 0;
+      target.opacity(opacity);
+    }
+  }
+
+  // 清除
+  clearEffect(target) {
+    target.opacity(1);
+  }
 
   // 克隆
   async clone(target) {

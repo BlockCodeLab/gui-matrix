@@ -248,6 +248,7 @@ export default () => ({
       // 增加尺寸
       id: 'changesizeby',
       text: ScratchBlocks.Msg.LOOKS_CHANGESIZEBY,
+      forStage: false,
       inputs: {
         CHANGE: {
           type: 'number',
@@ -269,6 +270,7 @@ export default () => ({
       // 设置尺寸
       id: 'setsizeto',
       text: ScratchBlocks.Msg.LOOKS_SETSIZETO,
+      forStage: false,
       inputs: {
         SIZE: {
           type: 'number',
@@ -286,45 +288,68 @@ export default () => ({
         return code;
       },
     },
-    // '---',
-    // {
-    //   // 特效增加
-    //   id: 'changeeffectby',
-    //   text: ScratchBlocks.Msg.LOOKS_CHANGEEFFECTBY,
-    //   inputs: {
-    //     EFFECT: {
-    //       type: 'string',
-    //       menu: 'effects',
-    //     },
-    //     CHANGE: {
-    //       type: 'number',
-    //       defaultValue: 25,
-    //     },
-    //   },
-    //   emu(block) {},
-    // },
-    // {
-    //   // 设置特效
-    //   id: 'seteffectto',
-    //   text: ScratchBlocks.Msg.LOOKS_SETEFFECTTO,
-    //   inputs: {
-    //     EFFECT: {
-    //       type: 'string',
-    //       menu: 'effects',
-    //     },
-    //     VALUE: {
-    //       type: 'number',
-    //       defaultValue: 0,
-    //     },
-    //   },
-    //   emu(block) {},
-    // },
-    // {
-    //   // 清除特效
-    //   id: 'cleargraphiceffects',
-    //   text: ScratchBlocks.Msg.LOOKS_CLEARGRAPHICEFFECTS,
-    //   emu(block) {},
-    // },
+    '---',
+    {
+      // 特效增加
+      id: 'changeeffectby',
+      text: ScratchBlocks.Msg.LOOKS_CHANGEEFFECTBY,
+      inputs: {
+        EFFECT: {
+          menu: 'effectOptions',
+        },
+        CHANGE: {
+          type: 'integer',
+          defaultValue: 25,
+        },
+      },
+      emu(block) {
+        let code = '';
+        if (this.STATEMENT_PREFIX) {
+          code += this.injectId(this.STATEMENT_PREFIX, block);
+        }
+        const effectCode = this.quote_(block.getFieldValue('EFFECT'));
+        const changeCode = this.valueToCode(block, 'CHANGE', this.ORDER_NONE) || 25;
+        code += `targetUtils.addEffect(target, ${effectCode}, ${changeCode});\n`;
+        return code;
+      },
+    },
+    {
+      // 特效设为
+      id: 'seteffectto',
+      text: ScratchBlocks.Msg.LOOKS_SETEFFECTTO,
+      inputs: {
+        EFFECT: {
+          menu: 'effectOptions',
+        },
+        VALUE: {
+          type: 'integer',
+          defaultValue: 0,
+        },
+      },
+      emu(block) {
+        let code = '';
+        if (this.STATEMENT_PREFIX) {
+          code += this.injectId(this.STATEMENT_PREFIX, block);
+        }
+        const effectCode = this.quote_(block.getFieldValue('EFFECT'));
+        const valueCode = this.valueToCode(block, 'VALUE', this.ORDER_NONE) || 0;
+        code += `targetUtils.setEffect(target, ${effectCode}, ${valueCode});\n`;
+        return code;
+      },
+    },
+    {
+      // 清除特效
+      id: 'cleargraphiceffects',
+      text: ScratchBlocks.Msg.LOOKS_CLEARGRAPHICEFFECTS,
+      emu(block) {
+        let code = '';
+        if (this.STATEMENT_PREFIX) {
+          code += this.injectId(this.STATEMENT_PREFIX, block);
+        }
+        code += 'targetUtils.clearEffect(target);\n';
+        return code;
+      },
+    },
     '---',
     {
       // 显示
