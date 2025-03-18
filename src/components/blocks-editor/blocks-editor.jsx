@@ -1,6 +1,7 @@
 import { useEffect, useCallback, useMemo } from 'preact/hooks';
-import { useProjectContext, translate } from '@blockcode/core';
+import { useProjectContext } from '@blockcode/core';
 import { ScratchBlocks } from '@blockcode/blocks';
+import { loadImageFromAsset } from '@blockcode/paint';
 import { MatrixEmulatorGenerator, buildBlocks } from '../../blocks/blocks';
 
 import { BlocksEditor } from '@blockcode/blocks';
@@ -68,6 +69,15 @@ export function MatrixBlocksEditor() {
     return block.forSprite !== false;
   }, []);
 
+  // 首次加载所有资源
+  const handleLoading = useCallback(async () => {
+    for (const asset of assets.value) {
+      if (asset.type.startsWith('image/')) {
+        await loadImageFromAsset(asset);
+      }
+    }
+  }, []);
+
   // 为舞台和角色分别预处理编译程序
   const handleDefinitions = useCallback((name, define, resources, index) => {
     const res = files.value?.[index];
@@ -97,6 +107,7 @@ export function MatrixBlocksEditor() {
         onBuildinExtensions={handleBuildinExtensions}
         onExtensionBlockFilter={handleExtensionBlockFilter}
         onExtensionsFilter={handleExtensionsFilter}
+        onLoading={handleLoading}
       />
 
       {thumbUrl && (
