@@ -349,6 +349,71 @@ export default () => ({
     },
     '---',
     {
+      // 增加尺寸
+      id: 'changesizeby',
+      text: ScratchBlocks.Msg.LOOKS_CHANGESIZEBY,
+      forStage: false,
+      inputs: {
+        CHANGE: {
+          type: 'number',
+          defaultValue: 10,
+        },
+      },
+      emu(block) {
+        let code = '';
+        if (this.STATEMENT_PREFIX) {
+          code += this.injectId(this.STATEMENT_PREFIX, block);
+        }
+        const changeCode = this.valueToCode(block, 'CHANGE', this.ORDER_NONE) || 10;
+        code += `targetUtils.addSize(target, ${changeCode});\n`;
+        code += 'renderMode = true;\n';
+        return code;
+      },
+      mpy(block) {
+        let code = '';
+        if (this.STATEMENT_PREFIX) {
+          code += this.injectId(this.STATEMENT_PREFIX, block);
+        }
+        const changeCode = this.valueToCode(block, 'CHANGE', this.ORDER_NONE) || 10;
+        code += `target.size += ${changeCode}\n`;
+        code += 'render_mode = True\n';
+        return code;
+      },
+    },
+    {
+      // 设置尺寸
+      id: 'setsizeto',
+      text: ScratchBlocks.Msg.LOOKS_SETSIZETO,
+      forStage: false,
+      inputs: {
+        SIZE: {
+          type: 'number',
+          defaultValue: 100,
+        },
+      },
+      emu(block) {
+        let code = '';
+        if (this.STATEMENT_PREFIX) {
+          code += this.injectId(this.STATEMENT_PREFIX, block);
+        }
+        const sizeCode = this.valueToCode(block, 'SIZE', this.ORDER_NONE) || 100;
+        code += `targetUtils.setSize(target, ${sizeCode});\n`;
+        code += 'renderMode = true;\n';
+        return code;
+      },
+      mpy(block) {
+        let code = '';
+        if (this.STATEMENT_PREFIX) {
+          code += this.injectId(this.STATEMENT_PREFIX, block);
+        }
+        const sizeCode = this.valueToCode(block, 'SIZE', this.ORDER_NONE) || 100;
+        code += `target.size = ${sizeCode}\n`;
+        code += 'render_mode = True\n';
+        return code;
+      },
+    },
+    '---',
+    {
       // 特效增加
       id: 'changeeffectby',
       text: ScratchBlocks.Msg.LOOKS_CHANGEEFFECTBY,
@@ -437,113 +502,6 @@ export default () => ({
         return code;
       },
     },
-    '---',
-    {
-      // 增加尺寸
-      id: 'changesizeby',
-      text: ScratchBlocks.Msg.LOOKS_CHANGESIZEBY,
-      forStage: false,
-      inputs: {
-        CHANGE: {
-          type: 'number',
-          defaultValue: 10,
-        },
-      },
-      emu(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-        const changeCode = this.valueToCode(block, 'CHANGE', this.ORDER_NONE) || 10;
-        code += `targetUtils.addSize(target, ${changeCode});\n`;
-        code += 'renderMode = true;\n';
-        return code;
-      },
-      mpy(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-        const changeCode = this.valueToCode(block, 'CHANGE', this.ORDER_NONE) || 10;
-        code += `target.size += ${changeCode}\n`;
-        code += 'render_mode = True\n';
-        return code;
-      },
-    },
-    {
-      // 设置尺寸
-      id: 'setsizeto',
-      text: ScratchBlocks.Msg.LOOKS_SETSIZETO,
-      forStage: false,
-      inputs: {
-        SIZE: {
-          type: 'number',
-          defaultValue: 100,
-        },
-      },
-      emu(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-        const sizeCode = this.valueToCode(block, 'SIZE', this.ORDER_NONE) || 100;
-        code += `targetUtils.setSize(target, ${sizeCode});\n`;
-        code += 'renderMode = true;\n';
-        return code;
-      },
-      mpy(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-        const sizeCode = this.valueToCode(block, 'SIZE', this.ORDER_NONE) || 100;
-        code += `target.size = ${sizeCode}\n`;
-        code += 'render_mode = True\n';
-        return code;
-      },
-    },
-    // '---',
-    // {
-    //   // 特效增加
-    //   id: 'changeeffectby',
-    //   text: ScratchBlocks.Msg.LOOKS_CHANGEEFFECTBY,
-    //   inputs: {
-    //     EFFECT: {
-    //       type: 'string',
-    //       menu: 'effects',
-    //     },
-    //     CHANGE: {
-    //       type: 'number',
-    //       defaultValue: 25,
-    //     },
-    //   },
-    //   emu(block) {},
-    //   mpy(block) {},
-    // },
-    // {
-    //   // 设置特效
-    //   id: 'seteffectto',
-    //   text: ScratchBlocks.Msg.LOOKS_SETEFFECTTO,
-    //   inputs: {
-    //     EFFECT: {
-    //       type: 'string',
-    //       menu: 'effects',
-    //     },
-    //     VALUE: {
-    //       type: 'number',
-    //       defaultValue: 0,
-    //     },
-    //   },
-    //   emu(block) {},
-    //   mpy(block) {},
-    // },
-    // {
-    //   // 清除特效
-    //   id: 'cleargraphiceffects',
-    //   text: ScratchBlocks.Msg.LOOKS_CLEARGRAPHICEFFECTS,
-    //   emu(block) {},
-    //   mpy(block) {},
-    // },
     '---',
     {
       // 显示
