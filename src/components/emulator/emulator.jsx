@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from 'preact/hooks';
 import { batch } from '@preact/signals';
-import { MathUtils } from '@blockcode/utils';
+import { MathUtils, KonvaUtils } from '@blockcode/utils';
 import { useAppContext, useProjectContext, setFile, isModifyType, ModifyTypes } from '@blockcode/core';
 import { loadImageFromAsset } from '@blockcode/paint';
 import { Emulator } from '@blockcode/blocks';
@@ -117,6 +117,7 @@ export function ArcadeEmulator({ runtime, onRuntime }) {
           frames: data.assets,
           frameIndex: data.frame,
         });
+        KonvaUtils.computeConvexHulls(target, image);
       }
 
       // 角色更新

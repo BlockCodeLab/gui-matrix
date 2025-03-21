@@ -1,4 +1,4 @@
-import { UPNG, base64ToUint8Array } from '@blockcode/utils';
+import { UPNG, base64ToUint8Array, computeConvexHulls } from '@blockcode/utils';
 
 export function generateImage({ id, name, type, data, width, height, centerX, centerY }) {
   const image = UPNG.decode(base64ToUint8Array(data).buffer);
@@ -14,6 +14,13 @@ export function generateImage({ id, name, type, data, width, height, centerX, ce
     }
   }
   const buffer = UPNG.encode([rgba], width, height, 65535);
+  const imageData = new ImageData(new Uint8ClampedArray(rgba), width, height);
+  const convexHulls = computeConvexHulls(imageData);
+  const convexHullsStr = JSON.stringify(convexHulls)
+    .replace(/[\[\{]/g, '(')
+    .replace(/[\]\}]/g, ')')
+    .replace(/\"[xy]\":/g, '')
+    .replace(/\)\)$/, '),)');
 
   let imageModule = '';
   imageModule += 'from scratch import runtime\n';
@@ -24,8 +31,7 @@ export function generateImage({ id, name, type, data, width, height, centerX, ce
   imageModule += `HEIGHT = const(${Math.round(height)})\n`;
   imageModule += `CENTER_X = const(${Math.round(centerX)})\n`;
   imageModule += `CENTER_Y = const(${Math.round(centerY)})\n`;
-  // imageModule += `CONTOUR = ${contourData}\n`;
-  imageModule += `CONTOUR = ()\n`;
+  imageModule += `CONVEX_HULLS = ${convexHullsStr}\n`;
   imageModule += `dirpath = '/'.join(__file__.split('/')[0:-1])\n`;
   imageModule += `res = runtime.display._lcd.png_decode(f"{dirpath}/${id}.png")\n`;
   imageModule += `BITMAP = memoryview(res[0])\n`;
@@ -34,7 +40,7 @@ export function generateImage({ id, name, type, data, width, height, centerX, ce
     {
       id: `${id}.png`,
       type,
-      content: buffer, // Uint8Array.from(imageData),
+      content: buffer,
     },
     {
       id: `image${id}`,
