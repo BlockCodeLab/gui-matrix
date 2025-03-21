@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from 'preact/hooks';
 import { useSignal, useSignalEffect } from '@preact/signals';
-import { MathUtils } from '@blockcode/utils';
+import { MathUtils, KonvaUtils } from '@blockcode/utils';
 import { useAppContext, useProjectContext, setAppState, setFile, isModifyType, ModifyTypes } from '@blockcode/core';
 import { loadImageFromAsset } from '@blockcode/paint';
 import { Emulator } from '@blockcode/blocks';
@@ -144,6 +144,7 @@ export function MatrixEmulator() {
           frames: data.assets,
           frameIndex: data.frame,
         });
+        KonvaUtils.computeConvexHulls(target, image);
       }
 
       // 角色更新

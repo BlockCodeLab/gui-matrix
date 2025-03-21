@@ -1,4 +1,4 @@
-import { sleepMs, MathUtils } from '@blockcode/utils';
+import { MathUtils, KonvaUtils } from '@blockcode/utils';
 import { Keys } from '@blockcode/core';
 import { Runtime } from '@blockcode/blocks';
 import { TargetUtils } from './target-utils';
@@ -348,13 +348,13 @@ export class MatrixRuntime extends Runtime {
     }
 
     // 查找角色和克隆体
-    const targets = [].concat(target2, this.querySelectorAll(`.${target2.id()}`));
+    const targets = this.querySelectorAll(`.${target2.id()}`).concat(target2);
 
     // 角色和克隆体碰撞
     for (target2 of targets) {
       // 隐藏的角色跳过
       if (target2?.visible?.()) {
-        if (Konva.Util.haveIntersection(target.getClientRect(), target2.getClientRect())) {
+        if (KonvaUtils.checkConvexHullsCollision(target, target2)) {
           return true;
         }
       }
