@@ -96,7 +96,7 @@ export default (x, y) => ({
       forStage: false,
       inputs: {
         TO: {
-          shadow: 'motion_goto_menu',
+          shadowType: 'motion_goto_menu',
         },
       },
       emu(block) {
@@ -153,7 +153,7 @@ export default (x, y) => ({
           defaultValue: 1,
         },
         TO: {
-          shadow: 'motion_glideto_menu',
+          shadowType: 'motion_glideto_menu',
         },
       },
       emu(block) {
@@ -233,7 +233,7 @@ export default (x, y) => ({
       forStage: false,
       inputs: {
         TOWARDS: {
-          shadow: 'motion_pointtowards_menu',
+          shadowType: 'motion_pointtowards_menu',
         },
       },
       emu(block) {

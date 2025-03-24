@@ -15,7 +15,7 @@ export default () => ({
       text: ScratchBlocks.Msg.SOUND_PLAY,
       inputs: {
         SOUND_MENU: {
-          shadow: 'sound_sounds_menu',
+          shadowType: 'sound_sounds_menu',
         },
       },
       emu(block) {
@@ -34,7 +34,7 @@ export default () => ({
       text: ScratchBlocks.Msg.SOUND_PLAYUNTILDONE,
       inputs: {
         SOUND_MENU: {
-          shadow: 'sound_sounds_menu',
+          shadowType: 'sound_sounds_menu',
         },
       },
       emu(block) {
