@@ -73,7 +73,7 @@ export default () => ({
       hat: true,
       inputs: {
         BACKDROP: {
-          shadow: 'looks_backdrops',
+          shadowType: 'looks_backdrops',
         },
       },
       emu(block) {

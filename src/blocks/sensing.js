@@ -17,7 +17,7 @@ export default () => ({
       output: 'boolean',
       inputs: {
         TOUCHINGOBJECTMENU: {
-          shadow: 'sensing_touchingobjectmenu',
+          shadowType: 'sensing_touchingobjectmenu',
           defaultValue: '_edge_',
         },
       },
@@ -38,7 +38,7 @@ export default () => ({
       output: 'number',
       inputs: {
         DISTANCETOMENU: {
-          shadow: 'sensing_distancetomenu',
+          shadowType: 'sensing_distancetomenu',
           defaultValue: '_center_',
         },
       },
@@ -189,7 +189,7 @@ export default () => ({
           menu: [''],
         },
         OBJECT: {
-          shadow: 'sensing_of_object_menu',
+          shadowType: 'sensing_of_object_menu',
         },
       },
       emu(block) {

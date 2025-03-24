@@ -213,7 +213,7 @@ export default () => ({
       forStage: false,
       inputs: {
         COSTUME: {
-          shadow: 'looks_costume',
+          shadowType: 'looks_costume',
         },
       },
       emu(block) {
@@ -267,7 +267,7 @@ export default () => ({
       text: ScratchBlocks.Msg.LOOKS_SWITCHBACKDROPTO,
       inputs: {
         BACKDROP: {
-          shadow: 'looks_backdrops',
+          shadowType: 'looks_backdrops',
         },
       },
       emu(block) {
@@ -299,7 +299,7 @@ export default () => ({
       forSprite: false,
       inputs: {
         BACKDROP: {
-          shadow: 'looks_backdrops',
+          shadowType: 'looks_backdrops',
         },
       },
       emu(block) {
