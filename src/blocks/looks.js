@@ -552,5 +552,17 @@ export default () => ({
         ],
       ],
     },
+    effectOptions: {
+      type: 'string',
+      items: [
+        // [ScratchBlocks.Msg.LOOKS_EFFECT_COLOR, 'COLOR'],
+        // [ScratchBlocks.Msg.LOOKS_EFFECT_FISHEYE, 'FISHEYE'],
+        // [ScratchBlocks.Msg.LOOKS_EFFECT_WHIRL, 'WHIRL'],
+        // [ScratchBlocks.Msg.LOOKS_EFFECT_PIXELATE, 'PIXELATE'],
+        // [ScratchBlocks.Msg.LOOKS_EFFECT_MOSAIC, 'MOSAIC'],
+        // [ScratchBlocks.Msg.LOOKS_EFFECT_BRIGHTNESS, 'BRIGHTNESS'],
+        [ScratchBlocks.Msg.LOOKS_EFFECT_GHOST, 'GHOST'],
+      ],
+    },
   },
 });
