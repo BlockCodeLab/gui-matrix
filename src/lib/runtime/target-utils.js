@@ -990,15 +990,21 @@ export class TargetUtils extends EventEmitter {
       await this.runtime.nextTick();
     }
 
+    // 克隆体克隆需要原始ID
+    let id = target.id();
+    if (target.hasName('clone')) {
+      id = target.name().replace('clone', '').trim();
+    }
     const clone = target.clone({
       id: null,
-      name: `clone ${target.id()}`,
+      name: `clone ${id}`,
     });
     this.spritesLayer.add(clone);
-    this.runtime.run(`clonestart:${target.id()}`, clone);
 
     // 重新设置zindex
     clone.zIndex(Math.max(target.zIndex() - 1, 0));
+
+    this.runtime.run(`clonestart:${id}`, clone);
   }
 
   removeClone(target) {
