@@ -1,5 +1,34 @@
-import { themeColors, Text } from '@blockcode/core';
+import { themeColors, translate, Text } from '@blockcode/core';
 import { ScratchBlocks } from '@blockcode/blocks';
+
+// 按键替换
+ScratchBlocks.Blocks['#sensing_keyoptions'] = ScratchBlocks.Blocks['sensing_keyoptions'];
+ScratchBlocks.Blocks['sensing_keyoptions'] = {
+  init() {
+    this.jsonInit({
+      message0: '%1',
+      args0: [
+        {
+          type: 'field_dropdown',
+          name: 'KEY_OPTION',
+          options: [
+            [ScratchBlocks.Msg.EVENT_WHENKEYPRESSED_UP, 'up'],
+            [ScratchBlocks.Msg.EVENT_WHENKEYPRESSED_DOWN, 'down'],
+            [ScratchBlocks.Msg.EVENT_WHENKEYPRESSED_LEFT, 'left'],
+            [ScratchBlocks.Msg.EVENT_WHENKEYPRESSED_RIGHT, 'right'],
+            ['a', 'a'],
+            ['b', 'b'],
+            ['x', 'x'],
+            ['y', 'y'],
+            [translate('arcade.blocks.fnButton', 'fn'), 'fn'],
+            [ScratchBlocks.Msg.EVENT_WHENKEYPRESSED_ANY, 'any'],
+          ],
+        },
+      ],
+      extensions: ['colours_sensing', 'output_string'],
+    });
+  },
+};
 
 // 使用函数返回积木扩展对象，在切换语言时可以正确返回 ScratchBlocks.Msg 的翻译文本
 export default () => ({
@@ -59,27 +88,8 @@ export default () => ({
       output: 'boolean',
       inputs: {
         KEY_OPTION: {
-          inputMode: true,
-          type: 'string',
+          shadowType: 'sensing_keyoptions',
           defaultValue: 'a',
-          menu: [
-            [ScratchBlocks.Msg.EVENT_WHENKEYPRESSED_UP, 'up'],
-            [ScratchBlocks.Msg.EVENT_WHENKEYPRESSED_DOWN, 'down'],
-            [ScratchBlocks.Msg.EVENT_WHENKEYPRESSED_LEFT, 'left'],
-            [ScratchBlocks.Msg.EVENT_WHENKEYPRESSED_RIGHT, 'right'],
-            ['a', 'a'],
-            ['b', 'b'],
-            ['x', 'x'],
-            ['y', 'y'],
-            [
-              <Text
-                id="arcade.blocks.fnButton"
-                defaultMessage="fn"
-              />,
-              'fn',
-            ],
-            [ScratchBlocks.Msg.EVENT_WHENKEYPRESSED_ANY, 'any'],
-          ],
         },
       },
       emu(block) {

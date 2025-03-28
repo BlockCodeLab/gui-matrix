@@ -339,7 +339,8 @@ export class ArcadeRuntime extends Runtime {
       return false;
     }
 
-    target2 = this.querySelector(`#${target2}`);
+    // 检查名字或id
+    target2 = this.querySelector(`#${target2}`) ?? this.querySelector(`.${target2}`);
 
     // 舞台边缘碰撞
     if (!target2) {

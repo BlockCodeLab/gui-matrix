@@ -69,7 +69,7 @@ export function DeviceMenu({ itemClassName }) {
           className={itemClassName}
           label={
             <Text
-              id="blocks.menu.device.download"
+              id="gui.menubar.device.download"
               defaultMessage="Download program"
             />
           }

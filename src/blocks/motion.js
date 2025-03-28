@@ -379,7 +379,7 @@ export default (x, y) => ({
           code += this.injectId(this.STATEMENT_PREFIX, block);
         }
         const dxCode = this.valueToCode(block, 'DX', this.ORDER_NONE) || 10;
-        code += `target.x += ${dxCode}\n`;
+        code += `target.x += num(${dxCode})\n`;
         code += 'render_mode = True\n';
         return code;
       },
@@ -444,7 +444,7 @@ export default (x, y) => ({
           code += this.injectId(this.STATEMENT_PREFIX, block);
         }
         const dyCode = this.valueToCode(block, 'DY', this.ORDER_NONE) || 10;
-        code += `target.y += ${dyCode}\n`;
+        code += `target.y += num(${dyCode})\n`;
         code += 'render_mode = True\n';
         return code;
       },

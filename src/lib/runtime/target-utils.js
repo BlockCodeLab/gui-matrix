@@ -310,26 +310,26 @@ export class TargetUtils extends EventEmitter {
     let dy = (yValue - pos.y) * this.stage.scaleY();
 
     // 避免角色移动到舞台外面
-    const clientRect = target.getClientRect();
-    const left = -clientRect.width * 0.8;
-    const right = this.stage.width() - clientRect.width * 0.2;
-    const top = -clientRect.height * 0.8;
-    const bottom = this.stage.height() - clientRect.height * 0.2;
-    const px = clientRect.x + dx;
-    const py = clientRect.y + dy;
+    // const clientRect = target.getClientRect();
+    // const left = -clientRect.width * 0.8;
+    // const right = this.stage.width() - clientRect.width * 0.2;
+    // const top = -clientRect.height * 0.8;
+    // const bottom = this.stage.height() - clientRect.height * 0.2;
+    // const px = clientRect.x + dx;
+    // const py = clientRect.y + dy;
+    // if (px < left) {
+    //   dx = left - clientRect.x;
+    // }
+    // if (px > right) {
+    //   dx = right - clientRect.x;
+    // }
+    // if (py < top) {
+    //   dy = top - clientRect.y;
+    // }
+    // if (py > bottom) {
+    //   dy = bottom - clientRect.y;
+    // }
 
-    if (px < left) {
-      dx = left - clientRect.x;
-    }
-    if (px > right) {
-      dx = right - clientRect.x;
-    }
-    if (py < top) {
-      dy = top - clientRect.y;
-    }
-    if (py > bottom) {
-      dy = bottom - clientRect.y;
-    }
     pos.x += dx;
     pos.y += -dy;
 
@@ -990,15 +990,21 @@ export class TargetUtils extends EventEmitter {
       await this.runtime.nextTick();
     }
 
+    // 克隆体克隆需要原始ID
+    let id = target.id();
+    if (target.hasName('clone')) {
+      id = target.name().replace('clone', '').trim();
+    }
     const clone = target.clone({
       id: null,
-      name: `clone ${target.id()}`,
+      name: `clone ${id}`,
     });
     this.spritesLayer.add(clone);
-    this.runtime.run(`clonestart:${target.id()}`, clone);
 
     // 重新设置zindex
     clone.zIndex(Math.max(target.zIndex() - 1, 0));
+
+    this.runtime.run(`clonestart:${id}`, clone);
   }
 
   removeClone(target) {
