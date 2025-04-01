@@ -33,29 +33,21 @@ export default () => ({
         },
       },
       emu(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-
         const optionValue = block.getFieldValue('OPTION') || 'say';
         const msgCode = this.valueToCode(block, 'MESSAGE', this.ORDER_NONE) || '""';
         const secCode = this.valueToCode(block, 'SECS', this.ORDER_NONE) || '2';
 
+        let code = '';
         code += `await targetUtils.say(target, signal, ${msgCode}, ${secCode}, ${optionValue === 'shout'});\n`;
         code += 'renderMode = true;\n';
         return code;
       },
       mpy(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-
         const optionValue = block.getFieldValue('OPTION') || 'say';
         const msgCode = this.valueToCode(block, 'MESSAGE', this.ORDER_NONE) || '""';
         const secCode = this.valueToCode(block, 'SECS', this.ORDER_NONE) || '2';
 
+        let code = '';
         code += `await target.say_wait(${msgCode}, ${secCode}, ${optionValue === 'shout' ? 16 : 12})\n`;
         code += 'render_mode = True\n';
         return code;
@@ -81,27 +73,19 @@ export default () => ({
         },
       },
       emu(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-
         const optionValue = block.getFieldValue('OPTION') || 'say';
         const msgCode = this.valueToCode(block, 'MESSAGE', this.ORDER_NONE) || '""';
 
+        let code = '';
         code += `targetUtils.say(target, signal, ${msgCode}, false, ${optionValue === 'shout'});\n`;
         code += 'renderMode = true;\n';
         return code;
       },
       mpy(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-
         const optionValue = block.getFieldValue('OPTION') || 'say';
         const msgCode = this.valueToCode(block, 'MESSAGE', this.ORDER_NONE) || '""';
 
+        let code = '';
         code += `target.say(${msgCode}, ${optionValue === 'shout' ? 16 : 12})\n`;
         code += 'render_mode = True\n';
         return code;
@@ -131,29 +115,21 @@ export default () => ({
         },
       },
       emu(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-
         const optionValue = block.getFieldValue('OPTION') || 'think';
         const msgCode = this.valueToCode(block, 'MESSAGE', this.ORDER_NONE) || '""';
         const secCode = this.valueToCode(block, 'SECS', this.ORDER_NONE) || '2';
 
+        let code = '';
         code += `await targetUtils.think(target, signal, ${msgCode}, ${secCode}, ${optionValue === 'spark'});\n`;
         code += 'renderMode = true;\n';
         return code;
       },
       mpy(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-
         const optionValue = block.getFieldValue('OPTION') || 'think';
         const msgCode = this.valueToCode(block, 'MESSAGE', this.ORDER_NONE) || '""';
         const secCode = this.valueToCode(block, 'SECS', this.ORDER_NONE) || '2';
 
+        let code = '';
         code += `await target.think_wait(${msgCode}, ${secCode}, ${optionValue === 'spark' ? 16 : 12})\n`;
         code += 'render_mode = True\n';
         return code;
@@ -179,27 +155,19 @@ export default () => ({
         },
       },
       emu(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-
         const optionValue = block.getFieldValue('OPTION') || 'think';
         const msgCode = this.valueToCode(block, 'MESSAGE', this.ORDER_NONE) || '""';
 
+        let code = '';
         code += `targetUtils.think(target, signal, ${msgCode}, false, ${optionValue === 'spark'});\n`;
         code += 'renderMode = true;\n';
         return code;
       },
       mpy(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-
         const optionValue = block.getFieldValue('OPTION') || 'think';
         const msgCode = this.valueToCode(block, 'MESSAGE', this.ORDER_NONE) || '""';
 
+        let code = '';
         code += `target.think(${msgCode}, ${optionValue === 'spark' ? 16 : 12})\n`;
         code += 'render_mode = True\n';
         return code;
@@ -217,21 +185,17 @@ export default () => ({
         },
       },
       emu(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         const costumeCode = this.valueToCode(block, 'COSTUME', this.ORDER_NONE) || '1';
+
+        let code = '';
         code += `targetUtils.switchFrameTo(target, signal, ${costumeCode});\n`;
         code += 'renderMode = true;\n';
         return code;
       },
       mpy(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         const costumeCode = this.valueToCode(block, 'COSTUME', this.ORDER_NONE) || '""';
+
+        let code = '';
         code += `target.frame_name = ${costumeCode}\n`;
         code += 'render_mode = True\n';
         return code;
@@ -244,18 +208,12 @@ export default () => ({
       forStage: false,
       emu(block) {
         let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         code += `targetUtils.nextFrame(target, signal);\n`;
         code += 'renderMode = true;\n';
         return code;
       },
       mpy(block) {
         let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         code += `target.frame_number += 1\n`;
         code += 'render_mode = True\n';
         return code;
@@ -271,21 +229,17 @@ export default () => ({
         },
       },
       emu(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         const backdropCode = this.valueToCode(block, 'BACKDROP', this.ORDER_NONE) || '1';
+
+        let code = '';
         code += `targetUtils.switchFrameTo(stage, signal, ${backdropCode}, true);\n`;
         code += 'renderMode = true;\n';
         return code;
       },
       mpy(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         const backdropCode = this.valueToCode(block, 'BACKDROP', this.ORDER_NONE) || '""';
+
+        let code = '';
         code += `stage.frame_name = ${backdropCode}\n`;
         code += 'render_mode = True\n';
         code += `runtime.backdropswitchesto(${backdropCode})\n`;
@@ -303,21 +257,17 @@ export default () => ({
         },
       },
       emu(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         const backdropCode = this.valueToCode(block, 'BACKDROP', this.ORDER_NONE) || '1';
+
+        let code = '';
         code += `await targetUtils.switchFrameTo(stage, signal, ${backdropCode}, true);\n`;
         code += 'renderMode = true;\n';
         return code;
       },
       mpy(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         const backdropCode = this.valueToCode(block, 'BACKDROP', this.ORDER_NONE) || '""';
+
+        let code = '';
         code += `stage.frame_name = ${backdropCode}\n`;
         code += 'render_mode = True\n';
         code += `await runtime.backdropswitchesto(${backdropCode}, waiting=True)\n`;
@@ -330,18 +280,12 @@ export default () => ({
       text: ScratchBlocks.Msg.LOOKS_NEXTBACKDROP_BLOCK,
       emu(block) {
         let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         code += `targetUtils.nextFrame(stage, signal, true);\n`;
         code += 'renderMode = true;\n';
         return code;
       },
       mpy(block) {
         let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         code += `stage.frame_number += 1\n`;
         code += 'render_mode = True\n';
         return code;
@@ -360,21 +304,17 @@ export default () => ({
         },
       },
       emu(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         const changeCode = this.valueToCode(block, 'CHANGE', this.ORDER_NONE) || 10;
+
+        let code = '';
         code += `targetUtils.addSize(target, ${changeCode});\n`;
         code += 'renderMode = true;\n';
         return code;
       },
       mpy(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         const changeCode = this.valueToCode(block, 'CHANGE', this.ORDER_NONE) || 10;
+
+        let code = '';
         code += `target.size += ${changeCode}\n`;
         code += 'render_mode = True\n';
         return code;
@@ -392,21 +332,17 @@ export default () => ({
         },
       },
       emu(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         const sizeCode = this.valueToCode(block, 'SIZE', this.ORDER_NONE) || 100;
+
+        let code = '';
         code += `targetUtils.setSize(target, ${sizeCode});\n`;
         code += 'renderMode = true;\n';
         return code;
       },
       mpy(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         const sizeCode = this.valueToCode(block, 'SIZE', this.ORDER_NONE) || 100;
+
+        let code = '';
         code += `target.size = ${sizeCode}\n`;
         code += 'render_mode = True\n';
         return code;
@@ -427,23 +363,21 @@ export default () => ({
         },
       },
       emu(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         const effectCode = this.quote_(block.getFieldValue('EFFECT'));
         const changeCode = this.valueToCode(block, 'CHANGE', this.ORDER_NONE) || 25;
+
+        let code = '';
         code += `targetUtils.addEffect(target, ${effectCode}, ${changeCode});\n`;
+        code += 'renderMode = true;\n';
         return code;
       },
       mpy(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         const effectCode = this.quote_(block.getFieldValue('EFFECT'));
         const changeCode = this.valueToCode(block, 'CHANGE', this.ORDER_NONE) || 25;
-        code += `target.add_effect(${effectCode}, ${changeCode});\n`;
+
+        let code = '';
+        code += `target.add_effect(${effectCode}, ${changeCode})\n`;
+        code += 'render_mode = True\n';
         return code;
       },
     },
@@ -461,23 +395,21 @@ export default () => ({
         },
       },
       emu(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         const effectCode = this.quote_(block.getFieldValue('EFFECT'));
         const valueCode = this.valueToCode(block, 'VALUE', this.ORDER_NONE) || 0;
+
+        let code = '';
         code += `targetUtils.setEffect(target, ${effectCode}, ${valueCode});\n`;
+        code += 'renderMode = true;\n';
         return code;
       },
       mpy(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         const effectCode = this.quote_(block.getFieldValue('EFFECT'));
         const valueCode = this.valueToCode(block, 'VALUE', this.ORDER_NONE) || 0;
-        code += `target.set_effect(${effectCode}, ${valueCode});\n`;
+
+        let code = '';
+        code += `target.set_effect(${effectCode}, ${valueCode})\n`;
+        code += 'render_mode = True\n';
         return code;
       },
     },
@@ -487,18 +419,14 @@ export default () => ({
       text: ScratchBlocks.Msg.LOOKS_CLEARGRAPHICEFFECTS,
       emu(block) {
         let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         code += 'targetUtils.clearEffect(target);\n';
+        code += 'renderMode = true;\n';
         return code;
       },
       mpy(block) {
         let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-        code += 'target.clear_effect();\n';
+        code += 'target.clear_effect()\n';
+        code += 'render_mode = True\n';
         return code;
       },
     },
@@ -510,18 +438,12 @@ export default () => ({
       forStage: false,
       emu(block) {
         let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         code += `target.visible(true);\n`;
         code += 'renderMode = true;\n';
         return code;
       },
       mpy(block) {
         let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         code += `target.hidden = False\n`;
         code += 'render_mode = True\n';
         return code;
@@ -534,18 +456,12 @@ export default () => ({
       forStage: false,
       emu(block) {
         let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         code += `target.visible(false);\n`;
         code += 'renderMode = true;\n';
         return code;
       },
       mpy(block) {
         let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         code += `target.hidden = True\n`;
         code += 'render_mode = True\n';
         return code;
@@ -567,11 +483,10 @@ export default () => ({
         },
       },
       emu(block) {
+        const frontOrBackValue = block.getFieldValue('FRONT_BACK');
+
         let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-        if (block.getFieldValue('FRONT_BACK') === 'back') {
+        if (frontOrBackValue === 'back') {
           code += 'target.moveToBottom();\n';
         } else {
           code += 'target.moveToTop();\n';
@@ -580,11 +495,9 @@ export default () => ({
         return code;
       },
       mpy(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         const frontOrBackValue = block.getFieldValue('FRONT_BACK');
+
+        let code = '';
         code += `target.go_${frontOrBackValue}()\n`;
         code += 'render_mode = True\n';
         return code;
@@ -609,12 +522,10 @@ export default () => ({
         },
       },
       emu(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         const forwardOrBackwardValue = block.getFieldValue('FORWARD_BACKWARD');
         const changeCode = this.valueToCode(block, 'NUM', this.ORDER_NONE) || 1;
+
+        let code = '';
         if (forwardOrBackwardValue === 'backward') {
           code += `targetUtils.backward(target, ${changeCode});\n`;
         } else {
@@ -624,12 +535,10 @@ export default () => ({
         return code;
       },
       mpy(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         const forwardOrBackwardValue = block.getFieldValue('FORWARD_BACKWARD');
         const changeCode = this.valueToCode(block, 'NUM', this.ORDER_NONE) || 1;
+
+        let code = '';
         code += `target.z_index ${forwardOrBackwardValue === 'backward' ? '-' : '+'}= ${changeCode}\n`;
         code += 'render_mode = True\n';
         return code;
@@ -653,7 +562,7 @@ export default () => ({
       },
       emu(block) {
         const numberOrNameValue = this.quote_(block.getFieldValue('NUMBER_NAME'));
-        const code = `targetUtils.getFrameSerialOrName(target, ${numberOrNameValue})`;
+        const code = `targetUtils.getFrameSerialOrName(target, ${numberOrNameValue});`;
         return [code, this.ORDER_FUNCTION_CALL];
       },
       mpy(block) {

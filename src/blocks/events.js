@@ -19,13 +19,7 @@ export default () => ({
           src: './assets/blocks-media/green-flag.svg',
         },
       },
-      emu() {
-        return `runtime.when('start', ${this.HAT_CALLBACK});\n`;
-      },
-      mpy() {
-        const branchCode = this.eventToCode('start', 'runtime.flash_mode');
-        return `@when_start\n${branchCode}`;
-      },
+      // 使用默认代码转换
     },
     {
       // 按键按下
@@ -58,12 +52,25 @@ export default () => ({
       },
       emu(block) {
         const keyValue = block.getFieldValue('KEY_OPTION');
-        return `runtime.when('keypressed:${keyValue}', ${this.TARGET_HAT_CALLBACK}, target);\n`;
+
+        let branchCode = this.statementToCode(block);
+        branchCode = this.addEventTrap(branchCode, block.id);
+        branchCode = branchCode.replace('(done) => {\n', '(target, done) => {\n');
+
+        const code = `runtime.when('keypressed:${keyValue}', ${branchCode}, target);\n`;
+        return code;
       },
       mpy(block) {
         const keyValue = block.getFieldValue('KEY_OPTION');
-        const branchCode = this.eventToCode('keypressed', 'runtime.flash_mode', 'target');
-        return `@when_keypressed("${keyValue}", target)\n${branchCode}`;
+
+        let branchCode = this.statementToCode(block);
+        branchCode = this.addEventTrap(branchCode, block.id);
+        branchCode = branchCode.replace('():\n', '(target):\n');
+
+        let code = '';
+        code += `@when_keypressed("${keyValue}", target)\n`;
+        code += branchCode;
+        return code;
       },
     },
     {
@@ -78,12 +85,25 @@ export default () => ({
       },
       emu(block) {
         const backdropValue = block.getFieldValue('BACKDROP');
-        return `runtime.when('backdropswitchesto:${backdropValue}', ${this.TARGET_HAT_CALLBACK}, target);\n`;
+
+        let branchCode = this.statementToCode(block);
+        branchCode = this.addEventTrap(branchCode, block.id);
+        branchCode = branchCode.replace('(done) => {\n', '(target, done) => {\n');
+
+        const code = `runtime.when('backdropswitchesto:${backdropValue}', ${branchCode}, target);\n`;
+        return code;
       },
       mpy(block) {
         const backdropValue = block.getFieldValue('BACKDROP');
-        const branchCode = this.eventToCode('backdropswitchesto', 'runtime.flash_mode', 'target');
-        return `@when_backdropswitchesto("${backdropValue}", target)\n${branchCode}`;
+
+        let branchCode = this.statementToCode(block);
+        branchCode = this.addEventTrap(branchCode, block.id);
+        branchCode = branchCode.replace('():\n', '(target):\n');
+
+        let code = '';
+        code += `@when_backdropswitchesto("${backdropValue}", target)\n`;
+        code += branchCode;
+        return code;
       },
     },
     '---',
@@ -102,17 +122,6 @@ export default () => ({
           defaultValue: 10,
         },
       },
-      emu(block) {
-        const nameValue = block.getFieldValue('WHENGREATERTHANMENU');
-        const valueCode = this.valueToCode(block, 'VALUE', this.ORDER_NONE) || '10';
-        return `runtime.whenGreaterThen('${nameValue}', ${valueCode}, ${this.HAT_CALLBACK});\n`;
-      },
-      mpy(block) {
-        const nameValue = block.getFieldValue('WHENGREATERTHANMENU');
-        const valueCode = this.valueToCode(block, 'VALUE', this.ORDER_NONE) || 0;
-        const branchCode = this.eventToCode('greaterthen', 'runtime.flash_mode');
-        return `@when_greaterthen("${nameValue}", num(${valueCode}))\n${branchCode}`;
-      },
     },
     '---',
     {
@@ -130,12 +139,25 @@ export default () => ({
       },
       emu(block) {
         const messageName = this.getVariableName(block.getFieldValue('BROADCAST_OPTION')) || 'message1';
-        return `runtime.when('message:${messageName}', ${this.TARGET_HAT_CALLBACK}, target);\n`;
+
+        let branchCode = this.statementToCode(block);
+        branchCode = this.addEventTrap(branchCode, block.id);
+        branchCode = branchCode.replace('(done) => {\n', '(target, done) => {\n');
+
+        const code = `runtime.when('message:${messageName}', ${branchCode}, target);\n`;
+        return code;
       },
       mpy(block) {
         const messageName = this.getVariableName(block.getFieldValue('BROADCAST_OPTION')) || 'message1';
-        const branchCode = this.eventToCode('broadcastreceived', 'runtime.flash_mode', 'target');
-        return `@when_broadcastreceived("${messageName}", target)\n${branchCode}`;
+
+        let branchCode = this.statementToCode(block);
+        branchCode = this.addEventTrap(branchCode, block.id);
+        branchCode = branchCode.replace('():\n', '(target):\n');
+
+        let code = '';
+        code += `@when_broadcastreceived("${messageName}", target)\n`;
+        code += branchCode;
+        return code;
       },
     },
     {
@@ -148,21 +170,13 @@ export default () => ({
         },
       },
       emu(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-        const messageName = this.valueToCode(block, 'BROADCAST_INPUT', this.ORDER_NONE) || '"message1"';
-        code += `runtime.run('message:' + ${messageName})\n`;
+        const messageName = this.valueToCode(block, 'BROADCAST_INPUT', this.ORDER_NONE);
+        const code = `runtime.run('message:' + ${messageName})\n`;
         return code;
       },
       mpy(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-        const messageName = this.valueToCode(block, 'BROADCAST_INPUT', this.ORDER_NONE) || '"message1"';
-        code += `runtime.broadcast(${messageName})\n`;
+        const messageName = this.valueToCode(block, 'BROADCAST_INPUT', this.ORDER_NONE);
+        const code = `runtime.broadcast(${messageName})\n`;
         return code;
       },
     },
@@ -176,21 +190,13 @@ export default () => ({
         },
       },
       emu(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-        const messageName = this.valueToCode(block, 'BROADCAST_INPUT', this.ORDER_NONE) || '"message1"';
-        code += `await runtime.run('message:' + ${messageName})\n`;
+        const messageName = this.valueToCode(block, 'BROADCAST_INPUT', this.ORDER_NONE);
+        const code = `await runtime.run('message:' + ${messageName})\n`;
         return code;
       },
       mpy(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-        const messageName = this.valueToCode(block, 'BROADCAST_INPUT', this.ORDER_NONE) || '"message1"';
-        code += `await runtime.broadcast(${messageName}, waiting=True)\n`;
+        const messageName = this.valueToCode(block, 'BROADCAST_INPUT', this.ORDER_NONE);
+        const code = `await runtime.broadcast(${messageName}, waiting=True)\n`;
         return code;
       },
     },
