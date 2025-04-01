@@ -11,26 +11,18 @@ export class MatrixEmulatorGenerator extends EmulatorGenerator {
         continue;
       }
 
+      // 全部和局部变量
       const varTarget = variables[i].isLocal ? 'target' : 'stage';
       let varName = this.getVariableName(variables[i].getId());
       let varValue = '0';
       if (variables[i].type === ScratchBlocks.LIST_VARIABLE_TYPE) {
         varName = `${varName}_ls`;
         varValue = '[]';
+      } else if (variables[i].type === ScratchBlocks.DICTIONARY_VARIABLE_TYPE) {
+        varName = `${varName}_dt`;
+        varValue = '{}';
       }
       defvars.push(`targetUtils.defVariable(${varTarget}, '${varName}', ${varValue})`);
-    }
-
-    // Add developer variables (not created or named by the user).
-    var devVarList = ScratchBlocks.Variables.allDeveloperVariables(workspace);
-    for (var i = 0; i < devVarList.length; i++) {
-      let varName = this.getVariableName(variables[i].getId(), ScratchBlocks.Names.DEVELOPER_VARIABLE_TYPE);
-      let varValue = '0';
-      if (variables[i].type === ScratchBlocks.LIST_VARIABLE_TYPE) {
-        varName = `${varName}_ls`;
-        varValue = '[]';
-      }
-      defvars.push(`targetUtils.defVariable(stage, '${varName}', ${varValue})`);
     }
 
     // Declare all of the variables.
@@ -39,15 +31,9 @@ export class MatrixEmulatorGenerator extends EmulatorGenerator {
     }
   }
 
-  get TARGET_HAT_CALLBACK() {
-    const code = this.HAT_CALLBACK;
-    return code.replace('(done) => {\n', '(target, done) => {\n');
-  }
-
-  // 循环机制
-  loopToCode(block, name) {
-    let code = super.loopToCode(block, name);
-    // 如果目标不存在，退出
+  addLoopTrap(branchCode, id) {
+    let code = super.addLoopTrap(branchCode, id);
+    // 如果目标不存在（克隆体删除，不在舞台），退出
     code += `${this.INDENT}if (!target.parent) return;\n`;
     return code;
   }

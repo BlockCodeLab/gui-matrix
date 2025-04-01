@@ -5,32 +5,28 @@ export default () => ({
     {
       id: 'start_as_clone',
       emu(block) {
-        return `runtime.whenCloneStart(target, ${this.TARGET_HAT_CALLBACK});\n`;
+        let branchCode = this.statementToCode(block);
+        branchCode = this.addEventTrap(branchCode, block.id);
+        branchCode = branchCode.replace('(done) => {\n', '(target, done) => {\n');
+        const code = `runtime.whenCloneStart(target, ${branchCode});\n`;
+        return code;
       },
     },
     {
       id: 'create_clone_of',
       emu(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         let cloneCode = this.valueToCode(block, 'CLONE_OPTION', this.ORDER_NONE);
         if (cloneCode === '_myself_') {
           cloneCode = 'target';
         }
-        code += `targetUtils.clone(${cloneCode});\n`;
+        const code = `targetUtils.clone(${cloneCode});\n`;
         return code;
       },
     },
     {
       id: 'delete_this_clone',
       emu(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-        code += `targetUtils.removeClone(target);\n`;
+        const code = 'target.remove()\n';
         return code;
       },
     },

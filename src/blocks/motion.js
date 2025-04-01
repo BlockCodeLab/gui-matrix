@@ -26,11 +26,9 @@ export default (x, y) => ({
         },
       },
       emu(block) {
+        const stepsCode = this.valueToCode(block, 'STEPS', this.ORDER_NONE);
+
         let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-        const stepsCode = this.valueToCode(block, 'STEPS', this.ORDER_NONE) || 10;
         code += `targetUtils.moveSteps(target, ${stepsCode});\n`;
         code += 'renderMode = true;\n';
         return code;
@@ -52,11 +50,9 @@ export default (x, y) => ({
         },
       },
       emu(block) {
+        const degreesCode = this.valueToCode(block, 'DEGREES', this.ORDER_NONE);
+
         let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-        const degreesCode = this.valueToCode(block, 'DEGREES', this.ORDER_NONE) || 15;
         code += `targetUtils.turnRight(target, ${degreesCode});\n`;
         code += 'renderMode = true;\n';
         return code;
@@ -78,11 +74,9 @@ export default (x, y) => ({
         },
       },
       emu(block) {
+        const degreesCode = this.valueToCode(block, 'DEGREES', this.ORDER_NONE);
+
         let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-        const degreesCode = this.valueToCode(block, 'DEGREES', this.ORDER_NONE) || 15;
         code += `targetUtils.turnLeft(target, ${degreesCode});\n`;
         code += 'renderMode = true;\n';
         return code;
@@ -100,14 +94,12 @@ export default (x, y) => ({
         },
       },
       emu(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         let toCode = this.valueToCode(block, 'TO', this.ORDER_NONE);
         if (toCode === '_random_') {
           toCode = this.quote_(toCode);
         }
+
+        let code = '';
         code += `targetUtils.moveToTarget(target, ${toCode});\n`;
         code += 'renderMode = true;\n';
         return code;
@@ -131,12 +123,10 @@ export default (x, y) => ({
         },
       },
       emu(block) {
+        const xCode = this.valueToCode(block, 'X', this.ORDER_NONE);
+        const yCode = this.valueToCode(block, 'Y', this.ORDER_NONE);
+
         let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-        const xCode = this.valueToCode(block, 'X', this.ORDER_NONE) || 0;
-        const yCode = this.valueToCode(block, 'Y', this.ORDER_NONE) || 0;
         code += `targetUtils.moveTo(target, ${xCode}, ${yCode});\n`;
         code += 'renderMode = true;\n';
         return code;
@@ -157,15 +147,13 @@ export default (x, y) => ({
         },
       },
       emu(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-        const secsCode = this.valueToCode(block, 'SECS', this.ORDER_NONE) || 1;
+        const secsCode = this.valueToCode(block, 'SECS', this.ORDER_NONE);
         let toCode = this.valueToCode(block, 'TO', this.ORDER_NONE);
         if (toCode === '_random_') {
           toCode = this.quote_(toCode);
         }
+
+        let code = '';
         code += `await targetUtils.glideToTarget(target, signal, ${secsCode}, ${toCode});\n`;
         return code;
       },
@@ -192,14 +180,10 @@ export default (x, y) => ({
         },
       },
       emu(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-        const secsCode = this.valueToCode(block, 'SECS', this.ORDER_NONE) || 1;
-        const xCode = this.valueToCode(block, 'X', this.ORDER_NONE) || 0;
-        const yCode = this.valueToCode(block, 'Y', this.ORDER_NONE) || 0;
-        code += `await targetUtils.glideTo(target, signal, ${secsCode}, ${xCode}, ${yCode});\n`;
+        const secsCode = this.valueToCode(block, 'SECS', this.ORDER_NONE);
+        const xCode = this.valueToCode(block, 'X', this.ORDER_NONE);
+        const yCode = this.valueToCode(block, 'Y', this.ORDER_NONE);
+        const code = `await targetUtils.glideTo(target, signal, ${secsCode}, ${xCode}, ${yCode});\n`;
         return code;
       },
     },
@@ -216,11 +200,9 @@ export default (x, y) => ({
         },
       },
       emu(block) {
+        const directionCode = this.valueToCode(block, 'DIRECTION', this.ORDER_NONE);
+
         let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-        const directionCode = this.valueToCode(block, 'DIRECTION', this.ORDER_NONE) || 90;
         code += `targetUtils.towardsTo(target, ${directionCode});\n`;
         code += 'renderMode = true;\n';
         return code;
@@ -237,14 +219,12 @@ export default (x, y) => ({
         },
       },
       emu(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         let towardsCode = this.valueToCode(block, 'TOWARDS', this.ORDER_NONE);
         if (towardsCode === '_random_') {
           towardsCode = this.quote_(towardsCode);
         }
+
+        let code = '';
         code += `targetUtils.towardsToTarget(target, ${towardsCode});\n`;
         code += 'renderMode = true;\n';
         return code;
@@ -263,11 +243,9 @@ export default (x, y) => ({
         },
       },
       emu(block) {
+        const dxCode = this.valueToCode(block, 'DX', this.ORDER_NONE);
+
         let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-        const dxCode = this.valueToCode(block, 'DX', this.ORDER_NONE) || 10;
         code += `targetUtils.addX(target, ${dxCode});\n`;
         code += 'renderMode = true;\n';
         return code;
@@ -286,11 +264,9 @@ export default (x, y) => ({
         },
       },
       emu(block) {
+        const xCode = this.valueToCode(block, 'X', this.ORDER_NONE);
+
         let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-        const xCode = this.valueToCode(block, 'X', this.ORDER_NONE) || 0;
         code += `targetUtils.setX(target, ${xCode});\n`;
         code += 'renderMode = true;\n';
         return code;
@@ -308,11 +284,9 @@ export default (x, y) => ({
         },
       },
       emu(block) {
+        const dyCode = this.valueToCode(block, 'DY', this.ORDER_NONE);
+
         let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-        const dyCode = this.valueToCode(block, 'DY', this.ORDER_NONE) || 10;
         code += `targetUtils.addY(target, ${dyCode});\n`;
         code += 'renderMode = true;\n';
         return code;
@@ -331,11 +305,9 @@ export default (x, y) => ({
         },
       },
       emu(block) {
+        const yCode = this.valueToCode(block, 'Y', this.ORDER_NONE);
+
         let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-        const yCode = this.valueToCode(block, 'Y', this.ORDER_NONE) || 0;
         code += `targetUtils.setY(target, ${yCode});\n`;
         code += 'renderMode = true;\n';
         return code;
@@ -349,9 +321,6 @@ export default (x, y) => ({
       forStage: false,
       emu(block) {
         let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         code += 'targetUtils.edgeBounce(target);\n';
         code += 'render_mode = true\n';
         return code;
@@ -374,11 +343,9 @@ export default (x, y) => ({
         },
       },
       emu(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         const styleCode = RotationStyle[block.getFieldValue('STYLE')] ?? RotationStyle.AllAround;
+
+        let code = '';
         code += `targetUtils.setRotationStyle(target, ${styleCode});\n`;
         code += 'renderMode = true;\n';
         return code;

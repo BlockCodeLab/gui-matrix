@@ -19,12 +19,8 @@ export default () => ({
         },
       },
       emu(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         const soundCode = this.valueToCode(block, 'SOUND_MENU', this.ORDER_NONE) || '""';
-        code += `runtime.playWave(${soundCode});\n`;
+        const code = `runtime.playWave(${soundCode});\n`;
         return code;
       },
     },
@@ -38,12 +34,8 @@ export default () => ({
         },
       },
       emu(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
         const soundCode = this.valueToCode(block, 'SOUND_MENU', this.ORDER_NONE) || '""';
-        code += `await runtime.playWave(${soundCode});\n`;
+        const code = `await runtime.playWave(${soundCode});\n`;
         return code;
       },
     },
@@ -52,11 +44,7 @@ export default () => ({
       id: 'stopallsounds',
       text: ScratchBlocks.Msg.SOUND_STOPALLSOUNDS,
       emu(block) {
-        let code = '';
-        if (this.STATEMENT_PREFIX) {
-          code += this.injectId(this.STATEMENT_PREFIX, block);
-        }
-        code += 'runtime.stopAllWaves();\n';
+        const code = 'runtime.stopAllWaves();\n';
         return code;
       },
     },
