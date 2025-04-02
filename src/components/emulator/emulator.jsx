@@ -101,6 +101,7 @@ export function MatrixEmulator() {
     // 更新所有角色和舞台
     for (i = 0; i < files.value.length; i++) {
       const data = files.value[i];
+      const isStage = i === 0;
 
       // 添加角色或舞台
       let target = runtime.value.querySelector(`#${data.id}`);
@@ -116,14 +117,13 @@ export function MatrixEmulator() {
           shadowOpacity: 0,
           draggable: i !== 0, // 角色允许拖拽
         });
-        if (i === 0) {
+        if (isStage) {
           runtime.value.backdropLayer.add(target);
+          target.setAttr('fencingMode', data.fencing);
         } else {
           runtime.value.spritesLayer.add(target);
-        }
 
-        // 角色拖拽事件
-        if (i !== 0) {
+          // 角色拖拽事件
           // 激活角色
           target.on('dragstart', () => targetUtils.active(target));
           // 角色位置更新
@@ -148,7 +148,7 @@ export function MatrixEmulator() {
       }
 
       // 角色更新
-      if (i !== 0) {
+      if (!isStage) {
         // 缩放最大不能超过屏幕且不能小于1，最小0.05
         maxScale = Math.min(runtime.value.stage.width() / image.width, runtime.value.stage.height() / image.height);
         scale = MathUtils.clamp(data.size / 100, 0.05, Math.max(1, maxScale));
@@ -219,8 +219,9 @@ export function MatrixEmulator() {
           id: target.id(),
           frame: target.getAttr('frameIndex'),
         };
-        if (!isStage) {
-          res.id = target.id();
+        if (isStage) {
+          res.fencing = target.getAttr('fencingMode');
+        } else {
           res.x = Math.round(target.x());
           res.y = Math.round(target.y());
           res.size = Math.floor(target.getAttr('scaleSize'));
@@ -230,7 +231,6 @@ export function MatrixEmulator() {
           res.zIndex = target.zIndex();
         }
         setFile(res);
-      }
     };
 
     // 绑定运行时

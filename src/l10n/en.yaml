@@ -81,8 +81,11 @@ matrix.defaultProject.backdropName: backdrop
 matrix.defaultProject.costumeName: costume
 matrix.defaultProject.soundName: sound
 
-matrix.blocks.textBubble: '%1 %2'
-matrix.blocks.textBubbleAndWait: '%1 %2 for %3 seconds'
+matrix.blocks.fencing: "%1 stage fencing"
+matrix.blocks.fencingEnable: enable
+matrix.blocks.fencingDisable: disable
+matrix.blocks.textBubble: "%1 %2"
+matrix.blocks.textBubbleAndWait: "%1 %2 for %3 seconds"
 matrix.blocks.say: say
 matrix.blocks.shout: shout
 matrix.blocks.think: think

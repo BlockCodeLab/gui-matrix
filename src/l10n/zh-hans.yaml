@@ -81,8 +81,11 @@ matrix.defaultProject.backdropName: 背景
 matrix.defaultProject.costumeName: 造型
 matrix.defaultProject.soundName: 声音
 
-matrix.blocks.textBubble: '%1 %2'
-matrix.blocks.textBubbleAndWait: '%1 %2 %3 秒'
+matrix.blocks.fencing: "%1 穿越舞台边界"
+matrix.blocks.fencingEnable: 禁止
+matrix.blocks.fencingDisable: 允许
+matrix.blocks.textBubble: "%1 %2"
+matrix.blocks.textBubbleAndWait: "%1 %2 %3 秒"
 matrix.blocks.say: 说
 matrix.blocks.shout: 大喊
 matrix.blocks.think: 思考
