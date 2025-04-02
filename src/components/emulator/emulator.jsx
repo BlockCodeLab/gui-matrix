@@ -231,6 +231,7 @@ export function MatrixEmulator() {
           res.zIndex = target.zIndex();
         }
         setFile(res);
+      }
     };
 
     // 绑定运行时
