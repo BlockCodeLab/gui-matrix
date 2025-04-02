@@ -109,7 +109,11 @@ export function ArcadeBlocksEditor() {
 
       // 舞台
       if (index === 0) {
-        define('define_stage', `stage = Stage(runtime, (${imageModules.join(',')},), ${res.frame})\ntarget = stage`);
+        define(
+          'define_stage',
+          `target = stage = Stage(runtime, (${imageModules.join(',')},), ${res.frame}, ` +
+            `fencing_mode=${res.fencing !== false ? 'True' : 'False'})`,
+        );
       } else {
         // 角色
         const spriteProps = [

@@ -417,4 +417,11 @@ export class ArcadeRuntime extends Runtime {
 
     return value;
   }
+
+  // 设置舞台围栏
+  setFencingMode(mode = True) {
+    const stage = this.querySelector(`#_stage_`);
+    stage.setAttr('fencingMode', mode);
+    this.emit('update', stage);
+  }
 }

@@ -310,25 +310,29 @@ export class TargetUtils extends EventEmitter {
     let dy = (yValue - pos.y) * this.stage.scaleY();
 
     // 避免角色移动到舞台外面
-    // const clientRect = target.getClientRect();
-    // const left = -clientRect.width * 0.8;
-    // const right = this.stage.width() - clientRect.width * 0.2;
-    // const top = -clientRect.height * 0.8;
-    // const bottom = this.stage.height() - clientRect.height * 0.2;
-    // const px = clientRect.x + dx;
-    // const py = clientRect.y + dy;
-    // if (px < left) {
-    //   dx = left - clientRect.x;
-    // }
-    // if (px > right) {
-    //   dx = right - clientRect.x;
-    // }
-    // if (py < top) {
-    //   dy = top - clientRect.y;
-    // }
-    // if (py > bottom) {
-    //   dy = bottom - clientRect.y;
-    // }
+    const stage = this.runtime.querySelector(`#_stage_`);
+    const fencingMode = stage.getAttr('fencingMode');
+    if (fencingMode !== false) {
+      const clientRect = target.getClientRect();
+      const left = -clientRect.width * 0.8;
+      const right = this.stage.width() - clientRect.width * 0.2;
+      const top = -clientRect.height * 0.8;
+      const bottom = this.stage.height() - clientRect.height * 0.2;
+      const px = clientRect.x + dx;
+      const py = clientRect.y + dy;
+      if (px < left) {
+        dx = left - clientRect.x;
+      }
+      if (px > right) {
+        dx = right - clientRect.x;
+      }
+      if (py < top) {
+        dy = top - clientRect.y;
+      }
+      if (py > bottom) {
+        dy = bottom - clientRect.y;
+      }
+    }
 
     pos.x += dx;
     pos.y += -dy;

@@ -74,6 +74,7 @@ export function ArcadeEmulator({ runtime, onRuntime }) {
     // 更新所有角色和舞台
     for (i = 0; i < files.value.length; i++) {
       const data = files.value[i];
+      const isStage = i === 0;
 
       // 添加角色或舞台
       let target = runtime.querySelector(`#${data.id}`);
@@ -89,14 +90,13 @@ export function ArcadeEmulator({ runtime, onRuntime }) {
           shadowOpacity: 0,
           draggable: i !== 0, // 角色允许拖拽
         });
-        if (i === 0) {
+        if (isStage) {
           runtime.backdropLayer.add(target);
+          target.setAttr('fencingMode', data.fencing);
         } else {
           runtime.spritesLayer.add(target);
-        }
 
-        // 角色拖拽事件
-        if (i !== 0) {
+          // 角色拖拽事件
           // 激活角色
           target.on('dragstart', () => targetUtils.active(target));
           // 角色位置更新
@@ -121,7 +121,7 @@ export function ArcadeEmulator({ runtime, onRuntime }) {
       }
 
       // 角色更新
-      if (i !== 0) {
+      if (!isStage) {
         // 缩放最大不能超过屏幕且不能小于1，最小0.05
         maxScale = Math.min(runtime.stage.width() / image.width, runtime.stage.height() / image.height);
         scale = MathUtils.clamp(data.size / 100, 0.05, Math.max(1, maxScale));
@@ -190,22 +190,22 @@ export function ArcadeEmulator({ runtime, onRuntime }) {
         if (target) {
           const isStage = target.getLayer() === runtime.backdropLayer;
           batch(() => {
-            setFile({
+            const res = {
               id: target.id(),
               frame: target.getAttr('frameIndex'),
-            });
-            if (!isStage) {
-              setFile({
-                id: target.id(),
-                x: Math.round(target.x()),
-                y: Math.round(target.y()),
-                size: Math.floor(target.getAttr('scaleSize')),
-                direction: MathUtils.wrapClamp(Math.floor(target.getAttr('direction')), -179, 180),
-                rotationStyle: target.getAttr('rotationStyle'),
-                hidden: !target.visible(),
-                zIndex: target.zIndex(),
-              });
+            };
+            if (isStage) {
+              res.fencing = target.getAttr('fencingMode');
+            } else {
+              res.x = Math.round(target.x());
+              res.y = Math.round(target.y());
+              res.size = Math.floor(target.getAttr('scaleSize'));
+              res.direction = MathUtils.wrapClamp(Math.floor(target.getAttr('direction')), -179, 180);
+              res.rotationStyle = target.getAttr('rotationStyle');
+              res.hidden = !target.visible();
+              res.zIndex = target.zIndex();
             }
+            setFile(res);
           });
         }
       };

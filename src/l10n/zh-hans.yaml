@@ -110,6 +110,9 @@ arcade.defaultProject.backdropName: 背景
 arcade.defaultProject.costumeName: 造型
 arcade.defaultProject.soundName: 声音
 
+arcade.blocks.fencing: "%1 穿越舞台边界"
+arcade.blocks.fencingEnable: 禁止
+arcade.blocks.fencingDisable: 允许
 arcade.blocks.textBubble: "%1 %2"
 arcade.blocks.textBubbleAndWait: "%1 %2 %3 秒"
 arcade.blocks.say: 说

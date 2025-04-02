@@ -11,10 +11,6 @@ export default (x, y) => ({
   order: 0,
   blocks: [
     {
-      label: ScratchBlocks.Msg.MOTION_STAGE_SELECTED,
-      forSprite: false,
-    },
-    {
       // 移动
       id: 'movesteps',
       text: ScratchBlocks.Msg.MOTION_MOVESTEPS,
@@ -475,6 +471,49 @@ export default (x, y) => ({
         let code = '';
         code += `target.rotation_style = ${styleCode}\n`;
         code += 'render_mode = True\n';
+        return code;
+      },
+    },
+    '---',
+    {
+      // 设置舞台边缘模式
+      id: 'setfencing',
+      text: (
+        <Text
+          id="arcade.blocks.fencing"
+          defaultMessage="%1 stage fencing"
+        />
+      ),
+      inputs: {
+        MODE: {
+          type: 'string',
+          defaultValue: 'disable',
+          menu: [
+            [
+              <Text
+                id="arcade.blocks.fencingEnable"
+                defaultMessage="enable"
+              />,
+              'enable',
+            ],
+            [
+              <Text
+                id="arcade.blocks.fencingDisable"
+                defaultMessage="disable"
+              />,
+              'disable',
+            ],
+          ],
+        },
+      },
+      emu(block) {
+        const mode = block.getFieldValue('MODE') || 'disable';
+        const code = `runtime.setFencingMode(${mode === 'enable'});\n`;
+        return code;
+      },
+      mpy(block) {
+        const mode = block.getFieldValue('MODE') || 'disable';
+        const code = `target.set_fencing_mode(${mode !== 'disable' ? 'True' : 'False'});\n`;
         return code;
       },
     },

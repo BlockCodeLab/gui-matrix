@@ -110,15 +110,18 @@ arcade.defaultProject.backdropName: backdrop
 arcade.defaultProject.costumeName: costume
 arcade.defaultProject.soundName: sound
 
-arcade.blocks.textBubble: '%1 %2'
-arcade.blocks.textBubbleAndWait: '%1 %2 for %3 seconds'
+arcade.blocks.fencing: "%1 stage fencing"
+arcade.blocks.fencingEnable: enable
+arcade.blocks.fencingDisable: disable
+arcade.blocks.textBubble: "%1 %2"
+arcade.blocks.textBubbleAndWait: "%1 %2 for %3 seconds"
 arcade.blocks.say: say
 arcade.blocks.shout: shout
 arcade.blocks.think: think
 arcade.blocks.spark: spark
 arcade.blocks.isConnected: Wi-Fi is connected?
 arcade.blocks.whenConnected: when Wi-Fi connected
-arcade.blocks.connectTo: 'connect Wi-Fi: %1 password: %2'
+arcade.blocks.connectTo: "connect Wi-Fi: %1 password: %2"
 arcade.blocks.disconnect: disconnect Wi-Fi
 arcade.blocks.fnButton: fn
 arcade.blocks.stopOther: other scripts in sprite
