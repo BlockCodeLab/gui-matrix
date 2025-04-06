@@ -1,4 +1,4 @@
-import { useEffect } from 'preact/hooks';
+import { useEffect, useCallback } from 'preact/hooks';
 import { useSignal } from '@preact/signals';
 import { nanoid } from '@blockcode/utils';
 import { useLocalesContext, useProjectContext, translate, setAlert, delAlert, openPromptModal } from '@blockcode/core';
@@ -31,7 +31,7 @@ const downloadingAlert = (progress) => {
       icon: <Spinner level="success" />,
       message: (
         <Text
-          id="blocks.alert.downloading"
+          id="gui.alert.downloadingProgress"
           defaultMessage="Downloading...{progress}%"
           progress={progress}
         />
@@ -61,6 +61,103 @@ export function DeviceMenu({ itemClassName }) {
     firmwareJson.value = await fetch(`${baseUrl}version.json`).then((res) => res.json());
   }, [language.value]);
 
+  const handleDownload = useCallback(async () => {
+    if (downloadAlertId) return;
+
+    let currentDevice;
+    try {
+      currentDevice = await MPYUtils.connect(deviceFilters || []);
+    } catch (err) {
+      errorAlert(err.name);
+    }
+    if (!currentDevice) return;
+
+    const checker = MPYUtils.check(currentDevice).catch(() => {
+      errorAlert();
+      removeDownloading();
+    });
+
+    const projectName = name.value || translate('gui.project.shortname', 'Untitled');
+    const projectFiles = []
+      .concat(generateMain(projectName, files.value[0], files.value.slice(1)), ...generateAssets(assets.value))
+      .map((file) => ({
+        ...file,
+        id: file.id.startsWith('lib/')
+          ? file.id // 库文件不放入项目文件夹
+          : `proj${key.value}/${file.id}`,
+      }));
+
+    downloadingAlert('0.0');
+
+    try {
+      // 检查版本，强制更新
+      if (
+        firmwareJson.value?.forcedUpdate &&
+        !(await MPYUtils.checkVersion(currentDevice, firmwareJson.value.version))
+      ) {
+        openPromptModal({
+          title: (
+            <Text
+              id="arcade.menu.device"
+              defaultMessage="Arcade"
+            />
+          ),
+          label: (
+            <Text
+              id="blocks.downloadPrompt.firmwareOutdated"
+              defaultMessage="The firmware is outdated. Please update it."
+            />
+          ),
+        });
+        removeDownloading();
+        currentDevice.hardReset();
+      }
+
+      // 检查空间
+      else if (!(await MPYUtils.flashFree(currentDevice, projectFiles))) {
+        openPromptModal({
+          title: (
+            <Text
+              id="arcade.menu.device"
+              defaultMessage="Arcade"
+            />
+          ),
+          label: (
+            <Text
+              id="blocks.downloadPrompt.flashOutSpace"
+              defaultMessage="The flash is running out of space."
+            />
+          ),
+        });
+        removeDownloading();
+        currentDevice.hardReset();
+      }
+
+      // 开始下载
+      else {
+        // 下载计时开始
+        if (DEBUG || BETA) {
+          downloadStart = Date.now();
+          console.log('Download start...');
+        }
+
+        await MPYUtils.write(currentDevice, projectFiles, downloadingAlert);
+        await MPYUtils.config(currentDevice, { 'latest-project': key });
+        currentDevice.hardReset();
+
+        // 下载计时结束
+        if (DEBUG || BETA) {
+          console.log(`Download completed: ${Date.now() - downloadStart}ms`);
+        }
+      }
+    } catch (err) {
+      errorAlert(err.name);
+      removeDownloading();
+    }
+
+    checker.cancel();
+  }, []);
+
   return (
     <>
       <MenuSection>
@@ -73,102 +170,7 @@ export function DeviceMenu({ itemClassName }) {
               defaultMessage="Download program"
             />
           }
-          onClick={async () => {
-            if (downloadAlertId) return;
-
-            let currentDevice;
-            try {
-              currentDevice = await MPYUtils.connect(deviceFilters || []);
-            } catch (err) {
-              errorAlert(err.name);
-            }
-            if (!currentDevice) return;
-
-            const checker = MPYUtils.check(currentDevice).catch(() => {
-              errorAlert();
-              removeDownloading();
-            });
-
-            const projectName = name.value || translate('gui.project.shortname', 'Untitled');
-            const projectFiles = []
-              .concat(generateMain(projectName, files.value[0], files.value.slice(1)), ...generateAssets(assets.value))
-              .map((file) => ({
-                ...file,
-                id: file.id.startsWith('lib/')
-                  ? file.id // 库文件不放入项目文件夹
-                  : `proj${key.value}/${file.id}`,
-              }));
-
-            downloadingAlert('0.0');
-
-            try {
-              // 检查版本，强制更新
-              if (
-                firmwareJson.value?.forcedUpdate &&
-                !(await MPYUtils.checkVersion(currentDevice, firmwareJson.value.version))
-              ) {
-                openPromptModal({
-                  title: (
-                    <Text
-                      id="arcade.menu.device"
-                      defaultMessage="Arcade"
-                    />
-                  ),
-                  label: (
-                    <Text
-                      id="blocks.downloadPrompt.firmwareOutdated"
-                      defaultMessage="The firmware is outdated. Please update it."
-                    />
-                  ),
-                });
-                removeDownloading();
-                currentDevice.hardReset();
-              }
-
-              // 检查空间
-              else if (!(await MPYUtils.flashFree(currentDevice, projectFiles))) {
-                openPromptModal({
-                  title: (
-                    <Text
-                      id="arcade.menu.device"
-                      defaultMessage="Arcade"
-                    />
-                  ),
-                  label: (
-                    <Text
-                      id="blocks.downloadPrompt.flashOutSpace"
-                      defaultMessage="The flash is running out of space."
-                    />
-                  ),
-                });
-                removeDownloading();
-                currentDevice.hardReset();
-              }
-
-              // 开始下载
-              else {
-                // 下载计时开始
-                if (DEBUG || BETA) {
-                  downloadStart = Date.now();
-                  console.log('Download start...');
-                }
-
-                await MPYUtils.write(currentDevice, projectFiles, downloadingAlert);
-                await MPYUtils.config(currentDevice, { 'latest-project': key });
-                currentDevice.hardReset();
-
-                // 下载计时结束
-                if (DEBUG || BETA) {
-                  console.log(`Download completed: ${Date.now() - downloadStart}ms`);
-                }
-              }
-            } catch (err) {
-              errorAlert(err.name);
-              removeDownloading();
-            }
-
-            checker.cancel();
-          }}
+          onClick={handleDownload}
         />
       </MenuSection>
 
@@ -185,7 +187,7 @@ export function DeviceMenu({ itemClassName }) {
               defaultMessage="Arcade manual"
             />
           }
-          onClick={() => window.open('https://arcade.blockcode.fun/')}
+          onClick={useCallback(() => window.open('https://arcade.blockcode.fun/'), [])}
         />
       </MenuSection>
     </>
