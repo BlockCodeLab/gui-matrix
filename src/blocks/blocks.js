@@ -301,5 +301,27 @@ export function buildBlocks(assets, files, sprite) {
     },
   };
 
-  return [motionBlocks, looksBlocks, soundBlocks, eventBlocks, controlBlocks, sensingBlocks, dataBlocks, myBlocks];
+  // 舞台和角色有不同的积木
+  const blocksFilter = (blocks) => {
+    blocks.blocks.forEach((block) => {
+      if (typeof block === 'string') return;
+      if (isStage) {
+        block.hidden = block.forStage === false;
+      } else {
+        block.hidden = block.forSprite === false;
+      }
+    });
+    return blocks;
+  };
+
+  return [
+    blocksFilter(motionBlocks),
+    blocksFilter(looksBlocks),
+    blocksFilter(soundBlocks),
+    blocksFilter(eventBlocks),
+    blocksFilter(controlBlocks),
+    blocksFilter(sensingBlocks),
+    dataBlocks,
+    myBlocks,
+  ];
 }
