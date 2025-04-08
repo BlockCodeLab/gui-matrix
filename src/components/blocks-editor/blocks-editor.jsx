@@ -105,7 +105,6 @@ export function MatrixBlocksEditor() {
         monitorOffset={monitorOffset}
         onDefinitions={handleDefinitions}
         onBuildinExtensions={handleBuildinExtensions}
-        onExtensionBlockFilter={handleExtensionBlockFilter}
         onExtensionsFilter={handleExtensionsFilter}
         onLoading={handleLoading}
       />
