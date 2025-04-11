@@ -66,7 +66,8 @@ export function DeviceMenu({ itemClassName }) {
 
     let currentDevice;
     try {
-      currentDevice = await MPYUtils.connect(deviceFilters || []);
+      currentDevice = await MPYUtils.connect(deviceFilters);
+      await MPYUtils.enterDownloadMode(currentDevice);
     } catch (err) {
       errorAlert(err.name);
     }

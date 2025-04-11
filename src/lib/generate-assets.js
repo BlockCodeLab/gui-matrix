@@ -21,7 +21,6 @@ export function generateAssets(assets) {
       ) {
         return true;
       }
-      console.log(asset);
       return !asset.content;
     });
 }

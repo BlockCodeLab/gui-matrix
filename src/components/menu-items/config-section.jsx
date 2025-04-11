@@ -82,6 +82,7 @@ export function ConfigSection({ itemClassName }) {
           let currentDevice;
           try {
             currentDevice = await MPYUtils.connect(deviceFilters);
+            await MPYUtils.enterDownloadMode(currentDevice);
           } catch (err) {
             errorAlert(err.name);
           }
