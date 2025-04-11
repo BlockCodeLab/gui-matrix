@@ -70,7 +70,7 @@ export function MatrixBlocksEditor() {
   }, []);
 
   // 首次加载所有资源
-  const handleLoading = useCallback(async () => {
+  const handleLoad = useCallback(async () => {
     for (const asset of assets.value) {
       if (asset.type.startsWith('image/')) {
         await loadImageFromAsset(asset);
@@ -106,7 +106,7 @@ export function MatrixBlocksEditor() {
         onDefinitions={handleDefinitions}
         onBuildinExtensions={handleBuildinExtensions}
         onExtensionsFilter={handleExtensionsFilter}
-        onLoading={handleLoading}
+        onLoad={handleLoad}
       />
 
       {thumbUrl && (
