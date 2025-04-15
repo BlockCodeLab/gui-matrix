@@ -5,8 +5,8 @@ import featureImage from './feature.png';
 addLocalesMessages({
   en: {
     'arcade.name': 'Scratch Arcade',
-    'arcade.description': 'Game editing via Scratch blocks.',
-    'arcade.collaborator': 'Scratch Arcade Studio',
+    'arcade.description': 'Game creating via Scratch blocks.',
+    'arcade.collaborator': 'SA Studio',
   },
   'zh-Hans': {
     'arcade.name': '编程学习掌机',
@@ -15,7 +15,7 @@ addLocalesMessages({
   },
   'zh-Hant': {
     'arcade.name': '編程學習掌機',
-    'arcade.description': '在小掌機上學習游戲編程。',
+    'arcade.description': '在掌機上創造游戲。',
     'arcade.collaborator': 'Scratch Arcade 工作室',
   },
 });
@@ -33,13 +33,13 @@ export default {
   description: (
     <Text
       id="arcade.description"
-      defaultMessage="Game editing via Scratch blocks."
+      defaultMessage="Game creating via Scratch blocks."
     />
   ),
   collaborator: (
     <Text
       id="arcade.collaborator"
-      defaultMessage="Scratch Arcade Studio"
+      defaultMessage="SA Studio"
     />
   ),
   blocksRequired: true,
