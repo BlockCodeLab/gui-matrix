@@ -123,7 +123,7 @@ export function SpriteSelector() {
 
     const fileInput = document.createElement('input');
     fileInput.type = 'file';
-    fileInput.accept = 'image/*'; // TODO: .sprite file
+    fileInput.accept = 'image/*'; // [TODO] .sprite file
     fileInput.multiple = true;
     fileInput.click();
     fileInput.addEventListener('change', async (e) => {
