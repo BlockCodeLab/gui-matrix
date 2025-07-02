@@ -24,8 +24,8 @@ export function generateMain(name, stage, sprites) {
         .concat(
           'from scratch import *',
           `from _stage_ import stage`,
-          sprites
-            .toSorted((a, b) => a.zIndex - b.zIndex)
+          [...sprites] // toSorted有兼容性问题，顾采用老办法
+            .sort((a, b) => a.zIndex - b.zIndex)
             .map(({ id }) => `import ${id.includes('sprite') ? id : `sprite${id}`}`),
           'def start():\n  scratch_start(stage)',
         )

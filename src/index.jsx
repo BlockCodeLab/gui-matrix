@@ -59,6 +59,8 @@ export default {
     const meta = {
       extensions: Array.from(new Set(extensions.flat())),
     };
+    // 不储存扩展文件，每次都会用新的扩展
+    assets = assets.filter((asset) => !asset.id.startsWith('ext/'));
     return {
       meta,
       files,

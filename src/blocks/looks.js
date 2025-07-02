@@ -562,7 +562,7 @@ export default () => ({
       },
       emu(block) {
         const numberOrNameValue = this.quote_(block.getFieldValue('NUMBER_NAME'));
-        const code = `targetUtils.getFrameSerialOrName(target, ${numberOrNameValue});`;
+        const code = `targetUtils.getFrameSerialOrName(target, ${numberOrNameValue})`;
         return [code, this.ORDER_FUNCTION_CALL];
       },
       mpy(block) {
