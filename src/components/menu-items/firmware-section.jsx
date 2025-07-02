@@ -203,6 +203,7 @@ const uploadFirmware = (isRestore = false, releaseUrl = firmware.release) => {
       const checker = ESPTool.check(esploader).catch(() => {
         errorAlert();
         closeAlert();
+        ESPTool.disconnect(esploader);
       });
 
       const upload = async (data) => {
@@ -311,6 +312,7 @@ const handleEraseFlash = () => {
       const checker = MPYUtils.check(currentDevice).catch(() => {
         errorAlert();
         closeAlert();
+        MPYUtils.disconnect(currentDevice);
       });
 
       try {
@@ -326,7 +328,7 @@ const handleEraseFlash = () => {
           ),
         });
         await MPYUtils.eraseAll(currentDevice, ['boot.py', 'lib', 'res', 'io_config.py']);
-        currentDevice.hardReset();
+        await MPYUtils.disconnect(currentDevice, true);
         setAlert({
           id: alertId,
           icon: null,

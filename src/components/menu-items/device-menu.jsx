@@ -67,7 +67,6 @@ export function DeviceMenu({ itemClassName }) {
     let currentDevice;
     try {
       currentDevice = await MPYUtils.connect(deviceFilters);
-      await MPYUtils.enterDownloadMode(currentDevice);
     } catch (err) {
       errorAlert(err.name);
     }
@@ -76,6 +75,7 @@ export function DeviceMenu({ itemClassName }) {
     const checker = MPYUtils.check(currentDevice).catch(() => {
       errorAlert();
       removeDownloading();
+      MPYUtils.disconnect(currentDevice);
     });
 
     const projectName = name.value || translate('gui.project.shortname', 'Untitled');
@@ -91,6 +91,8 @@ export function DeviceMenu({ itemClassName }) {
     downloadingAlert('0.0');
 
     try {
+      await MPYUtils.enterDownloadMode(currentDevice);
+
       // 检查版本，强制更新
       if (
         firmwareJson.value?.forcedUpdate &&
@@ -110,8 +112,6 @@ export function DeviceMenu({ itemClassName }) {
             />
           ),
         });
-        removeDownloading();
-        currentDevice.hardReset();
       }
 
       // 检查空间
@@ -130,8 +130,6 @@ export function DeviceMenu({ itemClassName }) {
             />
           ),
         });
-        removeDownloading();
-        currentDevice.hardReset();
       }
 
       // 开始下载
@@ -142,21 +140,25 @@ export function DeviceMenu({ itemClassName }) {
           console.log('Download start...');
         }
 
+        const timeout = currentDevice.timeout;
+        currentDevice.timeout = 30000; // 增加时长，避免传输大文件导致的等待超时
         await MPYUtils.write(currentDevice, projectFiles, downloadingAlert);
         await MPYUtils.config(currentDevice, { 'latest-project': key });
-        currentDevice.hardReset();
+        currentDevice.timeout = timeout;
 
         // 下载计时结束
         if (DEBUG || BETA) {
           console.log(`Download completed: ${Date.now() - downloadStart}ms`);
         }
       }
+
+      await MPYUtils.disconnect(currentDevice, true);
     } catch (err) {
       errorAlert(err.name);
+    } finally {
       removeDownloading();
+      checker.cancel();
     }
-
-    checker.cancel();
   }, []);
 
   return (
