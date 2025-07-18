@@ -43,6 +43,28 @@ export class ArcadeEmulatorGenerator extends EmulatorGenerator {
 export class ArcadePythonGenerator extends MicroPythonGenerator {
   INFINITE_LOOP_TRAP = 'await runtime.next_tick()\n';
 
+  finish(code) {
+    // Convert the definitions dictionary into a list.
+    const imports = [];
+    const definitions = [];
+    for (let name in this.definitions_) {
+      if (name === 'variables') continue;
+      const def = this.definitions_[name];
+      if (def.match(/^(from\s+\S+\s+)?import\s+\S+/)) {
+        imports.push(def);
+      } else {
+        definitions.push(def);
+      }
+    }
+    definitions.push(this.definitions_['variables']);
+    // Clean up temporary data.
+    delete this.definitions_;
+    delete this.functionNames_;
+    this.variableDB_.reset();
+    const allDefs = imports.join('\n') + '\n\n' + definitions.join('\n\n');
+    return allDefs.replace(/\n\n+/g, '\n\n').replace(/\n*$/, '\n\n\n') + code;
+  }
+
   onVariableDefinitions(workspace) {
     const defvars = [];
     // Add user variables.
