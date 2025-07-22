@@ -139,7 +139,7 @@ export function ArcadeBlocksEditor() {
       // 导入使用的扩展
       for (const id in resources) {
         for (const extModule of resources[id]) {
-          define(`import_${id}_${extModule.name}`, `from ext.${escape(id)} import ${extModule.name}`);
+          define(`import_${id}_${extModule.name}`, `from ${escape(id)} import ${extModule.name}`);
         }
       }
     }

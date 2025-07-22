@@ -19,7 +19,15 @@ export default () => ({
           src: './assets/blocks-media/green-flag.svg',
         },
       },
-      // 使用默认代码转换
+      mpy(block) {
+        let branchCode = this.statementToCode(block);
+        branchCode = this.addEventTrap(branchCode, block.id);
+
+        let code = '';
+        code += '@when_start\n';
+        code += branchCode;
+        return code;
+      },
     },
     {
       // 按键按下
@@ -121,6 +129,18 @@ export default () => ({
           type: 'number',
           defaultValue: 10,
         },
+      },
+      mpy(block) {
+        const nameValue = this.quote_(block.getFieldValue('WHENGREATERTHANMENU') || 'TIMER');
+        const valueCode = this.valueToCode(block, 'VALUE', this.ORDER_NONE);
+
+        let branchCode = this.statementToCode(block);
+        branchCode = this.addEventTrap(branchCode, block.id);
+
+        let code = '';
+        code += `@when_greaterthen(${nameValue}, num(${valueCode}))\n`;
+        code += branchCode;
+        return code;
       },
     },
     '---',
