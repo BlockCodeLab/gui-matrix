@@ -7,7 +7,7 @@ export function generateAssets(assets) {
       switch (asset.type) {
         case 'image/png':
           return generateImage(asset);
-        case 'audio/wav':
+        case 'audio/mp3':
           return generateSound(asset);
         default:
           return asset;
