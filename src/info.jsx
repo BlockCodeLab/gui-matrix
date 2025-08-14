@@ -19,7 +19,7 @@ addLocalesMessages({
 
 export default {
   version,
-  sortIndex: 4,
+  sortIndex: 3,
   beta: true,
   image: featureImage,
   name: (
