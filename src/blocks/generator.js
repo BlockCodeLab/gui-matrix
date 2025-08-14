@@ -108,8 +108,8 @@ export class ArcadePythonGenerator extends MicroPythonGenerator {
 
   addLoopTrap(branchCode, id) {
     let code = '';
-    // 如果目标（克隆体）不在舞台，退出
-    code += `${this.INDENT}if not target.stage:\n`;
+    // 如果目标不是舞台或（克隆体）不在舞台，退出
+    code += `${this.INDENT}if not (isinstance(target, Stage) or target.stage):\n`;
     code += `${this.INDENT}${this.INDENT}return\n`;
     // 等待帧渲染
     code += `${this.INDENT}if render_mode and not flash_mode:\n`;
