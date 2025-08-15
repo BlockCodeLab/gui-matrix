@@ -26,7 +26,7 @@ export default () => ({
       },
       mpy(block) {
         const soundCode = this.valueToCode(block, 'SOUND_MENU', this.ORDER_NONE) || '';
-        const code = `runtime.play_sound(__file__, ${soundCode})\n`;
+        const code = `await runtime.play_sound(__file__, ${soundCode})\n`;
         return code;
       },
     },
@@ -47,7 +47,9 @@ export default () => ({
       },
       mpy(block) {
         const soundCode = this.valueToCode(block, 'SOUND_MENU', this.ORDER_NONE) || '';
-        const code = `await runtime.play_sound_wait(__file__, ${soundCode})\n`;
+        let code = '';
+        code += `await runtime.play_sound(__file__, ${soundCode})\n`;
+        code += 'await runtime.wait_sound_stop()\n';
         return code;
       },
     },
