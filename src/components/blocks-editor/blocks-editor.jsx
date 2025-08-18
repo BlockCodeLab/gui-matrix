@@ -8,7 +8,7 @@ import { BlocksEditor } from '@blockcode/blocks';
 import styles from './blocks-editor.module.css';
 
 // 扩展过滤
-const handleExtensionsFilter = () => ['emulator', '!device'];
+const handleExtensionsFilter = () => ['scratch', '!device'];
 
 // 需要动态更新的XY坐标积木IDs
 const XYBlocks = ['glide', 'move', 'set'];
