@@ -8,7 +8,7 @@ import { BlocksEditor } from '@blockcode/blocks';
 import styles from './blocks-editor.module.css';
 
 // 扩展过滤
-const handleExtensionsFilter = () => ['arcade', ['runtime', '!multipin'], ['device', '!multipin']];
+const handleExtensionsFilter = () => ['arcade', 'scratch', ['device', '!morepins']];
 
 // 动态更新XY坐标积木
 const XYBlocks = ['glide', 'move', 'set'];
