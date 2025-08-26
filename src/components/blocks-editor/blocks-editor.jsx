@@ -8,7 +8,7 @@ import { BlocksEditor } from '@blockcode/blocks';
 import styles from './blocks-editor.module.css';
 
 // 扩展过滤
-const handleExtensionsFilter = () => ['arcade', 'scratch', ['device', '!morepins']];
+const handleExtensionsFilter = () => [['scratch', '!firmata'], 'arcade', 'data'];
 
 // 动态更新XY坐标积木
 const XYBlocks = ['glide', 'move', 'set'];
@@ -139,7 +139,10 @@ export function ArcadeBlocksEditor() {
       // 导入使用的扩展
       for (const id in resources) {
         for (const extModule of resources[id]) {
-          define(`import_${id}_${extModule.name}`, `from ${escape(id)} import ${extModule.name}`);
+          // 以 _ 开头的扩展文件不需导入
+          if (extModule.name[0] !== '_') {
+            define(`import_${id}_${extModule.name}`, `from ${escape(id)} import ${extModule.name}`);
+          }
         }
       }
     }
