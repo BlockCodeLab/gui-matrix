@@ -11,6 +11,8 @@ arcade.paintEditor.backdrops: Backdrops
 arcade.soundEditor.sounds: Sounds
 
 arcade.menu.file.importSB3: Import Scratch 3(.sb3) file...
+arcade.menu.edit.joystickClose: Turn off Joystick
+arcade.menu.edit.joystickOpen: Turn on Joystick
 arcade.menu.device: Arcade
 arcade.menu.device.wifi: Wi-Fi config
 arcade.menu.device.wifiNamePassword: Wi-Fi name and password

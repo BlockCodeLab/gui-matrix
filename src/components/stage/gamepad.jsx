@@ -1,7 +1,7 @@
-import { classNames, isMac } from '@blockcode/utils';
-import { Keys, Button } from '@blockcode/core';
-import styles from './gamepad.module.css';
 import { useCallback } from 'preact/hooks';
+import { classNames, isMac } from '@blockcode/utils';
+import { useProjectContext, Keys, Button } from '@blockcode/core';
+import styles from './gamepad.module.css';
 
 const MIN_AXIS = 15;
 const MAX_AXIS = 22;
@@ -10,6 +10,8 @@ let pressTimer = null;
 let longpressTimer = null;
 
 export function Gamepad({ runtime }) {
+  const { meta } = useProjectContext();
+
   const pressKey = useCallback(
     (code) => {
       runtime.handleKeyDown?.({
@@ -155,15 +157,52 @@ export function Gamepad({ runtime }) {
 
   return (
     <div className={styles.gamepadWrapper}>
-      <div className={styles.buttonsGroup}>
-        <div className={styles.joystickXLeft}></div>
-        <div className={styles.joystickY}></div>
-        <div className={styles.joystickXRight}></div>
-        <Button
-          className={classNames(styles.button, styles.joystick)}
-          onMouseDown={handleMouseDown}
-        ></Button>
-      </div>
+      {meta.value.joystick !== false ? (
+        <div className={styles.buttonsGroup}>
+          <div className={styles.joystickXLeft}></div>
+          <div className={styles.joystickY}></div>
+          <div className={styles.joystickXRight}></div>
+          <Button
+            className={classNames(styles.button, styles.joystick)}
+            onMouseDown={handleMouseDown}
+          ></Button>
+        </div>
+      ) : (
+        <div className={styles.buttonsGroup}>
+          <Button
+            title="↑"
+            className={classNames(styles.button, styles.up)}
+            onMouseDown={wrapMouseDown(Keys.Up)}
+            onMouseUp={wrapMouseUp(Keys.Up)}
+          >
+            ▲
+          </Button>
+          <Button
+            title="↓"
+            className={classNames(styles.button, styles.down)}
+            onMouseDown={wrapMouseDown(Keys.Down)}
+            onMouseUp={wrapMouseUp(Keys.Down)}
+          >
+            ▼
+          </Button>
+          <Button
+            title="←"
+            className={classNames(styles.button, styles.left)}
+            onMouseDown={wrapMouseDown(Keys.Left)}
+            onMouseUp={wrapMouseUp(Keys.Left)}
+          >
+            ◀︎
+          </Button>
+          <Button
+            title="→"
+            className={classNames(styles.button, styles.right)}
+            onMouseDown={wrapMouseDown(Keys.Right)}
+            onMouseUp={wrapMouseUp(Keys.Right)}
+          >
+            ►
+          </Button>
+        </div>
+      )}
 
       <div className={styles.buttonsGroup}>
         <Button

@@ -11,6 +11,8 @@ arcade.paintEditor.backdrops: 背景
 arcade.soundEditor.sounds: 聲音
 
 arcade.menu.file.importSB3: 導入 Scratch 3（.sb3）文件…
+arcade.menu.edit.joystickClose: 停用搖杆
+arcade.menu.edit.joystickOpen: 啟用搖杆
 arcade.menu.device: 遊戲機
 arcade.menu.device.wifi: Wi-Fi 網絡配置
 arcade.menu.device.wifiNamePassword: Wi-Fi 名稱和密碼

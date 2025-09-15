@@ -8,8 +8,9 @@ import { soundTab } from '@blockcode/sound';
 import { Text } from '@blockcode/core';
 import { CodeReview } from '@blockcode/blocks';
 import { ArcadeBlocksEditor } from './components/blocks-editor/blocks-editor';
-import { ImportSection } from './components/menu-items/import-section';
-import { DeviceMenu } from './components/menu-items/device-menu';
+import { ImportSection } from './components/file-menu/import-section';
+import { SettingsSection } from './components/edit-menu/settings-section';
+import { DeviceMenu } from './components/device-menu/device-menu';
 import { Sidedock } from './components/sidedock/sidedock';
 import { PaintTabLabel } from './components/tabs/paint-tab-label';
 import { PaintTabContent } from './components/tabs/paint-tab-content';
@@ -17,7 +18,7 @@ import { SoundTabContent } from './components/tabs/sound-tab-content';
 
 import { createDefaultProject } from './lib/default-project';
 
-import deviceIcon from './components/menu-items/icon-device.svg';
+import deviceIcon from './components/device-menu/icon-device.svg';
 
 export default {
   onNew() {
@@ -103,6 +104,10 @@ export default {
     {
       id: 'file',
       Menu: ImportSection,
+    },
+    {
+      id: 'edit',
+      Menu: SettingsSection,
     },
     {
       icon: deviceIcon,
