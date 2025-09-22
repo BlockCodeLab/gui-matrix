@@ -1,7 +1,6 @@
 import { useCallback, useEffect } from 'preact/hooks';
-import { batch } from '@preact/signals';
 import { MathUtils, KonvaUtils } from '@blockcode/utils';
-import { useAppContext, useProjectContext, setFile, isModifyType, ModifyTypes } from '@blockcode/core';
+import { useAppContext, useProjectContext, setFile, setMeta, isModifyType, ModifyTypes } from '@blockcode/core';
 import { loadImageFromAsset } from '@blockcode/paint';
 import { Emulator } from '@blockcode/blocks';
 import { ArcadeRuntime } from '../../lib/runtime/runtime';
@@ -10,7 +9,7 @@ import { StageConfig, RotationStyle, SpriteDefaultConfig } from './emulator-conf
 export function ArcadeEmulator({ runtime, onRuntime }) {
   const { splashVisible, appState } = useAppContext();
 
-  const { files, assets, fileId, modified } = useProjectContext();
+  const { meta, files, assets, fileId, modified } = useProjectContext();
 
   // 运行模拟器
   useEffect(async () => {
@@ -161,7 +160,10 @@ export function ArcadeEmulator({ runtime, onRuntime }) {
         target.zIndex(MathUtils.clamp(data.zIndex, 0, runtime.spritesLayer.children.length - 1));
       }
     }
-  }, [runtime, splashVisible.value, modified.value]);
+
+    // 变量监视
+    runtime.updateMonitors(meta.value.monitors);
+  }, [runtime, splashVisible.value, modified.value, meta.value]);
 
   // 模拟器运行时不可编辑
   useEffect(() => {
@@ -188,25 +190,22 @@ export function ArcadeEmulator({ runtime, onRuntime }) {
         }
 
         if (target) {
-          const isStage = target.getLayer() === runtime.backdropLayer;
-          batch(() => {
-            const res = {
-              id: target.id(),
-              frame: target.getAttr('frameIndex'),
-            };
-            if (isStage) {
-              res.fencing = target.getAttr('fencingMode');
-            } else {
-              res.x = Math.round(target.x());
-              res.y = Math.round(target.y());
-              res.size = Math.floor(target.getAttr('scaleSize'));
-              res.direction = MathUtils.wrapClamp(Math.floor(target.getAttr('direction')), -179, 180);
-              res.rotationStyle = target.getAttr('rotationStyle');
-              res.hidden = !target.visible();
-              res.zIndex = target.zIndex();
-            }
-            setFile(res);
-          });
+          const res = {
+            id: target.id(),
+            frame: target.getAttr('frameIndex'),
+          };
+          if (target.getLayer() === runtime.backdropLayer) {
+            res.fencing = target.getAttr('fencingMode');
+          } else {
+            res.x = Math.round(target.x());
+            res.y = Math.round(target.y());
+            res.size = Math.floor(target.getAttr('scaleSize'));
+            res.direction = MathUtils.wrapClamp(Math.floor(target.getAttr('direction')), -179, 180);
+            res.rotationStyle = target.getAttr('rotationStyle');
+            res.hidden = !target.visible();
+            res.zIndex = target.zIndex();
+          }
+          setFile(res);
         }
       };
 

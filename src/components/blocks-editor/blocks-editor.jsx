@@ -24,9 +24,6 @@ const updateToolboxBlockValue = (workspace, id, value) => {
 const emulator = new ArcadeEmulatorGenerator();
 const generator = new ArcadePythonGenerator();
 
-// 变量监视偏移
-const monitorOffset = { top: 'calc(1.25rem + 48px + var(--space))' };
-
 // 过滤字符
 const escape = (name) => name.replaceAll(/[^a-z0-9]/gi, '_');
 
@@ -36,6 +33,8 @@ export function ArcadeBlocksEditor() {
   const stage = files.value[0];
   const target = file.value; // 统一舞台或角色
   const isStage = stage && fileId.value === stage.id;
+
+  ScratchBlocks.DataCategory.enableShowOrHideVariable_ = true;
 
   // 右上角缩略图
   const thumbUrl = useMemo(() => {
@@ -159,7 +158,6 @@ export function ArcadeBlocksEditor() {
         generator={generator}
         enableCloneBlocks={!isStage}
         enableLocalVariable={!isStage}
-        monitorOffset={monitorOffset}
         onDefinitions={handleDefinitions}
         onBuildinExtensions={handleBuildinExtensions}
         onExtensionsFilter={handleExtensionsFilter}

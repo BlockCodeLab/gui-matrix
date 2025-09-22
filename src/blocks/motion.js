@@ -524,6 +524,7 @@ export default (x, y) => ({
       text: ScratchBlocks.Msg.MOTION_XPOSITION,
       forStage: false,
       output: 'number',
+      monitoring: true,
       emu(block) {
         return ['target.x()', this.ORDER_FUNCTION_CALL];
       },
@@ -537,6 +538,7 @@ export default (x, y) => ({
       text: ScratchBlocks.Msg.MOTION_YPOSITION,
       forStage: false,
       output: 'number',
+      monitoring: true,
       emu(block) {
         return ['target.y()', this.ORDER_FUNCTION_CALL];
       },
@@ -550,6 +552,7 @@ export default (x, y) => ({
       text: ScratchBlocks.Msg.MOTION_DIRECTION,
       forStage: false,
       output: 'number',
+      monitoring: true,
       emu(block) {
         const code = `target.getAttr('direction')`;
         return [code, this.ORDER_FUNCTION_CALL];

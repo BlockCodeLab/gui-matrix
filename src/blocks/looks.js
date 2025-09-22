@@ -275,7 +275,7 @@ export default () => ({
       },
     },
     {
-      // 下一个造型
+      // 下一个背景
       id: 'nextbackdrop',
       text: ScratchBlocks.Msg.LOOKS_NEXTBACKDROP_BLOCK,
       emu(block) {
@@ -288,6 +288,7 @@ export default () => ({
         let code = '';
         code += `stage.frame_number += 1\n`;
         code += 'render_mode = True\n';
+        code += `runtime.backdropswitchesto(stage.frame_id)\n`;
         return code;
       },
     },
@@ -602,6 +603,7 @@ export default () => ({
       text: ScratchBlocks.Msg.LOOKS_SIZE,
       forStage: false,
       output: 'number',
+      monitoring: true,
       emu(block) {
         return [`target.getAttr('scaleSize')`, this.ORDER_FUNCTION_CALL];
       },

@@ -13,6 +13,9 @@ export class ArcadeRuntime extends Runtime {
     // 更新数据
     this._updateTarget = updateTarget;
 
+    // 文件库
+    this._files = null;
+
     // 资源库
     this._assets = null;
 
@@ -34,12 +37,12 @@ export class ArcadeRuntime extends Runtime {
     return this._targetUtils;
   }
 
-  get assets() {
-    return this._assets;
+  get files() {
+    return this._files;
   }
 
-  get joystick() {
-    return this._joystick;
+  get assets() {
+    return this._assets;
   }
 
   get wifiConnected() {
@@ -47,8 +50,8 @@ export class ArcadeRuntime extends Runtime {
   }
 
   binding(files, assets) {
+    this._files = files;
     this._assets = assets;
-    super.binding(files);
   }
 
   setData(target, key, value) {
@@ -83,12 +86,10 @@ export class ArcadeRuntime extends Runtime {
 
     // 移除所有自定义绘图
     this.paintLayer.destroyChildren();
-    // 移除所有生成信息，对话框等
-    this.boardLayer.destroyChildren();
+    // 移除对话框
+    this.querySelectorAll('.dialog').forEach((dialog) => dialog.destroy());
     // 删除克隆体
-    this.querySelectorAll('.clone').forEach((clone) => {
-      clone.destroy();
-    });
+    this.querySelectorAll('.clone').forEach((clone) => clone.destroy());
 
     // 更新背景
     this.backdropLayer.children.forEach((target) => {
@@ -107,7 +108,6 @@ export class ArcadeRuntime extends Runtime {
         this.targetUtils.redraw(target);
       }
     });
-
     super.stop();
   }
 
@@ -135,7 +135,7 @@ export class ArcadeRuntime extends Runtime {
 
   whenGreaterThen(name, value, scripter, target = null) {
     const key = `${name}>${MathUtils.toNumber(value)}`;
-    this._thresholds[key] = false;
+    this._thresholds.set(key, false);
     this.when(`threshold:${key}`, scripter, target);
   }
 
@@ -146,7 +146,7 @@ export class ArcadeRuntime extends Runtime {
   playWave(soundId) {
     let audio = this._waves.get(soundId);
     if (!audio) {
-      const data = this._assets.find((sound) => sound.id === soundId);
+      const data = this.assets.find((sound) => sound.id === soundId);
       if (!data) {
         return Promise.resolve();
       }
@@ -185,12 +185,60 @@ export class ArcadeRuntime extends Runtime {
     });
   }
 
+  setMonitorValue(label, value) {
+    if (label) {
+      const monitor = label.getAttr('monitor');
+      if (!value) {
+        const target = this.querySelector(`#${monitor.groupId}`);
+        if (target) {
+          switch (monitor.id) {
+            case 'motion_xposition':
+              value = Math.round(target.x());
+              break;
+            case 'motion_yposition':
+              value = Math.round(target.y());
+              break;
+            case 'motion_direction':
+              value = MathUtils.wrapClamp(Math.floor(target.getAttr('direction')), -179, 180);
+              break;
+            case 'looks_size':
+              value = Math.floor(target.getAttr('scaleSize'));
+              break;
+            default:
+              value = 0;
+              break;
+          }
+        }
+      }
+      super.setMonitorValue(label, value);
+    }
+  }
+
   // 按键和摇杆
   //
 
   // 摇杆值
   get joystick() {
-    return this._joystick;
+    const thisObj = this;
+    return {
+      get x() {
+        return thisObj._joystick.x;
+      },
+
+      set x(x) {
+        thisObj._joystick.x = x;
+        thisObj.setMonitorValueById('sensing_joystick_x', x);
+      },
+
+      get y() {
+        return thisObj._joystick.y;
+      },
+
+      set y(y) {
+        thisObj._joystick.y = y;
+        thisObj.setMonitorValueById('#sensing_joystick_y', y);
+      },
+    };
   }
 
   get fnKey() {

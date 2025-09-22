@@ -137,10 +137,21 @@ export default {
     },
   ].concat(
     DEBUG
-      ? {
-          ...codeReviewTab,
-          Content: CodeReview,
-        }
+      ? [
+          {
+            ...codeReviewTab,
+            Content: () => <CodeReview readOnly />,
+          },
+          {
+            ...codeReviewTab,
+            Content: () => (
+              <CodeReview
+                readOnly
+                keyName="script"
+              />
+            ),
+          },
+        ]
       : [],
   ),
 

@@ -113,6 +113,7 @@ export default () => {
           />
         ),
         output: 'number',
+        monitoring: true,
         emu(block) {
           return ['runtime.joystick.x', this.ORDER_MEMBER];
         },
@@ -130,6 +131,7 @@ export default () => {
           />
         ),
         output: 'number',
+        monitoring: true,
         emu(block) {
           return ['runtime.joystick.y', this.ORDER_MEMBER];
         },
@@ -143,6 +145,7 @@ export default () => {
         id: 'timer',
         text: ScratchBlocks.Msg.SENSING_TIMER,
         output: 'number',
+        monitoring: true,
         emu(block) {
           return ['runtime.times', this.ORDER_MEMBER];
         },

@@ -6,7 +6,7 @@ export function SettingsSection({ itemClassName }) {
 
   useEffect(() => {
     if (meta.value.joystick == null) {
-      setMeta('joystick', false);
+      setMeta('joystick', true); // 默认启用摇杆
     }
   }, []);
 

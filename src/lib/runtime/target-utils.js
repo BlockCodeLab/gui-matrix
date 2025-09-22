@@ -156,6 +156,7 @@ export class TargetUtils extends EventEmitter {
     } else {
       target.setAttr(`$${name}`, value);
     }
+    this.runtime.setMonitorValueById(name, value);
   }
 
   // 获取变量值
@@ -341,6 +342,8 @@ export class TargetUtils extends EventEmitter {
     this._updateDialog(target);
     this.runtime.update(target);
     this.emit('update', target);
+    this.runtime.setMonitorValueById(`${target.id()}.motion_xposition`);
+    this.runtime.setMonitorValueById(`${target.id()}.motion_yposition`);
   }
 
   // 滑行到位置
@@ -375,12 +378,12 @@ export class TargetUtils extends EventEmitter {
       return;
     }
 
-    return new Promise(async (resolve, reject) => {
+    return new Promise(async (resolve) => {
       // 中止滑行
       const handleAbort = () => {
         signal.off('abort', handleAbort);
         handleAbort.stopped = true;
-        reject();
+        resolve();
       };
       signal.once('abort', handleAbort);
 
@@ -444,6 +447,7 @@ export class TargetUtils extends EventEmitter {
     const directionValue = MathUtils.toNumber(direction);
     const rotationStyle = target.getAttr('rotationStyle');
     this._rotate(target, directionValue, rotationStyle);
+    this.runtime.setMonitorValueById(`${target.id()}.motion_direction`);
   }
 
   // 面向位置
@@ -689,7 +693,8 @@ export class TargetUtils extends EventEmitter {
     });
 
     const dialog = new Konva.Group({
-      id: `${target.id()}_dialog`,
+      id: target.id(),
+      name: 'dialog',
       transformsEnabled: 'position',
     });
 
@@ -919,6 +924,7 @@ export class TargetUtils extends EventEmitter {
     this._updateDialog(target);
     this.runtime.update(target);
     this.emit('update', target);
+    this.runtime.setMonitorValueById(`${target.id()}.looks_size`);
   }
 
   // 往前移层
