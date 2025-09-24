@@ -51,7 +51,7 @@ const errorAlert = (err) => {
 export function DeviceMenu({ itemClassName }) {
   const { language } = useLocalesContext();
 
-  const { key, name, files, assets } = useProjectContext();
+  const { meta, key, name, files, assets } = useProjectContext();
 
   const firmwareJson = useSignal(null);
 
@@ -80,7 +80,10 @@ export function DeviceMenu({ itemClassName }) {
 
     const projectName = name.value || translate('gui.project.shortname', 'Untitled');
     const projectFiles = []
-      .concat(generateMain(projectName, files.value[0], files.value.slice(1)), ...generateAssets(assets.value))
+      .concat(
+        generateMain(projectName, files.value[0], files.value.slice(1), meta.value.monitors),
+        ...generateAssets(assets.value),
+      )
       .map((file) => ({
         ...file,
         id: file.id.startsWith('lib/')

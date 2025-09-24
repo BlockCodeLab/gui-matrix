@@ -1,4 +1,7 @@
-export function generateMain(name, stage, sprites) {
+import { ColorUtils } from '@blockcode/utils';
+import { Runtime } from '@blockcode/blocks';
+
+export function generateMain(name, stage, sprites, monitors = []) {
   return [].concat(
     stage,
     sprites.map((sprite) => ({
@@ -24,10 +27,27 @@ export function generateMain(name, stage, sprites) {
         .concat(
           'from scratch import *',
           `from _stage_ import stage`,
-          [...sprites] // toSorted有兼容性问题，顾采用老办法
+          sprites // toSorted有兼容性问题，顾采用老办法
             .sort((a, b) => a.zIndex - b.zIndex)
             .map(({ id }) => `import ${id.includes('sprite') ? id : `sprite${id}`}`),
-          'def start():\n  scratch_start(stage)',
+          `monitors = [${monitors
+            .filter((m) => !m.deleting)
+            .map(
+              (m) =>
+                `[${[
+                  JSON.stringify(m.groupId),
+                  JSON.stringify(m.id),
+                  `0x${ColorUtils.rgbToRgb565(ColorUtils.hexToRgb(m.color)).toString(16).toUpperCase()}`,
+                  m.mode === Runtime.MonitorMode.Monitor
+                    ? JSON.stringify(`${m.name ? `${m.name}: ${m.label}` : m.label}:`)
+                    : 'False',
+                  m.visible ? 'True' : 'False',
+                  m.x ?? 'False',
+                  m.y ?? 'False',
+                ]}]`,
+            )}]`,
+          'def start():',
+          '  scratch_start(stage, monitors)',
         )
         .join('\n'),
     },
