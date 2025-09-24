@@ -105,7 +105,7 @@ export default () => {
       },
       {
         // 摇杆x轴
-        id: 'joystick_x',
+        id: 'joystickx',
         text: (
           <Text
             id="arcade.blocks.joystick.x"
@@ -123,7 +123,7 @@ export default () => {
       },
       {
         // 摇杆y轴
-        id: 'joystick_y',
+        id: 'joysticky',
         text: (
           <Text
             id="arcade.blocks.joystick.y"

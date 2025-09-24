@@ -144,106 +144,106 @@ export class TargetUtils extends EventEmitter {
   //
 
   // 定义变量
-  defVariable(target, name, value) {
-    target.setAttr(`$${name}`, value);
+  defVariable(target, id, value) {
+    target.setAttr(id, value);
   }
 
   // 设置变量值
-  setVariable(target, stage, name, value) {
+  setVariable(target, stage, id, value) {
     if (!this.running) return;
-    if (target.getAttr(`$${name}`) == null) {
-      stage.setAttr(`$${name}`, value);
+    if (target.getAttr(id) == null) {
+      stage.setAttr(id, value);
     } else {
-      target.setAttr(`$${name}`, value);
+      target.setAttr(id, value);
     }
-    this.runtime.setMonitorValueById(name, value);
+    this.runtime.setMonitorValueById(id, value);
   }
 
   // 获取变量值
-  getVariable(target, stage, name) {
-    if (target.getAttr(`$${name}`) == null) {
-      return stage.getAttr(`$${name}`);
+  getVariable(target, stage, id) {
+    if (target.getAttr(id) == null) {
+      return stage.getAttr(id);
     } else {
-      return target.getAttr(`$${name}`);
+      return target.getAttr(id);
     }
   }
 
   // 增加变量值
-  incVariable(target, stage, name, value) {
+  incVariable(target, stage, id, value) {
     if (!this.running) return;
-    const oldValue = MathUtils.toNumber(this.getVariable(target, stage, name));
+    const oldValue = MathUtils.toNumber(this.getVariable(target, stage, id));
     const addValue = MathUtils.toNumber(value);
-    this.setVariable(target, stage, name, oldValue + addValue);
+    this.setVariable(target, stage, id, oldValue + addValue);
   }
 
   // 向列表尾添加值
-  pushValueToList(target, stage, name, value) {
+  pushValueToList(target, stage, id, value) {
     if (!this.running) return;
-    const list = this.getVariable(target, stage, name);
+    const list = this.getVariable(target, stage, id);
     if (Array.isArray(list)) {
       list.push(value);
-      this.setVariable(target, stage, name, list);
+      this.setVariable(target, stage, id, list);
     }
   }
 
   // 向列表添加值
-  insertValueToList(target, stage, name, index, value) {
+  insertValueToList(target, stage, id, index, value) {
     if (!this.running) return;
-    const list = this.getVariable(target, stage, name);
+    const list = this.getVariable(target, stage, id);
     if (Array.isArray(list)) {
       list.splice(index, 0, value);
-      this.setVariable(target, stage, name, list);
+      this.setVariable(target, stage, id, list);
     }
   }
 
-  setValueToList(target, stage, name, index, value) {
+  setValueToList(target, stage, id, index, value) {
     if (!this.running) return;
-    const list = this.getVariable(target, stage, name);
+    const list = this.getVariable(target, stage, id);
     if (Array.isArray(list)) {
       list[index] = value;
-      this.setVariable(target, stage, name, list);
+      this.setVariable(target, stage, id, list);
     }
   }
 
-  delAllFromList(target, stage, name) {
+  delAllFromList(target, stage, id) {
     if (!this.running) return;
-    const list = this.getVariable(target, stage, name);
+    const list = this.getVariable(target, stage, id);
     if (Array.isArray(list)) {
       list.length = 0;
-      this.setVariable(target, stage, name, list);
+      this.setVariable(target, stage, id, list);
     }
   }
 
-  delValueFromList(target, stage, name, index) {
+  delValueFromList(target, stage, id, index) {
     if (!this.running) return;
-    const list = this.getVariable(target, stage, name);
+    const list = this.getVariable(target, stage, id);
     if (Array.isArray(list)) {
       list.splice(index, 1);
-      this.setVariable(target, stage, name, list);
+      this.setVariable(target, stage, id, list);
     }
   }
 
-  getValueFromList(target, stage, name, index) {
+  getValueFromList(target, stage, id, index) {
     if (!this.running) return;
-    const list = this.getVariable(target, stage, name);
+    const list = this.getVariable(target, stage, id);
     if (Array.isArray(list)) {
       return list[index] ?? '';
     }
     return '';
   }
 
-  getLengthOfList(target, stage, name) {
+  getLengthOfList(target, stage, id) {
     if (!this.running) return;
-    const list = this.getVariable(target, stage, name);
+    const list = this.getVariable(target, stage, id);
     if (Array.isArray(list)) {
       return list.length;
     }
     return 0;
   }
 
-  findValueFromList(target, stage, name, value) {
+  findValueFromList(target, stage, id, value) {
     if (!this.running) return;
-    const list = this.getVariable(target, stage, name);
+    const list = this.getVariable(target, stage, id);
     if (Array.isArray(list)) {
       const index = list.indexOf(value);
       if (index === -1) return 0;
@@ -286,7 +286,7 @@ export class TargetUtils extends EventEmitter {
     if (!this.running) return;
 
     target2 = this.runtime.querySelector(`#${target2}`);
-    let pos = target2?.position?.();
+    let pos = target2?.position();
 
     // 随机位置
     if (!pos) {
@@ -350,7 +350,7 @@ export class TargetUtils extends EventEmitter {
   glideToTarget(target, signal, sec, target2) {
     if (!this.running) return;
 
-    let pos = target2?.position?.();
+    let pos = target2?.position();
     target2 = this.runtime.querySelector(`#${target2}`);
 
     // 随机位置
@@ -797,10 +797,10 @@ export class TargetUtils extends EventEmitter {
 
     const secValue = MathUtils.toNumber(sec);
 
-    return new Promise(async (resolve, reject) => {
+    return new Promise(async (resolve) => {
       const handleAbort = () => {
         signal.off('abort', handleAbort);
-        reject();
+        resolve();
       };
       signal.once('abort', handleAbort);
 
@@ -845,10 +845,10 @@ export class TargetUtils extends EventEmitter {
 
     target.setAttr('_frameIndex', frames.indexOf(asset.id));
 
-    return new Promise(async (resolve, reject) => {
+    return new Promise(async (resolve) => {
       const handleAbort = () => {
         signal.off('abort', handleAbort);
-        reject();
+        resolve();
       };
       signal.once('abort', handleAbort);
 

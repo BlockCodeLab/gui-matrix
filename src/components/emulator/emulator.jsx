@@ -39,7 +39,7 @@ export function ArcadeEmulator({ runtime, onRuntime }) {
 
     // 只有不在拖拽的角色高亮，背景不高亮
     const target = runtime.querySelector(`#${fileId}`);
-    if (target?.draggable?.() && !target.isDragging()) {
+    if (target && target.draggable() && !target.isDragging()) {
       runtime.targetUtils.highlight(target);
     }
   }, [fileId.value]);

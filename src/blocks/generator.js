@@ -13,14 +13,14 @@ export class ArcadeEmulatorGenerator extends EmulatorGenerator {
 
       // 全部和局部变量
       const varTarget = variable.isLocal ? 'target' : 'stage';
-      const varName = variable.getId();
+      const varName = this.quote_(variable.getId());
       let varValue = '0';
       if (variable.type === ScratchBlocks.LIST_VARIABLE_TYPE) {
         varValue = '[]';
       } else if (variable.type === ScratchBlocks.DICTIONARY_VARIABLE_TYPE) {
         varValue = '{}';
       }
-      defvars.push(`targetUtils.defVariable(${varTarget}, '${varName}', ${varValue});`);
+      defvars.push(`targetUtils.defVariable(${varTarget}, ${varName}, ${varValue});`);
     }
 
     if (defvars.length) {
@@ -72,17 +72,15 @@ export class ArcadePythonGenerator extends MicroPythonGenerator {
       }
 
       // 全部和局部变量
-      const varTarget = variables[i].isLocal ? 'target.data' : 'stage.data';
-      let varName = this.getVariableName(variables[i].getId());
+      const varTarget = variables[i].isLocal ? 'target' : 'stage';
+      let varName = this.quote_(variables[i].getId());
       let varValue = '0';
       if (variables[i].type === ScratchBlocks.LIST_VARIABLE_TYPE) {
-        varName = `${varName}_ls`;
         varValue = '[]';
       } else if (variables[i].type === ScratchBlocks.DICTIONARY_VARIABLE_TYPE) {
-        varName = `${varName}_dt`;
         varValue = '{}';
       }
-      defvars.push(`${varTarget}['${varName}'] = ${varValue}`);
+      defvars.push(`runtime.def_variable(${varTarget}, ${varName}, ${varValue})`);
     }
 
     // Declare all of the variables.

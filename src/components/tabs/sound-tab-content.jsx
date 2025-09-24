@@ -15,7 +15,7 @@ export function SoundTabContent() {
 
   // 默认打开第一个声音
   useEffect(() => {
-    const sounds = assets.value?.filter?.((res) => /^audio\//.test(res.type));
+    const sounds = assets.value?.filter((res) => /^audio\//.test(res.type));
     openAsset(sounds?.[0]?.id);
   }, []);
 

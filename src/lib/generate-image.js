@@ -38,7 +38,7 @@ export function generateImage({ id, name, type, data, width, height, centerX, ce
 
   return [
     {
-      id: `${id}.png`,
+      id,
       type,
       content: buffer,
     },

@@ -227,7 +227,7 @@ export class ArcadeRuntime extends Runtime {
 
       set x(x) {
         thisObj._joystick.x = x;
-        thisObj.setMonitorValueById('sensing_joystick_x', x);
+        thisObj.setMonitorValueById('sensing_joystickx', x);
       },
 
       get y() {
@@ -236,7 +236,7 @@ export class ArcadeRuntime extends Runtime {
 
       set y(y) {
         thisObj._joystick.y = y;
-        thisObj.setMonitorValueById('#sensing_joystick_y', y);
+        thisObj.setMonitorValueById('sensing_joysticky', y);
       },
     };
   }
@@ -402,7 +402,7 @@ export class ArcadeRuntime extends Runtime {
     // 角色和克隆体碰撞
     for (target2 of targets) {
       // 隐藏的角色跳过
-      if (target2?.visible?.()) {
+      if (target2?.visible()) {
         if (KonvaUtils.checkConvexHullsCollision(target, target2)) {
           return true;
         }
