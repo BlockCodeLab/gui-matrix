@@ -349,9 +349,8 @@ export class TargetUtils extends EventEmitter {
   // 滑行到位置
   glideToTarget(target, signal, sec, target2) {
     if (!this.running) return;
-
-    let pos = target2?.position();
     target2 = this.runtime.querySelector(`#${target2}`);
+    let pos = target2?.position();
 
     // 随机位置
     if (!pos) {
