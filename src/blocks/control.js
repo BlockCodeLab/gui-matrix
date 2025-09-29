@@ -56,7 +56,8 @@ export default () => ({
         if (cloneCode === '_myself_') {
           cloneCode = 'target';
         }
-        const code = `targetUtils.clone(${cloneCode});\n`;
+        const code = `targetUtils.clone(userscript, ${cloneCode});\n`;
+        this._guardLoop = this.GUARD_LOOP_RENDER;
         return code;
       },
       mpy(block) {
@@ -73,7 +74,8 @@ export default () => ({
     {
       id: 'delete_this_clone',
       emu(block) {
-        const code = `targetUtils.removeClone(target);\n`;
+        const code = `targetUtils.removeClone(userscript);\n`;
+        this._guardLoop = this.GUARD_LOOP_RENDER;
         return code;
       },
       mpy(block) {

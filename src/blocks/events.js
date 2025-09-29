@@ -191,7 +191,7 @@ export default () => ({
       },
       emu(block) {
         const messageName = this.valueToCode(block, 'BROADCAST_INPUT', this.ORDER_NONE);
-        const code = `runtime.run('message:' + ${messageName})\n`;
+        const code = `runtime.call('message:' + ${messageName})\n`;
         return code;
       },
       mpy(block) {
@@ -211,7 +211,8 @@ export default () => ({
       },
       emu(block) {
         const messageName = this.valueToCode(block, 'BROADCAST_INPUT', this.ORDER_NONE);
-        const code = `await runtime.run('message:' + ${messageName})\n`;
+        const code = `await runtime.call('message:' + ${messageName})\n`;
+        this._guardLoop = this.GUARD_LOOP_DISABLE;
         return code;
       },
       mpy(block) {

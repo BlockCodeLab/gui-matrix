@@ -149,101 +149,102 @@ export class TargetUtils extends EventEmitter {
   }
 
   // 设置变量值
-  setVariable(target, stage, id, value) {
-    if (!this.running) return;
-    if (target.getAttr(id) == null) {
-      stage.setAttr(id, value);
+  setVariable(userscript, id, value) {
+    if (userscript.aborted) return;
+    if (userscript.target.getAttr(id) == null) {
+      userscript.stage.setAttr(id, value);
     } else {
-      target.setAttr(id, value);
+      userscript.target.setAttr(id, value);
     }
     this.runtime.setMonitorValueById(id, value);
   }
 
   // 获取变量值
-  getVariable(target, stage, id) {
-    if (target.getAttr(id) == null) {
-      return stage.getAttr(id);
+  getVariable(userscript, id) {
+    if (userscript.aborted) return;
+    if (userscript.target.getAttr(id) == null) {
+      return userscript.stage.getAttr(id);
     } else {
-      return target.getAttr(id);
+      return userscript.target.getAttr(id);
     }
   }
 
   // 增加变量值
-  incVariable(target, stage, id, value) {
-    if (!this.running) return;
-    const oldValue = MathUtils.toNumber(this.getVariable(target, stage, id));
+  incVariable(userscript, id, value) {
+    if (userscript.aborted) return;
+    const oldValue = MathUtils.toNumber(this.getVariable(userscript, id));
     const addValue = MathUtils.toNumber(value);
-    this.setVariable(target, stage, id, oldValue + addValue);
+    this.setVariable(userscript, id, oldValue + addValue);
   }
 
   // 向列表尾添加值
-  pushValueToList(target, stage, id, value) {
-    if (!this.running) return;
-    const list = this.getVariable(target, stage, id);
+  pushValueToList(userscript, id, value) {
+    if (userscript.aborted) return;
+    const list = this.getVariable(userscript, id);
     if (Array.isArray(list)) {
       list.push(value);
-      this.setVariable(target, stage, id, list);
+      this.setVariable(userscript, id, list);
     }
   }
 
   // 向列表添加值
-  insertValueToList(target, stage, id, index, value) {
-    if (!this.running) return;
-    const list = this.getVariable(target, stage, id);
+  insertValueToList(userscript, id, index, value) {
+    if (userscript.aborted) return;
+    const list = this.getVariable(userscript, id);
     if (Array.isArray(list)) {
       list.splice(index, 0, value);
-      this.setVariable(target, stage, id, list);
+      this.setVariable(userscript, id, list);
     }
   }
 
-  setValueToList(target, stage, id, index, value) {
-    if (!this.running) return;
-    const list = this.getVariable(target, stage, id);
+  setValueToList(userscript, id, index, value) {
+    if (userscript.aborted) return;
+    const list = this.getVariable(userscript, id);
     if (Array.isArray(list)) {
       list[index] = value;
-      this.setVariable(target, stage, id, list);
+      this.setVariable(userscript, id, list);
     }
   }
 
-  delAllFromList(target, stage, id) {
-    if (!this.running) return;
-    const list = this.getVariable(target, stage, id);
+  delAllFromList(userscript, id) {
+    if (userscript.aborted) return;
+    const list = this.getVariable(userscript, id);
     if (Array.isArray(list)) {
       list.length = 0;
-      this.setVariable(target, stage, id, list);
+      this.setVariable(userscript, id, list);
     }
   }
 
-  delValueFromList(target, stage, id, index) {
-    if (!this.running) return;
-    const list = this.getVariable(target, stage, id);
+  delValueFromList(userscript, id, index) {
+    if (userscript.aborted) return;
+    const list = this.getVariable(userscript, id);
     if (Array.isArray(list)) {
       list.splice(index, 1);
-      this.setVariable(target, stage, id, list);
+      this.setVariable(userscript, id, list);
     }
   }
 
-  getValueFromList(target, stage, id, index) {
-    if (!this.running) return;
-    const list = this.getVariable(target, stage, id);
+  getValueFromList(userscript, id, index) {
+    if (userscript.aborted) return;
+    const list = this.getVariable(userscript, id);
     if (Array.isArray(list)) {
       return list[index] ?? '';
     }
     return '';
   }
 
-  getLengthOfList(target, stage, id) {
-    if (!this.running) return;
-    const list = this.getVariable(target, stage, id);
+  getLengthOfList(userscript, id) {
+    if (userscript.aborted) return;
+    const list = this.getVariable(userscript, id);
     if (Array.isArray(list)) {
       return list.length;
     }
     return 0;
   }
 
-  findValueFromList(target, stage, id, value) {
-    if (!this.running) return;
-    const list = this.getVariable(target, stage, id);
+  findValueFromList(userscript, id, value) {
+    if (userscript.aborted) return;
+    const list = this.getVariable(userscript, id);
     if (Array.isArray(list)) {
       const index = list.indexOf(value);
       if (index === -1) return 0;
@@ -256,54 +257,37 @@ export class TargetUtils extends EventEmitter {
   //
 
   // 移动n步
-  moveSteps(target, steps) {
-    if (!this.running) return;
+  moveSteps(userscript, steps) {
+    if (userscript.aborted) return;
+    const target = userscript.target;
     const direction = target.getAttr('direction');
     const radian = MathUtils.degToRad(SpriteDefaultConfig.Direction - direction);
     const stepsValue = MathUtils.toNumber(steps);
     const dx = stepsValue * Math.cos(radian);
     const dy = stepsValue * Math.sin(radian);
-    this.moveTo(target, target.x() + dx, target.y() + dy);
+    this.moveTo(userscript, target.x() + dx, target.y() + dy);
   }
 
   // 右转n度
-  turnRight(target, deg) {
-    if (!this.running) return;
+  turnRight(userscript, deg) {
+    if (userscript.aborted) return;
     const degValue = MathUtils.toNumber(deg);
-    const direction = target.getAttr('direction');
-    this.towardsTo(target, direction + degValue);
+    const direction = userscript.target.getAttr('direction');
+    this.towardsTo(userscript, direction + degValue);
   }
 
   // 左转n度
-  turnLeft(target, deg) {
-    if (!this.running) return;
+  turnLeft(userscript, deg) {
+    if (userscript.aborted) return;
     const degValue = MathUtils.toNumber(deg);
-    this.turnRight(target, -degValue);
-  }
-
-  // 移动到位置
-  moveToTarget(target, target2) {
-    if (!this.running) return;
-
-    target2 = this.runtime.querySelector(`#${target2}`);
-    let pos = target2?.position();
-
-    // 随机位置
-    if (!pos) {
-      const widthEdge = this.stage.width() / 2;
-      const heightEdge = this.stage.height() / 2;
-      pos = {
-        x: MathUtils.random(-widthEdge, widthEdge),
-        y: MathUtils.random(-heightEdge, heightEdge),
-      };
-    }
-    this.moveTo(target, pos.x, pos.y);
+    this.turnRight(userscript, -degValue);
   }
 
   // 移动到xy
-  moveTo(target, x, y) {
-    if (!this.running) return;
+  moveTo(userscript, x, y) {
+    if (userscript.aborted) return;
 
+    const target = userscript.target;
     const pos = target.position();
     const xValue = MathUtils.toNumber(x);
     const yValue = MathUtils.toNumber(y);
@@ -311,8 +295,7 @@ export class TargetUtils extends EventEmitter {
     let dy = (yValue - pos.y) * this.stage.scaleY();
 
     // 避免角色移动到舞台外面
-    const stage = this.runtime.querySelector(`#_stage_`);
-    const fencingMode = stage.getAttr('fencingMode');
+    const fencingMode = userscript.stage.getAttr('fencingMode');
     if (fencingMode !== false) {
       const clientRect = target.getClientRect();
       const left = -clientRect.width * 0.8;
@@ -342,15 +325,18 @@ export class TargetUtils extends EventEmitter {
     this._updateDialog(target);
     this.runtime.update(target);
     this.emit('update', target);
-    this.runtime.setMonitorValueById(`${target.id()}.motion_xposition`);
-    this.runtime.setMonitorValueById(`${target.id()}.motion_yposition`);
+
+    const id = target.id();
+    this.runtime.setMonitorValueById(`${id}.motion_xposition`);
+    this.runtime.setMonitorValueById(`${id}.motion_yposition`);
   }
 
-  // 滑行到位置
-  glideToTarget(target, signal, sec, target2) {
-    if (!this.running) return;
-    target2 = this.runtime.querySelector(`#${target2}`);
-    let pos = target2?.position();
+  // 移动到位置
+  moveToTarget(userscript, targetId) {
+    if (userscript.aborted) return;
+
+    const target = this.runtime.querySelector(`#${targetId}`);
+    let pos = target?.position();
 
     // 随机位置
     if (!pos) {
@@ -361,56 +347,63 @@ export class TargetUtils extends EventEmitter {
         y: MathUtils.random(-heightEdge, heightEdge),
       };
     }
-    return this.glideTo(target, signal, sec, pos.x, pos.y);
+    this.moveTo(userscript, pos.x, pos.y);
   }
 
   // 滑行到xy
-  glideTo(target, signal, sec, x, y, warpMode) {
-    if (!this.running) return;
+  async glideTo(userscript, sec, x, y) {
+    if (userscript.aborted) return;
 
     const secValue = MathUtils.toNumber(sec);
     const xValue = MathUtils.toNumber(x);
     const yValue = MathUtils.toNumber(y);
-
     if (secValue <= 0) {
-      this.moveTo(target, xValue, yValue);
+      this.moveTo(userscript, xValue, yValue);
       return;
     }
 
-    return new Promise(async (resolve) => {
-      // 中止滑行
-      const handleAbort = () => {
-        signal.off('abort', handleAbort);
-        handleAbort.stopped = true;
-        resolve();
-      };
-      signal.once('abort', handleAbort);
+    const target = userscript.target;
+    const duration = secValue * 1000;
+    const startx = target.x();
+    const starty = target.y();
+    const dx = xValue - startx;
+    const dy = yValue - starty;
 
-      const duration = secValue * 1000;
-      const startx = target.x();
-      const starty = target.y();
-      const dx = xValue - startx;
-      const dy = yValue - starty;
-
-      let frac;
-      let elapsed = 0;
-      let start = Date.now();
-
-      while (!handleAbort.stopped) {
-        elapsed = Date.now() - start;
-        if (elapsed < duration) {
-          frac = elapsed / duration;
-          this.moveTo(target, startx + dx * frac, starty + dy * frac);
-        } else {
-          this.moveTo(target, xValue, yValue);
-          break;
-        }
-        if (warpMode) continue;
+    let frac;
+    let elapsed = 0;
+    let start = Date.now();
+    while (!userscript.aborted) {
+      elapsed = Date.now() - start;
+      if (elapsed < duration) {
+        frac = elapsed / duration;
+        this.moveTo(userscript, startx + dx * frac, starty + dy * frac);
+      } else {
+        this.moveTo(userscript, xValue, yValue);
+        break;
+      }
+      if (!userscript.warpMode) {
         await this.runtime.nextFrame();
       }
-      signal.off('abort', handleAbort);
-      resolve();
-    });
+    }
+  }
+
+  // 滑行到位置
+  glideToTarget(userscript, sec, targetId) {
+    if (userscript.aborted) return;
+
+    const target = this.runtime.querySelector(`#${targetId}`);
+    let pos = target?.position();
+
+    // 随机位置
+    if (!pos) {
+      const widthEdge = this.stage.width() / 2;
+      const heightEdge = this.stage.height() / 2;
+      pos = {
+        x: MathUtils.random(-widthEdge, widthEdge),
+        y: MathUtils.random(-heightEdge, heightEdge),
+      };
+    }
+    return this.glideTo(userscript, sec, pos.x, pos.y);
   }
 
   // 旋转
@@ -441,8 +434,9 @@ export class TargetUtils extends EventEmitter {
   }
 
   // 面向n方向
-  towardsTo(target, direction) {
-    if (!this.running) return;
+  towardsTo(userscript, direction) {
+    if (userscript.aborted) return;
+    const target = userscript.target;
     const directionValue = MathUtils.toNumber(direction);
     const rotationStyle = target.getAttr('rotationStyle');
     this._rotate(target, directionValue, rotationStyle);
@@ -450,48 +444,48 @@ export class TargetUtils extends EventEmitter {
   }
 
   // 面向位置
-  towardsToTarget(target, target2) {
-    if (!this.running) return;
+  towardsToTarget(userscript, targetId) {
+    if (userscript.aborted) return;
 
-    target2 = this.runtime.querySelector(`#${target2}`);
+    const target = this.runtime.querySelector(`#${targetId}`);
 
     // 随机方向
-    if (!target2) {
-      this.towardsTo(target, MathUtils.random(0, 359));
+    if (!target) {
+      this.towardsTo(userscript, MathUtils.random(0, 359));
       return;
     }
 
-    const pos = target2.position();
-    const dx = pos.x - target.x();
-    const dy = pos.y - target.y();
-    const direction = MathUtils.radToDeg(Math.atan2(dy, dx));
-    this.towardsTo(target, direction);
+    const pos = target.position();
+    const dx = pos.x - userscript.target.x();
+    const dy = pos.y - userscript.target.y();
+    const direction = SpriteDefaultConfig.Direction - MathUtils.radToDeg(Math.atan2(dy, dx));
+    this.towardsTo(userscript, direction);
   }
 
   // 增加x坐标
-  addX(target, x) {
-    if (!this.running) return;
-    const xValue = MathUtils.toNumber(x);
-    this.moveTo(target, target.x() + xValue, target.y());
+  addX(userscript, x) {
+    if (userscript.aborted) return;
+    const xValue = MathUtils.toNumber(x) + userscript.target.x();
+    this.moveTo(userscript, xValue, userscript.target.y());
   }
 
   // 设置x坐标
-  setX(target, x) {
-    if (!this.running) return;
-    this.moveTo(target, MathUtils.toNumber(x), target.y());
+  setX(userscript, x) {
+    if (userscript.aborted) return;
+    this.moveTo(userscript, MathUtils.toNumber(x), userscript.target.y());
   }
 
   // 增加y坐标
-  addY(target, y) {
-    if (!this.running) return;
-    const yValue = MathUtils.toNumber(y);
-    this.moveTo(target, target.x(), target.y() + yValue);
+  addY(userscript, y) {
+    if (userscript.aborted) return;
+    const yValue = MathUtils.toNumber(y) + userscript.target.y();
+    this.moveTo(userscript, userscript.target.x(), yValue);
   }
 
   // 设置y坐标
-  setY(target, y) {
-    if (!this.running) return;
-    this.moveTo(target, target.x(), MathUtils.toNumber(y));
+  setY(userscript, y) {
+    if (userscript.aborted) return;
+    this.moveTo(userscript, userscript.target.x(), MathUtils.toNumber(y));
   }
 
   // 寻找最接近的边缘
@@ -528,10 +522,11 @@ export class TargetUtils extends EventEmitter {
   }
 
   // 碰到边缘反弹
-  edgeBounce(target) {
-    if (!this.running) return;
+  edgeBounce(userscript) {
+    if (userscript.aborted) return;
 
     // 查询靠近的边缘
+    const target = userscript.target;
     const nearestEdge = this._findNearestEdge(target);
     if (!nearestEdge) return; // 没有碰到任何边
 
@@ -579,10 +574,10 @@ export class TargetUtils extends EventEmitter {
   }
 
   // 设置旋转模式
-  setRotationStyle(target, rotationStyle) {
-    if (!this.running) return;
-    const direction = target.getAttr('direction');
-    this._rotate(target, direction, rotationStyle);
+  setRotationStyle(userscript, rotationStyle) {
+    if (userscript.aborted) return;
+    const direction = userscript.target.getAttr('direction');
+    this._rotate(userscript.target, direction, rotationStyle);
   }
 
   // 角色外观
@@ -779,53 +774,43 @@ export class TargetUtils extends EventEmitter {
     dialog.position({ x, y });
   }
 
-  _textBubble(target, signal, message, sec, thinkingStyle, strikingStyle) {
-    if (!this.running) return;
-
+  async _textBubble(target, message, sec, style, bigMode) {
     let dialog = target.getAttr('dialog');
     if (!dialog) {
-      dialog = this._dialog(target, thinkingStyle, strikingStyle);
+      dialog = this._dialog(target, style, bigMode);
       target.setAttr('dialog', dialog);
     }
     const messageValue = `${message}`;
-    this._updateDialog(target, messageValue, thinkingStyle, strikingStyle);
+    this._updateDialog(target, messageValue, style, bigMode);
     dialog.visible(true);
     dialog.moveToTop();
 
-    if (sec === false) return;
-
-    const secValue = MathUtils.toNumber(sec);
-
-    return new Promise(async (resolve) => {
-      const handleAbort = () => {
-        signal.off('abort', handleAbort);
-        resolve();
-      };
-      signal.once('abort', handleAbort);
-
+    if (sec !== false) {
+      const secValue = MathUtils.toNumber(sec);
       await sleep(secValue);
       dialog.visible(false);
-
-      signal.off('abort', handleAbort);
-      resolve();
-    });
+    }
   }
 
   // 说
-  say(target, signal, message, sec = false, isShout = false) {
-    if (!this.running) return;
-    return this._textBubble(target, signal, message, sec, FontBubbleStyle.Talking, isShout);
+  say(userscript, message, sec = false, bigMode = false) {
+    if (userscript.aborted) return;
+    return this._textBubble(userscript.target, message, sec, FontBubbleStyle.Talking, bigMode);
   }
 
   // 思考
-  think(target, signal, message, sec = false, isSpark = false) {
-    if (!this.running) return;
-    return this._textBubble(target, signal, message, sec, FontBubbleStyle.Thinking, isSpark);
+  think(userscript, message, sec = false, bigMode = false) {
+    if (userscript.aborted) return;
+    return this._textBubble(userscript.target, message, sec, FontBubbleStyle.Thinking, bigMode);
   }
 
   // 切换造型/背景
-  switchFrameTo(target, signal, idOrSerialOrName, broadcast = false) {
-    if (!this.running) return;
+  async switchFrameTo(userscript, idOrSerialOrName, broadcast = false) {
+    if (userscript.aborted) return;
+
+    const target = userscript.target;
+    if (target.getAttr('rendering')) return;
+    target.setAttr('rendering', true);
 
     const frames = target.getAttr('frames');
     let frameIdOrName = idOrSerialOrName;
@@ -840,70 +825,58 @@ export class TargetUtils extends EventEmitter {
     const asset = this.assets.find(
       (res) => [res.id, res.name].includes(frameIdOrName) && frames.indexOf(res.id) !== -1,
     );
-    if (!asset) return;
+    if (!asset) {
+      target.setAttr('rendering', false);
+      return;
+    }
 
-    target.setAttr('_frameIndex', frames.indexOf(asset.id));
+    const frameIndex = frames.indexOf(asset.id);
+    const image = await loadImageFromAsset(asset);
 
-    return new Promise(async (resolve) => {
-      const handleAbort = () => {
-        signal.off('abort', handleAbort);
-        resolve();
-      };
-      signal.once('abort', handleAbort);
-
-      const image = await loadImageFromAsset(asset);
-      const frameIndex = target.getAttr('_frameIndex');
-
-      // 当帧已经被改变则跳过造型更新
-      if (frameIndex === frames.indexOf(asset.id)) {
-        target.clearCache();
-        target.setAttrs({
-          image,
-          offsetX: asset.centerX,
-          offsetY: asset.centerY,
-          frameIndex: frames.indexOf(asset.id),
-          _frameIndex: null,
-        });
-        // target.cache();
-        this._updateDialog(target);
-        this.runtime.update(target);
-        this.emit('update', target);
-
-        if (broadcast) {
-          await this.runtime.run(`backdropswitchesto:${asset.id}`);
-        }
-      }
-
-      signal.off('abort', handleAbort);
-      resolve();
+    target.clearCache();
+    target.setAttrs({
+      image,
+      frameIndex,
+      offsetX: asset.centerX,
+      offsetY: asset.centerY,
+      rendering: false,
     });
+    // target.cache();
+    this._updateDialog(target);
+    this.runtime.update(target);
+    this.emit('update', target);
+
+    if (broadcast) {
+      await this.runtime.call(`backdropswitchesto:${asset.id}`);
+    }
   }
 
   // 下一个造型/背景
-  nextFrame(target, signal, broadcast = false) {
-    if (!this.running) return;
-    const frames = target.getAttr('frames');
-    const frameIndex = target.getAttr('frameIndex');
+  nextFrame(userscript, broadcast = false) {
+    if (userscript.aborted) return;
+    const frames = userscript.target.getAttr('frames');
+    const frameIndex = userscript.target.getAttr('frameIndex');
     const serial = MathUtils.indexToSerial(frameIndex, frames.length);
-    return this.switchFrameTo(target, signal, serial + 1, broadcast);
+    return this.switchFrameTo(userscript, serial + 1, broadcast);
   }
 
   // 增加大小
-  addSize(target, size) {
-    let sizeValue = MathUtils.toNumber(size);
-    sizeValue += target.getAttr('scaleSize');
-    this.setSize(target, sizeValue);
+  addSize(userscript, size) {
+    if (userscript.aborted) return;
+    const sizeValue = MathUtils.toNumber(size) + userscript.target.getAttr('scaleSize');
+    this.setSize(userscript, sizeValue);
   }
 
   // 设置大小
-  setSize(target, size) {
-    if (!this.running) return;
-
-    let sizeValue = MathUtils.toNumber(size);
+  setSize(userscript, size) {
+    if (userscript.aborted) return;
 
     // 缩放最大不能超过屏幕且不能小于1，最小0.05
+    const target = userscript.target;
     const image = target.image();
     const maxScale = Math.min(this.stage.width() / image.width, this.stage.height() / image.height);
+
+    let sizeValue = MathUtils.toNumber(size);
     let scale = MathUtils.clamp(sizeValue / 100, 0.05, Math.max(1, maxScale));
     sizeValue = Math.round(scale * 100);
 
@@ -927,7 +900,9 @@ export class TargetUtils extends EventEmitter {
   }
 
   // 往前移层
-  forward(target, zindex) {
+  forward(userscript, zindex) {
+    if (userscript.aborted) return;
+    const target = userscript.target;
     let zindexValue = MathUtils.toNumber(zindex);
     zindexValue = target.zIndex() + zindexValue;
     target.zIndex(MathUtils.clamp(zindexValue, 0, this.spritesLayer.children.length - 1));
@@ -936,14 +911,17 @@ export class TargetUtils extends EventEmitter {
   }
 
   // 往后移层
-  backward(target, zindex) {
+  backward(userscript, zindex) {
+    if (userscript.aborted) return;
     const zindexValue = MathUtils.toNumber(zindex);
-    this.forward(target, -zindexValue);
+    this.forward(userscript, -zindexValue);
   }
 
-  getFrameSerialOrName(target, serialOrName) {
-    const frames = target.getAttr('frames');
-    const frameIndex = target.getAttr('frameIndex');
+  getFrameSerialOrName(userscript, serialOrName) {
+    if (userscript.aborted) return;
+
+    const frames = userscript.target.getAttr('frames');
+    const frameIndex = userscript.target.getAttr('frameIndex');
 
     if (serialOrName !== 'name') {
       return MathUtils.indexToSerial(frameIndex, frames.length);
@@ -955,20 +933,26 @@ export class TargetUtils extends EventEmitter {
   }
 
   // 增加特效
-  addEffect(target, mode, value) {
-    const effectValue = MathUtils.toNumber(value);
+  addEffect(userscript, mode, value) {
+    if (userscript.aborted) return;
+
+    const target = userscript.target;
+    let effectValue = MathUtils.toNumber(value);
+
     if (mode === 'GHOST') {
-      let opacity = target.opacity();
-      opacity -= effectValue / 100;
-      if (opacity > 1) opacity = 1;
-      if (opacity < 0) opacity = 0;
-      target.opacity(opacity);
+      effectValue = target.opacity() - effectValue;
     }
+
+    this.setEffect(userscript, mode, effectValue);
   }
 
   // 设置特效
-  setEffect(target, mode, value) {
+  setEffect(userscript, mode, value) {
+    if (userscript.aborted) return;
+
+    const target = userscript.target;
     const effectValue = MathUtils.toNumber(value);
+
     if (mode === 'GHOST') {
       let opacity = 1 - effectValue / 100;
       if (opacity > 1) opacity = 1;
@@ -978,13 +962,14 @@ export class TargetUtils extends EventEmitter {
   }
 
   // 清除
-  clearEffect(target) {
-    target.opacity(1);
+  clearEffect(userscript) {
+    if (userscript.aborted) return;
+    userscript.target.opacity(1);
   }
 
   // 克隆
-  async clone(target) {
-    if (!this.running) return;
+  async clone(userscript, target) {
+    if (userscript.aborted) return;
 
     const clones = this.runtime.querySelectorAll('.clone');
     if (clones.length >= MAX_CLONES_LIMIT) return;
@@ -995,7 +980,7 @@ export class TargetUtils extends EventEmitter {
     if (!target) return;
 
     // 等待造型更新完成
-    while (target.getAttr('_frameIndex') != null) {
+    while (target.getAttr('rendering')) {
       await this.runtime.nextTick();
     }
 
@@ -1013,13 +998,13 @@ export class TargetUtils extends EventEmitter {
     // 重新设置zindex
     clone.zIndex(Math.max(target.zIndex() - 1, 0));
 
-    this.runtime.run(`clonestart:${id}`, clone);
+    this.runtime.call(`clonestart:${id}`, clone);
   }
 
-  removeClone(target) {
-    if (!this.running) return;
-    if (target.hasName('clone')) {
-      target.destroy();
+  removeClone(userscript) {
+    if (userscript.aborted) return;
+    if (userscript.target.hasName('clone')) {
+      userscript.target.destroy();
     }
   }
 }

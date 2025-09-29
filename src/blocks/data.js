@@ -7,7 +7,7 @@ export default () => ({
       id: 'variable',
       emu(block) {
         const varId = this.quote_(block.getFieldValue('VARIABLE'));
-        const code = `targetUtils.getVariable(target, stage, ${varId})`;
+        const code = `targetUtils.getVariable(userscript, ${varId})`;
         return [code, this.ORDER_FUNCTION_CALL];
       },
       mpy(block) {
@@ -21,7 +21,7 @@ export default () => ({
       emu(block) {
         const varId = this.quote_(block.getFieldValue('VARIABLE'));
         const valueCode = this.valueToCode(block, 'VALUE', this.ORDER_NONE) || '""';
-        const code = `targetUtils.setVariable(target, stage, ${varId}, ${valueCode});\n`;
+        const code = `targetUtils.setVariable(userscript, ${varId}, ${valueCode});\n`;
         return code;
       },
       mpy(block) {
@@ -36,7 +36,7 @@ export default () => ({
       emu(block) {
         const varId = this.quote_(block.getFieldValue('VARIABLE'));
         const valueCode = this.valueToCode(block, 'VALUE', this.ORDER_NONE) || '0';
-        const code = `targetUtils.incVariable(target, stage, ${varId}, ${valueCode});\n`;
+        const code = `targetUtils.incVariable(userscript, ${varId}, ${valueCode});\n`;
         return code;
       },
       mpy(block) {
@@ -77,7 +77,7 @@ export default () => ({
       id: 'listcontents',
       emu(block) {
         const listId = this.quote_(block.getFieldValue('LIST'));
-        const code = `targetUtils.getVariable(target, stage, ${listId})`;
+        const code = `targetUtils.getVariable(userscript, ${listId})`;
         return [code, this.ORDER_FUNCTION_CALL];
       },
       mpy(block) {
@@ -91,7 +91,7 @@ export default () => ({
       emu(block) {
         const listId = this.quote_(block.getFieldValue('LIST'));
         const itemValue = this.valueToCode(block, 'ITEM', this.ORDER_NONE) || '""';
-        const code = `targetUtils.pushValueToList(target, stage, ${listId}, ${itemValue});\n`;
+        const code = `targetUtils.pushValueToList(userscript, ${listId}, ${itemValue});\n`;
         return code;
       },
       mpy(block) {
@@ -106,7 +106,7 @@ export default () => ({
       emu(block) {
         const listId = this.quote_(block.getFieldValue('LIST'));
         const indexCode = this.getAdjusted(block, 'INDEX');
-        const code = `targetUtils.delValueFromList(target, stage, ${listId}, ${indexCode});\n`;
+        const code = `targetUtils.delValueFromList(userscript, ${listId}, ${indexCode});\n`;
         return code;
       },
       mpy(block) {
@@ -120,7 +120,7 @@ export default () => ({
       id: 'deletealloflist',
       emu(block) {
         const listId = this.quote_(block.getFieldValue('LIST'));
-        const code = `targetUtils.delAllFromList(target, stage, ${listId});\n`;
+        const code = `targetUtils.delAllFromList(userscript, ${listId});\n`;
         return code;
       },
       mpy(block) {
@@ -135,7 +135,7 @@ export default () => ({
         const listId = this.quote_(block.getFieldValue('LIST'));
         const indexCode = this.getAdjusted(block, 'INDEX');
         const itemValue = this.valueToCode(block, 'ITEM', this.ORDER_NONE) || '""';
-        const code = `targetUtils.insertValueToList(target, stage, ${listId}, ${indexCode}, ${itemValue});\n`;
+        const code = `targetUtils.insertValueToList(userscript, ${listId}, ${indexCode}, ${itemValue});\n`;
         return code;
       },
       mpy(block) {
@@ -152,7 +152,7 @@ export default () => ({
         const listId = this.quote_(block.getFieldValue('LIST'));
         const indexCode = this.getAdjusted(block, 'INDEX');
         const itemValue = this.valueToCode(block, 'ITEM', this.ORDER_NONE) || '""';
-        const code = `targetUtils.setValueToList(target, stage, ${listId}, ${indexCode}, ${itemValue});\n`;
+        const code = `targetUtils.setValueToList(userscript, ${listId}, ${indexCode}, ${itemValue});\n`;
         return code;
       },
       mpy(block) {
@@ -168,7 +168,7 @@ export default () => ({
       emu(block) {
         const listId = this.quote_(block.getFieldValue('LIST'));
         const indexCode = this.getAdjusted(block, 'INDEX');
-        const code = `targetUtils.getValueFromList(target, stage, ${listId}, ${indexCode})`;
+        const code = `targetUtils.getValueFromList(userscript, ${listId}, ${indexCode})`;
         return [code, this.ORDER_FUNCTION_CALL];
       },
       mpy(block) {
@@ -183,7 +183,7 @@ export default () => ({
       emu(block) {
         const listId = this.quote_(block.getFieldValue('LIST'));
         const itemValue = this.valueToCode(block, 'ITEM', this.ORDER_NONE) || 0;
-        const code = `targetUtils.findValueFromList(target, stage, ${listId}, ${itemValue})`;
+        const code = `targetUtils.findValueFromList(userscript, ${listId}, ${itemValue})`;
         return [code, this.ORDER_FUNCTION_CALL];
       },
       mpy(block) {
@@ -197,7 +197,7 @@ export default () => ({
       id: 'lengthoflist',
       emu(block) {
         const listId = this.quote_(block.getFieldValue('LIST'));
-        const code = `targetUtils.getLengthOfList(target, stage, ${listId})`;
+        const code = `targetUtils.getLengthOfList(userscript, ${listId})`;
         return [code, this.ORDER_FUNCTION_CALL];
       },
       mpy(block) {
@@ -211,7 +211,7 @@ export default () => ({
       emu(block) {
         const listId = this.quote_(block.getFieldValue('LIST'));
         const itemValue = this.valueToCode(block, 'ITEM', this.ORDER_NONE) || 0;
-        const code = `!!targetUtils.findValueFromList(target, stage, ${listId}, ${itemValue})`;
+        const code = `!!targetUtils.findValueFromList(userscript, ${listId}, ${itemValue})`;
         return [code, this.ORDER_FUNCTION_CALL];
       },
       mpy(block) {

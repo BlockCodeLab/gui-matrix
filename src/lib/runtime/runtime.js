@@ -30,7 +30,7 @@ export class ArcadeRuntime extends Runtime {
   }
 
   get fps() {
-    return 30; // 同步硬件帧率
+    return 30; // 硬件理想帧率
   }
 
   get targetUtils() {
@@ -94,7 +94,7 @@ export class ArcadeRuntime extends Runtime {
     // 更新背景
     this.backdropLayer.children.forEach((target) => {
       this.update(target);
-      this.targetUtils.clearEffect(target);
+      this.targetUtils.clearEffect({ target });
       this.targetUtils.redraw(target);
     });
     // 更新角色
@@ -104,7 +104,7 @@ export class ArcadeRuntime extends Runtime {
       // 更新角色本体数据
       if (!target.hasName('clone')) {
         this.update(target);
-        this.targetUtils.clearEffect(target);
+        this.targetUtils.clearEffect({ target });
         this.targetUtils.redraw(target);
       }
     });
@@ -116,40 +116,38 @@ export class ArcadeRuntime extends Runtime {
     this._updateTarget(target, this);
   }
 
-  when(scriptName, scripter, target = null) {
+  when(scriptName, script, target = null) {
     if (target) {
       super.when(scriptName, (...args) => {
         // 本体
-        scripter(target, ...args);
+        script(target, ...args);
 
         const clones = this.querySelectorAll(`.${target.id()}`);
         // 有克隆体时，同时传递给克隆体
         for (const child of clones) {
-          scripter(child, ...args);
+          script(child, ...args);
         }
       });
     } else {
-      super.when(scriptName, scripter);
+      super.when(scriptName, script);
     }
   }
 
-  whenGreaterThen(name, value, scripter, target = null) {
+  whenGreaterThen(name, value, script, target = null) {
     const key = `${name}>${MathUtils.toNumber(value)}`;
     this._thresholds.set(key, false);
-    this.when(`threshold:${key}`, scripter, target);
+    this.when(`threshold:${key}`, script, target);
   }
 
-  whenCloneStart(target, scripter) {
-    this.define(`clonestart:${target.id()}`, scripter);
+  whenCloneStart(target, script) {
+    this.onEvent(`clonestart:${target.id()}`, script);
   }
 
   playWave(soundId) {
     let audio = this._waves.get(soundId);
     if (!audio) {
       const data = this.assets.find((sound) => sound.id === soundId);
-      if (!data) {
-        return Promise.resolve();
-      }
+      if (!data) return;
       const dataUrl = `data:${data.type};base64,${data.data}`;
       audio = new Audio(dataUrl);
       this._waves.set(soundId, audio);
@@ -293,8 +291,8 @@ export class ArcadeRuntime extends Runtime {
 
   _pressKey(key) {
     this[`_${key}Key`] = true;
-    this.run(`keypressed:${key}`);
-    this.run(`keypressed:any`);
+    this.call(`keypressed:${key}`);
+    this.call(`keypressed:any`);
   }
 
   _releaseKey(key) {
@@ -380,8 +378,6 @@ export class ArcadeRuntime extends Runtime {
 
   // 碰撞
   isTouching(target, target2) {
-    if (!this.running) return;
-
     // 自己隐藏则跳过
     if (target.visible() === false) {
       return false;
@@ -413,8 +409,6 @@ export class ArcadeRuntime extends Runtime {
 
   // 距离
   distanceTo(target, target2) {
-    if (!this.running) return;
-
     target2 = this.querySelector(`#${target2}`);
     // 到中心的距离
     const pos2 = target2 ? target2.position() : { x: 0, y: 0 };

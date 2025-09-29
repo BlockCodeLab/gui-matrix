@@ -96,6 +96,7 @@ export default () => {
         },
         emu(block) {
           const keyCode = this.valueToCode(block, 'KEY_OPTION', this.ORDER_NONE);
+          this._guardLoop = this.GUARD_LOOP_RENDER;
           return [`runtime[${keyCode}+'Key']`, this.ORDER_MEMBER];
         },
         mpy(block) {
@@ -115,6 +116,7 @@ export default () => {
         output: 'number',
         monitoring: true,
         emu(block) {
+          this._guardLoop = this.GUARD_LOOP_RENDER;
           return ['runtime.joystick.x', this.ORDER_MEMBER];
         },
         mpy(block) {
@@ -133,6 +135,7 @@ export default () => {
         output: 'number',
         monitoring: true,
         emu(block) {
+          this._guardLoop = this.GUARD_LOOP_RENDER;
           return ['runtime.joystick.y', this.ORDER_MEMBER];
         },
         mpy(block) {

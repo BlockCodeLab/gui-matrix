@@ -28,10 +28,19 @@ export class ArcadeEmulatorGenerator extends EmulatorGenerator {
     }
   }
 
+  addEventTrap(branchCode) {
+    let code = '';
+    code += '  userscript.stage = stage;\n';
+    code += '  userscript.target = target;\n';
+    code += branchCode;
+    return super.addEventTrap(code);
+  }
+
   addLoopTrap(branchCode, id) {
-    let code = super.addLoopTrap(branchCode, id);
+    let code = '';
     // 如果目标不存在（克隆体删除，不在舞台），退出
-    code += `${this.INDENT}if (!target.parent) break;\n`;
+    code += `  if (!target.parent) return;\n`;
+    code += super.addLoopTrap(branchCode, id);
     return code;
   }
 }
