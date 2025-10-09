@@ -2,7 +2,7 @@ import { useCallback } from 'preact/hooks';
 import { setEditorConfig, getEditorConfig } from '@blockcode/utils';
 import { useProjectContext, setAlert, openPromptModal } from '@blockcode/core';
 import { MPYUtils } from '@blockcode/board';
-import deviceFilters from '../../lib/device-filters.yaml';
+import deviceFilters from './device-filters.yaml';
 
 import { Text, MenuSection, MenuItem } from '@blockcode/core';
 

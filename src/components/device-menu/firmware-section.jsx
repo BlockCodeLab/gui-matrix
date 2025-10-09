@@ -4,7 +4,7 @@ import { nanoid, classNames, sleep, arrayBufferToBinaryString, getBinaryCache, s
 import { useLocalesContext, setAlert, delAlert, openPromptModal } from '@blockcode/core';
 import { ESPTool, MPYUtils } from '@blockcode/board';
 import { firmware } from '../../../package.json';
-import deviceFilters from '../../lib/device-filters.yaml';
+import deviceFilters from './device-filters.yaml';
 
 import { Text, Spinner, MenuSection, MenuItem } from '@blockcode/core';
 import styles from './firmware-section.module.css';
@@ -77,7 +77,7 @@ const getFirmware = async (downloadUrl) => {
 const getFirmwareCache = async (downloadUrl, firmwareHash, firmwareVersion, readyForUpdate) => {
   if (readyForUpdate.value) return;
 
-  const data = await getBinaryCache('firmware');
+  const data = await getBinaryCache('arcadeFirmware');
 
   // 比对缓存固件版本
   if (data?.hash === firmwareHash && data?.binaryString) {
@@ -109,7 +109,7 @@ const getFirmwareCache = async (downloadUrl, firmwareHash, firmwareVersion, read
   }
 
   // 进行缓存
-  await setBinaryCache('firmware', {
+  await setBinaryCache('arcadeFirmware', {
     version: firmwareVersion,
     hash: firmwareHash,
     binaryString: arrayBufferToBinaryString(buffer),
@@ -236,40 +236,9 @@ const uploadFirmware = (isRestore = false, releaseUrl = firmware.release) => {
         await ESPTool.disconnect(esploader);
       };
 
-      // 还原用户上传固件
-      if (isRestore) {
-        const fileInput = document.createElement('input');
-        fileInput.type = 'file';
-        fileInput.accept = '.bin';
-        fileInput.multiple = false;
-        fileInput.click();
-        fileInput.addEventListener('cancel', () => ESPTool.disconnect(esploader));
-        fileInput.addEventListener('change', async (e) => {
-          const reader = new FileReader();
-          reader.readAsArrayBuffer(e.target.files[0]);
-          reader.addEventListener('load', async (e) => {
-            alertId = nanoid();
-            setAlert({
-              id: alertId,
-              icon: <Spinner level="success" />,
-              message: (
-                <Text
-                  id="arcade.menu.device.erasing"
-                  defaultMessage="Erasing..."
-                />
-              ),
-            });
-            upload([
-              {
-                data: arrayBufferToBinaryString(e.target.result),
-                address: 0,
-              },
-            ]);
-          });
-        });
-      } else {
-        // 从缓存中升级到最新固件
-        const data = await getBinaryCache('firmware');
+      // 从缓存中升级到最新固件
+      if (!isRestore) {
+        const data = await getBinaryCache('arcadeFirmware');
         if (data) {
           upload([
             {
@@ -278,7 +247,39 @@ const uploadFirmware = (isRestore = false, releaseUrl = firmware.release) => {
             },
           ]);
         }
+        return;
       }
+
+      // 还原用户上传固件
+      const fileInput = document.createElement('input');
+      fileInput.type = 'file';
+      fileInput.accept = '.bin';
+      fileInput.multiple = false;
+      fileInput.click();
+      fileInput.addEventListener('cancel', () => ESPTool.disconnect(esploader));
+      fileInput.addEventListener('change', async (e) => {
+        const reader = new FileReader();
+        reader.readAsArrayBuffer(e.target.files[0]);
+        reader.addEventListener('load', async (e) => {
+          alertId = nanoid();
+          setAlert({
+            id: alertId,
+            icon: <Spinner level="success" />,
+            message: (
+              <Text
+                id="arcade.menu.device.erasing"
+                defaultMessage="Erasing..."
+              />
+            ),
+          });
+          upload([
+            {
+              data: arrayBufferToBinaryString(e.target.result),
+              address: 0,
+            },
+          ]);
+        });
+      });
     },
   });
 };
@@ -358,12 +359,10 @@ export function FirmwareSection({ itemClassName }) {
   const firmwareJson = useSignal(null);
 
   const releaseUrl = useMemo(() => {
-    return firmware.mirrors?.[language.value]?.release ?? firmware.release;
+    return firmware.mirrors?.[language.value].release ?? firmware.release;
   }, [language.value]);
 
-  useEffect(() => {
-    alertId = null;
-  }, []);
+  useEffect(() => (alertId = null), []);
 
   useEffect(async () => {
     readyForUpdate.value = false;

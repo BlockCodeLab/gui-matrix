@@ -14,7 +14,7 @@
   },
   "firmware": {
     "release": "https://github.com/ScratchArcade/arcade-firmware/releases/",
-    "download": "https://arcade.blockcode.fun/releases/",
+    "download": "https://firmware.blockcode.fun/arcade/",
     "mirrors": {
       "zh-Hans": {
         "release": "https://gitee.com/blockcodelab/arcade-firmware/releases/"

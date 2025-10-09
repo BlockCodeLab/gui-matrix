@@ -6,7 +6,7 @@ import { MPYUtils } from '@blockcode/board';
 import { generateMain } from '../../lib/generate-main';
 import { generateAssets } from '../../lib/generate-assets';
 import { firmware } from '../../../package.json';
-import deviceFilters from '../../lib/device-filters.yaml';
+import deviceFilters from './device-filters.yaml';
 
 import { Spinner, Text, MenuSection, MenuItem } from '@blockcode/core';
 import { ConfigSection } from './config-section';
@@ -91,7 +91,7 @@ export function DeviceMenu({ itemClassName }) {
           : `proj${key.value}/${file.id}`,
       }));
 
-    downloadingAlert('0.0');
+    downloadingAlert(0);
 
     try {
       await MPYUtils.enterDownloadMode(currentDevice);
