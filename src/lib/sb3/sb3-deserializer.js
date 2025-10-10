@@ -216,7 +216,7 @@ const deserializeInputDesc = function (inputDescOrId, parentId, isShadow, blocks
 const deserializeInputs = function (inputs, parentId, blocks) {
   // Explicitly not using Object.create(null) here
   // because we call prototype functions later in the vm
-  const obj = {};
+  const obj = Object.create(null);
   for (const inputName in inputs) {
     if (!hasOwnProperty.call(inputs, inputName)) continue;
     const inputDescArr = inputs[inputName];
@@ -252,7 +252,7 @@ const deserializeInputs = function (inputs, parentId, blocks) {
 const deserializeFields = function (fields) {
   // Explicitly not using Object.create(null) here
   // because we call prototype functions later in the vm
-  const obj = {};
+  const obj = Object.create(null);
   for (const fieldName in fields) {
     if (!hasOwnProperty.call(fields, fieldName)) continue;
     const fieldDescArr = fields[fieldName];

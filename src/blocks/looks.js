@@ -38,7 +38,6 @@ export default () => ({
         const secCode = this.valueToCode(block, 'SECS', this.ORDER_NONE) || '2';
 
         const code = `await targetUtils.say(userscript, ${msgCode}, ${secCode}, ${optionValue === 'shout'});\n`;
-        this._guardLoop = this.GUARD_LOOP_DISABLE;
         return code;
       },
       mpy(block) {
@@ -75,7 +74,7 @@ export default () => ({
         const optionValue = block.getFieldValue('OPTION') || 'say';
         const msgCode = this.valueToCode(block, 'MESSAGE', this.ORDER_NONE) || '""';
         const code = `targetUtils.say(userscript, ${msgCode}, false, ${optionValue === 'shout'});\n`;
-        this._guardLoop = this.GUARD_LOOP_RENDER;
+        this.renderLoopTrap();
         return code;
       },
       mpy(block) {
@@ -117,7 +116,6 @@ export default () => ({
         const secCode = this.valueToCode(block, 'SECS', this.ORDER_NONE) || '2';
 
         const code = `await targetUtils.think(userscript, ${msgCode}, ${secCode}, ${optionValue === 'spark'});\n`;
-        this._guardLoop = this.GUARD_LOOP_DISABLE;
         return code;
       },
       mpy(block) {
@@ -154,7 +152,7 @@ export default () => ({
         const optionValue = block.getFieldValue('OPTION') || 'think';
         const msgCode = this.valueToCode(block, 'MESSAGE', this.ORDER_NONE) || '""';
         const code = `targetUtils.think(userscript, ${msgCode}, false, ${optionValue === 'spark'});\n`;
-        this._guardLoop = this.GUARD_LOOP_RENDER;
+        this.renderLoopTrap();
         return code;
       },
       mpy(block) {
@@ -181,7 +179,7 @@ export default () => ({
       emu(block) {
         const costumeCode = this.valueToCode(block, 'COSTUME', this.ORDER_NONE) || '1';
         const code = `targetUtils.switchFrameTo(userscript, ${costumeCode});\n`;
-        this._guardLoop = this.GUARD_LOOP_RENDER;
+        this.renderLoopTrap();
         return code;
       },
       mpy(block) {
@@ -199,7 +197,7 @@ export default () => ({
       forStage: false,
       emu(block) {
         const code = 'targetUtils.nextFrame(userscript);\n';
-        this._guardLoop = this.GUARD_LOOP_RENDER;
+        this.renderLoopTrap();
         return code;
       },
       mpy(block) {
@@ -221,7 +219,7 @@ export default () => ({
       emu(block) {
         const backdropCode = this.valueToCode(block, 'BACKDROP', this.ORDER_NONE) || '1';
         const code = `targetUtils.switchFrameTo(stage, ${backdropCode}, true);\n`;
-        this._guardLoop = this.GUARD_LOOP_RENDER;
+        this.renderLoopTrap();
         return code;
       },
       mpy(block) {
@@ -246,7 +244,6 @@ export default () => ({
       emu(block) {
         const backdropCode = this.valueToCode(block, 'BACKDROP', this.ORDER_NONE) || '1';
         const code = `await targetUtils.switchFrameTo(stage, ${backdropCode}, true);\n`;
-        this._guardLoop = this.GUARD_LOOP_DISABLE;
         return code;
       },
       mpy(block) {
@@ -264,7 +261,7 @@ export default () => ({
       text: ScratchBlocks.Msg.LOOKS_NEXTBACKDROP_BLOCK,
       emu(block) {
         const code = 'targetUtils.nextFrame(stage, true);\n';
-        this._guardLoop = this.GUARD_LOOP_RENDER;
+        this.renderLoopTrap();
         return code;
       },
       mpy(block) {
@@ -290,7 +287,7 @@ export default () => ({
       emu(block) {
         const changeCode = this.valueToCode(block, 'CHANGE', this.ORDER_NONE) || 10;
         const code = `targetUtils.addSize(userscript, ${changeCode});\n`;
-        this._guardLoop = this.GUARD_LOOP_RENDER;
+        this.renderLoopTrap();
         return code;
       },
       mpy(block) {
@@ -315,7 +312,7 @@ export default () => ({
       emu(block) {
         const sizeCode = this.valueToCode(block, 'SIZE', this.ORDER_NONE) || 100;
         const code = `targetUtils.setSize(userscript, ${sizeCode});\n`;
-        this._guardLoop = this.GUARD_LOOP_RENDER;
+        this.renderLoopTrap();
         return code;
       },
       mpy(block) {
@@ -344,7 +341,7 @@ export default () => ({
         const effectCode = this.quote_(block.getFieldValue('EFFECT'));
         const changeCode = this.valueToCode(block, 'CHANGE', this.ORDER_NONE) || 25;
         const code = `targetUtils.addEffect(userscript, ${effectCode}, ${changeCode});\n`;
-        this._guardLoop = this.GUARD_LOOP_RENDER;
+        this.renderLoopTrap();
         return code;
       },
       mpy(block) {
@@ -373,7 +370,7 @@ export default () => ({
         const effectCode = this.quote_(block.getFieldValue('EFFECT'));
         const valueCode = this.valueToCode(block, 'VALUE', this.ORDER_NONE) || 0;
         const code = `targetUtils.setEffect(userscript, ${effectCode}, ${valueCode});\n`;
-        this._guardLoop = this.GUARD_LOOP_RENDER;
+        this.renderLoopTrap();
         return code;
       },
       mpy(block) {
@@ -391,7 +388,7 @@ export default () => ({
       text: ScratchBlocks.Msg.LOOKS_CLEARGRAPHICEFFECTS,
       emu(block) {
         const code = 'targetUtils.clearEffect(userscript);\n';
-        this._guardLoop = this.GUARD_LOOP_RENDER;
+        this.renderLoopTrap();
         return code;
       },
       mpy(block) {
@@ -409,7 +406,7 @@ export default () => ({
       forStage: false,
       emu(block) {
         const code = 'target.visible(true);\n';
-        this._guardLoop = this.GUARD_LOOP_RENDER;
+        this.renderLoopTrap();
         return code;
       },
       mpy(block) {
@@ -426,7 +423,7 @@ export default () => ({
       forStage: false,
       emu(block) {
         const code = 'target.visible(false);\n';
-        this._guardLoop = this.GUARD_LOOP_RENDER;
+        this.renderLoopTrap();
         return code;
       },
       mpy(block) {
@@ -460,7 +457,7 @@ export default () => ({
         } else {
           code += 'target.moveToTop();\n';
         }
-        this._guardLoop = this.GUARD_LOOP_RENDER;
+        this.renderLoopTrap();
         return code;
       },
       mpy(block) {
@@ -499,7 +496,7 @@ export default () => ({
         } else {
           code += `targetUtils.forward(userscript, ${changeCode});\n`;
         }
-        this._guardLoop = this.GUARD_LOOP_RENDER;
+        this.renderLoopTrap();
         return code;
       },
       mpy(block) {

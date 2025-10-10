@@ -43,7 +43,6 @@ export default () => ({
         const argsCode = args.length > 0 ? `target, ${args.join(', ')}` : 'target';
         const code = `await runtime.emitEvent('procedure:${funcName}', ${argsCode})\n`;
         if (!block.warp_) {
-          this._guardLoop = this.GUARD_LOOP_DISABLE;
         }
         return code;
       },

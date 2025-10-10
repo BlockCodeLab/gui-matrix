@@ -57,7 +57,7 @@ export default () => ({
           cloneCode = 'target';
         }
         const code = `targetUtils.clone(userscript, ${cloneCode});\n`;
-        this._guardLoop = this.GUARD_LOOP_RENDER;
+        this.renderLoopTrap();
         return code;
       },
       mpy(block) {
@@ -75,7 +75,7 @@ export default () => ({
       id: 'delete_this_clone',
       emu(block) {
         const code = `targetUtils.removeClone(userscript);\n`;
-        this._guardLoop = this.GUARD_LOOP_RENDER;
+        this.renderLoopTrap();
         return code;
       },
       mpy(block) {

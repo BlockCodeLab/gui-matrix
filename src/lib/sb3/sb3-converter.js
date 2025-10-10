@@ -127,7 +127,7 @@ const sb3Parse = (file) =>
     const reader = new FileReader();
     reader.readAsArrayBuffer(file);
     reader.addEventListener('load', async () => {
-      const sb3File = {};
+      const sb3File = Object.create(null);
       try {
         const files = [];
         const zip = await JSZip.loadAsync(reader.result);

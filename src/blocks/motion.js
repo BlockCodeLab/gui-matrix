@@ -24,7 +24,7 @@ export default (x, y) => ({
       emu(block) {
         const stepsCode = this.valueToCode(block, 'STEPS', this.ORDER_NONE);
         const code = `targetUtils.moveSteps(userscript, ${stepsCode});\n`;
-        this._guardLoop = this.GUARD_LOOP_RENDER;
+        this.renderLoopTrap();
         return code;
       },
       mpy(block) {
@@ -53,7 +53,7 @@ export default (x, y) => ({
       emu(block) {
         const degreesCode = this.valueToCode(block, 'DEGREES', this.ORDER_NONE);
         const code = `targetUtils.turnRight(userscript, ${degreesCode});\n`;
-        this._guardLoop = this.GUARD_LOOP_RENDER;
+        this.renderLoopTrap();
         return code;
       },
       mpy(block) {
@@ -82,7 +82,7 @@ export default (x, y) => ({
       emu(block) {
         const degreesCode = this.valueToCode(block, 'DEGREES', this.ORDER_NONE);
         const code = `targetUtils.turnLeft(userscript, ${degreesCode});\n`;
-        this._guardLoop = this.GUARD_LOOP_RENDER;
+        this.renderLoopTrap();
         return code;
       },
       mpy(block) {
@@ -110,7 +110,7 @@ export default (x, y) => ({
           toCode = this.quote_(toCode);
         }
         const code = `targetUtils.moveToTarget(userscript, ${toCode});\n`;
-        this._guardLoop = this.GUARD_LOOP_RENDER;
+        this.renderLoopTrap();
         return code;
       },
       mpy(block) {
@@ -146,7 +146,7 @@ export default (x, y) => ({
         const xCode = this.valueToCode(block, 'X', this.ORDER_NONE);
         const yCode = this.valueToCode(block, 'Y', this.ORDER_NONE);
         const code = `targetUtils.moveTo(userscript, ${xCode}, ${yCode});\n`;
-        this._guardLoop = this.GUARD_LOOP_RENDER;
+        this.renderLoopTrap();
         return code;
       },
       mpy(block) {
@@ -181,7 +181,6 @@ export default (x, y) => ({
         }
 
         const code = `await targetUtils.glideToTarget(userscript, ${secsCode}, ${toCode}, userscript);\n`;
-        this._guardLoop = this.GUARD_LOOP_DISABLE;
         return code;
       },
       mpy(block) {
@@ -223,7 +222,6 @@ export default (x, y) => ({
         const yCode = this.valueToCode(block, 'Y', this.ORDER_NONE);
 
         const code = `await targetUtils.glideTo(userscript, ${secsCode}, ${xCode}, ${yCode}, userscript);\n`;
-        this._guardLoop = this.GUARD_LOOP_DISABLE;
         return code;
       },
       mpy(block) {
@@ -249,7 +247,7 @@ export default (x, y) => ({
       emu(block) {
         const directionCode = this.valueToCode(block, 'DIRECTION', this.ORDER_NONE);
         const code = `targetUtils.towardsTo(userscript, ${directionCode});\n`;
-        this._guardLoop = this.GUARD_LOOP_RENDER;
+        this.renderLoopTrap();
         return code;
       },
       mpy(block) {
@@ -277,7 +275,7 @@ export default (x, y) => ({
           towardsCode = this.quote_(towardsCode);
         }
         const code = `targetUtils.towardsToTarget(userscript, ${towardsCode});\n`;
-        this._guardLoop = this.GUARD_LOOP_RENDER;
+        this.renderLoopTrap();
         return code;
       },
       mpy(block) {
@@ -307,7 +305,7 @@ export default (x, y) => ({
       emu(block) {
         const dxCode = this.valueToCode(block, 'DX', this.ORDER_NONE);
         const code = `targetUtils.addX(userscript, ${dxCode});\n`;
-        this._guardLoop = this.GUARD_LOOP_RENDER;
+        this.renderLoopTrap();
         return code;
       },
       mpy(block) {
@@ -333,7 +331,7 @@ export default (x, y) => ({
       emu(block) {
         const xCode = this.valueToCode(block, 'X', this.ORDER_NONE);
         const code = `targetUtils.setX(userscript, ${xCode});\n`;
-        this._guardLoop = this.GUARD_LOOP_RENDER;
+        this.renderLoopTrap();
         return code;
       },
       mpy(block) {
@@ -358,7 +356,7 @@ export default (x, y) => ({
       emu(block) {
         const dyCode = this.valueToCode(block, 'DY', this.ORDER_NONE);
         const code = `targetUtils.addY(userscript, ${dyCode});\n`;
-        this._guardLoop = this.GUARD_LOOP_RENDER;
+        this.renderLoopTrap();
         return code;
       },
       mpy(block) {
@@ -384,7 +382,7 @@ export default (x, y) => ({
       emu(block) {
         const yCode = this.valueToCode(block, 'Y', this.ORDER_NONE);
         const code = `targetUtils.setY(userscript, ${yCode});\n`;
-        this._guardLoop = this.GUARD_LOOP_RENDER;
+        this.renderLoopTrap();
         return code;
       },
       mpy(block) {
@@ -403,7 +401,7 @@ export default (x, y) => ({
       forStage: false,
       emu(block) {
         const code = 'targetUtils.edgeBounce(userscript);\n';
-        this._guardLoop = this.GUARD_LOOP_RENDER;
+        this.renderLoopTrap();
         return code;
       },
       mpy(block) {
@@ -432,7 +430,7 @@ export default (x, y) => ({
       emu(block) {
         const styleCode = RotationStyle[block.getFieldValue('STYLE')] ?? RotationStyle.AllAround;
         const code = `targetUtils.setRotationStyle(userscript, ${styleCode});\n`;
-        this._guardLoop = this.GUARD_LOOP_RENDER;
+        this.renderLoopTrap();
         return code;
       },
       mpy(block) {
