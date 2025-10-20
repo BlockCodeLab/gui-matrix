@@ -1,6 +1,7 @@
 import { Text } from '@blockcode/core';
 
 export default {
+  type: 'image/png',
   name: (
     <>
       <Text
@@ -10,7 +11,6 @@ export default {
       1
     </>
   ),
-  type: 'image/png',
   width: 63,
   height: 67,
   centerX: 32,
