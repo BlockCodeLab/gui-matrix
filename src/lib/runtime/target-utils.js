@@ -19,10 +19,10 @@ const FontBubbleStyle = {
   // Font
   FontFamily: 'Helvetica',
   FontColor: '#575e75',
-  FontSize: 12,
-  LargeFontSize: 16,
+  FontSize: 14,
+  LargeFontSize: 18,
   LineHeight: 1.2,
-  Padding: 8,
+  Padding: 10,
   // Bubble style
   Talking: false,
   Thinking: true,
