@@ -6,8 +6,16 @@ export function SettingsSection({ itemClassName }) {
 
   useEffect(() => {
     if (meta.value.joystick == null) {
-      setMeta('joystick', true); // 默认启用摇杆
+      setMeta({
+        turboMode: false, // 默认关闭加速模式
+        joystick: true, // 默认启用摇杆
+      });
     }
+  }, []);
+
+  const handleToggleTurbo = useCallback(() => {
+    const turboMode = !meta.value.turboMode;
+    setMeta({ turboMode });
   }, []);
 
   const handleToggleJoystick = useCallback(() => {
@@ -17,6 +25,23 @@ export function SettingsSection({ itemClassName }) {
 
   return (
     <MenuSection>
+      <MenuItem
+        disabled
+        className={itemClassName}
+        onClick={handleToggleTurbo}
+      >
+        {meta.value.turboMode !== true ? (
+          <Text
+            id="matrix.menu.edit.turboModeOpen"
+            defaultMessage="Turn on Turbo Mode"
+          />
+        ) : (
+          <Text
+            id="matrix.menu.edit.turboModeClose"
+            defaultMessage="Turn off Turbo Mode"
+          />
+        )}
+      </MenuItem>
       <MenuItem
         className={itemClassName}
         onClick={handleToggleJoystick}
