@@ -602,7 +602,7 @@ export class TargetUtils extends EventEmitter {
       height: text.height() + FontBubbleStyle.TailSize,
       fill: 'white',
       stroke: 'rgba(0, 0, 0, 0.15)',
-      strokeWidth: 3,
+      strokeWidth: FontBubbleStyle.StrokeWidth,
       lineJoin: 'round',
       lineCap: 'round',
       thinking: thinkingStyle,
