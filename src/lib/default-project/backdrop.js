@@ -1,13 +1,13 @@
 import { Text } from '@blockcode/core';
 
 export default {
+  type: 'image/png',
   name: (
     <Text
       id="matrix.defaultProject.backdropName"
       defaultMessage="backdrop"
     />
   ),
-  type: 'image/png',
   width: 1,
   height: 1,
   centerX: 1,

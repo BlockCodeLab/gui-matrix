@@ -1,13 +1,12 @@
 import { Text } from '@blockcode/core';
 
 export default {
-  id: '_stage_',
+  type: 'text/x-python',
   name: (
     <Text
       id="matrix.defaultProject.stageName"
       defaultMessage="Stage"
     />
   ),
-  type: 'text/x-python',
   frame: 0,
 };

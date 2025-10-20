@@ -2,6 +2,7 @@ import { Text } from '@blockcode/core';
 import { RotationStyle, SpriteDefaultConfig } from '../../components/emulator/emulator-config';
 
 export default {
+  type: 'text/x-python',
   name: (
     <>
       <Text
@@ -11,7 +12,6 @@ export default {
       1
     </>
   ),
-  type: 'text/x-python',
   frame: 0,
   x: 0,
   y: 0,

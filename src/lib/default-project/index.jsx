@@ -12,6 +12,8 @@ export function createDefaultProject() {
 
   sprite1.id = nanoid();
   sprite1.assets = [costume1.id, costume2.id];
+
+  stage.id = '_stage_';
   stage.assets = [backdrop.id];
 
   return {
