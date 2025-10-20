@@ -15,7 +15,6 @@ const xmlEscape = (unsafe) => {
     if (Array.isArray(unsafe)) {
       unsafe = String(unsafe);
     } else {
-      log.error('Unexpected input recieved in replaceUnsafeChars');
       return unsafe;
     }
   }
@@ -212,7 +211,7 @@ export async function sb3Converter(file) {
   const files = [];
   let fileId;
 
-  projectJson.targets.sort((a, b) => a.layerOrder - b.layerOrder);
+  // projectJson.targets.sort((a, b) => a.layerOrder - b.layerOrder);
   for (const target of projectJson.targets) {
     const xmls = [];
 
@@ -254,12 +253,11 @@ export async function sb3Converter(file) {
       file.assets.push(costume.assetId);
       const assetFile = sb3File[costume.md5ext];
       const bpr = costume.bitmapResolution ?? 1;
-      const scale = IMAGE_SCALE / 2;
-      const asset = await convertImage(assetFile, scale);
+      const asset = await convertImage(assetFile, IMAGE_SCALE);
       asset.id = costume.assetId;
       asset.name = costume.name;
-      asset.centerX = Math.round(costume.rotationCenterX * scale);
-      asset.centerY = Math.round(costume.rotationCenterY * scale);
+      asset.centerX = Math.round(costume.rotationCenterX * IMAGE_SCALE);
+      asset.centerY = Math.round(costume.rotationCenterY * IMAGE_SCALE);
       assets.push(asset);
     }
 

@@ -359,7 +359,7 @@ export function FirmwareSection({ itemClassName }) {
   const firmwareJson = useSignal(null);
 
   const releaseUrl = useMemo(() => {
-    return firmware.mirrors?.[language.value].release ?? firmware.release;
+    return firmware.mirrors?.[language.value]?.release ?? firmware.release;
   }, [language.value]);
 
   useEffect(() => (alertId = null), []);

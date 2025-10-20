@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from 'preact/hooks';
 import { MathUtils, KonvaUtils } from '@blockcode/utils';
-import { useAppContext, useProjectContext, setFile, setMeta, isModifyType, ModifyTypes } from '@blockcode/core';
+import { useAppContext, useProjectContext, setFile, isModifyType, ModifyTypes } from '@blockcode/core';
 import { loadImageFromAsset } from '@blockcode/paint';
 import { Emulator } from '@blockcode/blocks';
 import { ArcadeRuntime } from '../../lib/runtime/runtime';

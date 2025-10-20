@@ -4,7 +4,6 @@ import { ScratchBlocks } from '@blockcode/blocks';
 // 按键替换
 ScratchBlocks.Blocks['#sensing_keyoptions'] = ScratchBlocks.Blocks['sensing_keyoptions'];
 
-// 使用函数返回积木扩展对象，在切换语言时可以正确返回 ScratchBlocks.Msg 的翻译文本
 export default () => {
   ScratchBlocks.Blocks['sensing_keyoptions'] = {
     init() {
