@@ -1,98 +1,70 @@
 import { useCallback, useEffect } from 'preact/hooks';
-import { useSignal, useSignalEffect } from '@preact/signals';
 import { MathUtils, KonvaUtils } from '@blockcode/utils';
-import { useAppContext, useProjectContext, setAppState, setFile, isModifyType, ModifyTypes } from '@blockcode/core';
+import { useAppContext, useProjectContext, setFile, isModifyType, ModifyTypes } from '@blockcode/core';
 import { loadImageFromAsset } from '@blockcode/paint';
 import { Emulator } from '@blockcode/blocks';
 import { MatrixRuntime } from '../../lib/runtime/runtime';
 import { StageConfig, RotationStyle, SpriteDefaultConfig } from './emulator-config';
 
-export function MatrixEmulator() {
+export function MatrixEmulator({ runtime, onRuntime }) {
   const { splashVisible, appState } = useAppContext();
 
-  const { files, assets, fileId, modified } = useProjectContext();
-
-  const runtime = useSignal(null);
-
-  // 设备连接状态
-  useSignalEffect(() => {
-    if (!runtime.value || !appState.value) return;
-
-    let device, extId;
-    for (const propName in appState.value) {
-      if (propName.startsWith('device.')) {
-        device = appState.value[propName];
-        extId = propName.slice(7); // 去掉 'device.' 得到 extId
-
-        // 连接
-        if (device && device !== true) {
-          setAppState(propName, true);
-          runtime.value.emit(`${extId}.connecting`, device);
-        }
-
-        // 断开
-        if (device === false) {
-          setAppState(propName, null);
-          runtime.value.emit(`${extId}.disconnect`);
-        }
-      }
-    }
-  });
+  const { meta, files, assets, fileId, modified } = useProjectContext();
 
   // 运行模拟器
   useEffect(async () => {
-    if (!runtime.value) return;
+    if (!runtime) return;
 
     // 启动
     if (appState.value?.running === true) {
       const code = files.value.map((res) => `((/*${res.name}*/) => {\n${res.script}})();`).join('\n\n');
-      runtime.value.launch(`${code}\n\nruntime.start();`);
+      runtime.launch(`${code}\n\nruntime.start();`);
     }
 
     // 停止
     if (appState.value?.running === false) {
-      if (runtime.value.running) {
-        runtime.value.stop();
+      if (runtime.running) {
+        runtime.stop();
       }
     }
   }, [appState.value?.running]);
 
   // 模拟器编辑模式下切换角色时在舞台上高亮
   useEffect(() => {
-    if (!runtime.value) return;
+    if (!runtime) return;
     if (appState.value?.running) return;
 
     // 添加新文件不高亮
     if (isModifyType(ModifyTypes.AddFile)) return;
 
     // 只有不在拖拽的角色高亮，背景不高亮
-    const target = runtime.value.querySelector(`#${fileId}`);
-    if (target?.draggable?.() && !target.isDragging()) {
-      runtime.value.targetUtils.highlight(target);
+    const target = runtime.querySelector(`#${fileId}`);
+    if (target && target.draggable() && !target.isDragging()) {
+      runtime.targetUtils.highlight(target);
     }
   }, [fileId.value]);
 
   // 模拟器编辑模式下更新
   useEffect(async () => {
-    if (!runtime.value) return;
+    if (!runtime) return;
 
     if (splashVisible.value === true) {
-      runtime.value.stop();
-      runtime.value.backdropLayer.destroyChildren();
-      runtime.value.paintLayer.destroyChildren();
-      runtime.value.spritesLayer.destroyChildren();
-      runtime.value.boardLayer.destroyChildren();
+      runtime.stop();
+      runtime.backdropLayer.destroyChildren();
+      runtime.paintLayer.destroyChildren();
+      runtime.spritesLayer.destroyChildren();
+      runtime.boardLayer.destroyChildren();
       return;
     }
 
     if (appState.value?.running) return;
 
-    const targetUtils = runtime.value.targetUtils;
+    const targetUtils = runtime.targetUtils;
 
     let i, asset, image, scale, maxScale, direction;
 
     // 删除多余的角色
-    for (const target of runtime.value.spritesLayer.children) {
+    for (const target of runtime.spritesLayer.children) {
       if (!files.value.find((res) => res.id === target.id())) {
         target.remove();
       }
@@ -104,24 +76,24 @@ export function MatrixEmulator() {
       const isStage = i === 0;
 
       // 添加角色或舞台
-      let target = runtime.value.querySelector(`#${data.id}`);
+      let target = runtime.querySelector(`#${data.id}`);
       if (!target) {
         target = new Konva.Image({
           id: data.id,
           name: data.name,
           x: 0,
           y: 0,
-          scaleY: runtime.value.stage.scaleY(),
+          scaleY: runtime.stage.scaleY(),
           shadowBlur: 5,
           shadowColor: 'transparent',
           shadowOpacity: 0,
           draggable: i !== 0, // 角色允许拖拽
         });
         if (isStage) {
-          runtime.value.backdropLayer.add(target);
+          runtime.backdropLayer.add(target);
           target.setAttr('fencingMode', data.fencing);
         } else {
-          runtime.value.spritesLayer.add(target);
+          runtime.spritesLayer.add(target);
 
           // 角色拖拽事件
           // 激活角色
@@ -150,7 +122,7 @@ export function MatrixEmulator() {
       // 角色更新
       if (!isStage) {
         // 缩放最大不能超过屏幕且不能小于1，最小0.05
-        maxScale = Math.min(runtime.value.stage.width() / image.width, runtime.value.stage.height() / image.height);
+        maxScale = Math.min(runtime.stage.width() / image.width, runtime.stage.height() / image.height);
         scale = MathUtils.clamp(data.size / 100, 0.05, Math.max(1, maxScale));
 
         // 根据不同旋转方式产生不同旋转效果
@@ -168,7 +140,7 @@ export function MatrixEmulator() {
           x: data.x,
           y: data.y,
           scaleX: scale,
-          scaleY: runtime.value.stage.scaleY() * Math.abs(scale),
+          scaleY: runtime.stage.scaleY() * Math.abs(scale),
           rotation: SpriteDefaultConfig.Direction - direction,
           visible: !data.hidden,
           // 数据记录
@@ -183,70 +155,76 @@ export function MatrixEmulator() {
     // 调整 zIndex，zIndex必须在所有角色加载完成之后进行
     for (i = 0; i < files.value.length; i++) {
       const data = files.value[i];
-      const target = runtime.value.querySelector(`#${data.id}`);
+      const target = runtime.querySelector(`#${data.id}`);
       if (target && typeof data.zIndex === 'number') {
-        target.zIndex(MathUtils.clamp(data.zIndex, 0, runtime.value.spritesLayer.children.length - 1));
+        target.zIndex(MathUtils.clamp(data.zIndex, 0, runtime.spritesLayer.children.length - 1));
       }
     }
-  }, [splashVisible.value, modified.value]);
+
+    // 变量监视
+    runtime.updateMonitors(meta.value.monitors);
+  }, [runtime, splashVisible.value, modified.value, meta.value]);
 
   // 模拟器运行时不可编辑
   useEffect(() => {
-    if (!runtime.value) return;
-    runtime.value.stage.listening(!appState.value?.running);
-  }, [appState.value?.running]);
+    if (!runtime) return;
+    runtime.stage.listening(!appState.value?.running);
+  }, [runtime, appState.value?.running]);
 
   // 绑定项目库
   useEffect(() => {
-    if (!runtime.value) return;
-    runtime.value.binding(files.value, assets.value);
-  }, [files.value, assets.value]);
+    if (!runtime) return;
+    runtime.binding(files.value, assets.value);
+  }, [runtime, files.value, assets.value]);
 
-  const handleRuntime = useCallback((stage) => {
-    // 更新数据
-    const updateTarget = (target, runtime) => {
-      if (splashVisible.value) return;
+  const handleRuntime = useCallback(
+    (stage) => {
+      // 更新数据
+      const updateTarget = (target, runtime) => {
+        if (splashVisible.value) return;
 
-      // 强制关闭作品后，立即停止
-      if (!files.value) {
-        runtime.stop();
-        return;
-      }
-
-      if (target) {
-        const isStage = target.getLayer() === runtime.backdropLayer;
-        const res = {
-          id: target.id(),
-          frame: target.getAttr('frameIndex'),
-        };
-        if (isStage) {
-          res.fencing = target.getAttr('fencingMode');
-        } else {
-          res.x = Math.round(target.x());
-          res.y = Math.round(target.y());
-          res.size = Math.floor(target.getAttr('scaleSize'));
-          res.direction = MathUtils.wrapClamp(Math.floor(target.getAttr('direction')), -179, 180);
-          res.rotationStyle = target.getAttr('rotationStyle');
-          res.hidden = !target.visible();
-          res.zIndex = target.zIndex();
+        // 强制关闭作品后，立即停止
+        if (!files.value) {
+          runtime.stop();
+          return;
         }
-        setFile(res);
-      }
-    };
 
-    // 绑定运行时
-    const matrixRuntime = new MatrixRuntime(stage, updateTarget, false);
-    matrixRuntime.handleKeyDown = matrixRuntime.handleKeyDown.bind(matrixRuntime);
-    matrixRuntime.handleKeyUp = matrixRuntime.handleKeyUp.bind(matrixRuntime);
-    document.addEventListener('keydown', matrixRuntime.handleKeyDown);
-    document.addEventListener('keyup', matrixRuntime.handleKeyUp);
-    runtime.value = matrixRuntime;
+        if (target) {
+          const res = {
+            id: target.id(),
+            frame: target.getAttr('frameIndex'),
+          };
+          if (target.getLayer() === runtime.backdropLayer) {
+            res.fencing = target.getAttr('fencingMode');
+          } else {
+            res.x = Math.round(target.x());
+            res.y = Math.round(target.y());
+            res.size = Math.floor(target.getAttr('scaleSize'));
+            res.direction = MathUtils.wrapClamp(Math.floor(target.getAttr('direction')), -179, 180);
+            res.rotationStyle = target.getAttr('rotationStyle');
+            res.hidden = !target.visible();
+            res.zIndex = target.zIndex();
+          }
+          setFile(res);
+        }
+      };
 
-    return () => {
-      document.removeEventListener('keydown', matrixRuntime.handleKeyDown);
-      document.removeEventListener('keyup', matrixRuntime.handleKeyUp);
-    };
-  }, []);
+      // 绑定运行时
+      const runtime = new MatrixRuntime(stage, updateTarget, false);
+      runtime.handleKeyDown = runtime.handleKeyDown.bind(runtime);
+      runtime.handleKeyUp = runtime.handleKeyUp.bind(runtime);
+      document.addEventListener('keydown', runtime.handleKeyDown);
+      document.addEventListener('keyup', runtime.handleKeyUp);
+      onRuntime(runtime);
+
+      return () => {
+        document.removeEventListener('keydown', runtime.handleKeyDown);
+        document.removeEventListener('keyup', runtime.handleKeyUp);
+        onRuntime(null);
+      };
+    },
+    [onRuntime],
+  );
 
   return (
     <Emulator

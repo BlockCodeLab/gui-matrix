@@ -19,14 +19,16 @@ export default () => ({
         if (cloneCode === '_myself_') {
           cloneCode = 'target';
         }
-        const code = `targetUtils.clone(${cloneCode});\n`;
+        const code = `targetUtils.clone(userscript, ${cloneCode});\n`;
+        this.renderLoopTrap();
         return code;
       },
     },
     {
       id: 'delete_this_clone',
       emu(block) {
-        const code = 'target.remove()\n';
+        const code = `targetUtils.removeClone(userscript);\n`;
+        this.renderLoopTrap();
         return code;
       },
     },

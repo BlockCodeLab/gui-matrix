@@ -1,7 +1,15 @@
-import { nanoid } from '@blockcode/utils';
+import { Text } from '@blockcode/core';
 
 export default {
-  id: nanoid(),
+  name: (
+    <>
+      <Text
+        id="matrix.defaultProject.costumeName"
+        defaultMessage="costume"
+      />
+      2
+    </>
+  ),
   type: 'image/png',
   width: 92,
   height: 105,

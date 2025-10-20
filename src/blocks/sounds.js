@@ -21,6 +21,7 @@ export default () => ({
       emu(block) {
         const soundCode = this.valueToCode(block, 'SOUND_MENU', this.ORDER_NONE) || '""';
         const code = `runtime.playWave(${soundCode});\n`;
+        this.renderLoopTrap();
         return code;
       },
     },
@@ -36,6 +37,7 @@ export default () => ({
       emu(block) {
         const soundCode = this.valueToCode(block, 'SOUND_MENU', this.ORDER_NONE) || '""';
         const code = `await runtime.playWave(${soundCode});\n`;
+        this.renderLoopTrap();
         return code;
       },
     },

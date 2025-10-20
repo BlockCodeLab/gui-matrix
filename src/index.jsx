@@ -7,16 +7,18 @@ import { soundTab } from '@blockcode/sound';
 
 import { CodeReview } from '@blockcode/blocks';
 import { MatrixBlocksEditor } from './components/blocks-editor/blocks-editor';
+import { ImportSection } from './components/file-menu/import-section';
+import { SettingsSection } from './components/edit-menu/settings-section';
 import { Sidedock } from './components/sidedock/sidedock';
 import { PaintTabLabel } from './components/tabs/paint-tab-label';
 import { PaintTabContent } from './components/tabs/paint-tab-content';
 import { SoundTabContent } from './components/tabs/sound-tab-content';
 
-import { defaultProject } from './lib/default-project';
+import { createDefaultProject } from './lib/default-project';
 
 export default {
   onNew() {
-    return defaultProject;
+    return createDefaultProject();
   },
 
   onSave(files, assets) {
@@ -54,6 +56,8 @@ export default {
     const meta = {
       extensions: Array.from(new Set(extensions.flat())),
     };
+    // 不储存扩展文件，每次都会用新的扩展
+    assets = assets.filter((asset) => !asset.id.startsWith('ext/'));
     return {
       meta,
       files,
@@ -71,14 +75,14 @@ export default {
   onUndo(e) {
     if (e instanceof MouseEvent) {
       const workspace = ScratchBlocks.getMainWorkspace();
-      workspace?.undo?.(false);
+      workspace?.undo(false);
     }
   },
 
   onRedo(e) {
     if (e instanceof MouseEvent) {
       const workspace = ScratchBlocks.getMainWorkspace();
-      workspace?.undo?.(true);
+      workspace?.undo(true);
     }
   },
 
@@ -95,6 +99,11 @@ export default {
   menuItems: [
     {
       id: 'file',
+      Menu: ImportSection,
+    },
+    {
+      id: 'edit',
+      Menu: SettingsSection,
     },
   ],
 
@@ -114,10 +123,17 @@ export default {
     },
   ].concat(
     DEBUG
-      ? {
-          ...codeReviewTab,
-          Content: CodeReview,
-        }
+      ? [
+          {
+            ...codeReviewTab,
+            Content: () => (
+              <CodeReview
+                readOnly
+                keyName="script"
+              />
+            ),
+          },
+        ]
       : [],
   ),
 

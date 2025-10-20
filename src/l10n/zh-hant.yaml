@@ -5,92 +5,135 @@ blocks.dataPrompt.listAvailableToAllTargets: 所有角色都可使用該列表�
 
 blocks.myBlockPrompt.warpLabel: 運行時不刷新屏幕
 
-matrix.paintEditor.costumes: 造型
-matrix.paintEditor.backdrops: 背景
+arcade.paintEditor.costumes: 造型
+arcade.paintEditor.backdrops: 背景
 
-matrix.soundEditor.sounds: 聲音
+arcade.soundEditor.sounds: 聲音
 
-matrix.deletePrompt.title: 刪除「{name}」
-matrix.deletePrompt.label: 確認要刪除這個角色嗎？
+arcade.menu.file.importSB3: 導入 Scratch 3（.sb3）文件…
+arcade.menu.edit.joystickClose: 關閉搖杆
+arcade.menu.edit.joystickOpen: 打開搖杆
+arcade.menu.edit.turboModeClose: 關閉加速模式
+arcade.menu.edit.turboModeOpen: 打開加速模式
 
-matrix.emu.greenFlag: 運行
-matrix.emu.stop: 停止
-matrix.emu.smallStage: 縮小舞臺
-matrix.emu.largeStage: 放大舞臺
-matrix.emu.fullscreen: 全屏模式
+arcade.menu.device: 遊戲機
+arcade.menu.device.wifi: Wi-Fi 網絡配置
+arcade.menu.device.wifiNamePassword: Wi-Fi 名稱和密碼
+arcade.menu.device.wifiName: Wi-Fi 名稱
+arcade.menu.device.wifiPassword: Wi-Fi 密碼
+arcade.menu.device.wifiOk: Wi-Fi 配置已儲存。
+arcade.menu.device.wifiInfo: 僅支持 <b>2.4G Wi-Fi</b> 網絡。
+arcade.menu.device.wifiCancel: 取消 Wi-Fi 配置。
+arcade.menu.device.manual: 查看使用手冊
+arcade.menu.device.update: 升級最新固件
+arcade.menu.device.caching: 正在緩存最新固件…
+arcade.menu.device.restore: 還原固件
+arcade.menu.device.firmwareUpdateLabal: 請按下列步驟準備好您的學習機。
+arcade.menu.device.firmwareRestoreLabal: 固件還原後學習機內所有作品將被清除，請按下列步驟準備好您的學習機。
+arcade.menu.device.firmwareTip1-1: 下載
+arcade.menu.device.firmwareTip1-2: 新版本固件。
+arcade.menu.device.firmwareTip2: 接入 USB 直到屏幕亮起。
+arcade.menu.device.firmwareTip3: 按住 Fn 鍵不松，再按一下 RESET 鍵，等待黑屏。
+arcade.menu.device.firmwareUpdating: 正在升級到最新固件…{progress}%
+arcade.menu.device.firmwareRestoring: 正在還原固件…{progress}%
+arcade.menu.device.firmwareRecovering: 正在恢復學習機…
+arcade.menu.device.firmwareUpdateDone: 固件升級完成，請按下 RESET 鍵。
+arcade.menu.device.firmwareRestoreDone: 固件還原完成，請按下 RESET 鍵。
+arcade.menu.device.erase: 清除所有作品
+arcade.menu.device.eraseLabel: 確認清除學習機內的所有作品嗎？
+arcade.menu.device.erasing: 正在清除…
+arcade.menu.device.erased: 清除完成。
+arcade.menu.device.config: 系統配置
 
-matrix.contextMenu.duplicate: 復製
-matrix.contextMenu.export: 導出
-matrix.contextMenu.delete: 刪除
+arcade.deletePrompt.title: 刪除「{name}」
+arcade.deletePrompt.label: 確認要刪除這個角色嗎？
 
-matrix.actionButton.uploadSprite: 上傳角色
-matrix.actionButton.uploadBackdrop: 上傳背景
-matrix.actionButton.uploadError: 上傳「{file}」失敗。
-matrix.actionButton.surprise: 隨機
-matrix.actionButton.paint: 繪製
-matrix.actionButton.sprite: 選擇一個角色
-matrix.actionButton.backdrop: 選擇一個背景
+arcade.emu.greenFlag: 運行
+arcade.emu.stop: 停止
+arcade.emu.smallStage: 縮小舞臺
+arcade.emu.largeStage: 放大舞臺
+matrix.emu.fullscreen: 顯示模式切換
 
-matrix.stageSelector.title: 舞臺
-matrix.stageSelector.backdrops: 背景
+arcade.contextMenu.duplicate: 復製
+arcade.contextMenu.export: 導出
+arcade.contextMenu.delete: 刪除
 
-matrix.spriteInfo.sprite: 角色
-matrix.spriteInfo.name: 名字
-matrix.spriteInfo.x: x
-matrix.spriteInfo.y: y
-matrix.spriteInfo.display: 顯示
-matrix.spriteInfo.show: 顯示角色
-matrix.spriteInfo.hide: 隱藏角色
-matrix.spriteInfo.size: 大小
-matrix.spriteInfo.direction: 方向
+arcade.actionButton.uploadSprite: 上傳角色
+arcade.actionButton.uploadBackdrop: 上傳背景
+arcade.actionButton.uploadError: 上傳「{file}」失敗。
+arcade.actionButton.surprise: 隨機
+arcade.actionButton.paint: 繪製
+arcade.actionButton.sprite: 選擇一個角色
+arcade.actionButton.backdrop: 選擇一個背景
 
-matrix.directionPicker.allAround: 任意旋轉
-matrix.directionPicker.leftRight: 左右翻轉
-matrix.directionPicker.dontRotate: 不旋轉
+arcade.stageSelector.title: 舞臺
+arcade.stageSelector.backdrops: 背景
 
-matrix.libraries.empty: 空空如也！
-matrix.libraries.sprite: 選擇一個角色
-matrix.libraries.costume: 選擇一個造型
-matrix.libraries.backdrop: 選擇一個背景
-matrix.libraries.sound: 選擇一個聲音
+arcade.spriteInfo.sprite: 角色
+arcade.spriteInfo.name: 名字
+arcade.spriteInfo.x: x
+arcade.spriteInfo.y: y
+arcade.spriteInfo.display: 顯示
+arcade.spriteInfo.show: 顯示角色
+arcade.spriteInfo.hide: 隱藏角色
+arcade.spriteInfo.size: 大小
+arcade.spriteInfo.direction: 方向
 
-matrix.libraries.tags.fantasy: 奇幻
-matrix.libraries.tags.music: 音樂
-matrix.libraries.tags.sports: 運動
-matrix.libraries.tags.outdoors: 室外
-matrix.libraries.tags.indoors: 室內
-matrix.libraries.tags.space: 太空
-matrix.libraries.tags.underwater: 水下
-matrix.libraries.tags.patterns: 圖案
-matrix.libraries.tags.animals: 動物
-matrix.libraries.tags.people: 人物
-matrix.libraries.tags.dance: 舞蹈
-matrix.libraries.tags.food: 食物
-matrix.libraries.tags.fashion: 時尚
-matrix.libraries.tags.letters: 字母
-matrix.libraries.tags.effects: 效果
-matrix.libraries.tags.loops: 可循環
-matrix.libraries.tags.notes: 音符
-matrix.libraries.tags.percussion: 打擊樂器
-matrix.libraries.tags.voice: 人聲
-matrix.libraries.tags.wacky: 古怪
+arcade.directionPicker.allAround: 任意旋轉
+arcade.directionPicker.leftRight: 左右翻轉
+arcade.directionPicker.dontRotate: 不旋轉
 
-matrix.defaultProject.stageName: 舞臺
-matrix.defaultProject.spriteName: 角色
-matrix.defaultProject.backdropName: 背景
-matrix.defaultProject.costumeName: 造型
-matrix.defaultProject.soundName: 聲音
+arcade.libraries.empty: 空空如也！
+arcade.libraries.sprite: 選擇一個角色
+arcade.libraries.costume: 選擇一個造型
+arcade.libraries.backdrop: 選擇一個背景
+arcade.libraries.sound: 選擇一個聲音
 
-matrix.blocks.fencing: "%1 舞台屏障"
-matrix.blocks.fencingEnable: 開啟
-matrix.blocks.fencingDisable: 關閉
-matrix.blocks.textBubble: "%1 %2"
-matrix.blocks.textBubbleAndWait: "%1 %2 %3 秒"
-matrix.blocks.say: 說出
-matrix.blocks.shout: 喊出
-matrix.blocks.think: 想著
-matrix.blocks.spark: 靈感
-matrix.blocks.stopOther: 該角色的其他腳本
-matrix.blocks.unsupported: 不支持的積木
+arcade.libraries.tags.fantasy: 奇幻
+arcade.libraries.tags.music: 音樂
+arcade.libraries.tags.sports: 運動
+arcade.libraries.tags.outdoors: 室外
+arcade.libraries.tags.indoors: 室內
+arcade.libraries.tags.space: 太空
+arcade.libraries.tags.underwater: 水下
+arcade.libraries.tags.patterns: 圖案
+arcade.libraries.tags.animals: 動物
+arcade.libraries.tags.people: 人物
+arcade.libraries.tags.dance: 舞蹈
+arcade.libraries.tags.food: 食物
+arcade.libraries.tags.fashion: 時尚
+arcade.libraries.tags.letters: 字母
+arcade.libraries.tags.effects: 效果
+arcade.libraries.tags.loops: 可循環
+arcade.libraries.tags.notes: 音符
+arcade.libraries.tags.percussion: 打擊樂器
+arcade.libraries.tags.voice: 人聲
+arcade.libraries.tags.wacky: 古怪
 
-matrix.tutorials.gettingStarted: 入門
+arcade.defaultProject.stageName: 舞臺
+arcade.defaultProject.spriteName: 角色
+arcade.defaultProject.backdropName: 背景
+arcade.defaultProject.costumeName: 造型
+arcade.defaultProject.soundName: 聲音
+
+arcade.blocks.fencing: "%1 舞台屏障"
+arcade.blocks.fencingEnable: 開啟
+arcade.blocks.fencingDisable: 關閉
+arcade.blocks.textBubble: "%1 %2"
+arcade.blocks.textBubbleAndWait: "%1 %2 %3 秒"
+arcade.blocks.say: 說出
+arcade.blocks.shout: 喊出
+arcade.blocks.think: 想著
+arcade.blocks.spark: 靈感
+arcade.blocks.isConnected: Wi-Fi 已經連接？
+arcade.blocks.whenConnected: 當 Wi-Fi 連接成功
+arcade.blocks.connectTo: "連接 Wi-Fi: %1 密碼: %2"
+arcade.blocks.disconnect: 斷開 Wi-Fi 連接
+arcade.blocks.fnButton: fn
+arcade.blocks.stopOther: 該角色的其他腳本
+arcade.blocks.joystick.x: 搖桿 x 軸
+arcade.blocks.joystick.y: 搖桿 y 軸
+arcade.blocks.sensingDistanceToCenter: 中心
+arcade.blocks.soundEffects.tempo: 速度
+
+arcade.tutorials.gettingStarted: 入門

@@ -1,0 +1,33 @@
+import { useCallback } from 'preact/hooks';
+import { Text, MenuSection, MenuItem } from '@blockcode/core';
+import { sb3Converter } from '../../lib/sb3/sb3-converter';
+
+export function ImportSection({ itemClassName, onOpen }) {
+  const importSb3 = useCallback(() => {
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.accept = '.sb3';
+    fileInput.multiple = false;
+    fileInput.click();
+    fileInput.addEventListener('change', async (e) => {
+      const file = e.target.files[0];
+      const project = await sb3Converter(file);
+      onOpen(project);
+    });
+  }, [onOpen]);
+
+  return (
+    <MenuSection>
+      <MenuItem
+        className={itemClassName}
+        label={
+          <Text
+            id="matrix.menu.file.importSB3"
+            defaultMessage="Import .sb3 file..."
+          />
+        }
+        onClick={importSb3}
+      />
+    </MenuSection>
+  );
+}

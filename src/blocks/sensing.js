@@ -1,7 +1,6 @@
-import { themeColors, Text } from '@blockcode/core';
+import { themeColors } from '@blockcode/core';
 import { ScratchBlocks } from '@blockcode/blocks';
 
-// 使用函数返回积木扩展对象，在切换语言时可以正确返回 ScratchBlocks.Msg 的翻译文本
 export default () => ({
   id: 'sensing',
   name: '%{BKY_CATEGORY_SENSING}',
@@ -57,34 +56,8 @@ export default () => ({
       },
       emu(block) {
         const keyCode = this.valueToCode(block, 'KEY_OPTION', this.ORDER_NONE);
+        this.renderLoopTrap();
         return [`runtime[${keyCode}+'Key']`, this.ORDER_MEMBER];
-      },
-    },
-    {
-      // 按下鼠标
-      id: 'mousedown',
-      text: ScratchBlocks.Msg.SENSING_MOUSEDOWN,
-      output: 'boolean',
-      emu(block) {
-        return ['runtime.mousePressed', this.ORDER_MEMBER];
-      },
-    },
-    {
-      // 鼠标x
-      id: 'mousex',
-      text: ScratchBlocks.Msg.SENSING_MOUSEX,
-      output: 'number',
-      emu(block) {
-        return ['runtime.mouseX', this.ORDER_MEMBER];
-      },
-    },
-    {
-      // 鼠标x
-      id: 'mousey',
-      text: ScratchBlocks.Msg.SENSING_MOUSEY,
-      output: 'number',
-      emu(block) {
-        return ['runtime.mouseY', this.ORDER_MEMBER];
       },
     },
     '---',
@@ -93,6 +66,7 @@ export default () => ({
       id: 'timer',
       text: ScratchBlocks.Msg.SENSING_TIMER,
       output: 'number',
+      monitoring: true,
       emu(block) {
         return ['runtime.times', this.ORDER_MEMBER];
       },

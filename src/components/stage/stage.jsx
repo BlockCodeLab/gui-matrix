@@ -10,6 +10,8 @@ import styles from './stage.module.css';
 export function Stage() {
   const { appState } = useAppContext();
 
+  const runtime = useSignal(null);
+
   return (
     <div className={styles.stageWrapper}>
       <Toolbar />
@@ -19,7 +21,10 @@ export function Stage() {
           [styles.smallStage]: appState.value?.stageSize !== StageConfig.Large,
         })}
       >
-        <MatrixEmulator />
+        <MatrixEmulator
+          runtime={runtime.value}
+          onRuntime={(val) => (runtime.value = val)}
+        />
       </div>
     </div>
   );

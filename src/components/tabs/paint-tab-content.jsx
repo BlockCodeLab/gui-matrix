@@ -76,7 +76,6 @@ export function PaintTabContent() {
           data: image.dataset.data,
           width: image.width,
           height: image.height,
-          height: image.height,
           centerX: asset.centerX * scale,
           centerY: asset.centerY * scale,
         });

@@ -10,6 +10,10 @@ matrix.paintEditor.backdrops: 背景
 
 matrix.soundEditor.sounds: 声音
 
+matrix.menu.file.importSB3: 导入 Scratch 3（.sb3）文件…
+matrix.menu.edit.turboModeClose: 关闭加速模式
+matrix.menu.edit.turboModeOpen: 打开加速模式
+
 matrix.deletePrompt.title: 删除“{name}”
 matrix.deletePrompt.label: 确认要删除这个角色吗？
 
@@ -17,7 +21,7 @@ matrix.emu.greenFlag: 运行
 matrix.emu.stop: 停止
 matrix.emu.smallStage: 缩小舞台
 matrix.emu.largeStage: 放大舞台
-matrix.emu.fullscreen: 全屏模式
+matrix.emu.fullscreen: 全屏模式切换
 
 matrix.contextMenu.duplicate: 复制
 matrix.contextMenu.export: 导出
@@ -91,6 +95,6 @@ matrix.blocks.shout: 大喊
 matrix.blocks.think: 思考
 matrix.blocks.spark: 灵感
 matrix.blocks.stopOther: 该角色的其他脚本
-matrix.blocks.unsupported: 不支持的积木
+matrix.blocks.soundEffects.tempo: 速度
 
 matrix.tutorials.gettingStarted: 入门

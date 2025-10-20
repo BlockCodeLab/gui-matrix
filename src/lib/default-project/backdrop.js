@@ -1,7 +1,12 @@
-import { nanoid } from '@blockcode/utils';
+import { Text } from '@blockcode/core';
 
 export default {
-  id: nanoid(),
+  name: (
+    <Text
+      id="matrix.defaultProject.backdropName"
+      defaultMessage="backdrop"
+    />
+  ),
   type: 'image/png',
   width: 1,
   height: 1,

@@ -8,12 +8,11 @@ import { BlocksEditor } from '@blockcode/blocks';
 import styles from './blocks-editor.module.css';
 
 // 扩展过滤
-const handleExtensionsFilter = () => ['scratch', '!device'];
-
-// 需要动态更新的XY坐标积木IDs
-const XYBlocks = ['glide', 'move', 'set'];
+const handleExtensionsFilter = () => [['scratch', '!device'], 'data'];
 
 // 动态更新XY坐标积木
+const XYBlocks = ['glide', 'move', 'set'];
+
 const updateToolboxBlockValue = (workspace, id, value) => {
   const block = workspace.getBlockById(id);
   if (block) {
@@ -24,15 +23,14 @@ const updateToolboxBlockValue = (workspace, id, value) => {
 // 代码转换
 const emulator = new MatrixEmulatorGenerator();
 
-// 变量监视偏移
-const monitorOffset = { top: 'calc(1.25rem + 48px + var(--space))' };
-
 export function MatrixBlocksEditor() {
   const { files, fileId, file, assets, modified } = useProjectContext();
 
   const stage = files.value[0];
   const target = file.value; // 统一舞台或角色
   const isStage = stage && fileId.value === stage.id;
+
+  ScratchBlocks.DataCategory.enableShowOrHideVariable_ = true;
 
   // 右上角缩略图
   const thumbUrl = useMemo(() => {
@@ -102,7 +100,6 @@ export function MatrixBlocksEditor() {
         emulator={emulator}
         enableCloneBlocks={!isStage}
         enableLocalVariable={!isStage}
-        monitorOffset={monitorOffset}
         onDefinitions={handleDefinitions}
         onBuildinExtensions={handleBuildinExtensions}
         onExtensionsFilter={handleExtensionsFilter}

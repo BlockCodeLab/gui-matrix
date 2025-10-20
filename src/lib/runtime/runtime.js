@@ -13,6 +13,9 @@ export class MatrixRuntime extends Runtime {
     // 更新数据
     this._updateTarget = updateTarget;
 
+    // 文件库
+    this._files = null;
+
     // 资源库
     this._assets = null;
 
@@ -27,19 +30,19 @@ export class MatrixRuntime extends Runtime {
   }
 
   get fps() {
-    return 60;
+    return 30; // 硬件理想帧率
   }
 
   get targetUtils() {
     return this._targetUtils;
   }
 
-  get assets() {
-    return this._assets;
+  get files() {
+    return this._files;
   }
 
-  get joystick() {
-    return this._joystick;
+  get assets() {
+    return this._assets;
   }
 
   get wifiConnected() {
@@ -47,8 +50,8 @@ export class MatrixRuntime extends Runtime {
   }
 
   binding(files, assets) {
+    this._files = files;
     this._assets = assets;
-    super.binding(files);
   }
 
   setData(target, key, value) {
@@ -83,17 +86,15 @@ export class MatrixRuntime extends Runtime {
 
     // 移除所有自定义绘图
     this.paintLayer.destroyChildren();
-    // 移除所有生成信息，对话框等
-    this.boardLayer.destroyChildren();
+    // 移除对话框
+    this.querySelectorAll('.dialog').forEach((dialog) => dialog.destroy());
     // 删除克隆体
-    this.querySelectorAll('.clone').forEach((clone) => {
-      clone.destroy();
-    });
+    this.querySelectorAll('.clone').forEach((clone) => clone.destroy());
 
     // 更新背景
     this.backdropLayer.children.forEach((target) => {
       this.update(target);
-      this.targetUtils.clearEffect(target);
+      this.targetUtils.clearEffect({ target });
       this.targetUtils.redraw(target);
     });
     // 更新角色
@@ -103,11 +104,10 @@ export class MatrixRuntime extends Runtime {
       // 更新角色本体数据
       if (!target.hasName('clone')) {
         this.update(target);
-        this.targetUtils.clearEffect(target);
+        this.targetUtils.clearEffect({ target });
         this.targetUtils.redraw(target);
       }
     });
-
     super.stop();
   }
 
@@ -116,40 +116,38 @@ export class MatrixRuntime extends Runtime {
     this._updateTarget(target, this);
   }
 
-  when(scriptName, scripter, target = null) {
+  when(scriptName, script, target = null) {
     if (target) {
       super.when(scriptName, (...args) => {
         // 本体
-        scripter(target, ...args);
+        script(target, ...args);
 
         const clones = this.querySelectorAll(`.${target.id()}`);
         // 有克隆体时，同时传递给克隆体
         for (const child of clones) {
-          scripter(child, ...args);
+          script(child, ...args);
         }
       });
     } else {
-      super.when(scriptName, scripter);
+      super.when(scriptName, script);
     }
   }
 
-  whenGreaterThen(name, value, scripter, target = null) {
+  whenGreaterThen(name, value, script, target = null) {
     const key = `${name}>${MathUtils.toNumber(value)}`;
-    this._thresholds[key] = false;
-    this.when(`threshold:${key}`, scripter, target);
+    this._thresholds.set(key, false);
+    this.when(`threshold:${key}`, script, target);
   }
 
-  whenCloneStart(target, scripter) {
-    this.define(`clonestart:${target.id()}`, scripter);
+  whenCloneStart(target, script) {
+    this.onEvent(`clonestart:${target.id()}`, script);
   }
 
   playWave(soundId) {
     let audio = this._waves.get(soundId);
     if (!audio) {
-      const data = this._assets.find((sound) => sound.id === soundId);
-      if (!data) {
-        return Promise.resolve();
-      }
+      const data = this.assets.find((sound) => sound.id === soundId);
+      if (!data) return;
       const dataUrl = `data:${data.type};base64,${data.data}`;
       audio = new Audio(dataUrl);
       this._waves.set(soundId, audio);
@@ -185,13 +183,37 @@ export class MatrixRuntime extends Runtime {
     });
   }
 
-  // 按键和摇杆
-  //
-
-  // 摇杆值
-  get joystick() {
-    return this._joystick;
+  setMonitorValue(label, value) {
+    if (label) {
+      const monitor = label.getAttr('monitor');
+      if (!value) {
+        const target = this.querySelector(`#${monitor.groupId}`);
+        if (target) {
+          switch (monitor.id) {
+            case 'motion_xposition':
+              value = Math.round(target.x());
+              break;
+            case 'motion_yposition':
+              value = Math.round(target.y());
+              break;
+            case 'motion_direction':
+              value = MathUtils.wrapClamp(Math.floor(target.getAttr('direction')), -179, 180);
+              break;
+            case 'looks_size':
+              value = Math.floor(target.getAttr('scaleSize'));
+              break;
+            default:
+              value = 0;
+              break;
+          }
+        }
+      }
+      super.setMonitorValue(label, value);
+    }
   }
+
+  // 按键
+  //
 
   get fnKey() {
     return !!this._fnKey;
@@ -245,8 +267,8 @@ export class MatrixRuntime extends Runtime {
 
   _pressKey(key) {
     this[`_${key}Key`] = true;
-    this.run(`keypressed:${key}`);
-    this.run(`keypressed:any`);
+    this.call(`keypressed:${key}`);
+    this.call(`keypressed:any`);
   }
 
   _releaseKey(key) {
@@ -332,8 +354,6 @@ export class MatrixRuntime extends Runtime {
 
   // 碰撞
   isTouching(target, target2) {
-    if (!this.running) return;
-
     // 自己隐藏则跳过
     if (target.visible() === false) {
       return false;
@@ -354,7 +374,7 @@ export class MatrixRuntime extends Runtime {
     // 角色和克隆体碰撞
     for (target2 of targets) {
       // 隐藏的角色跳过
-      if (target2?.visible?.()) {
+      if (target2?.visible()) {
         if (KonvaUtils.checkConvexHullsCollision(target, target2)) {
           return true;
         }
@@ -365,8 +385,6 @@ export class MatrixRuntime extends Runtime {
 
   // 距离
   distanceTo(target, target2) {
-    if (!this.running) return;
-
     target2 = this.querySelector(`#${target2}`);
     // 到中心的距离
     const pos2 = target2 ? target2.position() : { x: 0, y: 0 };

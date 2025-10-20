@@ -10,6 +10,10 @@ matrix.paintEditor.backdrops: Backdrops
 
 matrix.soundEditor.sounds: Sounds
 
+matrix.menu.file.importSB3: Import Scratch 3(.sb3) file...
+matrix.menu.edit.turboModeClose: Turn off Turbo Mode
+matrix.menu.edit.turboModeOpen: Turn on Turbo Mode
+
 matrix.deletePrompt.title: Delete "{name}"
 matrix.deletePrompt.label: Do you want to delete the sprite?
 
@@ -90,6 +94,7 @@ matrix.blocks.say: say
 matrix.blocks.shout: shout
 matrix.blocks.think: think
 matrix.blocks.spark: spark
-matrix.blocks.unsupported: unsupported block
+matrix.blocks.stopOther: other scripts in sprite
+matrix.blocks.soundEffects.tempo: tempo
 
 matrix.tutorials.gettingStarted: Getting Started

@@ -3,38 +3,44 @@ import { ScratchBlocks, EmulatorGenerator } from '@blockcode/blocks';
 // 模拟器
 export class MatrixEmulatorGenerator extends EmulatorGenerator {
   onVariableDefinitions(workspace) {
-    var defvars = [];
-    // Add user variables.
-    var variables = workspace.getAllVariables();
-    for (var i = 0; i < variables.length; i++) {
-      if (variables[i].type === ScratchBlocks.BROADCAST_MESSAGE_VARIABLE_TYPE) {
+    const defvars = [];
+    const variables = workspace.getAllVariables();
+    for (let i = 0; i < variables.length; i++) {
+      const variable = variables[i];
+      if (variable.type === ScratchBlocks.BROADCAST_MESSAGE_VARIABLE_TYPE) {
         continue;
       }
 
       // 全部和局部变量
-      const varTarget = variables[i].isLocal ? 'target' : 'stage';
-      let varName = this.getVariableName(variables[i].getId());
+      const varTarget = variable.isLocal ? 'target' : 'stage';
+      const varName = this.quote_(variable.getId());
       let varValue = '0';
-      if (variables[i].type === ScratchBlocks.LIST_VARIABLE_TYPE) {
-        varName = `${varName}_ls`;
+      if (variable.type === ScratchBlocks.LIST_VARIABLE_TYPE) {
         varValue = '[]';
-      } else if (variables[i].type === ScratchBlocks.DICTIONARY_VARIABLE_TYPE) {
-        varName = `${varName}_dt`;
+      } else if (variable.type === ScratchBlocks.DICTIONARY_VARIABLE_TYPE) {
         varValue = '{}';
       }
-      defvars.push(`targetUtils.defVariable(${varTarget}, '${varName}', ${varValue})`);
+      defvars.push(`targetUtils.defVariable(${varTarget}, ${varName}, ${varValue});`);
     }
 
-    // Declare all of the variables.
     if (defvars.length) {
       this.definitions_['variables'] = defvars.join('\n');
     }
   }
 
+  addEventTrap(branchCode) {
+    let code = '';
+    code += '  userscript.stage = stage;\n';
+    code += '  userscript.target = target;\n';
+    code += branchCode;
+    return super.addEventTrap(code);
+  }
+
   addLoopTrap(branchCode, id) {
-    let code = super.addLoopTrap(branchCode, id);
+    let code = '';
     // 如果目标不存在（克隆体删除，不在舞台），退出
-    code += `${this.INDENT}if (!target.parent) return;\n`;
+    code += `  if (!target.parent) return;\n`;
+    code += super.addLoopTrap(branchCode, id);
     return code;
   }
 }

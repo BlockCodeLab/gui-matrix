@@ -1,12 +1,7 @@
-import { nanoid } from '@blockcode/utils';
 import { Text } from '@blockcode/core';
 import { RotationStyle, SpriteDefaultConfig } from '../../components/emulator/emulator-config';
-import costume1 from './costume1';
-import costume2 from './costume2';
 
 export default {
-  id: nanoid(),
-  type: 'text/x-python',
   name: (
     <>
       <Text
@@ -16,7 +11,7 @@ export default {
       1
     </>
   ),
-  assets: [costume1.id, costume2.id],
+  type: 'text/x-python',
   frame: 0,
   x: 0,
   y: 0,

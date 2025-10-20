@@ -32,10 +32,10 @@ export default () => ({
           defaultValue: 'space',
           menu: [
             [ScratchBlocks.Msg.EVENT_WHENKEYPRESSED_SPACE, 'space'],
-            [ScratchBlocks.Msg.EVENT_WHENKEYPRESSED_UP, 'up arrow'],
-            [ScratchBlocks.Msg.EVENT_WHENKEYPRESSED_DOWN, 'down arrow'],
-            [ScratchBlocks.Msg.EVENT_WHENKEYPRESSED_RIGHT, 'right arrow'],
-            [ScratchBlocks.Msg.EVENT_WHENKEYPRESSED_LEFT, 'left arrow'],
+            [ScratchBlocks.Msg.EVENT_WHENKEYPRESSED_UP, 'up'],
+            [ScratchBlocks.Msg.EVENT_WHENKEYPRESSED_DOWN, 'down'],
+            [ScratchBlocks.Msg.EVENT_WHENKEYPRESSED_LEFT, 'left'],
+            [ScratchBlocks.Msg.EVENT_WHENKEYPRESSED_RIGHT, 'right'],
             [ScratchBlocks.Msg.EVENT_WHENKEYPRESSED_ANY, 'any'],
             ['a', 'a'],
             ['b', 'b'],
@@ -161,7 +161,7 @@ export default () => ({
       },
       emu(block) {
         const messageName = this.valueToCode(block, 'BROADCAST_INPUT', this.ORDER_NONE);
-        const code = `runtime.run('message:' + ${messageName})\n`;
+        const code = `runtime.call('message:' + ${messageName})\n`;
         return code;
       },
     },
@@ -176,7 +176,7 @@ export default () => ({
       },
       emu(block) {
         const messageName = this.valueToCode(block, 'BROADCAST_INPUT', this.ORDER_NONE);
-        const code = `await runtime.run('message:' + ${messageName})\n`;
+        const code = `await runtime.call('message:' + ${messageName})\n`;
         return code;
       },
     },

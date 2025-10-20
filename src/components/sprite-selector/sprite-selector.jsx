@@ -359,6 +359,7 @@ export function SpriteSelector() {
                             defaultMessage="delete"
                           />
                         ),
+                        // disabled: files.value.length <= 2,
                         className: styles.deleteMenuItem,
                         onClick: () => handleDelete(i),
                       },
@@ -369,6 +370,7 @@ export function SpriteSelector() {
           selectedId={fileId.value}
           onSelect={handleSelect}
           onMouseUp={handleMouseUp}
+          // onDelete={files.value.length > 2 ? handleDelete : null}
           onDelete={handleDelete}
         />
 
