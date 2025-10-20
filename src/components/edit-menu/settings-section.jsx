@@ -32,12 +32,12 @@ export function SettingsSection({ itemClassName }) {
       >
         {meta.value.turboMode !== true ? (
           <Text
-            id="matrix.menu.edit.turboModeOpen"
+            id="arcade.menu.edit.turboModeOpen"
             defaultMessage="Turn on Turbo Mode"
           />
         ) : (
           <Text
-            id="matrix.menu.edit.turboModeClose"
+            id="arcade.menu.edit.turboModeClose"
             defaultMessage="Turn off Turbo Mode"
           />
         )}
