@@ -4,12 +4,12 @@ export function PaintTabLabel() {
   const { fileIndex } = useProjectContext();
   return fileIndex.value === 0 ? (
     <Text
-      id="arcade.paintEditor.backdrops"
+      id="arcade2.paintEditor.backdrops"
       defaultMessage="Backdrops"
     />
   ) : (
     <Text
-      id="arcade.paintEditor.costumes"
+      id="arcade2.paintEditor.costumes"
       defaultMessage="Costumes"
     />
   );

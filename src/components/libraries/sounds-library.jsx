@@ -59,13 +59,13 @@ export function SoundsLibrary({ onSelect, onClose }) {
       }
       title={
         <Text
-          id="arcade.libraries.sound"
+          id="arcade2.libraries.sound"
           defaultMessage="Choose a Sound"
         />
       }
       emptyMessage={
         <Text
-          id="arcade.libraries.empty"
+          id="arcade2.libraries.empty"
           defaultMessage="No more!"
         />
       }

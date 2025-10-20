@@ -5,7 +5,7 @@ export default [
     tag: 'animals',
     label: (
       <Text
-        id="arcade.libraries.tags.animals"
+        id="arcade2.libraries.tags.animals"
         defaultMessage="animals"
       />
     ),
@@ -14,7 +14,7 @@ export default [
     tag: 'effects',
     label: (
       <Text
-        id="arcade.libraries.tags.effects"
+        id="arcade2.libraries.tags.effects"
         defaultMessage="effects"
       />
     ),
@@ -23,7 +23,7 @@ export default [
     tag: 'loops',
     label: (
       <Text
-        id="arcade.libraries.tags.loops"
+        id="arcade2.libraries.tags.loops"
         defaultMessage="loops"
       />
     ),
@@ -32,7 +32,7 @@ export default [
     tag: 'notes',
     label: (
       <Text
-        id="arcade.libraries.tags.notes"
+        id="arcade2.libraries.tags.notes"
         defaultMessage="notes"
       />
     ),
@@ -41,7 +41,7 @@ export default [
     tag: 'percussion',
     label: (
       <Text
-        id="arcade.libraries.tags.percussion"
+        id="arcade2.libraries.tags.percussion"
         defaultMessage="percussion"
       />
     ),
@@ -50,7 +50,7 @@ export default [
     tag: 'space',
     label: (
       <Text
-        id="arcade.libraries.tags.space"
+        id="arcade2.libraries.tags.space"
         defaultMessage="space"
       />
     ),
@@ -59,7 +59,7 @@ export default [
     tag: 'sports',
     label: (
       <Text
-        id="arcade.libraries.tags.sports"
+        id="arcade2.libraries.tags.sports"
         defaultMessage="sports"
       />
     ),
@@ -68,7 +68,7 @@ export default [
     tag: 'voice',
     label: (
       <Text
-        id="arcade.libraries.tags.voice"
+        id="arcade2.libraries.tags.voice"
         defaultMessage="voice"
       />
     ),
@@ -77,7 +77,7 @@ export default [
     tag: 'wacky',
     label: (
       <Text
-        id="arcade.libraries.tags.wacky"
+        id="arcade2.libraries.tags.wacky"
         defaultMessage="wacky"
       />
     ),

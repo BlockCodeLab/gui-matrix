@@ -72,7 +72,7 @@ export function SpriteSelector() {
     // 添加角色的每一个造型
     const costumes = [];
     for (const costume of sprite.costumes) {
-      const scale = StageConfig.Scale / (costume.bpr || 1);
+      const scale = 1 / (costume.bpr || 1);
       const image = await loadImageFromURL(
         getAssetUrl(costume, {
           copyright: sprite.copyright,
@@ -140,7 +140,7 @@ export function SpriteSelector() {
             {
               message: (
                 <Text
-                  id="arcade.actionButton.uploadError"
+                  id="arcade2.actionButton.uploadError"
                   defaultMessage='Upload "{file}" failed.'
                   file={file.name}
                 />
@@ -200,7 +200,7 @@ export function SpriteSelector() {
       addAsset({
         id: costumeId,
         type: 'image/png',
-        name: translate('arcade.defaultProject.costumeName', 'costume'),
+        name: translate('arcade2.defaultProject.costumeName', 'costume'),
         data: BlankImageData,
         width: 1,
         height: 1,
@@ -210,7 +210,7 @@ export function SpriteSelector() {
       addFile({
         id: spriteId,
         type: 'text/x-python',
-        name: translate('arcade.defaultProject.spriteName', 'Sprite'),
+        name: translate('arcade2.defaultProject.spriteName', 'Sprite'),
         assets: [costumeId],
         frame: 0,
         x: 0,
@@ -285,14 +285,14 @@ export function SpriteSelector() {
     openPromptModal({
       title: (
         <Text
-          id="arcade.deletePrompt.title"
+          id="arcade2.deletePrompt.title"
           defaultMessage="Delete {name}"
           name={sprite.name}
         />
       ),
       label: (
         <Text
-          id="arcade.deletePrompt.label"
+          id="arcade2.deletePrompt.label"
           defaultMessage="Do you want to delete the sprite?"
         />
       ),
@@ -334,7 +334,7 @@ export function SpriteSelector() {
                       {
                         label: (
                           <Text
-                            id="arcade.contextMenu.duplicate"
+                            id="arcade2.contextMenu.duplicate"
                             defaultMessage="duplicate"
                           />
                         ),
@@ -343,7 +343,7 @@ export function SpriteSelector() {
                       {
                         label: (
                           <Text
-                            id="arcade.contextMenu.export"
+                            id="arcade2.contextMenu.export"
                             defaultMessage="export"
                           />
                         ),
@@ -355,7 +355,7 @@ export function SpriteSelector() {
                       {
                         label: (
                           <Text
-                            id="arcade.contextMenu.delete"
+                            id="arcade2.contextMenu.delete"
                             defaultMessage="delete"
                           />
                         ),
@@ -379,7 +379,7 @@ export function SpriteSelector() {
           icon={spriteIcon}
           tooltip={
             <Text
-              id="arcade.actionButton.sprite"
+              id="arcade2.actionButton.sprite"
               defaultMessage="Choose a Sprite"
             />
           }
@@ -389,7 +389,7 @@ export function SpriteSelector() {
               icon: fileUploadIcon,
               tooltip: (
                 <Text
-                  id="arcade.actionButton.uploadSprite"
+                  id="arcade2.actionButton.uploadSprite"
                   defaultMessage="Upload Sprite"
                 />
               ),
@@ -399,7 +399,7 @@ export function SpriteSelector() {
               icon: surpriseIcon,
               tooltip: (
                 <Text
-                  id="arcade.actionButton.surprise"
+                  id="arcade2.actionButton.surprise"
                   defaultMessage="Surprise"
                 />
               ),
@@ -409,7 +409,7 @@ export function SpriteSelector() {
               icon: paintIcon,
               tooltip: (
                 <Text
-                  id="arcade.actionButton.paint"
+                  id="arcade2.actionButton.paint"
                   defaultMessage="Paint"
                 />
               ),
@@ -419,7 +419,7 @@ export function SpriteSelector() {
               icon: searchIcon,
               tooltip: (
                 <Text
-                  id="arcade.actionButton.sprite"
+                  id="arcade2.actionButton.sprite"
                   defaultMessage="Choose a Sprite"
                 />
               ),

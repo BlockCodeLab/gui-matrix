@@ -35,26 +35,27 @@ export function SpriteInfo() {
     [splashVisible.value === false, fileIndex.value, modified.value],
   );
 
-  const changeInfo = useCallback((key, value) => {
-    if (key === 'name') {
-      value = value.trim();
-      if (value.length === 0) {
-        value = translate('arcade.spriteInfo.sprite', 'Sprite');
+  const wrapChangeInfo = useCallback(
+    (key) => (value) => {
+      if (key === 'name') {
+        value = value.trim();
+        if (value.length === 0) {
+          value = translate('arcade2.spriteInfo.sprite', 'Sprite');
+        }
       }
-    }
-    if (key === 'size' && value < 5) {
-      value = 5;
-    }
-    setFile({ [key]: value });
-  }, []);
-
-  const wrapChangeInfo = useCallback((key) => (value) => changeInfo(key, value), [changeInfo]);
+      if (key === 'size' && value < 5) {
+        value = 5;
+      }
+      setFile({ [key]: value });
+    },
+    [],
+  );
 
   const nameInput = (
     <BufferedInput
       disabled={disabled}
       className={appState.value?.stageSize !== StageConfig.Large ? styles.fullInput : styles.nameInput}
-      placeholder={translate('arcade.spriteInfo.name', 'Name')}
+      placeholder={translate('arcade2.spriteInfo.name', 'Name')}
       value={maybeTranslate(sprite.name)}
       onSubmit={wrapChangeInfo('name')}
     />
@@ -70,7 +71,7 @@ export function SpriteInfo() {
           />
           {
             <Text
-              id="arcade.spriteInfo.x"
+              id="arcade2.spriteInfo.x"
               defaultMessage="x"
             />
           }
@@ -81,7 +82,7 @@ export function SpriteInfo() {
         small
         type="number"
         disabled={disabled}
-        placeholder={translate('arcade.spriteInfo.x', 'x')}
+        placeholder={translate('arcade2.spriteInfo.x', 'x')}
         value={Math.round(sprite.x)}
         onSubmit={wrapChangeInfo('x')}
       />
@@ -98,7 +99,7 @@ export function SpriteInfo() {
           />
           {
             <Text
-              id="arcade.spriteInfo.y"
+              id="arcade2.spriteInfo.y"
               defaultMessage="y"
             />
           }
@@ -109,7 +110,7 @@ export function SpriteInfo() {
         small
         type="number"
         disabled={disabled}
-        placeholder={translate('arcade.spriteInfo.y', 'y')}
+        placeholder={translate('arcade2.spriteInfo.y', 'y')}
         value={Math.round(sprite.y)}
         onSubmit={wrapChangeInfo('y')}
       />
@@ -122,23 +123,6 @@ export function SpriteInfo() {
         <>
           <div className={classNames(styles.row, styles.rowPrimary)}>{nameInput}</div>
           <div className={styles.row}>
-            <Button
-              disabled={disabled}
-              className={classNames(styles.button, {
-                [styles.groupButtonToggledOff]: disabled || sprite.hidden,
-              })}
-              onClick={useCallback(() => changeInfo('hidden', !sprite.hidden), [sprite])}
-            >
-              <img
-                src={sprite.hidden ? hideIcon : showIcon}
-                className={styles.buttonIcon}
-                title={
-                  sprite.hidden
-                    ? translate('arcade.spriteInfo.hide', 'Hide sprite')
-                    : translate('arcade.spriteInfo.show', 'Show sprite')
-                }
-              />
-            </Button>
             {xInput}
             {yInput}
           </div>
@@ -149,7 +133,7 @@ export function SpriteInfo() {
             <Label
               text={
                 <Text
-                  id="arcade.spriteInfo.sprite"
+                  id="arcade2.spriteInfo.sprite"
                   defaultMessage="Sprite"
                 />
               }
@@ -164,7 +148,7 @@ export function SpriteInfo() {
               secondary
               text={
                 <Text
-                  id="arcade.spriteInfo.display"
+                  id="arcade2.spriteInfo.display"
                   defaultMessage="Show"
                 />
               }
@@ -175,7 +159,7 @@ export function SpriteInfo() {
                     icon: showIcon,
                     title: (
                       <Text
-                        id="arcade.spriteInfo.show"
+                        id="arcade2.spriteInfo.show"
                         defaultMessage="Show sprite"
                       />
                     ),
@@ -185,7 +169,7 @@ export function SpriteInfo() {
                     icon: hideIcon,
                     title: (
                       <Text
-                        id="arcade.spriteInfo.hide"
+                        id="arcade2.spriteInfo.hide"
                         defaultMessage="Hide sprite"
                       />
                     ),
@@ -201,7 +185,7 @@ export function SpriteInfo() {
               secondary
               text={
                 <Text
-                  id="arcade.spriteInfo.size"
+                  id="arcade2.spriteInfo.size"
                   defaultMessage="Size"
                 />
               }
@@ -219,7 +203,7 @@ export function SpriteInfo() {
               secondary
               text={
                 <Text
-                  id="arcade.spriteInfo.direction"
+                  id="arcade2.spriteInfo.direction"
                   defaultMessage="Direction"
                 />
               }

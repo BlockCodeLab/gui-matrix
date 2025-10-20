@@ -49,7 +49,7 @@ export default () => ({
             ['y', 'y'],
             [
               <Text
-                id="arcade.blocks.fnButton"
+                id="arcade2.blocks.fnButton"
                 defaultMessage="fn"
               />,
               'fn',

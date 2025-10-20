@@ -22,7 +22,7 @@ export default () => {
               ['b', 'b'],
               ['x', 'x'],
               ['y', 'y'],
-              [translate('arcade.blocks.fnButton', 'fn'), 'fn'],
+              [translate('arcade2.blocks.fnButton', 'fn'), 'fn'],
               [ScratchBlocks.Msg.EVENT_WHENKEYPRESSED_ANY, 'any'],
             ],
           },
@@ -108,7 +108,7 @@ export default () => {
         id: 'joystickx',
         text: (
           <Text
-            id="arcade.blocks.joystick.x"
+            id="arcade2.blocks.joystick.x"
             defaultMessage="joystick x axis"
           />
         ),
@@ -127,7 +127,7 @@ export default () => {
         id: 'joysticky',
         text: (
           <Text
-            id="arcade.blocks.joystick.y"
+            id="arcade2.blocks.joystick.y"
             defaultMessage="joystick y axis"
           />
         ),
@@ -182,7 +182,7 @@ export default () => {
         id: 'wificonnected',
         text: (
           <Text
-            id="arcade.blocks.isConnected"
+            id="arcade2.blocks.isConnected"
             defaultMessage="Wi-Fi is connected?"
           />
         ),

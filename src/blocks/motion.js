@@ -448,7 +448,7 @@ export default (x, y) => ({
       id: 'setfencing',
       text: (
         <Text
-          id="arcade.blocks.fencing"
+          id="arcade2.blocks.fencing"
           defaultMessage="%1 stage fencing"
         />
       ),
@@ -459,14 +459,14 @@ export default (x, y) => ({
           menu: [
             [
               <Text
-                id="arcade.blocks.fencingEnable"
+                id="arcade2.blocks.fencingEnable"
                 defaultMessage="enable"
               />,
               'enable',
             ],
             [
               <Text
-                id="arcade.blocks.fencingDisable"
+                id="arcade2.blocks.fencingDisable"
                 defaultMessage="disable"
               />,
               'disable',

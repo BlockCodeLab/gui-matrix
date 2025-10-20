@@ -3,7 +3,7 @@ import { Text } from '@blockcode/core';
 export default {
   name: (
     <Text
-      id="arcade.defaultProject.backdropName"
+      id="arcade2.defaultProject.backdropName"
       defaultMessage="backdrop"
     />
   ),

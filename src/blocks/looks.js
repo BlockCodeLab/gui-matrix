@@ -14,7 +14,7 @@ export default () => ({
       id: 'sayforsecs',
       text: (
         <Text
-          id="arcade.blocks.textBubbleAndWait"
+          id="arcade2.blocks.textBubbleAndWait"
           defaultMessage="%1 %2 for %3 seconds"
         />
       ),
@@ -56,7 +56,7 @@ export default () => ({
       id: 'say',
       text: (
         <Text
-          id="arcade.blocks.textBubble"
+          id="arcade2.blocks.textBubble"
           defaultMessage="%1 %2"
         />
       ),
@@ -92,7 +92,7 @@ export default () => ({
       id: 'thinkforsecs',
       text: (
         <Text
-          id="arcade.blocks.textBubbleAndWait"
+          id="arcade2.blocks.textBubbleAndWait"
           defaultMessage="%1 %2 for %3 seconds"
         />
       ),
@@ -134,7 +134,7 @@ export default () => ({
       id: 'think',
       text: (
         <Text
-          id="arcade.blocks.textBubble"
+          id="arcade2.blocks.textBubble"
           defaultMessage="%1 %2"
         />
       ),
@@ -606,14 +606,14 @@ export default () => ({
       items: [
         [
           <Text
-            id="arcade.blocks.say"
+            id="arcade2.blocks.say"
             defaultMessage="say"
           />,
           'say',
         ],
         [
           <Text
-            id="arcade.blocks.shout"
+            id="arcade2.blocks.shout"
             defaultMessage="shout"
           />,
           'shout',
@@ -625,14 +625,14 @@ export default () => ({
       items: [
         [
           <Text
-            id="arcade.blocks.think"
+            id="arcade2.blocks.think"
             defaultMessage="think"
           />,
           'think',
         ],
         [
           <Text
-            id="arcade.blocks.spark"
+            id="arcade2.blocks.spark"
             defaultMessage="spark"
           />,
           'spark',

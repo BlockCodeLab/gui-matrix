@@ -6,7 +6,7 @@ export default {
   name: (
     <>
       <Text
-        id="arcade.defaultProject.spriteName"
+        id="arcade2.defaultProject.spriteName"
         defaultMessage="Sprite"
       />
       1

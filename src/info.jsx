@@ -4,41 +4,41 @@ import featureImage from './feature.png';
 
 addLocalesMessages({
   en: {
-    'arcade.name': 'Scratch Arcade',
-    'arcade.description': 'Game creating via Scratch blocks.',
-    'arcade.collaborator': 'SA Studio',
+    'arcade2.name': 'Scratch Arcade 2',
+    'arcade2.description': 'Game creating via Scratch blocks.',
+    'arcade2.collaborator': 'SA Studio',
   },
   'zh-Hans': {
-    'arcade.name': '编程学习掌机',
-    'arcade.description': '在小掌机上学习游戏编程。',
-    'arcade.collaborator': 'Scratch Arcade 工作室',
+    'arcade2.name': '编程学习掌机 2',
+    'arcade2.description': '在小掌机上学习游戏编程。',
+    'arcade2.collaborator': 'Scratch Arcade 工作室',
   },
   'zh-Hant': {
-    'arcade.name': '編程學習掌機',
-    'arcade.description': '在掌機上創造游戲。',
-    'arcade.collaborator': 'Scratch Arcade 工作室',
+    'arcade2.name': '編程學習掌機 2',
+    'arcade2.description': '在掌機上創造游戲。',
+    'arcade2.collaborator': 'Scratch Arcade 工作室',
   },
 });
 
 export default {
   version,
-  sortIndex: 4,
+  sortIndex: 5,
   image: featureImage,
   name: (
     <Text
-      id="arcade.name"
-      defaultMessage="Scratch Arcade"
+      id="arcade2.name"
+      defaultMessage="Scratch Arcade 2"
     />
   ),
   description: (
     <Text
-      id="arcade.description"
+      id="arcade2.description"
       defaultMessage="Game creating via Scratch blocks."
     />
   ),
   collaborator: (
     <Text
-      id="arcade.collaborator"
+      id="arcade2.collaborator"
       defaultMessage="SA Studio"
     />
   ),

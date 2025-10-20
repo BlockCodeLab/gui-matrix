@@ -63,7 +63,7 @@ export function PaintTabContent() {
       const alertId = nanoid();
       setAlert('importing', { id: alertId });
 
-      const scale = StageConfig.Scale / (bpr || 1);
+      const scale = 1 / (bpr || 1);
       const image = await loadImageFromURL(getAssetUrl(asset, { copyright }), scale);
 
       delAlert(alertId);

@@ -25,13 +25,13 @@ const uploadingAlert = (progress, isRestore = false) => {
       icon: <Spinner level="success" />,
       message: isRestore ? (
         <Text
-          id="arcade.menu.device.firmwareRestoring"
+          id="arcade2.menu.device.firmwareRestoring"
           defaultMessage="Firmware restoring...{progress}%"
           progress={progress}
         />
       ) : (
         <Text
-          id="arcade.menu.device.firmwareUpdating"
+          id="arcade2.menu.device.firmwareUpdating"
           defaultMessage="Firmware updating...{progress}%"
           progress={progress}
         />
@@ -43,7 +43,7 @@ const uploadingAlert = (progress, isRestore = false) => {
       icon: <Spinner level="success" />,
       message: (
         <Text
-          id="arcade.menu.device.firmwareRecovering"
+          id="arcade2.menu.device.firmwareRecovering"
           defaultMessage="Recovering the Arcade..."
         />
       ),
@@ -123,12 +123,12 @@ const uploadFirmware = (isRestore = false, releaseUrl = firmware.release) => {
   openPromptModal({
     title: isRestore ? (
       <Text
-        id="arcade.menu.device.restore"
+        id="arcade2.menu.device.restore"
         defaultMessage="Restore firmware"
       />
     ) : (
       <Text
-        id="arcade.menu.device.update"
+        id="arcade2.menu.device.update"
         defaultMessage="Upload firmware"
       />
     ),
@@ -142,12 +142,12 @@ const uploadFirmware = (isRestore = false, releaseUrl = firmware.release) => {
         >
           {isRestore ? (
             <Text
-              id="arcade.menu.device.firmwareRestoreLabal"
+              id="arcade2.menu.device.firmwareRestoreLabal"
               defaultMessage="After restoration, all projects in the Arcade will be erased. Follow the steps below to prepare your Arcade."
             />
           ) : (
             <Text
-              id="arcade.menu.device.firmwareUpdateLabal"
+              id="arcade2.menu.device.firmwareUpdateLabal"
               defaultMessage="Follow the steps below to prepare your Arcade."
             />
           )}
@@ -162,13 +162,13 @@ const uploadFirmware = (isRestore = false, releaseUrl = firmware.release) => {
                   href={releaseUrl}
                 >
                   <Text
-                    id="arcade.menu.device.firmwareTip1-1"
+                    id="arcade2.menu.device.firmwareTip1-1"
                     defaultMessage="Download"
                   />
                 </a>
                 &nbsp;
                 <Text
-                  id="arcade.menu.device.firmwareTip1-2"
+                  id="arcade2.menu.device.firmwareTip1-2"
                   defaultMessage="latest firmware."
                 />
               </span>
@@ -177,14 +177,14 @@ const uploadFirmware = (isRestore = false, releaseUrl = firmware.release) => {
           <div className={styles.tipItem}>
             <img src={firmwareImage2} />
             <Text
-              id="arcade.menu.device.firmwareTip2"
+              id="arcade2.menu.device.firmwareTip2"
               defaultMessage="Press and hold Fn key."
             />
           </div>
           <div className={styles.tipItem}>
             <img src={firmwareImage3} />
             <Text
-              id="arcade.menu.device.firmwareTip3"
+              id="arcade2.menu.device.firmwareTip3"
               defaultMessage="Connect to USB."
             />
           </div>
@@ -216,12 +216,12 @@ const uploadFirmware = (isRestore = false, releaseUrl = firmware.release) => {
             icon: null,
             message: isRestore ? (
               <Text
-                id="arcade.menu.device.firmwareRestoreDone"
+                id="arcade2.menu.device.firmwareRestoreDone"
                 defaultMessage="Firmware resotre completed! Now press RESET key."
               />
             ) : (
               <Text
-                id="arcade.menu.device.firmwareUpdateDone"
+                id="arcade2.menu.device.firmwareUpdateDone"
                 defaultMessage="Firmware update completed! Now press RESET key."
               />
             ),
@@ -267,7 +267,7 @@ const uploadFirmware = (isRestore = false, releaseUrl = firmware.release) => {
             icon: <Spinner level="success" />,
             message: (
               <Text
-                id="arcade.menu.device.erasing"
+                id="arcade2.menu.device.erasing"
                 defaultMessage="Erasing..."
               />
             ),
@@ -290,13 +290,13 @@ const handleEraseFlash = () => {
   openPromptModal({
     title: (
       <Text
-        id="arcade.menu.device.erase"
+        id="arcade2.menu.device.erase"
         defaultMessage="Erase Arcade"
       />
     ),
     label: (
       <Text
-        id="arcade.menu.device.eraseLabel"
+        id="arcade2.menu.device.eraseLabel"
         defaultMessage="Do you want to erase all projects in the Arcade?"
       />
     ),
@@ -323,7 +323,7 @@ const handleEraseFlash = () => {
           icon: <Spinner level="success" />,
           message: (
             <Text
-              id="arcade.menu.device.erasing"
+              id="arcade2.menu.device.erasing"
               defaultMessage="Erasing..."
             />
           ),
@@ -335,7 +335,7 @@ const handleEraseFlash = () => {
           icon: null,
           message: (
             <Text
-              id="arcade.menu.device.erased"
+              id="arcade2.menu.device.erased"
               defaultMessage="Erase completed."
             />
           ),
@@ -384,7 +384,7 @@ export function FirmwareSection({ itemClassName }) {
         className={itemClassName}
         label={
           <Text
-            id="arcade.menu.device.erase"
+            id="arcade2.menu.device.erase"
             defaultMessage="Erase flash"
           />
         }
@@ -396,12 +396,12 @@ export function FirmwareSection({ itemClassName }) {
         label={
           readyForUpdate.value ? (
             <Text
-              id="arcade.menu.device.update"
+              id="arcade2.menu.device.update"
               defaultMessage="Update firmware"
             />
           ) : (
             <Text
-              id="arcade.menu.device.caching"
+              id="arcade2.menu.device.caching"
               defaultMessage="Caching latest firmware..."
             />
           )
@@ -413,7 +413,7 @@ export function FirmwareSection({ itemClassName }) {
         className={itemClassName}
         label={
           <Text
-            id="arcade.menu.device.restore"
+            id="arcade2.menu.device.restore"
             defaultMessage="Restore firmware"
           />
         }

@@ -57,7 +57,7 @@ export function StageSelector() {
     async ({ tags, bpr, copyright, ...backdrop }) => {
       setAlert('importing', { id: stage.id });
 
-      const scale = StageConfig.Scale / (bpr || 1);
+      const scale = 1 / (bpr || 1);
       const image = await loadImageFromURL(getAssetUrl(backdrop, { copyright }), scale);
 
       delAlert(stage.id);
@@ -112,7 +112,7 @@ export function StageSelector() {
             {
               message: (
                 <Text
-                  id="arcade.actionButton.uploadError"
+                  id="arcade2.actionButton.uploadError"
                   defaultMessage='Upload "{file}" failed.'
                   file={file.name}
                 />
@@ -171,7 +171,7 @@ export function StageSelector() {
       addAsset({
         id: imageId,
         type: 'image/png',
-        name: translate('arcade.defaultProject.backdropName', 'backdrop'),
+        name: translate('arcade2.defaultProject.backdropName', 'backdrop'),
         data: BlankImageData,
         width: 1,
         height: 1,
@@ -203,7 +203,7 @@ export function StageSelector() {
         <div className={styles.header}>
           <div className={styles.headerTitle}>
             <Text
-              id="arcade.stageSelector.title"
+              id="arcade2.stageSelector.title"
               defaultMessage="Stage"
             />
           </div>
@@ -214,7 +214,7 @@ export function StageSelector() {
         />
         <div className={styles.label}>
           <Text
-            id="arcade.stageSelector.backdrops"
+            id="arcade2.stageSelector.backdrops"
             defaultMessage="Backdrops"
           />
         </div>
@@ -225,7 +225,7 @@ export function StageSelector() {
           icon={backdropIcon}
           tooltip={
             <Text
-              id="arcade.actionButton.backdrop"
+              id="arcade2.actionButton.backdrop"
               defaultMessage="Choose a Backdrop"
             />
           }
@@ -235,7 +235,7 @@ export function StageSelector() {
               icon: fileUploadIcon,
               tooltip: (
                 <Text
-                  id="arcade.actionButton.uploadBackdrop"
+                  id="arcade2.actionButton.uploadBackdrop"
                   defaultMessage="Upload Backdrop"
                 />
               ),
@@ -245,7 +245,7 @@ export function StageSelector() {
               icon: surpriseIcon,
               tooltip: (
                 <Text
-                  id="arcade.actionButton.surprise"
+                  id="arcade2.actionButton.surprise"
                   defaultMessage="Surprise"
                 />
               ),
@@ -255,7 +255,7 @@ export function StageSelector() {
               icon: paintIcon,
               tooltip: (
                 <Text
-                  id="arcade.actionButton.paint"
+                  id="arcade2.actionButton.paint"
                   defaultMessage="Paint"
                 />
               ),
@@ -265,7 +265,7 @@ export function StageSelector() {
               icon: searchIcon,
               tooltip: (
                 <Text
-                  id="arcade.actionButton.backdrop"
+                  id="arcade2.actionButton.backdrop"
                   defaultMessage="Choose a Backdrop"
                 />
               ),

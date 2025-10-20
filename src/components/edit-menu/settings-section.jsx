@@ -48,12 +48,12 @@ export function SettingsSection({ itemClassName }) {
       >
         {meta.value.joystick !== false ? (
           <Text
-            id="arcade.menu.edit.joystickClose"
+            id="arcade2.menu.edit.joystickClose"
             defaultMessage="Turn off Joystick"
           />
         ) : (
           <Text
-            id="arcade.menu.edit.joystickOpen"
+            id="arcade2.menu.edit.joystickOpen"
             defaultMessage="Turn on Joystick"
           />
         )}

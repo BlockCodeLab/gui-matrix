@@ -24,13 +24,13 @@ export function ConfigSection({ itemClassName }) {
     openPromptModal({
       title: (
         <Text
-          id="arcade.menu.device.wifi"
+          id="arcade2.menu.device.wifi"
           defaultMessage="Arcade Wi-Fi config"
         />
       ),
       content: (
         <Text
-          id="arcade.menu.device.wifiInfo"
+          id="arcade2.menu.device.wifiInfo"
           defaultMessage="Only supports <b>2.4G Wi-Fi</b> network."
         />
       ),
@@ -39,13 +39,13 @@ export function ConfigSection({ itemClassName }) {
           name: 'ssid',
           label: (
             <Text
-              id="arcade.menu.device.wifiName"
+              id="arcade2.menu.device.wifiName"
               defaultMessage="Wi-Fi name"
             />
           ),
           placeholder: (
             <Text
-              id="arcade.menu.device.wifiName"
+              id="arcade2.menu.device.wifiName"
               defaultMessage="Wi-Fi name"
             />
           ),
@@ -55,13 +55,13 @@ export function ConfigSection({ itemClassName }) {
           name: 'password',
           label: (
             <Text
-              id="arcade.menu.device.wifiPassword"
+              id="arcade2.menu.device.wifiPassword"
               defaultMessage="Wi-Fi password"
             />
           ),
           placeholder: (
             <Text
-              id="arcade.menu.device.wifiPassword"
+              id="arcade2.menu.device.wifiPassword"
               defaultMessage="Wi-Fi password"
             />
           ),
@@ -72,7 +72,7 @@ export function ConfigSection({ itemClassName }) {
       //   setAlert(
       //     {
       //       mode: 'warn',
-      //       message: <Text id='arcade.menu.device.wifiCancel', 'Deconfigure Wi-Fi.' />,
+      //       message: <Text id='arcade2.menu.device.wifiCancel', 'Deconfigure Wi-Fi.' />,
       //     },
       //     1500,
       //   );
@@ -104,7 +104,7 @@ export function ConfigSection({ itemClassName }) {
               {
                 message: (
                   <Text
-                    id="arcade.menu.device.wifiOk"
+                    id="arcade2.menu.device.wifiOk"
                     defaultMessage="The Wi-Fi configuration is saved."
                   />
                 ),
@@ -127,7 +127,7 @@ export function ConfigSection({ itemClassName }) {
         className={itemClassName}
         label={
           <Text
-            id="arcade.menu.device.wifi"
+            id="arcade2.menu.device.wifi"
             defaultMessage="Arcade Wi-Fi config"
           />
         }
@@ -139,7 +139,7 @@ export function ConfigSection({ itemClassName }) {
         className={itemClassName}
         label={
           <Text
-            id="arcade.menu.device.config"
+            id="arcade2.menu.device.config"
             defaultMessage="System config"
           />
         }

@@ -22,7 +22,7 @@ export function ImportSection({ itemClassName, onOpen }) {
         className={itemClassName}
         label={
           <Text
-            id="arcade.menu.file.importSB3"
+            id="arcade2.menu.file.importSB3"
             defaultMessage="Import .sb3 file..."
           />
         }

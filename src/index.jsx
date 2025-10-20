@@ -113,7 +113,7 @@ export default {
       icon: deviceIcon,
       label: (
         <Text
-          id="arcade.menu.device"
+          id="arcade2.menu.device"
           defaultMessage="Arcade"
         />
       ),

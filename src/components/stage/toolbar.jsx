@@ -34,7 +34,7 @@ export function Toolbar() {
             [styles.actived]: appState.value?.running,
           })}
           src={greenFlagIcon}
-          title={translate('arcade.emu.greenFlag', 'Go')}
+          title={translate('arcade2.emu.greenFlag', 'Go')}
           onClick={handlePlay}
         />
         <img
@@ -42,7 +42,7 @@ export function Toolbar() {
             [styles.actived]: appState.value?.running,
           })}
           src={stopIcon}
-          title={translate('arcade.emu.stop', 'Stop')}
+          title={translate('arcade2.emu.stop', 'Stop')}
           onClick={handleStop}
         />
       </div>
@@ -51,12 +51,12 @@ export function Toolbar() {
           items={[
             {
               icon: smallStageIcon,
-              title: translate('arcade.emu.smallStage', 'Switch to small stage'),
+              title: translate('arcade2.emu.smallStage', 'Switch to small stage'),
               value: StageConfig.Small,
             },
             {
               icon: largeStageIcon,
-              title: translate('arcade.emu.largeStage', 'Switch to large stage'),
+              title: translate('arcade2.emu.largeStage', 'Switch to large stage'),
               value: StageConfig.Large,
             },
           ]}

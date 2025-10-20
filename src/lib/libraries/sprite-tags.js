@@ -5,7 +5,7 @@ export default [
     tag: 'animals',
     label: (
       <Text
-        id="arcade.libraries.tags.animals"
+        id="arcade2.libraries.tags.animals"
         defaultMessage="animals"
       />
     ),
@@ -14,7 +14,7 @@ export default [
     tag: 'people',
     label: (
       <Text
-        id="arcade.libraries.tags.people"
+        id="arcade2.libraries.tags.people"
         defaultMessage="people"
       />
     ),
@@ -23,7 +23,7 @@ export default [
     tag: 'fantasy',
     label: (
       <Text
-        id="arcade.libraries.tags.fantasy"
+        id="arcade2.libraries.tags.fantasy"
         defaultMessage="fantasy"
       />
     ),
@@ -32,7 +32,7 @@ export default [
     tag: 'dance',
     label: (
       <Text
-        id="arcade.libraries.tags.dance"
+        id="arcade2.libraries.tags.dance"
         defaultMessage="dance"
       />
     ),
@@ -41,7 +41,7 @@ export default [
     tag: 'music',
     label: (
       <Text
-        id="arcade.libraries.tags.music"
+        id="arcade2.libraries.tags.music"
         defaultMessage="music"
       />
     ),
@@ -50,7 +50,7 @@ export default [
     tag: 'sports',
     label: (
       <Text
-        id="arcade.libraries.tags.sports"
+        id="arcade2.libraries.tags.sports"
         defaultMessage="sports"
       />
     ),
@@ -59,7 +59,7 @@ export default [
     tag: 'food',
     label: (
       <Text
-        id="arcade.libraries.tags.food"
+        id="arcade2.libraries.tags.food"
         defaultMessage="food"
       />
     ),
@@ -68,7 +68,7 @@ export default [
     tag: 'fashion',
     label: (
       <Text
-        id="arcade.libraries.tags.fashion"
+        id="arcade2.libraries.tags.fashion"
         defaultMessage="fashion"
       />
     ),
@@ -77,7 +77,7 @@ export default [
     tag: 'letters',
     label: (
       <Text
-        id="arcade.libraries.tags.letters"
+        id="arcade2.libraries.tags.letters"
         defaultMessage="letters"
       />
     ),

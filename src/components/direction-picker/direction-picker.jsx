@@ -95,7 +95,7 @@ export function DirectionPicker({ direction, rotationStyle, children, onChange, 
                   icon: allAroundIcon,
                   title: (
                     <Text
-                      id="arcade.directionPicker.allAround"
+                      id="arcade2.directionPicker.allAround"
                       defaultMessage="All Around"
                     />
                   ),
@@ -105,7 +105,7 @@ export function DirectionPicker({ direction, rotationStyle, children, onChange, 
                   icon: leftRightIcon,
                   title: (
                     <Text
-                      id="arcade.directionPicker.leftRight"
+                      id="arcade2.directionPicker.leftRight"
                       defaultMessage="Left/Right"
                     />
                   ),
@@ -115,7 +115,7 @@ export function DirectionPicker({ direction, rotationStyle, children, onChange, 
                   icon: dontRotateIcon,
                   title: (
                     <Text
-                      id="arcade.directionPicker.dontRotate"
+                      id="arcade2.directionPicker.dontRotate"
                       defaultMessage="Do not rotate"
                     />
                   ),

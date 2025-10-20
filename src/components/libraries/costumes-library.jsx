@@ -32,13 +32,13 @@ export function CostumesLibrary({ onSelect, onClose }) {
       }
       title={
         <Text
-          id="arcade.libraries.costume"
+          id="arcade2.libraries.costume"
           defaultMessage="Choose a Costume"
         />
       }
       emptyMessage={
         <Text
-          id="arcade.libraries.empty"
+          id="arcade2.libraries.empty"
           defaultMessage="No more!"
         />
       }

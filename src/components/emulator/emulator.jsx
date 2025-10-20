@@ -229,7 +229,7 @@ export function ArcadeEmulator({ runtime, onRuntime }) {
   return (
     <Emulator
       id="arcade-emulator"
-      zoom={appState.value?.stageSize !== StageConfig.Large ? 1 : 1.5}
+      zoom={appState.value?.stageSize !== StageConfig.Large ? 0.6 : 1}
       width={StageConfig.Width}
       height={StageConfig.Height}
       onRuntime={handleRuntime}

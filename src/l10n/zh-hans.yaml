@@ -5,134 +5,134 @@ blocks.dataPrompt.listAvailableToAllTargets: 所有角色都可使用该列表�
 
 blocks.myBlockPrompt.warpLabel: 运行时不刷新屏幕
 
-arcade.paintEditor.costumes: 造型
-arcade.paintEditor.backdrops: 背景
+arcade2.paintEditor.costumes: 造型
+arcade2.paintEditor.backdrops: 背景
 
-arcade.soundEditor.sounds: 声音
+arcade2.soundEditor.sounds: 声音
 
-arcade.menu.file.importSB3: 导入 Scratch 3（.sb3）文件…
-arcade.menu.edit.joystickClose: 关闭摇杆
-arcade.menu.edit.joystickOpen: 打开摇杆
-arcade.menu.edit.turboModeClose: 关闭加速模式
-arcade.menu.edit.turboModeOpen: 打开加速模式
+arcade2.menu.file.importSB3: 导入 Scratch 3（.sb3）文件…
+arcade2.menu.edit.joystickClose: 关闭摇杆
+arcade2.menu.edit.joystickOpen: 打开摇杆
+arcade2.menu.edit.turboModeClose: 关闭加速模式
+arcade2.menu.edit.turboModeOpen: 打开加速模式
 
-arcade.menu.device: 学习机
-arcade.menu.device.wifi: Wi-Fi 网络配置
-arcade.menu.device.wifiNamePassword: Wi-Fi 名称和密码
-arcade.menu.device.wifiName: Wi-Fi 名称
-arcade.menu.device.wifiPassword: Wi-Fi 密码
-arcade.menu.device.wifiOk: Wi-Fi 配置已储存。
-arcade.menu.device.wifiCancel: 取消 Wi-Fi 配置。
-arcade.menu.device.wifiInfo: 仅支持 <b>2.4G Wi-Fi</b> 网络。
-arcade.menu.device.manual: 查看使用手册
-arcade.menu.device.update: 升级最新固件
-arcade.menu.device.caching: 正在缓存最新固件…
-arcade.menu.device.restore: 还原固件
-arcade.menu.device.firmwareUpdateLabal: 请按下列步骤准备好您的学习机。
-arcade.menu.device.firmwareRestoreLabal: 固件还原后学习机内所有作品将被清除，请按下列步骤准备好您的学习机。
-arcade.menu.device.firmwareTip1-1: 下载
-arcade.menu.device.firmwareTip1-2: 新版本固件。
-arcade.menu.device.firmwareTip2: 接入 USB 直到屏幕亮起。
-arcade.menu.device.firmwareTip3: 按住 Fn 键不松，再按一下 RESET 键，等待黑屏。
-arcade.menu.device.firmwareUpdating: 正在升级到最新固件…{progress}%
-arcade.menu.device.firmwareRestoring: 正在还原固件…{progress}%
-arcade.menu.device.firmwareRecovering: 正在恢复学习机…
-arcade.menu.device.firmwareUpdateDone: 固件升级完成，请按下 RESET 键。
-arcade.menu.device.firmwareRestoreDone: 固件还原完成，请按下 RESET 键。
-arcade.menu.device.erase: 清除所有作品
-arcade.menu.device.eraseLabel: 确认清除学习机内的所有作品吗？
-arcade.menu.device.erasing: 正在清除…
-arcade.menu.device.erased: 清除完成。
-arcade.menu.device.config: 系统配置
+arcade2.menu.device: 学习机
+arcade2.menu.device.wifi: Wi-Fi 网络配置
+arcade2.menu.device.wifiNamePassword: Wi-Fi 名称和密码
+arcade2.menu.device.wifiName: Wi-Fi 名称
+arcade2.menu.device.wifiPassword: Wi-Fi 密码
+arcade2.menu.device.wifiOk: Wi-Fi 配置已储存。
+arcade2.menu.device.wifiCancel: 取消 Wi-Fi 配置。
+arcade2.menu.device.wifiInfo: 仅支持 <b>2.4G Wi-Fi</b> 网络。
+arcade2.menu.device.manual: 查看使用手册
+arcade2.menu.device.update: 升级最新固件
+arcade2.menu.device.caching: 正在缓存最新固件…
+arcade2.menu.device.restore: 还原固件
+arcade2.menu.device.firmwareUpdateLabal: 请按下列步骤准备好您的学习机。
+arcade2.menu.device.firmwareRestoreLabal: 固件还原后学习机内所有作品将被清除，请按下列步骤准备好您的学习机。
+arcade2.menu.device.firmwareTip1-1: 下载
+arcade2.menu.device.firmwareTip1-2: 新版本固件。
+arcade2.menu.device.firmwareTip2: 接入 USB 直到屏幕亮起。
+arcade2.menu.device.firmwareTip3: 按住 Fn 键不松，再按一下 RESET 键，等待黑屏。
+arcade2.menu.device.firmwareUpdating: 正在升级到最新固件…{progress}%
+arcade2.menu.device.firmwareRestoring: 正在还原固件…{progress}%
+arcade2.menu.device.firmwareRecovering: 正在恢复学习机…
+arcade2.menu.device.firmwareUpdateDone: 固件升级完成，请按下 RESET 键。
+arcade2.menu.device.firmwareRestoreDone: 固件还原完成，请按下 RESET 键。
+arcade2.menu.device.erase: 清除所有作品
+arcade2.menu.device.eraseLabel: 确认清除学习机内的所有作品吗？
+arcade2.menu.device.erasing: 正在清除…
+arcade2.menu.device.erased: 清除完成。
+arcade2.menu.device.config: 系统配置
 
-arcade.deletePrompt.title: 删除“{name}”
-arcade.deletePrompt.label: 确认要删除这个角色吗？
+arcade2.deletePrompt.title: 删除“{name}”
+arcade2.deletePrompt.label: 确认要删除这个角色吗？
 
-arcade.emu.greenFlag: 运行
-arcade.emu.stop: 停止
-arcade.emu.smallStage: 缩小舞台
-arcade.emu.largeStage: 放大舞台
+arcade2.emu.greenFlag: 运行
+arcade2.emu.stop: 停止
+arcade2.emu.smallStage: 缩小舞台
+arcade2.emu.largeStage: 放大舞台
 
-arcade.contextMenu.duplicate: 复制
-arcade.contextMenu.export: 导出
-arcade.contextMenu.delete: 删除
+arcade2.contextMenu.duplicate: 复制
+arcade2.contextMenu.export: 导出
+arcade2.contextMenu.delete: 删除
 
-arcade.actionButton.uploadSprite: 上传角色
-arcade.actionButton.uploadBackdrop: 上传背景
-arcade.actionButton.uploadError: 上传“{file}”失败。
-arcade.actionButton.surprise: 随机
-arcade.actionButton.paint: 绘制
-arcade.actionButton.sprite: 选择一个角色
-arcade.actionButton.backdrop: 选择一个背景
+arcade2.actionButton.uploadSprite: 上传角色
+arcade2.actionButton.uploadBackdrop: 上传背景
+arcade2.actionButton.uploadError: 上传“{file}”失败。
+arcade2.actionButton.surprise: 随机
+arcade2.actionButton.paint: 绘制
+arcade2.actionButton.sprite: 选择一个角色
+arcade2.actionButton.backdrop: 选择一个背景
 
-arcade.stageSelector.title: 舞台
-arcade.stageSelector.backdrops: 背景
+arcade2.stageSelector.title: 舞台
+arcade2.stageSelector.backdrops: 背景
 
-arcade.spriteInfo.sprite: 角色
-arcade.spriteInfo.name: 名字
-arcade.spriteInfo.x: x
-arcade.spriteInfo.y: y
-arcade.spriteInfo.display: 显示
-arcade.spriteInfo.show: 显示角色
-arcade.spriteInfo.hide: 隐藏角色
-arcade.spriteInfo.size: 大小
-arcade.spriteInfo.direction: 方向
+arcade2.spriteInfo.sprite: 角色
+arcade2.spriteInfo.name: 名字
+arcade2.spriteInfo.x: x
+arcade2.spriteInfo.y: y
+arcade2.spriteInfo.display: 显示
+arcade2.spriteInfo.show: 显示角色
+arcade2.spriteInfo.hide: 隐藏角色
+arcade2.spriteInfo.size: 大小
+arcade2.spriteInfo.direction: 方向
 
-arcade.directionPicker.allAround: 任意旋转
-arcade.directionPicker.leftRight: 左右翻转
-arcade.directionPicker.dontRotate: 不旋转
+arcade2.directionPicker.allAround: 任意旋转
+arcade2.directionPicker.leftRight: 左右翻转
+arcade2.directionPicker.dontRotate: 不旋转
 
-arcade.libraries.empty: 空空如也！
-arcade.libraries.sprite: 选择一个角色
-arcade.libraries.costume: 选择一个造型
-arcade.libraries.backdrop: 选择一个背景
-arcade.libraries.sound: 选择一个声音
+arcade2.libraries.empty: 空空如也！
+arcade2.libraries.sprite: 选择一个角色
+arcade2.libraries.costume: 选择一个造型
+arcade2.libraries.backdrop: 选择一个背景
+arcade2.libraries.sound: 选择一个声音
 
-arcade.libraries.tags.fantasy: 奇幻
-arcade.libraries.tags.music: 音乐
-arcade.libraries.tags.sports: 运动
-arcade.libraries.tags.outdoors: 室外
-arcade.libraries.tags.indoors: 室内
-arcade.libraries.tags.space: 太空
-arcade.libraries.tags.underwater: 水下
-arcade.libraries.tags.patterns: 图案
-arcade.libraries.tags.animals: 动物
-arcade.libraries.tags.people: 人物
-arcade.libraries.tags.dance: 舞蹈
-arcade.libraries.tags.food: 食物
-arcade.libraries.tags.fashion: 时尚
-arcade.libraries.tags.letters: 字母
-arcade.libraries.tags.effects: 效果
-arcade.libraries.tags.loops: 可循环
-arcade.libraries.tags.notes: 音符
-arcade.libraries.tags.percussion: 打击乐器
-arcade.libraries.tags.voice: 人声
-arcade.libraries.tags.wacky: 古怪
+arcade2.libraries.tags.fantasy: 奇幻
+arcade2.libraries.tags.music: 音乐
+arcade2.libraries.tags.sports: 运动
+arcade2.libraries.tags.outdoors: 室外
+arcade2.libraries.tags.indoors: 室内
+arcade2.libraries.tags.space: 太空
+arcade2.libraries.tags.underwater: 水下
+arcade2.libraries.tags.patterns: 图案
+arcade2.libraries.tags.animals: 动物
+arcade2.libraries.tags.people: 人物
+arcade2.libraries.tags.dance: 舞蹈
+arcade2.libraries.tags.food: 食物
+arcade2.libraries.tags.fashion: 时尚
+arcade2.libraries.tags.letters: 字母
+arcade2.libraries.tags.effects: 效果
+arcade2.libraries.tags.loops: 可循环
+arcade2.libraries.tags.notes: 音符
+arcade2.libraries.tags.percussion: 打击乐器
+arcade2.libraries.tags.voice: 人声
+arcade2.libraries.tags.wacky: 古怪
 
-arcade.defaultProject.stageName: 舞台
-arcade.defaultProject.spriteName: 角色
-arcade.defaultProject.backdropName: 背景
-arcade.defaultProject.costumeName: 造型
-arcade.defaultProject.soundName: 声音
+arcade2.defaultProject.stageName: 舞台
+arcade2.defaultProject.spriteName: 角色
+arcade2.defaultProject.backdropName: 背景
+arcade2.defaultProject.costumeName: 造型
+arcade2.defaultProject.soundName: 声音
 
-arcade.blocks.fencing: "%1 穿越舞台边界"
-arcade.blocks.fencingEnable: 禁止
-arcade.blocks.fencingDisable: 允许
-arcade.blocks.textBubble: "%1 %2"
-arcade.blocks.textBubbleAndWait: "%1 %2 %3 秒"
-arcade.blocks.say: 说
-arcade.blocks.shout: 大喊
-arcade.blocks.think: 思考
-arcade.blocks.spark: 灵感
-arcade.blocks.isConnected: Wi-Fi 已经连接？
-arcade.blocks.whenConnected: 当 Wi-Fi 连接成功
-arcade.blocks.connectTo: "连接 Wi-Fi: %1 密码: %2"
-arcade.blocks.disconnect: 断开 Wi-Fi 连接
-arcade.blocks.fnButton: fn
-arcade.blocks.stopOther: 该角色的其他脚本
-arcade.blocks.joystick.x: 摇杆 x 轴
-arcade.blocks.joystick.y: 摇杆 y 轴
-arcade.blocks.sensingDistanceToCenter: 中心
-arcade.blocks.soundEffects.tempo: 速度
+arcade2.blocks.fencing: "%1 穿越舞台边界"
+arcade2.blocks.fencingEnable: 禁止
+arcade2.blocks.fencingDisable: 允许
+arcade2.blocks.textBubble: "%1 %2"
+arcade2.blocks.textBubbleAndWait: "%1 %2 %3 秒"
+arcade2.blocks.say: 说
+arcade2.blocks.shout: 大喊
+arcade2.blocks.think: 思考
+arcade2.blocks.spark: 灵感
+arcade2.blocks.isConnected: Wi-Fi 已经连接？
+arcade2.blocks.whenConnected: 当 Wi-Fi 连接成功
+arcade2.blocks.connectTo: "连接 Wi-Fi: %1 密码: %2"
+arcade2.blocks.disconnect: 断开 Wi-Fi 连接
+arcade2.blocks.fnButton: fn
+arcade2.blocks.stopOther: 该角色的其他脚本
+arcade2.blocks.joystick.x: 摇杆 x 轴
+arcade2.blocks.joystick.y: 摇杆 y 轴
+arcade2.blocks.sensingDistanceToCenter: 中心
+arcade2.blocks.soundEffects.tempo: 速度
 
-arcade.tutorials.gettingStarted: 入门
+arcade2.tutorials.gettingStarted: 入门

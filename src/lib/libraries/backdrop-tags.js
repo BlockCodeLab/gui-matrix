@@ -5,7 +5,7 @@ export default [
     tag: 'fantasy',
     label: (
       <Text
-        id="arcade.libraries.tags.fantasy"
+        id="arcade2.libraries.tags.fantasy"
         defaultMessage="fantasy"
       />
     ),
@@ -14,7 +14,7 @@ export default [
     tag: 'music',
     label: (
       <Text
-        id="arcade.libraries.tags.music"
+        id="arcade2.libraries.tags.music"
         defaultMessage="music"
       />
     ),
@@ -23,7 +23,7 @@ export default [
     tag: 'sports',
     label: (
       <Text
-        id="arcade.libraries.tags.sports"
+        id="arcade2.libraries.tags.sports"
         defaultMessage="sports"
       />
     ),
@@ -32,7 +32,7 @@ export default [
     tag: 'outdoors',
     label: (
       <Text
-        id="arcade.libraries.tags.outdoors"
+        id="arcade2.libraries.tags.outdoors"
         defaultMessage="outdoors"
       />
     ),
@@ -41,7 +41,7 @@ export default [
     tag: 'indoors',
     label: (
       <Text
-        id="arcade.libraries.tags.indoors"
+        id="arcade2.libraries.tags.indoors"
         defaultMessage="indoors"
       />
     ),
@@ -50,7 +50,7 @@ export default [
     tag: 'space',
     label: (
       <Text
-        id="arcade.libraries.tags.space"
+        id="arcade2.libraries.tags.space"
         defaultMessage="space"
       />
     ),
@@ -59,7 +59,7 @@ export default [
     tag: 'underwater',
     label: (
       <Text
-        id="arcade.libraries.tags.underwater"
+        id="arcade2.libraries.tags.underwater"
         defaultMessage="underwater"
       />
     ),
@@ -68,7 +68,7 @@ export default [
     tag: 'patterns',
     label: (
       <Text
-        id="arcade.libraries.tags.patterns"
+        id="arcade2.libraries.tags.patterns"
         defaultMessage="patterns"
       />
     ),

@@ -104,7 +104,7 @@ export function DeviceMenu({ itemClassName }) {
         openPromptModal({
           title: (
             <Text
-              id="arcade.menu.device"
+              id="arcade2.menu.device"
               defaultMessage="Arcade"
             />
           ),
@@ -122,7 +122,7 @@ export function DeviceMenu({ itemClassName }) {
         openPromptModal({
           title: (
             <Text
-              id="arcade.menu.device"
+              id="arcade2.menu.device"
               defaultMessage="Arcade"
             />
           ),
@@ -189,7 +189,7 @@ export function DeviceMenu({ itemClassName }) {
           className={itemClassName}
           label={
             <Text
-              id="arcade.menu.device.manual"
+              id="arcade2.menu.device.manual"
               defaultMessage="Arcade manual"
             />
           }

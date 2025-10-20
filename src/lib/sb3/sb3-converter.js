@@ -1,14 +1,11 @@
 import { nanoid, mime, JSZip } from '@blockcode/utils';
-import { StageConfig, RotationStyle } from '../../components/emulator/emulator-config';
+import { RotationStyle } from '../../components/emulator/emulator-config';
 import { getBlockByOpcode, getInputOrFieldByOpcode } from './sb3-blocks';
 import { deserializeBlocks } from './sb3-deserializer';
 import { name as editorId } from '../../../package.json';
 
-const IMAGE_SCALE = StageConfig.Width / 480;
-const IMAGE_DATA_OFFSET = 'data:image/png;base64,'.length;
 const EMPTY_IMAGE = 'data:,';
-
-const XYBlocks = ['motion_gotoxy', 'motion_glidesecstoxy', 'motion_setx', 'motion_sety'];
+const IMAGE_DATA_OFFSET = 'data:image/png;base64,'.length;
 
 const xmlEscape = (unsafe) => {
   if (typeof unsafe !== 'string') {
@@ -55,7 +52,7 @@ const mutationToXML = (mutation) => {
   return mutationString;
 };
 
-const blockToXML = (blockId, blocks, meta, isScale = false) => {
+const blockToXML = (blockId, blocks, meta) => {
   const block = blocks[blockId];
   // block should exist, but currently some blocks' next property point
   // to a blockId for non-existent blocks. Until we track down that behavior,
@@ -70,10 +67,6 @@ const blockToXML = (blockId, blocks, meta, isScale = false) => {
   if (block.mutation) {
     xmlString += mutationToXML(block.mutation);
   }
-  // Scale x/y
-  if (XYBlocks.indexOf(blockType) !== -1) {
-    isScale = true;
-  }
   // Add any inputs on this block.
   for (const input in block.inputs) {
     if (!Object.prototype.hasOwnProperty.call(block.inputs, input)) continue;
@@ -82,11 +75,11 @@ const blockToXML = (blockId, blocks, meta, isScale = false) => {
     if (blockInput.block || blockInput.shadow) {
       xmlString += `<value name="${blockInput.name}">`;
       if (blockInput.block) {
-        xmlString += blockToXML(blockInput.block, blocks, meta, isScale);
+        xmlString += blockToXML(blockInput.block, blocks, meta);
       }
       if (blockInput.shadow && blockInput.shadow !== blockInput.block) {
         // Obscured shadow.
-        xmlString += blockToXML(blockInput.shadow, blocks, meta, isScale);
+        xmlString += blockToXML(blockInput.shadow, blocks, meta);
       }
       xmlString += '</value>';
     }
@@ -108,8 +101,8 @@ const blockToXML = (blockId, blocks, meta, isScale = false) => {
     if (typeof value === 'string') {
       value = xmlEscape(blockField.value);
     }
-    if (isScale && blockField.name === 'NUM') {
-      value = Math.round(+value * IMAGE_SCALE);
+    if (blockField.name === 'NUM') {
+      value = +value;
     }
     xmlString += `>${value}</field>`;
   }
@@ -161,22 +154,19 @@ const sb3Parse = (file) =>
     });
   });
 
-const convertImage = (file, scale) =>
+const convertImage = (file) =>
   new Promise(async (resolve) => {
     const type = mime.getType(file.name);
     const base64 = await file.async('base64');
     const image = new Image();
     image.src = `data:${type};base64,${base64}`;
     image.addEventListener('load', () => {
-      const imageWidth = Math.round(image.width * scale);
-      const imageHeight = Math.round(image.height * scale);
-
-      let width = imageWidth;
-      let height = imageHeight;
+      let width = image.width;
+      let height = image.height;
 
       const canvas = document.createElement('canvas');
-      canvas.width = imageWidth;
-      canvas.height = imageHeight;
+      canvas.width = image.width;
+      canvas.height = image.height;
 
       const ctx = canvas.getContext('2d');
       ctx.drawImage(image, 0, 0, width, height);
@@ -253,11 +243,11 @@ export async function sb3Converter(file) {
       file.assets.push(costume.assetId);
       const assetFile = sb3File[costume.md5ext];
       const bpr = costume.bitmapResolution ?? 1;
-      const asset = await convertImage(assetFile, IMAGE_SCALE);
+      const asset = await convertImage(assetFile);
       asset.id = costume.assetId;
       asset.name = costume.name;
-      asset.centerX = Math.round(costume.rotationCenterX * IMAGE_SCALE);
-      asset.centerY = Math.round(costume.rotationCenterY * IMAGE_SCALE);
+      asset.centerX = costume.rotationCenterX;
+      asset.centerY = costume.rotationCenterY;
       assets.push(asset);
     }
 
@@ -268,8 +258,6 @@ export async function sb3Converter(file) {
       if (!fileId) {
         fileId = file.id;
       }
-      file.x = file.x * IMAGE_SCALE;
-      file.y = file.y * IMAGE_SCALE;
       file.size = target.size;
       file.direction = target.direction;
       file.rotationStyle = RotationStyle[target.rotationStyle];

@@ -5,134 +5,134 @@ blocks.dataPrompt.listAvailableToAllTargets: This list will be available to all 
 
 blocks.myBlockPrompt.warpLabel: Run without screen refresh
 
-arcade.paintEditor.costumes: Costumes
-arcade.paintEditor.backdrops: Backdrops
+arcade2.paintEditor.costumes: Costumes
+arcade2.paintEditor.backdrops: Backdrops
 
-arcade.soundEditor.sounds: Sounds
+arcade2.soundEditor.sounds: Sounds
 
-arcade.menu.file.importSB3: Import Scratch 3(.sb3) file...
-arcade.menu.edit.joystickClose: Turn off Joystick
-arcade.menu.edit.joystickOpen: Turn on Joystick
-arcade.menu.edit.turboModeClose: Turn off Turbo Mode
-arcade.menu.edit.turboModeOpen: Turn on Turbo Mode
+arcade2.menu.file.importSB3: Import Scratch 3(.sb3) file...
+arcade2.menu.edit.joystickClose: Turn off Joystick
+arcade2.menu.edit.joystickOpen: Turn on Joystick
+arcade2.menu.edit.turboModeClose: Turn off Turbo Mode
+arcade2.menu.edit.turboModeOpen: Turn on Turbo Mode
 
-arcade.menu.device: Arcade
-arcade.menu.device.wifi: Wi-Fi config
-arcade.menu.device.wifiNamePassword: Wi-Fi name and password
-arcade.menu.device.wifiName: Wi-Fi name
-arcade.menu.device.wifiPassword: Wi-Fi password
-arcade.menu.device.wifiOk: The Wi-Fi configuration is saved.
-arcade.menu.device.wifiCancel: Deconfigure Wi-Fi.
-arcade.menu.device.wifiInfo: Only supports <b>2.4G Wi-Fi</b> network.
-arcade.menu.device.manual: Arcade manual
-arcade.menu.device.update: Upgrade to the latest firmware
-arcade.menu.device.caching: Caching latest firmware...
-arcade.menu.device.restore: Restore firmware
-arcade.menu.device.firmwareUpdateLabal: Follow the steps below to prepare your Arcade.
-arcade.menu.device.firmwareRestoreLabal: After restoration, all projects in the Arcade will be erased. Follow the steps below to prepare your Arcade.
-arcade.menu.device.firmwareTip1-1: Download
-arcade.menu.device.firmwareTip1-2: latest firmware.
-arcade.menu.device.firmwareTip2: Connect to USB.
-arcade.menu.device.firmwareTip3: Hold the FN key and press RESET key.
-arcade.menu.device.firmwareUpdating: Upgrading to the latest firmware...{progress}%
-arcade.menu.device.firmwareRestoring: Firmware restoring...{progress}%
-arcade.menu.device.firmwareRecovering: Recovering the Arcade...
-arcade.menu.device.firmwareUpdateDone: Firmware update completed! Now press RESET key.
-arcade.menu.device.firmwareRestoreDone: Firmware restore completed! Now press RESET key.
-arcade.menu.device.erase: Erase Arcade
-arcade.menu.device.eraseLabal: Do you want to erase all projects in the Arcade?
-arcade.menu.device.erasing: Erasing...
-arcade.menu.device.erased: Erase completed.
-arcade.menu.device.config: System config
+arcade2.menu.device: Arcade
+arcade2.menu.device.wifi: Wi-Fi config
+arcade2.menu.device.wifiNamePassword: Wi-Fi name and password
+arcade2.menu.device.wifiName: Wi-Fi name
+arcade2.menu.device.wifiPassword: Wi-Fi password
+arcade2.menu.device.wifiOk: The Wi-Fi configuration is saved.
+arcade2.menu.device.wifiCancel: Deconfigure Wi-Fi.
+arcade2.menu.device.wifiInfo: Only supports <b>2.4G Wi-Fi</b> network.
+arcade2.menu.device.manual: Arcade manual
+arcade2.menu.device.update: Upgrade to the latest firmware
+arcade2.menu.device.caching: Caching latest firmware...
+arcade2.menu.device.restore: Restore firmware
+arcade2.menu.device.firmwareUpdateLabal: Follow the steps below to prepare your Arcade.
+arcade2.menu.device.firmwareRestoreLabal: After restoration, all projects in the Arcade will be erased. Follow the steps below to prepare your Arcade.
+arcade2.menu.device.firmwareTip1-1: Download
+arcade2.menu.device.firmwareTip1-2: latest firmware.
+arcade2.menu.device.firmwareTip2: Connect to USB.
+arcade2.menu.device.firmwareTip3: Hold the FN key and press RESET key.
+arcade2.menu.device.firmwareUpdating: Upgrading to the latest firmware...{progress}%
+arcade2.menu.device.firmwareRestoring: Firmware restoring...{progress}%
+arcade2.menu.device.firmwareRecovering: Recovering the Arcade...
+arcade2.menu.device.firmwareUpdateDone: Firmware update completed! Now press RESET key.
+arcade2.menu.device.firmwareRestoreDone: Firmware restore completed! Now press RESET key.
+arcade2.menu.device.erase: Erase Arcade
+arcade2.menu.device.eraseLabal: Do you want to erase all projects in the Arcade?
+arcade2.menu.device.erasing: Erasing...
+arcade2.menu.device.erased: Erase completed.
+arcade2.menu.device.config: System config
 
-arcade.deletePrompt.title: Delete "{name}"
-arcade.deletePrompt.label: Do you want to delete the sprite?
+arcade2.deletePrompt.title: Delete "{name}"
+arcade2.deletePrompt.label: Do you want to delete the sprite?
 
-arcade.emu.greenFlag: Go
-arcade.emu.stop: Stop
-arcade.emu.smallStage: Switch to small stage
-arcade.emu.largeStage: Switch to large stage
+arcade2.emu.greenFlag: Go
+arcade2.emu.stop: Stop
+arcade2.emu.smallStage: Switch to small stage
+arcade2.emu.largeStage: Switch to large stage
 
-arcade.contextMenu.duplicate: duplicate
-arcade.contextMenu.export: export
-arcade.contextMenu.delete: delete
+arcade2.contextMenu.duplicate: duplicate
+arcade2.contextMenu.export: export
+arcade2.contextMenu.delete: delete
 
-arcade.actionButton.uploadSprite: Upload Sprite
-arcade.actionButton.uploadBackdrop: Upload Backdrop
-arcade.actionButton.uploadError: Upload "{file}" failed.
-arcade.actionButton.surprise: Surprise
-arcade.actionButton.paint: Paint
-arcade.actionButton.sprite: Choose a Sprite
-arcade.actionButton.backdrop: Choose a Backdrop
+arcade2.actionButton.uploadSprite: Upload Sprite
+arcade2.actionButton.uploadBackdrop: Upload Backdrop
+arcade2.actionButton.uploadError: Upload "{file}" failed.
+arcade2.actionButton.surprise: Surprise
+arcade2.actionButton.paint: Paint
+arcade2.actionButton.sprite: Choose a Sprite
+arcade2.actionButton.backdrop: Choose a Backdrop
 
-arcade.stageSelector.title: Stage
-arcade.stageSelector.backdrops: Backdrops
+arcade2.stageSelector.title: Stage
+arcade2.stageSelector.backdrops: Backdrops
 
-arcade.spriteInfo.sprite: Sprite
-arcade.spriteInfo.name: name
-arcade.spriteInfo.x: X
-arcade.spriteInfo.y: Y
-arcade.spriteInfo.display: Show
-arcade.spriteInfo.show: Show sprite
-arcade.spriteInfo.hide: Hide sprite
-arcade.spriteInfo.size: Size
-arcade.spriteInfo.direction: Direction
+arcade2.spriteInfo.sprite: Sprite
+arcade2.spriteInfo.name: name
+arcade2.spriteInfo.x: X
+arcade2.spriteInfo.y: Y
+arcade2.spriteInfo.display: Show
+arcade2.spriteInfo.show: Show sprite
+arcade2.spriteInfo.hide: Hide sprite
+arcade2.spriteInfo.size: Size
+arcade2.spriteInfo.direction: Direction
 
-arcade.directionPicker.allAround: All Around
-arcade.directionPicker.leftRight: Left/Right
-arcade.directionPicker.dontRotate: Do not rotate
+arcade2.directionPicker.allAround: All Around
+arcade2.directionPicker.leftRight: Left/Right
+arcade2.directionPicker.dontRotate: Do not rotate
 
-arcade.libraries.empty: No more!
-arcade.libraries.sprite: Choose a Sprite
-arcade.libraries.costume: Choose a Costume
-arcade.libraries.backdrop: Choose a Backdrop
-arcade.libraries.sound: Choose a Sound
+arcade2.libraries.empty: No more!
+arcade2.libraries.sprite: Choose a Sprite
+arcade2.libraries.costume: Choose a Costume
+arcade2.libraries.backdrop: Choose a Backdrop
+arcade2.libraries.sound: Choose a Sound
 
-arcade.libraries.tags.fantasy: Fantasy
-arcade.libraries.tags.music: Music
-arcade.libraries.tags.sports: Sports
-arcade.libraries.tags.outdoors: Outdoors
-arcade.libraries.tags.indoors: Indoors
-arcade.libraries.tags.space: Space
-arcade.libraries.tags.underwater: Underwater
-arcade.libraries.tags.patterns: Patterns
-arcade.libraries.tags.animals: Animals
-arcade.libraries.tags.people: People
-arcade.libraries.tags.dance: Dance
-arcade.libraries.tags.food: Food
-arcade.libraries.tags.fashion: Fashion
-arcade.libraries.tags.letters: Letters
-arcade.libraries.tags.effects: Effects
-arcade.libraries.tags.loops: Loops
-arcade.libraries.tags.notes: Notes
-arcade.libraries.tags.percussion: Percussion
-arcade.libraries.tags.voice: Voice
-arcade.libraries.tags.wacky: Wacky
+arcade2.libraries.tags.fantasy: Fantasy
+arcade2.libraries.tags.music: Music
+arcade2.libraries.tags.sports: Sports
+arcade2.libraries.tags.outdoors: Outdoors
+arcade2.libraries.tags.indoors: Indoors
+arcade2.libraries.tags.space: Space
+arcade2.libraries.tags.underwater: Underwater
+arcade2.libraries.tags.patterns: Patterns
+arcade2.libraries.tags.animals: Animals
+arcade2.libraries.tags.people: People
+arcade2.libraries.tags.dance: Dance
+arcade2.libraries.tags.food: Food
+arcade2.libraries.tags.fashion: Fashion
+arcade2.libraries.tags.letters: Letters
+arcade2.libraries.tags.effects: Effects
+arcade2.libraries.tags.loops: Loops
+arcade2.libraries.tags.notes: Notes
+arcade2.libraries.tags.percussion: Percussion
+arcade2.libraries.tags.voice: Voice
+arcade2.libraries.tags.wacky: Wacky
 
-arcade.defaultProject.stageName: Stage
-arcade.defaultProject.spriteName: Sprite
-arcade.defaultProject.backdropName: backdrop
-arcade.defaultProject.costumeName: costume
-arcade.defaultProject.soundName: sound
+arcade2.defaultProject.stageName: Stage
+arcade2.defaultProject.spriteName: Sprite
+arcade2.defaultProject.backdropName: backdrop
+arcade2.defaultProject.costumeName: costume
+arcade2.defaultProject.soundName: sound
 
-arcade.blocks.fencing: "%1 stage fencing"
-arcade.blocks.fencingEnable: enable
-arcade.blocks.fencingDisable: disable
-arcade.blocks.textBubble: "%1 %2"
-arcade.blocks.textBubbleAndWait: "%1 %2 for %3 seconds"
-arcade.blocks.say: say
-arcade.blocks.shout: shout
-arcade.blocks.think: think
-arcade.blocks.spark: spark
-arcade.blocks.isConnected: Wi-Fi is connected?
-arcade.blocks.whenConnected: when Wi-Fi connected
-arcade.blocks.connectTo: "connect Wi-Fi: %1 password: %2"
-arcade.blocks.disconnect: disconnect Wi-Fi
-arcade.blocks.fnButton: fn
-arcade.blocks.stopOther: other scripts in sprite
-arcade.blocks.joystick.x: joystick x axis
-arcade.blocks.joystick.y: joystick y axis
-arcade.blocks.sensingDistanceToCenter: center
-arcade.blocks.soundEffects.tempo: tempo
+arcade2.blocks.fencing: "%1 stage fencing"
+arcade2.blocks.fencingEnable: enable
+arcade2.blocks.fencingDisable: disable
+arcade2.blocks.textBubble: "%1 %2"
+arcade2.blocks.textBubbleAndWait: "%1 %2 for %3 seconds"
+arcade2.blocks.say: say
+arcade2.blocks.shout: shout
+arcade2.blocks.think: think
+arcade2.blocks.spark: spark
+arcade2.blocks.isConnected: Wi-Fi is connected?
+arcade2.blocks.whenConnected: when Wi-Fi connected
+arcade2.blocks.connectTo: "connect Wi-Fi: %1 password: %2"
+arcade2.blocks.disconnect: disconnect Wi-Fi
+arcade2.blocks.fnButton: fn
+arcade2.blocks.stopOther: other scripts in sprite
+arcade2.blocks.joystick.x: joystick x axis
+arcade2.blocks.joystick.y: joystick y axis
+arcade2.blocks.sensingDistanceToCenter: center
+arcade2.blocks.soundEffects.tempo: tempo
 
-arcade.tutorials.gettingStarted: Getting Started
+arcade2.tutorials.gettingStarted: Getting Started

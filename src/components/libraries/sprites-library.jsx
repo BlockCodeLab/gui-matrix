@@ -59,13 +59,13 @@ export function SpritesLibrary({ onSelect, onClose }) {
       }
       title={
         <Text
-          id="arcade.libraries.sprite"
+          id="arcade2.libraries.sprite"
           defaultMessage="Choose a Sprite"
         />
       }
       emptyMessage={
         <Text
-          id="arcade.libraries.empty"
+          id="arcade2.libraries.empty"
           defaultMessage="No more!"
         />
       }

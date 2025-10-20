@@ -32,13 +32,13 @@ export function BackdropsLibrary({ onSelect, onClose }) {
       }
       title={
         <Text
-          id="arcade.libraries.backdrop"
+          id="arcade2.libraries.backdrop"
           defaultMessage="Choose a Backdrop"
         />
       }
       emptyMessage={
         <Text
-          id="arcade.libraries.empty"
+          id="arcade2.libraries.empty"
           defaultMessage="No more!"
         />
       }

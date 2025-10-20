@@ -4,7 +4,7 @@ export const defaultSound = {
   type: 'audio/wav',
   name: (
     <Text
-      id="arcade.defaultProject.soundName"
+      id="arcade2.defaultProject.soundName"
       defaultMessage="sound"
     />
   ),

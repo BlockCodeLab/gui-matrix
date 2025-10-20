@@ -269,7 +269,7 @@ export function buildBlocks(assets, files, sprite) {
           {
             type: 'field_dropdown',
             name: 'DISTANCETOMENU',
-            options: [[translate('arcade.blocks.sensingDistanceToCenter', 'center'), '_center_'], ...otherSpritesMenu],
+            options: [[translate('arcade2.blocks.sensingDistanceToCenter', 'center'), '_center_'], ...otherSpritesMenu],
           },
         ],
         category: ScratchBlocks.Categories.sensing,

@@ -5,7 +5,7 @@ export default {
   type: 'text/x-python',
   name: (
     <Text
-      id="arcade.defaultProject.stageName"
+      id="arcade2.defaultProject.stageName"
       defaultMessage="Stage"
     />
   ),
