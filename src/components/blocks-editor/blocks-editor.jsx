@@ -25,7 +25,7 @@ const emulator = new ArcadeEmulatorGenerator();
 const generator = new ArcadePythonGenerator();
 
 // 过滤字符
-const escape = (name) => name.replaceAll(/[^a-z0-9]/gi, '_');
+const escape = (name) => name.replaceAll(/[^a-z0-9]/gi, '_').replace(/^_/, '');
 
 export function ArcadeBlocksEditor() {
   const { files, fileId, file, assets, modified } = useProjectContext();
@@ -153,6 +153,7 @@ export function ArcadeBlocksEditor() {
         enableMyBlockWarp
         enableMultiTargets
         enableStringBlocks
+        disableCustomExtension
         emulator={emulator}
         generator={generator}
         enableCloneBlocks={!isStage}
