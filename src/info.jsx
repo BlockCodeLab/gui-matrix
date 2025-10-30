@@ -6,7 +6,7 @@ addLocalesMessages({
   en: {
     'arcade.name': 'Scratch Arcade',
     'arcade.description': 'Game creating via Scratch blocks.',
-    'arcade.collaborator': 'SA Studio',
+    'arcade.collaborator': 'Scratch Arcade Team',
   },
   'zh-Hans': {
     'arcade.name': '编程学习掌机',
@@ -39,7 +39,7 @@ export default {
   collaborator: (
     <Text
       id="arcade.collaborator"
-      defaultMessage="SA Studio"
+      defaultMessage="Scratch Arcade Team"
     />
   ),
   blocksRequired: true,
