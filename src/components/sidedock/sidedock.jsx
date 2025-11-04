@@ -1,5 +1,4 @@
-import { useCallback, useEffect } from 'preact/hooks';
-import { useSignal } from '@preact/signals';
+import { useEffect } from 'preact/hooks';
 import { classNames } from '@blockcode/utils';
 import { useAppContext, setAppState } from '@blockcode/core';
 import { StageConfig } from '../emulator/emulator-config';
