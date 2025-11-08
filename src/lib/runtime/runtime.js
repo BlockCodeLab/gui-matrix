@@ -15,9 +15,10 @@ export class ArcadeRuntime extends Runtime {
         [Runtime.MonitorMode.Label]: 12,
       },
       padding: {
-        [Runtime.MonitorMode.Monitor]: 4,
-        [Runtime.MonitorMode.Label]: 6,
+        [Runtime.MonitorMode.Monitor]: 2,
+        [Runtime.MonitorMode.Label]: 4,
       },
+      margin: 3,
     };
   }
 
