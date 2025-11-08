@@ -1,3 +1,4 @@
+import { basename, extname } from 'node:path';
 import { useEffect, useCallback, useMemo } from 'preact/hooks';
 import { useProjectContext } from '@blockcode/core';
 import { ScratchBlocks } from '@blockcode/blocks';
@@ -139,7 +140,8 @@ export function ArcadeBlocksEditor() {
       for (const id in resources) {
         for (const extModule of resources[id]) {
           if (!extModule.common) {
-            define(`import_${id}_${extModule.name}`, `from ${escape(id)} import ${extModule.name}`);
+            const libId = basename(extModule.name, extname(extModule.name));
+            define(`import_${id}_${libId}`, `from ${escape(id)} import ${libId}`);
           }
         }
       }
