@@ -28,6 +28,7 @@ export default () => ({
         const code = `await runtime.emitEvent('procedure:${funcName}', ${argsCode})\n`;
         if (!block.warp_) {
         }
+        this.renderLoopTrap();
         return code;
       },
     },
