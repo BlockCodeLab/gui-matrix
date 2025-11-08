@@ -8,6 +8,7 @@ import getSoundBlocks from './sounds';
 import getEventBlocks from './events';
 import getControlBlocks from './control';
 import getSensingBlocks from './sensing';
+import getOperatorBlocks from './operator';
 import getDataBlocks from './data';
 import getMyBlocks from './procedures';
 
@@ -59,6 +60,7 @@ export function buildBlocks(assets, files, sprite) {
 
   const controlBlocks = getControlBlocks();
   const dataBlocks = getDataBlocks();
+  const operatorBlocks = getOperatorBlocks();
   const myBlocks = getMyBlocks();
 
   const eventBlocks = getEventBlocks();
@@ -321,6 +323,7 @@ export function buildBlocks(assets, files, sprite) {
     blocksFilter(eventBlocks),
     blocksFilter(controlBlocks),
     blocksFilter(sensingBlocks),
+    operatorBlocks,
     dataBlocks,
     myBlocks,
   ];
