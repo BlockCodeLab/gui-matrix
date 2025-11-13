@@ -9,7 +9,7 @@ import { BlocksEditor } from '@blockcode/blocks';
 import styles from './blocks-editor.module.css';
 
 // 扩展过滤
-const handleExtensionsFilter = () => [['scratch', '!firmata'], 'arcade', 'data'];
+const handleExtensionsFilter = () => [['scratch', '!firmata'], 'arcade', 'data', 'ai'];
 
 // 动态更新XY坐标积木
 const XYBlocks = ['glide', 'move', 'set'];
