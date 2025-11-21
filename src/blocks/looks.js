@@ -167,7 +167,7 @@ export default () => ({
       },
       emu(block) {
         const backdropCode = this.valueToCode(block, 'BACKDROP', this.ORDER_NONE) || '1';
-        const code = `targetUtils.switchFrameTo(stage, ${backdropCode}, true);\n`;
+        const code = `targetUtils.switchFrameTo(userscript, ${backdropCode}, true);\n`;
         this.renderLoopTrap();
         return code;
       },
@@ -184,7 +184,7 @@ export default () => ({
       },
       emu(block) {
         const backdropCode = this.valueToCode(block, 'BACKDROP', this.ORDER_NONE) || '1';
-        const code = `await targetUtils.switchFrameTo(stage, ${backdropCode}, true);\n`;
+        const code = `await targetUtils.switchFrameTo(userscript, ${backdropCode}, true);\n`;
         return code;
       },
     },
@@ -193,7 +193,7 @@ export default () => ({
       id: 'nextbackdrop',
       text: ScratchBlocks.Msg.LOOKS_NEXTBACKDROP_BLOCK,
       emu(block) {
-        const code = 'targetUtils.nextFrame(stage, true);\n';
+        const code = 'targetUtils.nextFrame(userscript, true);\n';
         this.renderLoopTrap();
         return code;
       },
@@ -409,7 +409,7 @@ export default () => ({
       },
       emu(block) {
         const numberOrNameValue = this.quote_(block.getFieldValue('NUMBER_NAME'));
-        const code = `targetUtils.getFrameSerialOrName(stage, ${numberOrNameValue})`;
+        const code = `targetUtils.getFrameSerialOrName(userscript, ${numberOrNameValue}, true)`;
         return [code, this.ORDER_FUNCTION_CALL];
       },
     },
