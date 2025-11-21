@@ -158,10 +158,10 @@ export function DeviceMenu({ itemClassName }) {
       await MPYUtils.disconnect(currentDevice, true);
     } catch (err) {
       errorAlert(err.name);
-    } finally {
-      removeDownloading();
-      checker.cancel();
     }
+
+    removeDownloading();
+    checker.cancel();
   }, []);
 
   return (

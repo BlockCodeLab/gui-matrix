@@ -805,10 +805,10 @@ export class TargetUtils extends EventEmitter {
   }
 
   // 切换造型/背景
-  async switchFrameTo(userscript, idOrSerialOrName, broadcast = false) {
+  async switchFrameTo(userscript, idOrSerialOrName, isStage = false) {
     if (userscript.aborted) return;
 
-    const target = userscript.target;
+    const target = isStage ? userscript.stage : userscript.target;
     if (target.getAttr('rendering')) return;
     target.setAttr('rendering', true);
 
@@ -846,18 +846,19 @@ export class TargetUtils extends EventEmitter {
     this.runtime.update(target);
     this.emit('update', target);
 
-    if (broadcast) {
+    if (isStage) {
       await this.runtime.call(`backdropswitchesto:${asset.id}`);
     }
   }
 
   // 下一个造型/背景
-  nextFrame(userscript, broadcast = false) {
+  nextFrame(userscript, isStage = false) {
     if (userscript.aborted) return;
-    const frames = userscript.target.getAttr('frames');
-    const frameIndex = userscript.target.getAttr('frameIndex');
+    const target = isStage ? userscript.stage : userscript.target;
+    const frames = target.getAttr('frames');
+    const frameIndex = target.getAttr('frameIndex');
     const serial = MathUtils.indexToSerial(frameIndex, frames.length);
-    return this.switchFrameTo(userscript, serial + 1, broadcast);
+    return this.switchFrameTo(userscript, serial + 1, isStage);
   }
 
   // 增加大小
@@ -917,11 +918,12 @@ export class TargetUtils extends EventEmitter {
     this.forward(userscript, -zindexValue);
   }
 
-  getFrameSerialOrName(userscript, serialOrName) {
+  getFrameSerialOrName(userscript, serialOrName, isStage = false) {
     if (userscript.aborted) return;
 
-    const frames = userscript.target.getAttr('frames');
-    const frameIndex = userscript.target.getAttr('frameIndex');
+    const target = isStage ? userscript.stage : userscript.target;
+    const frames = target.getAttr('frames');
+    const frameIndex = target.getAttr('frameIndex');
 
     if (serialOrName !== 'name') {
       return MathUtils.indexToSerial(frameIndex, frames.length);
