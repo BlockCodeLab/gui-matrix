@@ -1,3 +1,4 @@
+import { basename, extname } from 'node:path';
 import { useEffect, useCallback, useMemo } from 'preact/hooks';
 import { useProjectContext } from '@blockcode/core';
 import { ScratchBlocks } from '@blockcode/blocks';
@@ -8,7 +9,7 @@ import { BlocksEditor } from '@blockcode/blocks';
 import styles from './blocks-editor.module.css';
 
 // 扩展过滤
-const handleExtensionsFilter = () => [['scratch', '!firmata'], 'arcade', 'data'];
+const handleExtensionsFilter = () => [['scratch', '!firmata'], 'arcade', 'data', 'ai'];
 
 // 动态更新XY坐标积木
 const XYBlocks = ['glide', 'move', 'set'];
@@ -139,7 +140,8 @@ export function ArcadeBlocksEditor() {
       for (const id in resources) {
         for (const extModule of resources[id]) {
           if (!extModule.common) {
-            define(`import_${id}_${extModule.name}`, `from ${escape(id)} import ${extModule.name}`);
+            const libId = basename(extModule.name, extname(extModule.name));
+            define(`import_${id}_${libId}`, `from ${escape(id)} import ${libId}`);
           }
         }
       }

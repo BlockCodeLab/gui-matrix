@@ -38,8 +38,8 @@ export function generateMain(name, stage, sprites, monitors = []) {
                   JSON.stringify(m.groupId),
                   JSON.stringify(m.id),
                   `0x${ColorUtils.rgbToRgb565(ColorUtils.hexToRgb(m.color)).toString(16).toUpperCase()}`,
-                  m.mode === Runtime.MonitorMode.Monitor
-                    ? JSON.stringify(`${m.name ? `${m.name}: ${m.label}` : m.label}:`)
+                  m.mode === Runtime.MonitorMode.Label
+                    ? JSON.stringify(`${m.name ? `${m.name}-${m.label}` : m.label}:`)
                     : 'False',
                   m.visible ? 'True' : 'False',
                   m.x ?? 'False',

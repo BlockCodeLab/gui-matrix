@@ -18,7 +18,7 @@ export default () => ({
           shadowType: 'sound_sounds_menu',
         },
       },
-      forSprite: false,
+      // forSprite: false,
       emu(block) {
         const soundCode = this.valueToCode(block, 'SOUND_MENU', this.ORDER_NONE) || '""';
         const code = `runtime.playWave(${soundCode});\n`;
@@ -40,7 +40,7 @@ export default () => ({
           shadowType: 'sound_sounds_menu',
         },
       },
-      forSprite: false,
+      // forSprite: false,
       emu(block) {
         const soundCode = this.valueToCode(block, 'SOUND_MENU', this.ORDER_NONE) || '""';
         const code = `await runtime.playWave(${soundCode});\n`;

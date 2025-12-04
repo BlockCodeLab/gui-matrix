@@ -86,7 +86,7 @@ export function DeviceMenu({ itemClassName }) {
       )
       .map((file) => ({
         ...file,
-        id: file.id.startsWith('lib/')
+        filename: file.id.startsWith('lib/')
           ? file.id // 库文件不放入项目文件夹
           : `proj${key.value}/${file.id}`,
       }));
@@ -158,10 +158,10 @@ export function DeviceMenu({ itemClassName }) {
       await MPYUtils.disconnect(currentDevice, true);
     } catch (err) {
       errorAlert(err.name);
-    } finally {
-      removeDownloading();
-      checker.cancel();
     }
+
+    removeDownloading();
+    checker.cancel();
   }, []);
 
   return (

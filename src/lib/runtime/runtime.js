@@ -4,6 +4,24 @@ import { Runtime } from '@blockcode/blocks';
 import { TargetUtils } from './target-utils';
 
 export class ArcadeRuntime extends Runtime {
+  get MonitorStyles() {
+    return {
+      cornerRadius: {
+        [Runtime.MonitorMode.Monitor]: 4,
+        [Runtime.MonitorMode.Label]: 4,
+      },
+      fontSize: {
+        [Runtime.MonitorMode.Monitor]: 16,
+        [Runtime.MonitorMode.Label]: 12,
+      },
+      padding: {
+        [Runtime.MonitorMode.Monitor]: 2,
+        [Runtime.MonitorMode.Label]: 4,
+      },
+      margin: 3,
+    };
+  }
+
   constructor(stage, updateTarget, warpMode = false) {
     super(stage, warpMode);
 
