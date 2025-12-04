@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from 'preact/hooks';
 import { useSignal } from '@preact/signals';
-import { nanoid, classNames, sleep, arrayBufferToBinaryString, getBinaryCache, setBinaryCache } from '@blockcode/utils';
+import { nanoid, classNames, sleep, Base64Utils, getBinaryCache, setBinaryCache } from '@blockcode/utils';
 import { useLocalesContext, setAlert, delAlert, openPromptModal } from '@blockcode/core';
 import { ESPTool, MPYUtils } from '@blockcode/board';
 import { firmware } from '../../../package.json';
@@ -112,7 +112,7 @@ const getFirmwareCache = async (downloadUrl, firmwareHash, firmwareVersion, read
   await setBinaryCache('arcadeFirmware', {
     version: firmwareVersion,
     hash: firmwareHash,
-    binaryString: arrayBufferToBinaryString(buffer),
+    binaryString: Base64Utils.arrayBufferToBinaryString(buffer),
   });
   readyForUpdate.value = true;
 };
@@ -274,7 +274,7 @@ const uploadFirmware = (isRestore = false, releaseUrl = firmware.release) => {
           });
           upload([
             {
-              data: arrayBufferToBinaryString(e.target.result),
+              data: Base64Utils.arrayBufferToBinaryString(e.target.result),
               address: 0,
             },
           ]);
@@ -397,7 +397,8 @@ export function FirmwareSection({ itemClassName }) {
           readyForUpdate.value ? (
             <Text
               id="arcade.menu.device.update"
-              defaultMessage="Update firmware"
+              defaultMessage="Upgrade latest firmware (v{version})"
+              version={firmwareJson.value.version}
             />
           ) : (
             <Text

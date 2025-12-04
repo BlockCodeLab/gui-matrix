@@ -1,7 +1,7 @@
-import { UPNG, base64ToUint8Array, computeConvexHulls } from '@blockcode/utils';
+import { UPNG, Base64Utils, computeConvexHulls } from '@blockcode/utils';
 
 export function generateImage({ id, name, type, data, width, height, centerX, centerY }) {
-  const image = UPNG.decode(base64ToUint8Array(data).buffer);
+  const image = UPNG.decode(Base64Utils.base64ToUint8Array(data).buffer);
 
   const rgba = new Uint8Array(UPNG.toRGBA8(image)[0]);
 
