@@ -27,6 +27,9 @@ export class MatrixRuntime extends Runtime {
       x: 0,
       y: 0,
     };
+
+    this._waveVolume = 60;
+    this.on('start', () => this.setMonitorValueById('sound_volume', this.waveVolume));
   }
 
   get fps() {
@@ -150,6 +153,7 @@ export class MatrixRuntime extends Runtime {
       if (!data) return;
       const dataUrl = `data:${data.type};base64,${data.data}`;
       audio = new Audio(dataUrl);
+      audio.volume = this.waveVolume / 100;
       this._waves.set(soundId, audio);
     }
 
@@ -181,6 +185,18 @@ export class MatrixRuntime extends Runtime {
       audio.pause();
       audio.currentTime = 0;
     });
+  }
+
+  get waveVolume() {
+    return this._waveVolume;
+  }
+
+  set waveVolume(vol) {
+    this._waveVolume = MathUtils.clamp(MathUtils.toNumber(vol), 0, 100);
+    this._waves.forEach((audio) => {
+      audio.volume = this.waveVolume / 100;
+    });
+    this.setMonitorValueById('sound_volume', this.waveVolume);
   }
 
   setMonitorValue(label, value) {
