@@ -74,12 +74,16 @@ export default () => ({
     {
       id: 'delete_this_clone',
       emu(block) {
-        const code = `targetUtils.removeClone(userscript);\n`;
+        let code = '';
+        code += 'targetUtils.removeClone(userscript);\n';
+        code += 'return;\n';
         this.renderLoopTrap();
         return code;
       },
       mpy(block) {
-        const code = 'target.remove()\n';
+        let code = '';
+        code += 'target.remove()\n';
+        code += 'return\n';
         return code;
       },
     },
