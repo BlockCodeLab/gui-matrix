@@ -121,21 +121,16 @@ export default {
       ...soundTab,
       Content: SoundTabContent,
     },
-  ].concat(
-    DEBUG
-      ? [
-          {
-            ...codeReviewTab,
-            Content: () => (
-              <CodeReview
-                readOnly
-                keyName="script"
-              />
-            ),
-          },
-        ]
-      : [],
-  ),
+    DEBUG && {
+      ...codeReviewTab,
+      Content: () => (
+        <CodeReview
+          readOnly
+          keyName="script"
+        />
+      ),
+    },
+  ].filter(Boolean),
 
   docks: [
     {
