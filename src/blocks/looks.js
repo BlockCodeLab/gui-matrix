@@ -218,7 +218,9 @@ export default () => ({
       },
       emu(block) {
         const backdropCode = this.valueToCode(block, 'BACKDROP', this.ORDER_NONE) || '1';
-        const code = `targetUtils.switchFrameTo(userscript, ${backdropCode}, true);\n`;
+        let code = '';
+        code += `targetUtils.switchFrameTo(userscript, ${backdropCode});\n`;
+        code += `runtime.call('backdropswitchesto:'+${backdropCode});\n`;
         this.renderLoopTrap();
         return code;
       },
@@ -243,7 +245,9 @@ export default () => ({
       },
       emu(block) {
         const backdropCode = this.valueToCode(block, 'BACKDROP', this.ORDER_NONE) || '1';
-        const code = `await targetUtils.switchFrameTo(userscript, ${backdropCode}, true);\n`;
+        let code = '';
+        code += `targetUtils.switchFrameTo(userscript, ${backdropCode});\n`;
+        code += `await runtime.call('backdropswitchesto:'+${backdropCode});\n`;
         return code;
       },
       mpy(block) {
@@ -552,7 +556,7 @@ export default () => ({
       },
       emu(block) {
         const numberOrNameValue = this.quote_(block.getFieldValue('NUMBER_NAME'));
-        const code = `targetUtils.getFrameSerialOrName(userscript, ${numberOrNameValue}, true)`;
+        const code = `targetUtils.getFrameSerialOrName(userscript, ${numberOrNameValue})`;
         return [code, this.ORDER_FUNCTION_CALL];
       },
       mpy(block) {

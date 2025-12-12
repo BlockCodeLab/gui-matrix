@@ -135,25 +135,14 @@ export default {
       ...soundTab,
       Content: SoundTabContent,
     },
-  ].concat(
-    DEBUG
-      ? [
-          {
-            ...codeReviewTab,
-            Content: () => <CodeReview readOnly />,
-          },
-          {
-            ...codeReviewTab,
-            Content: () => (
-              <CodeReview
-                readOnly
-                keyName="script"
-              />
-            ),
-          },
-        ]
-      : [],
-  ),
+    DEBUG && {
+      ...codeReviewTab,
+    },
+    DEBUG && {
+      ...codeReviewTab,
+      Content: () => <CodeReview keyName="script" />,
+    },
+  ].filter(Boolean),
 
   docks: [
     {

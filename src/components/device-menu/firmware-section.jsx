@@ -200,12 +200,6 @@ const uploadFirmware = (isRestore = false, releaseUrl = firmware.release) => {
       }
       if (!esploader) return;
 
-      const checker = ESPTool.check(esploader).catch(() => {
-        errorAlert();
-        closeAlert();
-        ESPTool.disconnect(esploader);
-      });
-
       const upload = async (data) => {
         // uploadingAlert('0.0', isRestore);
         try {
@@ -230,8 +224,6 @@ const uploadFirmware = (isRestore = false, releaseUrl = firmware.release) => {
         } catch (err) {
           errorAlert(err.name);
           closeAlert();
-        } finally {
-          checker.cancel();
         }
         await ESPTool.disconnect(esploader);
       };
@@ -310,12 +302,6 @@ const handleEraseFlash = () => {
       }
       if (!currentDevice) return;
 
-      const checker = MPYUtils.check(currentDevice).catch(() => {
-        errorAlert();
-        closeAlert();
-        MPYUtils.disconnect(currentDevice);
-      });
-
       try {
         alertId = nanoid();
         setAlert({
@@ -344,8 +330,6 @@ const handleEraseFlash = () => {
       } catch (err) {
         errorAlert(err.name);
         closeAlert();
-      } finally {
-        checker.cancel();
       }
     },
   });
