@@ -42,8 +42,8 @@ export function generateMain(name, stage, sprites, monitors = []) {
                     ? JSON.stringify(`${m.name ? `${m.name}-${m.label}` : m.label}:`)
                     : 'False',
                   m.visible ? 'True' : 'False',
-                  m.x ?? 'False',
-                  m.y ?? 'False',
+                  m.x ? Math.round(m.x) : 'False',
+                  m.y ? Math.round(m.y) : 'False',
                 ]}]`,
             )}]`,
           'def start():',

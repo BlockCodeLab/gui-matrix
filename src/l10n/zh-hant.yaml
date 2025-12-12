@@ -25,9 +25,9 @@ arcade2.menu.device.wifiOk: Wi-Fi 配置已儲存。
 arcade2.menu.device.wifiInfo: 僅支持 <b>2.4G Wi-Fi</b> 網絡。
 arcade2.menu.device.wifiCancel: 取消 Wi-Fi 配置。
 arcade2.menu.device.manual: 查看使用手冊
-arcade2.menu.device.update: 升級最新固件
+arcade2.menu.device.update: 升級 v{version} 固件…
 arcade2.menu.device.caching: 正在緩存最新固件…
-arcade2.menu.device.restore: 還原固件
+arcade2.menu.device.restore: 還原固件…
 arcade2.menu.device.firmwareUpdateLabal: 請按下列步驟準備好您的學習機。
 arcade2.menu.device.firmwareRestoreLabal: 固件還原後學習機內所有作品將被清除，請按下列步驟準備好您的學習機。
 arcade2.menu.device.firmwareTip1-1: 下載

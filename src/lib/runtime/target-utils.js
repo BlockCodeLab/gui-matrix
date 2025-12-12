@@ -805,13 +805,24 @@ export class TargetUtils extends EventEmitter {
   }
 
   // 切换造型/背景
-  async switchFrameTo(userscript, idOrSerialOrName, isStage = false) {
+  async _updateFrame(target, asset) {
+    target.clearCache();
+    target.setAttrs({
+      image: await loadImageFromAsset(asset),
+      offsetX: asset.centerX,
+      offsetY: asset.centerY,
+      rendering: false,
+    });
+    // target.cache();
+    this._updateDialog(target);
+    this.runtime.update(target);
+    this.emit('update', target);
+  }
+
+  switchFrameTo(userscript, idOrSerialOrName) {
     if (userscript.aborted) return;
 
-    const target = isStage ? userscript.stage : userscript.target;
-    if (target.getAttr('rendering')) return;
-    target.setAttr('rendering', true);
-
+    const target = userscript.target;
     const frames = target.getAttr('frames');
     let frameIdOrName = idOrSerialOrName;
 
@@ -830,35 +841,23 @@ export class TargetUtils extends EventEmitter {
       return;
     }
 
+    // 更新帧
     const frameIndex = frames.indexOf(asset.id);
-    const image = await loadImageFromAsset(asset);
-
-    target.clearCache();
     target.setAttrs({
-      image,
-      frameIndex,
-      offsetX: asset.centerX,
-      offsetY: asset.centerY,
-      rendering: false,
+      frameIndex: frameIndex,
+      rendering: true,
     });
-    // target.cache();
-    this._updateDialog(target);
-    this.runtime.update(target);
-    this.emit('update', target);
-
-    if (isStage) {
-      await this.runtime.call(`backdropswitchesto:${asset.id}`);
-    }
+    this._updateFrame(target, asset);
   }
 
   // 下一个造型/背景
-  nextFrame(userscript, isStage = false) {
+  nextFrame(userscript) {
     if (userscript.aborted) return;
-    const target = isStage ? userscript.stage : userscript.target;
+    const target = userscript.target;
     const frames = target.getAttr('frames');
     const frameIndex = target.getAttr('frameIndex');
     const serial = MathUtils.indexToSerial(frameIndex, frames.length);
-    return this.switchFrameTo(userscript, serial + 1, isStage);
+    return this.switchFrameTo(userscript, serial + 1);
   }
 
   // 增加大小
@@ -918,10 +917,10 @@ export class TargetUtils extends EventEmitter {
     this.forward(userscript, -zindexValue);
   }
 
-  getFrameSerialOrName(userscript, serialOrName, isStage = false) {
+  getFrameSerialOrName(userscript, serialOrName) {
     if (userscript.aborted) return;
 
-    const target = isStage ? userscript.stage : userscript.target;
+    const target = userscript.target;
     const frames = target.getAttr('frames');
     const frameIndex = target.getAttr('frameIndex');
 

@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from 'preact/hooks';
 import { useSignal } from '@preact/signals';
-import { nanoid, classNames, sleep, arrayBufferToBinaryString, getBinaryCache, setBinaryCache } from '@blockcode/utils';
+import { nanoid, classNames, sleep, Base64Utils, getBinaryCache, setBinaryCache } from '@blockcode/utils';
 import { useLocalesContext, setAlert, delAlert, openPromptModal } from '@blockcode/core';
 import { ESPTool, MPYUtils } from '@blockcode/board';
 import { firmware } from '../../../package.json';
@@ -112,7 +112,7 @@ const getFirmwareCache = async (downloadUrl, firmwareHash, firmwareVersion, read
   await setBinaryCache('arcadeFirmware', {
     version: firmwareVersion,
     hash: firmwareHash,
-    binaryString: arrayBufferToBinaryString(buffer),
+    binaryString: Base64Utils.arrayBufferToBinaryString(buffer),
   });
   readyForUpdate.value = true;
 };
@@ -200,12 +200,6 @@ const uploadFirmware = (isRestore = false, releaseUrl = firmware.release) => {
       }
       if (!esploader) return;
 
-      const checker = ESPTool.check(esploader).catch(() => {
-        errorAlert();
-        closeAlert();
-        ESPTool.disconnect(esploader);
-      });
-
       const upload = async (data) => {
         // uploadingAlert('0.0', isRestore);
         try {
@@ -230,8 +224,6 @@ const uploadFirmware = (isRestore = false, releaseUrl = firmware.release) => {
         } catch (err) {
           errorAlert(err.name);
           closeAlert();
-        } finally {
-          checker.cancel();
         }
         await ESPTool.disconnect(esploader);
       };
@@ -274,7 +266,7 @@ const uploadFirmware = (isRestore = false, releaseUrl = firmware.release) => {
           });
           upload([
             {
-              data: arrayBufferToBinaryString(e.target.result),
+              data: Base64Utils.arrayBufferToBinaryString(e.target.result),
               address: 0,
             },
           ]);
@@ -310,12 +302,6 @@ const handleEraseFlash = () => {
       }
       if (!currentDevice) return;
 
-      const checker = MPYUtils.check(currentDevice).catch(() => {
-        errorAlert();
-        closeAlert();
-        MPYUtils.disconnect(currentDevice);
-      });
-
       try {
         alertId = nanoid();
         setAlert({
@@ -344,8 +330,6 @@ const handleEraseFlash = () => {
       } catch (err) {
         errorAlert(err.name);
         closeAlert();
-      } finally {
-        checker.cancel();
       }
     },
   });
@@ -397,7 +381,8 @@ export function FirmwareSection({ itemClassName }) {
           readyForUpdate.value ? (
             <Text
               id="arcade2.menu.device.update"
-              defaultMessage="Update firmware"
+              defaultMessage="Upgrade v{version} firmware..."
+              version={firmwareJson.value.version}
             />
           ) : (
             <Text
@@ -414,7 +399,7 @@ export function FirmwareSection({ itemClassName }) {
         label={
           <Text
             id="arcade2.menu.device.restore"
-            defaultMessage="Restore firmware"
+            defaultMessage="Restore firmware..."
           />
         }
         onClick={() => uploadFirmware(true, releaseUrl)}

@@ -88,8 +88,6 @@ export function ConfigSection({ itemClassName }) {
           }
           if (!currentDevice) return;
 
-          const checker = MPYUtils.check(currentDevice).catch(errorAlert);
-
           setEditorConfig(meta.value.editor, STORAGE_WIFI_SSID, wifi.ssid);
           setEditorConfig(meta.value.editor, STORAGE_WIFI_PASSWORD, wifi.password);
 
@@ -113,8 +111,6 @@ export function ConfigSection({ itemClassName }) {
             );
           } catch (err) {
             errorAlert(err.name);
-          } finally {
-            checker.cancel();
           }
         }
       },

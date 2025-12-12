@@ -72,12 +72,6 @@ export function DeviceMenu({ itemClassName }) {
     }
     if (!currentDevice) return;
 
-    const checker = MPYUtils.check(currentDevice).catch(() => {
-      errorAlert();
-      removeDownloading();
-      MPYUtils.disconnect(currentDevice);
-    });
-
     const projectName = name.value || translate('gui.project.shortname', 'Untitled');
     const projectFiles = []
       .concat(
@@ -161,7 +155,6 @@ export function DeviceMenu({ itemClassName }) {
     }
 
     removeDownloading();
-    checker.cancel();
   }, []);
 
   return (

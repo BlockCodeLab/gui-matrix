@@ -25,9 +25,9 @@ arcade2.menu.device.wifiOk: The Wi-Fi configuration is saved.
 arcade2.menu.device.wifiCancel: Deconfigure Wi-Fi.
 arcade2.menu.device.wifiInfo: Only supports <b>2.4G Wi-Fi</b> network.
 arcade2.menu.device.manual: Arcade manual
-arcade2.menu.device.update: Upgrade to the latest firmware
+arcade2.menu.device.update: Upgrade v{version} firmware...
 arcade2.menu.device.caching: Caching latest firmware...
-arcade2.menu.device.restore: Restore firmware
+arcade2.menu.device.restore: Restore firmware...
 arcade2.menu.device.firmwareUpdateLabal: Follow the steps below to prepare your Arcade.
 arcade2.menu.device.firmwareRestoreLabal: After restoration, all projects in the Arcade will be erased. Follow the steps below to prepare your Arcade.
 arcade2.menu.device.firmwareTip1-1: Download

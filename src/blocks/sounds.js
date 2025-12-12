@@ -10,28 +10,6 @@ export default () => ({
   order: 2,
   blocks: [
     {
-      // 播放声音
-      id: 'play',
-      text: ScratchBlocks.Msg.SOUND_PLAY,
-      inputs: {
-        SOUND_MENU: {
-          shadowType: 'sound_sounds_menu',
-        },
-      },
-      // forSprite: false,
-      emu(block) {
-        const soundCode = this.valueToCode(block, 'SOUND_MENU', this.ORDER_NONE) || '""';
-        const code = `runtime.playWave(${soundCode});\n`;
-        this.renderLoopTrap();
-        return code;
-      },
-      mpy(block) {
-        const soundCode = this.valueToCode(block, 'SOUND_MENU', this.ORDER_NONE) || '';
-        const code = `await runtime.play_sound(__file__, ${soundCode})\n`;
-        return code;
-      },
-    },
-    {
       // 播放声音直到停止
       id: 'playuntildone',
       text: ScratchBlocks.Msg.SOUND_PLAYUNTILDONE,
@@ -52,6 +30,28 @@ export default () => ({
         let code = '';
         code += `await runtime.play_sound(__file__, ${soundCode})\n`;
         code += 'await runtime.wait_sound_stop()\n';
+        return code;
+      },
+    },
+    {
+      // 播放声音
+      id: 'play',
+      text: ScratchBlocks.Msg.SOUND_PLAY,
+      inputs: {
+        SOUND_MENU: {
+          shadowType: 'sound_sounds_menu',
+        },
+      },
+      // forSprite: false,
+      emu(block) {
+        const soundCode = this.valueToCode(block, 'SOUND_MENU', this.ORDER_NONE) || '""';
+        const code = `runtime.playWave(${soundCode});\n`;
+        this.renderLoopTrap();
+        return code;
+      },
+      mpy(block) {
+        const soundCode = this.valueToCode(block, 'SOUND_MENU', this.ORDER_NONE) || '';
+        const code = `await runtime.play_sound(__file__, ${soundCode})\n`;
         return code;
       },
     },
@@ -78,6 +78,70 @@ export default () => ({
       mpy(block) {
         const code = this.quote_(block.getFieldValue('SOUND_MENU') || '');
         return [code, this.ORDER_ATOMIC];
+      },
+    },
+    '---',
+    {
+      // 增加声音
+      id: 'changevolumeby',
+      text: ScratchBlocks.Msg.SOUND_CHANGEVOLUMEBY,
+      inputs: {
+        VOLUME: {
+          type: 'integer',
+          defaultValue: 10,
+        },
+      },
+      emu(block) {
+        const volume = this.valueToCode(block, 'VOLUME', this.ORDER_NONE);
+        const code = `runtime.waveVolume += ${volume};\n`;
+        return code;
+      },
+      mpy(block) {
+        const volume = this.valueToCode(block, 'VOLUME', this.ORDER_NONE);
+        this.definitions_['import_system_config'] = 'import arcade.config as system_config';
+        let code = '';
+        code += `runtime.sound.set_volume(system_config.get_volume() + int(${volume}))\n`;
+        code += `system_config.set_volume(system_config.get_volume() + int(${volume}))\n`;
+        return code;
+      },
+    },
+    {
+      // 设置声音
+      id: 'setvolumeto',
+      text: ScratchBlocks.Msg.SOUND_SETVOLUMETO,
+      inputs: {
+        VOLUME: {
+          type: 'positive_integer',
+          defaultValue: 100,
+        },
+      },
+      emu(block) {
+        const volume = this.valueToCode(block, 'VOLUME', this.ORDER_NONE);
+        const code = `runtime.waveVolume = ${volume};\n`;
+        return code;
+      },
+      mpy(block) {
+        const volume = this.valueToCode(block, 'VOLUME', this.ORDER_NONE);
+        this.definitions_['import_system_config'] = 'import arcade.config as system_config';
+        let code = '';
+        code += `runtime.sound.set_volume(int(${volume}))\n`;
+        code += `system_config.set_volume(int(${volume}))\n`;
+        return code;
+      },
+    },
+    {
+      id: 'volume',
+      text: ScratchBlocks.Msg.SOUND_VOLUME,
+      output: 'number',
+      monitoring: true,
+      emu(block) {
+        const code = `runtime.waveVolume`;
+        return [code, this.ORDER_ATOMIC];
+      },
+      mpy(block) {
+        this.definitions_['import_system_config'] = 'import arcade.config as system_config';
+        const code = 'system_config.get_volume()';
+        return [code, this.ORDER_FUNCTION_CALL];
       },
     },
   ],
