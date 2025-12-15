@@ -25,10 +25,8 @@ export default {
     return createDefaultProject();
   },
 
-  onSave(files, assets) {
-    const extensions = [];
+  onSave(files, assets, meta) {
     files = files.map((file, index) => {
-      extensions.push(file.extensions);
       // 舞台
       if (index === 0) {
         return {
@@ -57,16 +55,16 @@ export default {
         zIndex: file.zIndex,
       };
     });
-    const meta = {
-      extensions: Array.from(new Set(extensions.flat())),
-    };
     // 不储存扩展文件，每次都会用新的扩展
     assets = assets.filter((asset) => !asset.id.startsWith('ext/'));
     return {
-      meta,
       files,
       assets,
       fileId: files[1].id,
+      meta: {
+        joystick: meta.joystick,
+        turboMode: meta.turboMode,
+      },
     };
   },
 
@@ -108,6 +106,11 @@ export default {
     {
       id: 'edit',
       Menu: SettingsSection,
+      disabledCoding: true,
+    },
+    {
+      id: 'view',
+      disabled: true,
     },
     {
       icon: deviceIcon,

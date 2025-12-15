@@ -26,6 +26,23 @@ export function SettingsSection({ itemClassName }) {
   return (
     <MenuSection>
       <MenuItem
+        className={itemClassName}
+        onClick={handleToggleJoystick}
+      >
+        {meta.value.joystick !== false ? (
+          <Text
+            id="arcade.menu.edit.joystickClose"
+            defaultMessage="Turn off Joystick"
+          />
+        ) : (
+          <Text
+            id="arcade.menu.edit.joystickOpen"
+            defaultMessage="Turn on Joystick"
+          />
+        )}
+      </MenuItem>
+
+      <MenuItem
         disabled
         className={itemClassName}
         onClick={handleToggleTurbo}
@@ -39,22 +56,6 @@ export function SettingsSection({ itemClassName }) {
           <Text
             id="arcade.menu.edit.turboModeClose"
             defaultMessage="Turn off Turbo Mode"
-          />
-        )}
-      </MenuItem>
-      <MenuItem
-        className={itemClassName}
-        onClick={handleToggleJoystick}
-      >
-        {meta.value.joystick !== false ? (
-          <Text
-            id="arcade.menu.edit.joystickClose"
-            defaultMessage="Turn off Joystick"
-          />
-        ) : (
-          <Text
-            id="arcade.menu.edit.joystickOpen"
-            defaultMessage="Turn on Joystick"
           />
         )}
       </MenuItem>
