@@ -5,7 +5,7 @@ import { ScratchBlocks, blocksTab, codeReviewTab } from '@blockcode/blocks';
 import { paintTab } from '@blockcode/paint';
 import { soundTab } from '@blockcode/sound';
 
-import { Text } from '@blockcode/core';
+import { Text, Tooltip } from '@blockcode/core';
 import { CodeReview } from '@blockcode/blocks';
 import { ArcadeBlocksEditor } from './components/blocks-editor/blocks-editor';
 import { ImportSection } from './components/file-menu/import-section';
@@ -19,16 +19,16 @@ import { SoundTabContent } from './components/tabs/sound-tab-content';
 import { createDefaultProject } from './lib/default-project';
 
 import deviceIcon from './components/device-menu/icon-device.svg';
+import qrcodeIcon from './icon-qrcode.svg';
+import qrcodeImage from './qrcode.jpg';
 
 export default {
   onNew() {
     return createDefaultProject();
   },
 
-  onSave(files, assets) {
-    const extensions = [];
+  onSave(files, assets, meta) {
     files = files.map((file, index) => {
-      extensions.push(file.extensions);
       // 舞台
       if (index === 0) {
         return {
@@ -57,16 +57,16 @@ export default {
         zIndex: file.zIndex,
       };
     });
-    const meta = {
-      extensions: Array.from(new Set(extensions.flat())),
-    };
     // 不储存扩展文件，每次都会用新的扩展
     assets = assets.filter((asset) => !asset.id.startsWith('ext/'));
     return {
-      meta,
       files,
       assets,
       fileId: files[1].id,
+      meta: {
+        joystick: meta.joystick,
+        turboMode: meta.turboMode,
+      },
     };
   },
 
@@ -108,6 +108,11 @@ export default {
     {
       id: 'edit',
       Menu: SettingsSection,
+      disabledCoding: true,
+    },
+    {
+      id: 'view',
+      disabled: true,
     },
     {
       icon: deviceIcon,
@@ -118,6 +123,29 @@ export default {
         />
       ),
       Menu: DeviceMenu,
+    },
+  ],
+
+  barItems: [
+    {
+      label: <img src={qrcodeIcon} />,
+      tooltip: (
+        <>
+          <center>
+            <img
+              width="200"
+              src={qrcodeImage}
+            />
+          </center>
+          <center>
+            <Text
+              id="arcade.menu.qrcode"
+              defaultMessage="Scan with WeChat to join the group"
+            />
+          </center>
+        </>
+      ),
+      tooltipPlacement: 'bottom-end',
     },
   ],
 

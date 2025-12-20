@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'preact/hooks';
+import { useEffect, useCallback, useMemo } from 'preact/hooks';
 import { useSignal } from '@preact/signals';
 import { nanoid, classNames, sleep, Base64Utils, getBinaryCache, setBinaryCache } from '@blockcode/utils';
 import { useLocalesContext, setAlert, delAlert, openPromptModal } from '@blockcode/core';
@@ -15,10 +15,7 @@ import firmwareImage3 from './images/firmware3.jpg';
 
 let alertId = null;
 
-const uploadingAlert = (progress, isRestore = false) => {
-  if (!alertId) {
-    alertId = nanoid();
-  }
+const uploadingAlert = (progress, isRestore) => {
   if (progress < 100) {
     setAlert({
       id: alertId,
@@ -44,7 +41,7 @@ const uploadingAlert = (progress, isRestore = false) => {
       message: (
         <Text
           id="arcade2.menu.device.firmwareRecovering"
-          defaultMessage="Recovering the Arcade..."
+          defaultMessage="Recovering the Arcade2..."
         />
       ),
     });
@@ -117,19 +114,94 @@ const getFirmwareCache = async (downloadUrl, firmwareHash, firmwareVersion, read
   readyForUpdate.value = true;
 };
 
-const uploadFirmware = (isRestore = false, releaseUrl = firmware.release) => {
+const uploadData = async (esploader, isRestore, data) => {
+  alertId = nanoid();
+  if (isRestore) {
+    setAlert('erasing', { id: alertId });
+  }
+  try {
+    await ESPTool.writeFlash(esploader, data, isRestore, (val) => uploadingAlert(val, isRestore));
+    setAlert({
+      id: alertId,
+      icon: null,
+      message: isRestore ? (
+        <Text
+          id="arcade2.menu.device.firmwareRestoreDone"
+          defaultMessage="Firmware resotre completed! Now press RESET key."
+        />
+      ) : (
+        <Text
+          id="arcade2.menu.device.firmwareUpdateDone"
+          defaultMessage="Firmware update completed! Now press RESET key."
+        />
+      ),
+      onClose: closeAlert,
+    });
+  } catch (err) {
+    errorAlert(err.name);
+    closeAlert();
+  }
+  await ESPTool.disconnect(esploader);
+};
+
+const submitUpdate = async (isRestore) => {
+  let esploader;
+  try {
+    esploader = await ESPTool.connect(deviceFilters);
+  } catch (err) {
+    errorAlert(err.name);
+  }
+  if (!esploader) return;
+
+  // 从缓存中升级到最新固件
+  if (!isRestore) {
+    const data = await getBinaryCache('arcadeFirmware');
+    if (data) {
+      uploadData(esploader, isRestore, [
+        {
+          data: data.binaryString,
+          address: 0,
+        },
+      ]);
+    }
+    return;
+  }
+
+  // 还原用户上传固件
+  const fileInput = document.createElement('input');
+  fileInput.type = 'file';
+  fileInput.accept = '.bin';
+  fileInput.multiple = false;
+  fileInput.click();
+  fileInput.addEventListener('cancel', () => ESPTool.disconnect(esploader));
+  fileInput.addEventListener('change', async (e) => {
+    const reader = new FileReader();
+    reader.readAsArrayBuffer(e.target.files[0]);
+    reader.addEventListener('load', (e) => {
+      uploadData(esploader, isRestore, [
+        {
+          data: Base64Utils.arrayBufferToBinaryString(e.target.result),
+          address: 0,
+        },
+      ]);
+    });
+  });
+};
+
+const uploadFirmware = (isRestore, version, releaseUrl = firmware.release) => {
   if (alertId) return;
 
   openPromptModal({
     title: isRestore ? (
       <Text
         id="arcade2.menu.device.restore"
-        defaultMessage="Restore firmware"
+        defaultMessage="Restore firmware..."
       />
     ) : (
       <Text
-        id="arcade2.menu.device.update"
-        defaultMessage="Upload firmware"
+        id="arcade2.menu.device.upgrade"
+        defaultMessage="Upgrade v{version} firmware..."
+        version={version}
       />
     ),
     body: (
@@ -143,12 +215,12 @@ const uploadFirmware = (isRestore = false, releaseUrl = firmware.release) => {
           {isRestore ? (
             <Text
               id="arcade2.menu.device.firmwareRestoreLabal"
-              defaultMessage="After restoration, all projects in the Arcade will be erased. Follow the steps below to prepare your Arcade."
+              defaultMessage="After restoration, all projects in the Arcade will be erased. Follow the steps below to prepare your Arcade2."
             />
           ) : (
             <Text
               id="arcade2.menu.device.firmwareUpdateLabal"
-              defaultMessage="Follow the steps below to prepare your Arcade."
+              defaultMessage="Follow the steps below to prepare your Arcade2."
             />
           )}
         </div>
@@ -191,88 +263,7 @@ const uploadFirmware = (isRestore = false, releaseUrl = firmware.release) => {
         </div>
       </>
     ),
-    onSubmit: async () => {
-      let esploader;
-      try {
-        esploader = await ESPTool.connect(deviceFilters);
-      } catch (err) {
-        errorAlert(err.name);
-      }
-      if (!esploader) return;
-
-      const upload = async (data) => {
-        // uploadingAlert('0.0', isRestore);
-        try {
-          await esploader.main();
-          await ESPTool.writeFlash(esploader, data, isRestore, (val) => uploadingAlert(val, isRestore));
-          setAlert({
-            id: alertId,
-            icon: null,
-            message: isRestore ? (
-              <Text
-                id="arcade2.menu.device.firmwareRestoreDone"
-                defaultMessage="Firmware resotre completed! Now press RESET key."
-              />
-            ) : (
-              <Text
-                id="arcade2.menu.device.firmwareUpdateDone"
-                defaultMessage="Firmware update completed! Now press RESET key."
-              />
-            ),
-            onClose: closeAlert,
-          });
-        } catch (err) {
-          errorAlert(err.name);
-          closeAlert();
-        }
-        await ESPTool.disconnect(esploader);
-      };
-
-      // 从缓存中升级到最新固件
-      if (!isRestore) {
-        const data = await getBinaryCache('arcadeFirmware');
-        if (data) {
-          upload([
-            {
-              data: data.binaryString,
-              address: 0,
-            },
-          ]);
-        }
-        return;
-      }
-
-      // 还原用户上传固件
-      const fileInput = document.createElement('input');
-      fileInput.type = 'file';
-      fileInput.accept = '.bin';
-      fileInput.multiple = false;
-      fileInput.click();
-      fileInput.addEventListener('cancel', () => ESPTool.disconnect(esploader));
-      fileInput.addEventListener('change', async (e) => {
-        const reader = new FileReader();
-        reader.readAsArrayBuffer(e.target.files[0]);
-        reader.addEventListener('load', async (e) => {
-          alertId = nanoid();
-          setAlert({
-            id: alertId,
-            icon: <Spinner level="success" />,
-            message: (
-              <Text
-                id="arcade2.menu.device.erasing"
-                defaultMessage="Erasing..."
-              />
-            ),
-          });
-          upload([
-            {
-              data: Base64Utils.arrayBufferToBinaryString(e.target.result),
-              address: 0,
-            },
-          ]);
-        });
-      });
-    },
+    onSubmit: () => submitUpdate(isRestore),
   });
 };
 
@@ -380,7 +371,7 @@ export function FirmwareSection({ itemClassName }) {
         label={
           readyForUpdate.value ? (
             <Text
-              id="arcade2.menu.device.update"
+              id="arcade2.menu.device.upgrade"
               defaultMessage="Upgrade v{version} firmware..."
               version={firmwareJson.value.version}
             />
@@ -391,7 +382,7 @@ export function FirmwareSection({ itemClassName }) {
             />
           )
         }
-        onClick={() => uploadFirmware(false)}
+        onClick={useCallback(() => uploadFirmware(false, firmwareJson.value?.version), [])}
       />
       <MenuItem
         disabled={alertId}
@@ -402,7 +393,7 @@ export function FirmwareSection({ itemClassName }) {
             defaultMessage="Restore firmware..."
           />
         }
-        onClick={() => uploadFirmware(true, releaseUrl)}
+        onClick={useCallback(() => uploadFirmware(true, firmwareJson.value?.version, releaseUrl), [])}
       />
     </MenuSection>
   );

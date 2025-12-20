@@ -8,7 +8,7 @@ import { generateAssets } from '../../lib/generate-assets';
 import { firmware } from '../../../package.json';
 import deviceFilters from './device-filters.yaml';
 
-import { Spinner, Text, MenuSection, MenuItem } from '@blockcode/core';
+import { Text, MenuSection, MenuItem } from '@blockcode/core';
 import { ConfigSection } from './config-section';
 import { FirmwareSection } from './firmware-section';
 
@@ -26,17 +26,7 @@ const downloadingAlert = (progress) => {
     downloadAlertId = nanoid();
   }
   if (progress < 100) {
-    setAlert({
-      id: downloadAlertId,
-      icon: <Spinner level="success" />,
-      message: (
-        <Text
-          id="gui.alert.downloadingProgress"
-          defaultMessage="Downloading...{progress}%"
-          progress={progress}
-        />
-      ),
-    });
+    setAlert('downloading', { id: downloadAlertId, progress });
   } else {
     setAlert('downloadCompleted', { id: downloadAlertId });
     setTimeout(removeDownloading, 2000);
