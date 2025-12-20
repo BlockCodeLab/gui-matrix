@@ -10,6 +10,8 @@ arcade.paintEditor.backdrops: 背景
 
 arcade.soundEditor.sounds: 声音
 
+arcade.menu.qrcode: 微信扫描入群
+
 arcade.menu.file.importSB3: 导入 Scratch 3（.sb3）文件…
 arcade.menu.edit.joystickClose: 关闭摇杆
 arcade.menu.edit.joystickOpen: 打开摇杆

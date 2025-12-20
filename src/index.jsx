@@ -5,7 +5,7 @@ import { ScratchBlocks, blocksTab, codeReviewTab } from '@blockcode/blocks';
 import { paintTab } from '@blockcode/paint';
 import { soundTab } from '@blockcode/sound';
 
-import { Text } from '@blockcode/core';
+import { Text, Tooltip } from '@blockcode/core';
 import { CodeReview } from '@blockcode/blocks';
 import { ArcadeBlocksEditor } from './components/blocks-editor/blocks-editor';
 import { ImportSection } from './components/file-menu/import-section';
@@ -19,6 +19,8 @@ import { SoundTabContent } from './components/tabs/sound-tab-content';
 import { createDefaultProject } from './lib/default-project';
 
 import deviceIcon from './components/device-menu/icon-device.svg';
+import qrcodeIcon from './icon-qrcode.svg';
+import qrcodeImage from './qrcode.jpg';
 
 export default {
   onNew() {
@@ -121,6 +123,29 @@ export default {
         />
       ),
       Menu: DeviceMenu,
+    },
+  ],
+
+  barItems: [
+    {
+      label: <img src={qrcodeIcon} />,
+      tooltip: (
+        <>
+          <center>
+            <img
+              width="200"
+              src={qrcodeImage}
+            />
+          </center>
+          <center>
+            <Text
+              id="arcade.menu.qrcode"
+              defaultMessage="Scan with WeChat to join the group"
+            />
+          </center>
+        </>
+      ),
+      tooltipPlacement: 'bottom-end',
     },
   ],
 
