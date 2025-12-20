@@ -1,5 +1,5 @@
 import { useEffect, useCallback } from 'preact/hooks';
-import { useProjectContext, setMeta, Text, MenuSection, MenuItem } from '@blockcode/core';
+import { useProjectContext, setMeta, Text, MenuItem } from '@blockcode/core';
 
 export function SettingsSection({ itemClassName }) {
   const { meta } = useProjectContext();
@@ -16,7 +16,7 @@ export function SettingsSection({ itemClassName }) {
   }, []);
 
   return (
-    <MenuSection>
+    <>
       <MenuItem
         disabled
         className={itemClassName}
@@ -34,6 +34,6 @@ export function SettingsSection({ itemClassName }) {
           />
         )}
       </MenuItem>
-    </MenuSection>
+    </>
   );
 }

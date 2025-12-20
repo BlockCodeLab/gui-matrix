@@ -57,7 +57,7 @@ export function StageSelector() {
     async ({ tags, bpr, copyright, ...backdrop }) => {
       setAlert('importing', { id: stage.id });
 
-      const scale = StageConfig.Scale / (bpr || 1);
+      const scale = 1 / (bpr || 1);
       const image = await loadImageFromURL(getAssetUrl(backdrop, { copyright }), scale);
 
       delAlert(stage.id);

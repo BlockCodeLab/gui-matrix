@@ -180,8 +180,8 @@ export function SpriteSelector() {
             name: image.name,
             assets: [image.id],
             frame: 0,
-            x: MathUtils.random(-100, 100),
-            y: MathUtils.random(-60, 60),
+            x: MathUtils.random(-180, 180),
+            y: MathUtils.random(-100, 100),
             size: 100,
             direction: 90,
             rotationStyle: RotationStyle.ALL_AROUND,
@@ -245,8 +245,8 @@ export function SpriteSelector() {
           });
           return costumeId;
         }),
-        x: MathUtils.random(-100, 100),
-        y: MathUtils.random(-60, 60),
+        x: MathUtils.random(-180, 180),
+        y: MathUtils.random(-100, 100),
         content: '',
         script: '',
       });

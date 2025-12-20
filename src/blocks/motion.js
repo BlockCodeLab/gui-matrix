@@ -359,6 +359,11 @@ export default (x, y) => ({
         const code = `runtime.setFencingMode(${mode === 'enable'});\n`;
         return code;
       },
+      mpy(block) {
+        const mode = block.getFieldValue('MODE') || 'disable';
+        const code = `target.set_fencing_mode(${mode !== 'disable' ? 'True' : 'False'});\n`;
+        return code;
+      },
     },
     '---',
     {
@@ -371,6 +376,9 @@ export default (x, y) => ({
       emu(block) {
         return ['target.x()', this.ORDER_FUNCTION_CALL];
       },
+      mpy(block) {
+        return ['target.x', this.ORDER_MEMBER];
+      },
     },
     {
       // y
@@ -381,6 +389,9 @@ export default (x, y) => ({
       monitoring: true,
       emu(block) {
         return ['target.y()', this.ORDER_FUNCTION_CALL];
+      },
+      mpy(block) {
+        return ['target.y', this.ORDER_MEMBER];
       },
     },
     {
@@ -394,11 +405,21 @@ export default (x, y) => ({
         const code = `target.getAttr('direction')`;
         return [code, this.ORDER_FUNCTION_CALL];
       },
+      mpy(block) {
+        return ['target.direction', this.ORDER_MEMBER];
+      },
     },
     {
       // 移到菜单
       id: 'goto_menu',
       emu(block) {
+        let code = block.getFieldValue('TO') || '_random_';
+        if (code !== '_random_') {
+          code = this.quote_(code);
+        }
+        return [code, this.ORDER_ATOMIC];
+      },
+      mpy(block) {
         let code = block.getFieldValue('TO') || '_random_';
         if (code !== '_random_') {
           code = this.quote_(code);
@@ -416,11 +437,25 @@ export default (x, y) => ({
         }
         return [code, this.ORDER_ATOMIC];
       },
+      mpy(block) {
+        let code = block.getFieldValue('TO') || '_random_';
+        if (code !== '_random_') {
+          code = this.quote_(code);
+        }
+        return [code, this.ORDER_ATOMIC];
+      },
     },
     {
       // 面向菜单
       id: 'pointtowards_menu',
       emu(block) {
+        let code = block.getFieldValue('TOWARDS') || '_random_';
+        if (code !== '_random_') {
+          code = this.quote_(code);
+        }
+        return [code, this.ORDER_ATOMIC];
+      },
+      mpy(block) {
         let code = block.getFieldValue('TOWARDS') || '_random_';
         if (code !== '_random_') {
           code = this.quote_(code);

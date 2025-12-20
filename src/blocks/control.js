@@ -27,7 +27,9 @@ export default () => ({
     {
       id: 'delete_this_clone',
       emu(block) {
-        const code = `targetUtils.removeClone(userscript);\n`;
+        let code = '';
+        code += 'targetUtils.removeClone(userscript);\n';
+        code += 'return;\n';
         this.renderLoopTrap();
         return code;
       },

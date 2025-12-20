@@ -139,7 +139,7 @@ export default () => ({
       id: 'touchingobjectmenu',
       emu(block) {
         let code = block.getFieldValue('TOUCHINGOBJECTMENU');
-        code = code ? this.quote_(code) : '_edge_';
+        code = code ? this.quote_(code) : '_mouse_';
         return [code, this.ORDER_ATOMIC];
       },
     },
@@ -156,7 +156,7 @@ export default () => ({
       // 按键菜单
       id: 'keyoptions',
       emu(block) {
-        const code = this.quote_(block.getFieldValue('KEY_OPTION') || 'a');
+        const code = this.quote_(block.getFieldValue('KEY_OPTION') || 'space');
         return [code, this.ORDER_NONE];
       },
     },

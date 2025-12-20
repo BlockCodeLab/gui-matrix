@@ -97,6 +97,7 @@ export function MatrixBlocksEditor() {
         enableMyBlockWarp
         enableMultiTargets
         enableStringBlocks
+        disableCustomExtension
         emulator={emulator}
         enableCloneBlocks={!isStage}
         enableLocalVariable={!isStage}

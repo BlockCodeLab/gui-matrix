@@ -101,5 +101,48 @@ export default () => ({
         return [code, this.ORDER_ATOMIC];
       },
     },
+    '---',
+    {
+      // 增加声音
+      id: 'changevolumeby',
+      text: ScratchBlocks.Msg.SOUND_CHANGEVOLUMEBY,
+      inputs: {
+        VOLUME: {
+          type: 'integer',
+          defaultValue: 10,
+        },
+      },
+      emu(block) {
+        const volume = this.valueToCode(block, 'VOLUME', this.ORDER_NONE);
+        const code = `runtime.waveVolume += ${volume};\n`;
+        return code;
+      },
+    },
+    {
+      // 设置声音
+      id: 'setvolumeto',
+      text: ScratchBlocks.Msg.SOUND_SETVOLUMETO,
+      inputs: {
+        VOLUME: {
+          type: 'positive_integer',
+          defaultValue: 100,
+        },
+      },
+      emu(block) {
+        const volume = this.valueToCode(block, 'VOLUME', this.ORDER_NONE);
+        const code = `runtime.waveVolume = ${volume};\n`;
+        return code;
+      },
+    },
+    {
+      id: 'volume',
+      text: ScratchBlocks.Msg.SOUND_VOLUME,
+      output: 'number',
+      monitoring: true,
+      emu(block) {
+        const code = `runtime.waveVolume`;
+        return [code, this.ORDER_ATOMIC];
+      },
+    },
   ],
 });
