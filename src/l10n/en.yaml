@@ -10,7 +10,7 @@ matrix.paintEditor.backdrops: Backdrops
 
 matrix.soundEditor.sounds: Sounds
 
-matrix.menu.file.importSB3: Import Scratch 3(.sb3) file...
+matrix.menu.file.importSB3: "Import Scratch 3(.sb3) file..."
 matrix.menu.edit.turboModeClose: Turn off Turbo Mode
 matrix.menu.edit.turboModeOpen: Turn on Turbo Mode
 
