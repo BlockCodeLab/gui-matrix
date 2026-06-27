@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from 'preact/hooks';
 import { MathUtils, KonvaUtils } from '@blockcode/utils';
-import { useAppContext, useProjectContext, setFile, isModifyType, ModifyTypes } from '@blockcode/core';
+import { useAppContext, useProjectContext, setFile, setAppState, isModifyType, ModifyTypes } from '@blockcode/core';
 import { loadImageFromAsset } from '@blockcode/paint';
 import { Emulator } from '@blockcode/blocks';
 import { MatrixRuntime } from '../../lib/runtime/runtime';
@@ -10,6 +10,31 @@ export function MatrixEmulator({ runtime, onRuntime }) {
   const { splashVisible, appState } = useAppContext();
 
   const { meta, files, assets, fileId, modified } = useProjectContext();
+
+  // 设备连接状态
+  useEffect(() => {
+    if (!runtime || !appState.value) return;
+
+    let device, extId;
+    for (const propName in appState.value) {
+      if (propName.startsWith('device.')) {
+        device = appState.value[propName];
+        extId = propName.slice(7); // 去掉 'device.' 得到 extId
+
+        // 连接
+        if (device && device !== true) {
+          setAppState(propName, true);
+          runtime.emit(`${extId}.connecting`, device);
+        }
+
+        // 断开
+        if (device === false) {
+          setAppState(propName, null);
+          runtime.emit(`${extId}.disconnect`);
+        }
+      }
+    }
+  }, [runtime, appState.value]);
 
   // 运行模拟器
   useEffect(async () => {

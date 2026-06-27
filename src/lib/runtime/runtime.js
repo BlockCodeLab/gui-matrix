@@ -231,58 +231,54 @@ export class MatrixRuntime extends Runtime {
   // 按键
   //
 
-  get fnKey() {
-    return !!this._fnKey;
-  }
-
-  get upKey() {
-    return !!this._upKey;
-  }
-
-  get leftKey() {
-    return !!this._leftKey;
-  }
-
-  get downKey() {
-    return !!this._downKey;
-  }
-
-  get rightKey() {
-    return !!this._rightKey;
-  }
-
-  get aKey() {
-    return !!this._aKey;
-  }
-
-  get bKey() {
-    return !!this._bKey;
-  }
-
-  get xKey() {
-    return !!this._xKey;
-  }
-
-  get yKey() {
-    return !!this._yKey;
-  }
-
   get anyKey() {
     return (
-      this.fnKey ||
+      this.spaceKey ||
       this.upKey ||
       this.leftKey ||
       this.downKey ||
       this.rightKey ||
       this.aKey ||
       this.bKey ||
+      this.cKey ||
+      this.dKey ||
+      this.eKey ||
+      this.fKey ||
+      this.gKey ||
+      this.hKey ||
+      this.iKey ||
+      this.jKey ||
+      this.kKey ||
+      this.lKey ||
+      this.mKey ||
+      this.nKey ||
+      this.oKey ||
+      this.pKey ||
+      this.qKey ||
+      this.rKey ||
+      this.sKey ||
+      this.tKey ||
+      this.uKey ||
+      this.vKey ||
+      this.wKey ||
       this.xKey ||
-      this.yKey
+      this.yKey ||
+      this.zKey ||
+      this['0Key'] ||
+      this['1Key'] ||
+      this['2Key'] ||
+      this['3Key'] ||
+      this['4Key'] ||
+      this['5Key'] ||
+      this['6Key'] ||
+      this['7Key'] ||
+      this['8Key'] ||
+      this['9Key']
     );
   }
 
   _pressKey(key) {
-    this[`_${key}Key`] = true;
+    this[`${key}Key`] = true;
     this.call(`keypressed:${key}`);
     this.call(`keypressed:any`);
   }
@@ -293,11 +289,10 @@ export class MatrixRuntime extends Runtime {
 
   // 监听按键按下
   handleKeyDown(e) {
-    if (e.altKey || e.shiftKey) {
-      this._pressKey('fn');
-      return;
-    }
     switch (e.code) {
+      case Keys.SPACE:
+        this._pressKey('space');
+        return;
       case Keys.UP:
         this._pressKey('up');
         return;
@@ -316,22 +311,117 @@ export class MatrixRuntime extends Runtime {
       case Keys.B:
         this._pressKey('b');
         return;
+      case Keys.C:
+        this._pressKey('c');
+        return;
+      case Keys.D:
+        this._pressKey('d');
+        return;
+      case Keys.E:
+        this._pressKey('e');
+        return;
+      case Keys.F:
+        this._pressKey('f');
+        return;
+      case Keys.G:
+        this._pressKey('g');
+        return;
+      case Keys.H:
+        this._pressKey('h');
+        return;
+      case Keys.I:
+        this._pressKey('i');
+        return;
+      case Keys.J:
+        this._pressKey('j');
+        return;
+      case Keys.K:
+        this._pressKey('k');
+        return;
+      case Keys.L:
+        this._pressKey('l');
+        return;
+      case Keys.M:
+        this._pressKey('m');
+        return;
+      case Keys.N:
+        this._pressKey('n');
+        return;
+      case Keys.O:
+        this._pressKey('o');
+        return;
+      case Keys.P:
+        this._pressKey('p');
+        return;
+      case Keys.Q:
+        this._pressKey('q');
+        return;
+      case Keys.R:
+        this._pressKey('r');
+        return;
+      case Keys.S:
+        this._pressKey('s');
+        return;
+      case Keys.T:
+        this._pressKey('t');
+        return;
+      case Keys.U:
+        this._pressKey('u');
+        return;
+      case Keys.V:
+        this._pressKey('v');
+        return;
+      case Keys.W:
+        this._pressKey('w');
+        return;
       case Keys.X:
         this._pressKey('x');
         return;
       case Keys.Y:
         this._pressKey('y');
         return;
+      case Keys.Z:
+        this._pressKey('z');
+        return;
+      case Keys.D0:
+        this._pressKey('0');
+        return;
+      case Keys.D1:
+        this._pressKey('1');
+        return;
+      case Keys.D2:
+        this._pressKey('2');
+        return;
+      case Keys.D3:
+        this._pressKey('3');
+        return;
+      case Keys.D4:
+        this._pressKey('4');
+        return;
+      case Keys.D5:
+        this._pressKey('5');
+        return;
+      case Keys.D6:
+        this._pressKey('6');
+        return;
+      case Keys.D7:
+        this._pressKey('7');
+        return;
+      case Keys.D8:
+        this._pressKey('8');
+        return;
+      case Keys.D9:
+        this._pressKey('9');
+        return;
     }
   }
 
   // 监听按键抬起
   handleKeyUp(e) {
-    if (e.altKey || e.shiftKey) {
-      this._releaseKey('fn');
-      return;
-    }
     switch (e.code) {
+      case Keys.SPACE:
+        this._releaseKey('space');
+        return;
       case Keys.UP:
         this._releaseKey('up');
         return;
@@ -350,11 +440,107 @@ export class MatrixRuntime extends Runtime {
       case Keys.B:
         this._releaseKey('b');
         return;
+      case Keys.C:
+        this._releaseKey('c');
+        return;
+      case Keys.D:
+        this._releaseKey('d');
+        return;
+      case Keys.E:
+        this._releaseKey('e');
+        return;
+      case Keys.F:
+        this._releaseKey('f');
+        return;
+      case Keys.G:
+        this._releaseKey('g');
+        return;
+      case Keys.H:
+        this._releaseKey('h');
+        return;
+      case Keys.I:
+        this._releaseKey('i');
+        return;
+      case Keys.J:
+        this._releaseKey('j');
+        return;
+      case Keys.K:
+        this._releaseKey('k');
+        return;
+      case Keys.L:
+        this._releaseKey('l');
+        return;
+      case Keys.M:
+        this._releaseKey('m');
+        return;
+      case Keys.N:
+        this._releaseKey('n');
+        return;
+      case Keys.O:
+        this._releaseKey('o');
+        return;
+      case Keys.P:
+        this._releaseKey('p');
+        return;
+      case Keys.Q:
+        this._releaseKey('q');
+        return;
+      case Keys.R:
+        this._releaseKey('r');
+        return;
+      case Keys.S:
+        this._releaseKey('s');
+        return;
+      case Keys.T:
+        this._releaseKey('t');
+        return;
+      case Keys.U:
+        this._releaseKey('u');
+        return;
+      case Keys.V:
+        this._releaseKey('v');
+        return;
+      case Keys.W:
+        this._releaseKey('w');
+        return;
       case Keys.X:
         this._releaseKey('x');
         return;
       case Keys.Y:
         this._releaseKey('y');
+        return;
+      case Keys.Z:
+        this._releaseKey('z');
+        return;
+      case Keys.D0:
+        this._releaseKey('0');
+        return;
+      case Keys.D1:
+        this._releaseKey('1');
+        return;
+      case Keys.D2:
+        this._releaseKey('2');
+        return;
+      case Keys.D3:
+        this._releaseKey('3');
+        return;
+      case Keys.D4:
+        this._releaseKey('4');
+        return;
+      case Keys.D5:
+        this._releaseKey('5');
+        return;
+      case Keys.D6:
+        this._releaseKey('6');
+        return;
+      case Keys.D7:
+        this._releaseKey('7');
+        return;
+      case Keys.D8:
+        this._releaseKey('8');
+        return;
+      case Keys.D9:
+        this._releaseKey('9');
         return;
     }
   }
